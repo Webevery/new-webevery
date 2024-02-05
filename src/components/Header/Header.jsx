@@ -19,7 +19,7 @@ const Header = () => {
 
   const links = navLinks.map((link) => {
     return (
-      <Link href={link.href} title={link.title}>
+      <Link href={link.href} key={link.title}>
         {link.title}
       </Link>
     );
