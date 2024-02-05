@@ -1,0 +1,161 @@
+@import "../../app/variables";
+
+.container {
+    width: 100%;
+    min-width: 360px;
+    height: 462px;
+    background-color: $backgroundColor;
+    padding: 40px 24px;
+    align-items: flex-start;
+
+    @media screen and (min-width:$tablet) {
+        min-width: 768px;
+        height: 469px;
+        padding: 40px 32px 26px;
+        align-items: flex-start;
+    }
+
+    @media screen and (min-width:$laptop) {
+        min-width: 1024px;
+        height: 790px;
+        padding: 80px 32px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        min-width: 1440px;
+        height: 772px;
+        padding: 80px 72px 90px;
+    }
+}
+
+.title {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1.1;
+    background-image: linear-gradient(to right, $gradientYellow,
+            $gradientCyan,
+            $gradientBlue);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    margin-bottom: 16px;
+
+
+    @media screen and (min-width:$tablet) {
+        font-weight: 300;
+        // font-size: 48px;
+        // line-height: 1.1;
+        // background-image: linear-gradient(to right, $gradientYellow,
+        //         $gradientCyan,
+        //         $gradientBlue);
+        // -webkit-text-fill-color: transparent;
+        // -webkit-background-clip: text;
+        margin-bottom: 8px;
+    }
+
+    @media screen and (min-width:$laptop) {
+        font-weight: 400;
+        font-size: 64px;
+        // background-image: linear-gradient(to right, $gradientYellow,
+        //         $gradientCyan,
+        //         $gradientBlue);
+        // -webkit-text-fill-color: transparent;
+        // -webkit-background-clip: text;
+        margin-bottom: 16px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        font-weight: 300;
+        font-size: 96px;
+    }
+}
+
+.subTitleMobile {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $gray0;
+    margin-bottom: 16px;
+
+    @media screen and (min-width:$tablet) {
+        font-size: 32px;
+        line-height: 1.4;
+        margin-bottom: 24px;
+    }
+
+    @media screen and (min-width:$laptop) {
+        display: none;
+    }
+}
+
+.subTitleLaptop {
+    display: none;
+
+    @media screen and (min-width:$laptop) {
+        display: block;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 1.4;
+        color: $gray0;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        font-size: 44px;
+        line-height: 1.1;
+        margin-bottom: 48px;
+    }
+}
+
+.cardsWrapper {
+    display: none;
+
+    @media screen and (min-width:$laptop) {
+        display: flex;
+        gap: 24px;
+    }
+}
+
+.card {
+
+    @media screen and (min-width:$laptop) {
+        flex: 1;
+        padding: 16px 12px;
+        background-color: $gray900;
+        box-shadow: $shadowColor;
+    }
+
+    @media screen and (min-width:$desktop) {
+        padding: 32px 16px;
+    }
+}
+
+.cardTitle {
+
+    @media screen and (min-width:$laptop) {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.6;
+        text-align: center;
+        background-image: linear-gradient(to right, $gradientYellow,
+                $gradientCyan,
+                $gradientBlue);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        margin-bottom: 16px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        padding: 0px 23px;
+        text-align: left;
+    }
+}
+
+.cardText {
+
+    @media screen and (min-width:$laptop) {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.6;
+        color: $gray0;
+    }
+}

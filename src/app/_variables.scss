@@ -3,28 +3,15 @@ $tablet: "768px";
 $laptop: "1024px";
 $desktop: "1440px";
 
-// $mobile: "320px";
-// $mobileXl: "360px";
-// $mobileX2: "475px";
-// $mobileX3: "640px";
-// $tablet: "768px";
-// $laptop: "1024px";
-// $desktop: "1280px";
-// $desktopX1: "1366px";
-// $desktopX2: "1536px";
-
-$shadowColor: #1a8cff;
 $backgroundColor: #000000;
 
 $gradientYellow: rgb(250, 255, 0);
 $gradientCyan: rgb(0, 240, 255);
 $gradientBlue: rgb(4, 0, 179);
-$gradient: linear-gradient(
-  90deg,
-  $gradientYellow,
-  $gradientCyan,
-  $gradientBlue
-);
+$gradient: linear-gradient(90deg,
+        $gradientYellow,
+        $gradientCyan,
+        $gradientBlue);
 
 $gray900: #0d0d11;
 $gray800: #2e2e31;
@@ -38,6 +25,8 @@ $gray100: #ececf0;
 $gray50: #f6f6fa;
 $gray0: #ffffff;
 
-$errorColor: #d50000;
-$successColor: #05ff00;
-$warningColor: #ffc700;
+$errorColor: #D50000;
+$successColor: #05FF00;
+$warningColor: #FFC700;
+
+$shadowColor: 6px 12px 32px 0px #1A8CFF1A;
