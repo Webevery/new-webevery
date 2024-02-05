@@ -1,5 +1,5 @@
-import OurProjects from '@/screens/ourProjects/OurProjects'
 import React from 'react'
+import OurProjects from '@/screens/ourProjects/OurProjects'
 
 
 const OurProjectsPage = () => {

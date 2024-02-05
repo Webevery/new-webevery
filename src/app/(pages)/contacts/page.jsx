@@ -1,5 +1,5 @@
-import Contacts from '@/screens/contacts/Contacts'
 import React from 'react'
+import Contacts from '@/screens/contacts/Contacts'
 
 
 const ContactsPage = () => {

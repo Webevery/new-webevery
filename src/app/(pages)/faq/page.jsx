@@ -1,5 +1,5 @@
-import FAQ from '@/screens/faq/FAQ'
 import React from 'react'
+import FAQ from '@/screens/faq/FAQ'
 
 
 const FAQPage = () => {

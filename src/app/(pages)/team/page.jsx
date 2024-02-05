@@ -1,5 +1,5 @@
-import Team from '@/screens/team/Team'
 import React from 'react'
+import Team from '@/screens/team/Team'
 
 
 const TeamPage = () => {

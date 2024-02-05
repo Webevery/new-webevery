@@ -1,5 +1,5 @@
-import Blog from '@/screens/blog/Blog'
 import React from 'react'
+import Blog from '@/screens/blog/Blog'
 
 
 const BlogPage = () => {
