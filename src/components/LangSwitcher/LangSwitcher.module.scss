@@ -1,0 +1,12 @@
+@import "../../app/variables";
+
+.langsWrapper {
+  //   color: aqua;
+  & li {
+    width: min-content;
+    color: transparent;
+    line-height: 1.6;
+    background-image: $gradient;
+    background-clip: text;
+  }
+}
