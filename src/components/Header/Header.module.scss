@@ -1,5 +1,73 @@
 @import "../../app/variables";
 
 .header {
-    background-color: cadetblue;
+  background-color: $gray900;
+  //   background-image: $gradient;
+  //   background-color: rgba($gradientBlue, 0.9);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media screen and (min-width: $mobile) {
+    height: 80px;
+  }
+  @media screen and (min-width: $tablet) {
+    height: 120px;
+  }
+  @media screen and (min-width: $desktop) {
+    height: 148px;
+    justify-content: space-between;
+  }
+}
+
+.navWrapper,
+.navWrapperVisible {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  padding: 24px;
+  background-color: $gray900;
+  font-size: 16px;
+  transform: translateX(-100%);
+  @media screen and (min-width: $desktop) {
+    position: static;
+    transform: translateX(0%);
+  }
+
+  & nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @media screen and (min-width: $mobile) {
+      top: 80px;
+    }
+    @media screen and (min-width: $tablet) {
+      top: 120px;
+    }
+    @media screen and (min-width: $desktop) {
+      position: static;
+      transform: translateX(0%);
+      flex-direction: row;
+    }
+  }
+}
+
+.navWrapperVisible {
+  transform: translateX(0%);
+}
+
+.xsLangSwitcher {
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.mobileLangSwitcher {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
 }
