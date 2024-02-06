@@ -18,7 +18,7 @@ const Home = () => {
       <WorkingProcessSection />
       <OrderSection />
     </div>
-  );
-};
+  )
+}
 
 export default Home;
