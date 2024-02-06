@@ -1,11 +1,7 @@
-import styles from './OrderSection.module.scss'
-
+import styles from "./OrderSection.module.scss";
 
 const OrderSection = () => {
-    return (
-        <div>OrderSection</div>
-    )
-}
+  return <section>OrderSection</section>;
+};
 
-
-export default OrderSection
+export default OrderSection;

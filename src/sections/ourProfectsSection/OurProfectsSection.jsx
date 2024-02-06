@@ -1,11 +1,7 @@
-import styles from './OurProfectsSection.module.scss'
-
+import styles from "./OurProfectsSection.module.scss";
 
 const OurProfectsSection = () => {
-    return (
-        <div>OurProfectsSection</div>
-    )
-}
+  return <section>OurProfectsSection</section>;
+};
 
-
-export default OurProfectsSection
+export default OurProfectsSection;

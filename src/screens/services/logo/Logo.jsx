@@ -1,12 +1,8 @@
-import React from 'react'
-import styles from './Logo.module.scss'
-
+import React from "react";
+import styles from "./Logo.module.scss";
 
 const Logo = () => {
-    return (
-        <div>Logo</div>
-    )
-}
+  return <div className="screen">Logo</div>;
+};
 
-
-export default Logo
+export default Logo;

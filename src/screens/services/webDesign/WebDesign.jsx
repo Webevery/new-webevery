@@ -1,12 +1,8 @@
-import React from 'react'
-import styles from './WebDesign.module.scss'
-
+import React from "react";
+import styles from "./WebDesign.module.scss";
 
 const WebDesign = () => {
-    return (
-        <div>WebDesign</div>
-    )
-}
+  return <div className="screen">WebDesign</div>;
+};
 
-
-export default WebDesign
+export default WebDesign;

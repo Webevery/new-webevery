@@ -1,12 +1,8 @@
-import React from 'react'
-import styles from './businessCardWebsite.module.scss'
-
+import React from "react";
+import styles from "./businessCardWebsite.module.scss";
 
 const BusinessCardWebsite = () => {
-    return (
-        <div>BusinessCardWebsite</div>
-    )
-}
+  return <div className="screen">BusinessCardWebsite</div>;
+};
 
-
-export default BusinessCardWebsite
+export default BusinessCardWebsite;

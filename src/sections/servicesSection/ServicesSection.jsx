@@ -1,11 +1,7 @@
-import styles from './ServicesSection.module.scss'
-
+import styles from "./ServicesSection.module.scss";
 
 const ServicesSection = () => {
-    return (
-        <div>ServicesSection</div>
-    )
-}
+  return <section>ServicesSection</section>;
+};
 
-
-export default ServicesSection
+export default ServicesSection;

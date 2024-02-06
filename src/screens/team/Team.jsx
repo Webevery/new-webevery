@@ -1,11 +1,8 @@
-import React from 'react'
-import styles from './Team.module.scss'
-
+import React from "react";
+import styles from "./Team.module.scss";
 
 const Team = () => {
-    return (
-        <div>Team</div>
-    )
-}
+  return <div className="screen">Team</div>;
+};
 
-export default Team
+export default Team;

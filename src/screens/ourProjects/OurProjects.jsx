@@ -1,10 +1,8 @@
-import React from 'react'
-import styles from './OurProjects.module.scss'
+import React from "react";
+import styles from "./OurProjects.module.scss";
 
 const OurProjects = () => {
-    return (
-        <div>OurProjects</div>
-    )
-}
+  return <div className="screen">OurProjects</div>;
+};
 
-export default OurProjects
+export default OurProjects;

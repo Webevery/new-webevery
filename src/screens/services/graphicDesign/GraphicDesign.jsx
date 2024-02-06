@@ -1,12 +1,8 @@
-import React from 'react'
-import styles from './GraphicDesign.module.scss'
-
+import React from "react";
+import styles from "./GraphicDesign.module.scss";
 
 const GraphicDesign = () => {
-    return (
-        <div>GraphicDesign</div>
-    )
-}
+  return <div className="screen">GraphicDesign</div>;
+};
 
-
-export default GraphicDesign
+export default GraphicDesign;
