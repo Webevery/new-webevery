@@ -1,12 +1,8 @@
-import React from 'react'
-import styles from './WebsiteTesting.module.scss'
-
+import React from "react";
+import styles from "./WebsiteTesting.module.scss";
 
 const WebsiteTesting = () => {
-    return (
-        <div>WebsiteTesting</div>
-    )
-}
+  return <div className="screen">WebsiteTesting</div>;
+};
 
-
-export default WebsiteTesting
+export default WebsiteTesting;

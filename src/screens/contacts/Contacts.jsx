@@ -1,11 +1,8 @@
-import React from 'react'
-import styles from './Contacts.module.scss'
-
+import React from "react";
+import styles from "./Contacts.module.scss";
 
 const Contacts = () => {
-    return (
-        <div>Contacts</div>
-    )
-}
+  return <div className="screen">Contacts</div>;
+};
 
-export default Contacts
+export default Contacts;

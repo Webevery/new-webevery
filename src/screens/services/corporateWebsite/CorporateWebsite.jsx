@@ -1,12 +1,8 @@
-import React from 'react'
-import styles from './CorporateWebsite.module.scss'
-
+import React from "react";
+import styles from "./CorporateWebsite.module.scss";
 
 const CorporateWebsite = () => {
-    return (
-        <div>CorporateWebsite</div>
-    )
-}
+  return <div className="screen">CorporateWebsite</div>;
+};
 
-
-export default CorporateWebsite
+export default CorporateWebsite;

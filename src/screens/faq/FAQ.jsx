@@ -1,13 +1,8 @@
-import React from 'react'
-import styles from './FAQ.module.scss'
-
+import React from "react";
+import styles from "./FAQ.module.scss";
 
 const FAQ = () => {
-    return (
-        <div>
-            FAQ
-        </div>
-    )
-}
+  return <div className="screen">FAQ</div>;
+};
 
-export default FAQ
+export default FAQ;

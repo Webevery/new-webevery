@@ -1,11 +1,8 @@
-import React from 'react'
-import styles from './Services.module.scss'
-
+import React from "react";
+import styles from "./Services.module.scss";
 
 const Services = () => {
-    return (
-        <div>Services</div>
-    )
-}
+  return <div className="screen">Services</div>;
+};
 
-export default Services
+export default Services;

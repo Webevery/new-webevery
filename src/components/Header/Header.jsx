@@ -1,29 +1,19 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-import { navLinks } from "../../data/navLinks";
-import Link from "next/link";
 import NavLinks from "../NavLinks/NavLinks";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
-import BurgerBtn from "../BurgerBtn/BurgerBtn";
+import BurgerBtn from "../Buttons/BurgerBtn/BurgerBtn";
+import { SiteContext } from "@/context/siteContext";
 
 const Header = () => {
-  const [burgerMenu, setBurgermenu] = useState(false);
+  // const [burgerMenu, setBurgermenu] = useState(false);
+  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
   const [isXs, setIsXs] = useState(false);
-
-  console.log(isXs);
 
   const [isTablet, setIsTablet] = useState(false);
   console.log(isTablet);
-
-  const links = navLinks.map((link) => {
-    return (
-      <Link href={link.href} key={link.title}>
-        {link.title}
-      </Link>
-    );
-  });
 
   const handleResize = useCallback(() => {
     if (window.innerWidth < 360) {
@@ -49,14 +39,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <BurgerBtn
-        burgerMenu={burgerMenu}
-        onClick={() => {
-          setBurgermenu(!burgerMenu);
-        }}
-      />
+      <BurgerBtn />
       <div
-        className={burgerMenu ? styles.navWrapper : styles.navWrapperVisible}
+        className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
       >
         <NavLinks />
         {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}

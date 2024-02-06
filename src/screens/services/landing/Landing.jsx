@@ -1,12 +1,8 @@
-import React from 'react'
-import styles from './Landing.module.scss'
-
+import React from "react";
+import styles from "./Landing.module.scss";
 
 const Landing = () => {
-    return (
-        <div>Landing</div>
-    )
-}
+  return <div className="screen">Landing</div>;
+};
 
-
-export default Landing
+export default Landing;

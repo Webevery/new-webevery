@@ -1,5 +1,14 @@
 @import "../../app/variables";
 
 .footer {
-    background-color: rgb(51, 50, 50);
+  height: 130px;
+  border-top: 1px solid white;
+  padding: 20px;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
