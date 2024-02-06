@@ -10,7 +10,7 @@ import OrderSection from '@/sections/orderSection/OrderSection'
 
 const Home = () => {
     return (
-        <div>
+        <div className="screen">
             <HeroSection />
             <TeamSection />
             <OurProfectsSection />
