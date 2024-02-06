@@ -1,11 +1,8 @@
-import React from 'react'
-import styles from './Blog.module.scss'
-
+import React from "react";
+import styles from "./Blog.module.scss";
 
 const Blog = () => {
-    return (
-        <div>Blog</div>
-    )
-}
+  return <div className="screen">Blog</div>;
+};
 
-export default Blog
+export default Blog;
