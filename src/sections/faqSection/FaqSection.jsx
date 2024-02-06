@@ -1,11 +1,7 @@
-import styles from './FaqSection.module.scss'
-
+import styles from "./FaqSection.module.scss";
 
 const FaqSection = () => {
-    return (
-        <div>FaqSection</div>
-    )
-}
+  return <section>FaqSection</section>;
+};
 
-
-export default FaqSection
+export default FaqSection;

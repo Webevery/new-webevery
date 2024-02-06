@@ -1,0 +1,13 @@
+@import "../../../app/variables";
+
+.btnBorder {
+  width: 146px;
+  height: 50px;
+
+  & button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
