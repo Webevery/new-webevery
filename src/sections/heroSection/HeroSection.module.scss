@@ -1,1 +1,100 @@
-@import "../../app/variables";
+@import '../../app/variables';
+
+.heroContainer {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: url('../../../public/pattern_planet.webp');
+    border-radius: 50%;
+    position: relative;
+    background-size: cover;
+    background-attachment: lazy;
+
+    box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
+      inset -7px 0px 5px -5px #fdfff26d;
+    -webkit-box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
+      inset -7px 0px 5px -5px #fdfff26d;
+    -moz-box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
+      inset -7px 0px 5px -5px #fdfff26d;
+
+    animation: rotate 54s infinite linear;
+
+    @media screen and (min-width: $tablet) {
+      width: 900px;
+      height: 900px;
+      margin-left: -10%;
+      margin-top: -15%;
+    }
+    @media screen and (min-width: $desktop) {
+      width: 1200px;
+      height: 1200px;
+      margin-left: -10%;
+      margin-top: -15%;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+.heroContent {
+  position: absolute;
+  top: 179px;
+  right: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.title {
+  font-size: 96px;
+  font-weight: 300;
+  line-height: 106px;
+  letter-spacing: 0em;
+  margin-bottom: 24px;
+}
+
+.text {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: 0em;
+  margin-bottom: 48px;
+}
+
+.textItem {
+  font-weight: 500;
+  background: linear-gradient(
+    90deg,
+    #00d7f7 0%,
+    #00cdf4 5.33%,
+    #01a2e6 29.22%,
+    #0192e1 41.44%,
+    #0182dc 46.57%,
+    #025cd0 60.02%,
+    #024ecc 67.12%,
+    #0235c4 79.05%,
+    #0323be 91.35%,
+    #031cbc 100%
+  );
+
+  // background: linear-gradient(
+  //     87.58deg,
+  //     $gradientCyan 47.63%,
+  //     $gradientBlue 98.76%
+  //   ),
+  //   linear-gradient(0deg, #ffffff, #ffffff);
+
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
