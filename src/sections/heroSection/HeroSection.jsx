@@ -1,11 +1,13 @@
-import styles from './HeroSection.module.scss'
-
+import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+import styles from "./HeroSection.module.scss";
 
 const HeroSection = () => {
-    return (
-        <div>HeroSection</div>
-    )
-}
+  return (
+    <section>
+      <div className="container"></div>
+      <OrderBtn />
+    </section>
+  );
+};
 
-
-export default HeroSection
+export default HeroSection;

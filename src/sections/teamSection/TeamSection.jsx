@@ -1,11 +1,7 @@
-import styles from './TeamSection.module.scss'
-
+import styles from "./TeamSection.module.scss";
 
 const TeamSection = () => {
-    return (
-        <div>TeamSection</div>
-    )
-}
+  return <section>TeamSection</section>;
+};
 
-
-export default TeamSection
+export default TeamSection;
