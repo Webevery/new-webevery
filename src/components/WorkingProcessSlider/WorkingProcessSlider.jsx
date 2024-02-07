@@ -11,13 +11,15 @@ import './WorkingProcessSlider.css';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import { workingProcessData } from '@/data/workingProcessData';
+
 
 const WorkingProcessSlider = () => {
     return (
         <>
             <Swiper
                 slidesPerView={1}
-                spaceBetween={0}
+                spaceBetween={24}
                 pagination={{
                     clickable: true,
                 }}
@@ -38,45 +40,18 @@ const WorkingProcessSlider = () => {
                 modules={[Pagination]}
                 className='WorkingProcessSwiper'
             >
-                <SwiperSlide>
-                    <div className="slideContentWrapper">
-                        <h4>
-                            First call with manager
-                        </h4>
-                        <p>
-                            You call by phone or leave a request for a call in the form, we call you in 1 minute. We discuss the idea of your project.
-                        </p>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide><div className="slideContentWrapper">
-                    <h4>
-                        Discussion and preparation of T.A.
-                    </h4>
-                    <p>
-                        We’ll attentively listen to all your preferences and finalize the project’s specifications according to your needs. Your satisfaction is our priority.
-                    </p>
-                </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="slideContentWrapper">
-                        <h4>
-                            Design alignment and development process
-                        </h4>
-                        <p>
-                            Once the design is agreed, the team proceeds to develop a complete final product.
-                        </p>
-                    </div></SwiperSlide>
-                <SwiperSlide>
-                    <div className="slideContentWrapper">
-                        <h4>
-                            Final Product and Access Transfer
-                        </h4>
-                        <p>
-                            After completing the project, we provide you with all the necessary files and access passwords.
-                        </p>
-                    </div>
-                </SwiperSlide>
-
+                {workingProcessData.map(item => (
+                    <SwiperSlide key={item.id}>
+                        <div className="slideContentWrapper">
+                            <h4 className="slideTitle">
+                                {item.titleEn}
+                            </h4>
+                            <p className="slideText">
+                                {item.textEn}
+                            </p>
+                        </div>
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </>
     );
