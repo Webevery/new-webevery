@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from "./WorkingProcessSection.module.scss"
+import styles from "./HomeWorkingProcessSection.module.scss"
 import WorkingProcessSlider from '@/components/WorkingProcessSlider/WorkingProcessSlider'
 
-const WorkingProcessSection = () => {
+const HomeWorkingProcessSection = () => {
     return (
         <section className={styles.container}>
             <div className="container">
@@ -15,4 +15,4 @@ const WorkingProcessSection = () => {
     )
 }
 
-export default WorkingProcessSection
+export default HomeWorkingProcessSection
