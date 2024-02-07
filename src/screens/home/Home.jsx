@@ -1,22 +1,22 @@
 import styles from "./Home.module.scss";
-import HeroSection from "@/sections/heroSection/HeroSection";
-import TeamSection from "@/sections/teamSection/TeamSection";
-import OurProfectsSection from "@/sections/ourProfectsSection/OurProfectsSection";
-import WorkingProcessSection from "@/sections/workingProcessSection/WorkingProcessSection";
-import ServicesSection from "@/sections/servicesSection/ServicesSection";
-import FaqSection from "@/sections/faqSection/FaqSection";
-import OrderSection from "@/sections/orderSection/OrderSection";
+import HomeFaqSection from "@/sections/homeFaqSection/HomeFaqSection";
+import HomeHeroSection from "@/sections/homeHeroSection/HomeHeroSection";
+import HomeOrderSection from "@/sections/homeOrderSection/HomeOrderSection";
+import HomeOurProjectsSection from "@/sections/homeOurProjectsSection/HomeOurProjectsSection";
+import HomeServicesSection from "@/sections/homeServicesSection/HomeServicesSection";
+import HomeTeamSection from "@/sections/homeTeamSection/HomeTeamSection";
+import HomeWorkingProcessSection from "@/sections/homeWorkingProcessSection/HomeWorkingProcessSection";
 
 const Home = () => {
   return (
     <div className="screen">
-      <HeroSection />
-      <TeamSection />
-      <OurProfectsSection />
-      <ServicesSection />
-      <FaqSection />
-      <WorkingProcessSection />
-      <OrderSection />
+      <HomeHeroSection />
+      <HomeTeamSection />
+      <HomeOurProjectsSection />
+      <HomeServicesSection />
+      <HomeFaqSection />
+      <HomeWorkingProcessSection />
+      <HomeOrderSection />
     </div>
   )
 }
