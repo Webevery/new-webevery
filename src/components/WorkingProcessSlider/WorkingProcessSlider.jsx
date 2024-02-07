@@ -17,7 +17,7 @@ const WorkingProcessSlider = () => {
         <>
             <Swiper
                 slidesPerView={1}
-                spaceBetween={0}
+                spaceBetween={24}
                 pagination={{
                     clickable: true,
                 }}
