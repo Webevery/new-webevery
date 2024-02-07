@@ -3,6 +3,7 @@ import "./globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { SiteProvider } from "@/context/siteContext";
+import ModalR from "@/components/Modal/Modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <Header />
           <main>{children}</main>
           <Footer />
+          <ModalR />
         </SiteProvider>
       </body>
     </html>
