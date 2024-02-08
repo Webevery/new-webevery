@@ -5,9 +5,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px;
+  padding: 1px;
   position: relative;
   overflow: hidden;
+
+  @media screen and (min-width: $tablet) {
+    padding: 2px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 3px;
+  }
 
   &::before {
     content: "";

@@ -4,6 +4,17 @@
   width: 280px;
   height: 50px;
 
+  @media screen and (min-width: $mobile) {
+    width: 312px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 340px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 416px;
+    height: 80px;
+  }
+
   & button {
     background: none;
     border: none;
