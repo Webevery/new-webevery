@@ -10,44 +10,49 @@ import Image from "next/image";
 import CallBtn from "../Buttons/CallBtn/CallBtn";
 
 const Header = () => {
-  // const [burgerMenu, setBurgermenu] = useState(false);
-  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+  const { burgerMenu } = useContext(SiteContext);
   const [isXs, setIsXs] = useState(false);
+  console.log("isXs", isXs);
 
-  const [isTablet, setIsTablet] = useState(false);
-  console.log(isTablet);
+  const [isTablet, setIsTablet] = useState(true);
+  console.log("isTablet", isTablet);
 
-  const handleResize = useCallback(() => {
-    if (window.innerWidth < 360) {
+  const handleResizeXs = useCallback(() => {
+    if (window.innerWidth < 768) {
       setIsXs(true);
-    } else if (window.innerWidth >= 360) {
+    } else {
       setIsXs(false);
-    } else if (window.innerWidth < 1439) {
+    }
+  }, [setIsXs]);
+
+  const handleResizeTablet = useCallback(() => {
+    if (window.innerWidth < 1440) {
       setIsTablet(true);
     } else {
       setIsTablet(false);
     }
-  }, [setIsXs, setIsTablet]);
+  }, [setIsTablet]);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResizeXs);
+    window.addEventListener("resize", handleResizeTablet);
 
-    handleResize();
+    // handleResizeXs();
 
     return () => {
-      window.addEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResizeXs);
+      window.removeEventListener("resize", handleResizeTablet);
     };
-  }, [handleResize]);
+  }, [handleResizeXs]);
 
   return (
     <header className={styles.header}>
       <div className={`container ${styles.container}`}>
         {isTablet && <BurgerBtn />}
-        {/* <BurgerBtn /> */}
         <div
           className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
         >
-          <CallBtn />
+          {!isTablet && <CallBtn />}
           <NavLinks />
           {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
         </div>
@@ -68,5 +73,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// className={styles.headerNav}
