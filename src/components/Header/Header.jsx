@@ -6,6 +6,8 @@ import NavLinks from "../NavLinks/NavLinks";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import BurgerBtn from "../Buttons/BurgerBtn/BurgerBtn";
 import { SiteContext } from "@/context/siteContext";
+import Image from "next/image";
+import CallBtn from "../Buttons/CallBtn/CallBtn";
 
 const Header = () => {
   // const [burgerMenu, setBurgermenu] = useState(false);
@@ -39,14 +41,28 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <BurgerBtn />
-      <div
-        className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
-      >
-        <NavLinks />
-        {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
+      <div className={`container ${styles.container}`}>
+        {isTablet && <BurgerBtn />}
+        {/* <BurgerBtn /> */}
+        <div
+          className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
+        >
+          <CallBtn />
+          <NavLinks />
+          {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
+        </div>
+
+        <div className={styles.logoWrapper}>
+          {!isXs && <LangSwitcher className={styles.mobileLangSwitcher} />}
+          <Image
+            src={"/Logo.webp"}
+            width={72}
+            height={70}
+            alt="Webevery logo"
+            className={styles.logo}
+          />
+        </div>
       </div>
-      {!isXs && <LangSwitcher className={styles.mobileLangSwitcher} />}
     </header>
   );
 };

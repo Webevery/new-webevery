@@ -2,8 +2,7 @@
 
 .header {
   background-color: $gray900;
-  //   background-image: $gradient;
-  //   background-color: rgba($gradientBlue, 0.9);
+  padding: 0px 20px;
   height: 72px;
   display: flex;
   align-items: center;
@@ -13,14 +12,22 @@
 
   @media screen and (min-width: $mobile) {
     height: 80px;
+    padding: 0px 24px;
   }
   @media screen and (min-width: $tablet) {
     height: 120px;
+    padding: 0px 32px;
   }
   @media screen and (min-width: $desktop) {
     height: 148px;
     justify-content: space-between;
+    padding: 0px 72px;
   }
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navWrapper,
@@ -71,5 +78,21 @@
   display: none;
   @media screen and (min-width: $tablet) {
     display: block;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+
+  @media screen and (min-width: $tablet) {
+    width: 72px;
+    height: 72px;
   }
 }
