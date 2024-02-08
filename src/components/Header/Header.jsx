@@ -12,10 +12,10 @@ import CallBtn from "../Buttons/CallBtn/CallBtn";
 const Header = () => {
   const { burgerMenu } = useContext(SiteContext);
   const [isXs, setIsXs] = useState(false);
-  console.log("isXs", isXs);
+  // console.log("isXs", isXs);
 
   const [isTablet, setIsTablet] = useState(true);
-  console.log("isTablet", isTablet);
+  // console.log("isTablet", isTablet);
 
   const handleResizeXs = useCallback(() => {
     if (window.innerWidth < 768) {
@@ -43,7 +43,7 @@ const Header = () => {
       window.removeEventListener("resize", handleResizeXs);
       window.removeEventListener("resize", handleResizeTablet);
     };
-  }, [handleResizeXs]);
+  }, [handleResizeXs, handleResizeTablet]);
 
   return (
     <header className={styles.header}>
