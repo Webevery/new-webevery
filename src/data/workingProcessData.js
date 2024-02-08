@@ -12,7 +12,7 @@ export const workingProcessData = [
     {
         id: v4(),
         titleEn: "Discussion and preparation of T.A.",
-        textEn: "We’ll attentively listen to all your preferences and finalize the project’s specifications according to your needs. Your satisfaction is our priority.",
+        textEn: "We’ll attentively listen to all your preferences and finalize the project’s specifications according to your needs.",
         title: "Обговорення та підготовка ТЗ",
         text: "Ми уважно вислухаємо всі Ваші побажання і доопрацюємо технічне завдання відповідно до Ваших потреб. Ваше задоволення - наш пріоритет.",
     },
