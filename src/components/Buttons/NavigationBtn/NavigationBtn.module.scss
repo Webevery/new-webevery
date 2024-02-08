@@ -3,22 +3,14 @@
 .btnBorder {
   width: 280px;
   height: 50px;
-
   @media screen and (min-width: $mobile) {
     width: 312px;
   }
   @media screen and (min-width: $tablet) {
-    width: 340px;
+    width: 332px;
   }
   @media screen and (min-width: $desktop) {
-    width: 416px;
+    width: 266px;
     height: 80px;
-  }
-
-  & button {
-    background: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
   }
 }

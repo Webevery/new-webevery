@@ -1,4 +1,4 @@
-@import '../../app/variables';
+@import "../../app/variables";
 
 .heroContainer {
   position: relative;
@@ -8,11 +8,11 @@
   -webkit-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
   &::before {
-    content: '';
+    content: "";
     display: block;
     width: 500px;
     height: 500px;
-    background-image: url('../../../public/pattern_planet.webp');
+    background-image: url("../../../public/pattern_planet.webp");
     border-radius: 50%;
     position: relative;
     background-size: cover;
@@ -28,7 +28,7 @@
     //   inset -7px 0px 5px -5px #fdfff26d;
     margin-left: -65%;
     margin-top: -10%;
-    animation: rotate 54s infinite linear;
+    animation: rotate 200s infinite linear;
     z-index: -1;
 
     @media screen and (min-width: $mobile) {
