@@ -1,0 +1,19 @@
+@import "../../../app/variables";
+
+.btnBorder {
+  width: 280px;
+  height: 50px;
+  @media screen and (min-width: $mobile) {
+    width: 312px;
+  }
+  @media screen and (min-width: $mobile) {
+    width: 312px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 332px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 266px;
+    height: 80px;
+  }
+}

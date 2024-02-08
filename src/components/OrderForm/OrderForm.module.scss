@@ -1,196 +1,195 @@
 @import "../../app/variables";
 
 .container {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 360px;
-    height: 532px;
-    text-align: center;
-    padding: 24px;
-    background-color: $gray900;
-    // @media screen and (min-width: 1440px) {
-    //     width: 1081px;
-    //     height: 635px;
-    // }
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 360px;
+  height: 532px;
+  text-align: center;
+  padding: 24px;
+  background-color: $gray900;
+  // @media screen and (min-width: 1440px) {
+  //     width: 1081px;
+  //     height: 635px;
+  // }
 }
 
 .closeBtn {
-    position: absolute;
-    top: 32px;
-    right: 32px;
-    border: none;
-    cursor: pointer;
-    @media screen and (min-width: 1440px) {
-        top: 100px;
-        right: 100px;
-    }
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  border: none;
+  cursor: pointer;
+  @media screen and (min-width: 1440px) {
+    top: 100px;
+    right: 100px;
+  }
 }
 
 .iconBtnClose {
-    position: absolute;
-    bottom: 2px;
-    width: 24px;
-    height: 24px;
-    fill: $gray600;
-    @media screen and (min-width: 1440px) {
-        left: 10px;
-        width: 32px;
-        height: 32px;
-    }
+  position: absolute;
+  bottom: 2px;
+  width: 24px;
+  height: 24px;
+  fill: $gray600;
+  @media screen and (min-width: 1440px) {
+    left: 10px;
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .titleWrap {
-    display: flex;
-    padding-left: 24px;
-    margin-bottom: 24px;
-    width: 360px;
+  display: flex;
+  padding-left: 24px;
+  margin-bottom: 24px;
+  width: 360px;
 }
 
 .title {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.4;
-    @media screen and (min-width: 1440px) {
-        margin: 55px 0 0 0;
-    }
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+  @media screen and (min-width: 1440px) {
+    margin: 55px 0 0 0;
+  }
 }
 
 .form {
-    width: 360px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    row-gap: 16px;
-    @media screen and (min-width: 768px) {
-    }
+  width: 360px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 16px;
+  @media screen and (min-width: 768px) {
+  }
 }
 
 .inputWrap {
-    position: relative;
+  position: relative;
 }
 
 .formLabel {
-    position: absolute;
-    top: 10px;
-    left: 16px;
-    color: #4a45358b;
-    pointer-events: none;
-    @media screen and (min-width: 768px) {
-        top: 13px;
-        left: 20px;
-    }
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  color: #4a45358b;
+  pointer-events: none;
+  @media screen and (min-width: 768px) {
+    top: 13px;
+    left: 20px;
+  }
 }
 
 .formInput {
-    width: 312px;
-    height: 60px;
+  width: 312px;
+  height: 60px;
+  background-color: $gray0;
+  outline: none;
+  border-radius: 16px;
+  border: 1px solid #ded8d4;
+  padding: 12px 20px;
+  // @media screen and (min-width: 768px) {
+  //     padding: 16px 20px;
+  //     width: 430px;
+  // }
+  &:focus + .formLabel,
+  &:not(:placeholder-shown) + .formLabel {
+    transform: translateY(-90%) scale(0.9);
+    padding-inline: 4px;
+    color: #4a4535ad;
     background-color: $gray0;
-    outline: none;
-    border-radius: 16px;
-    border: 1px solid #ded8d4;
-    padding: 12px 20px;
-    // @media screen and (min-width: 768px) {
-    //     padding: 16px 20px;
-    //     width: 430px;
-    // }
-    &:focus + .formLabel,
-    &:not(:placeholder-shown) + .formLabel {
-        transform: translateY(-90%) scale(0.9);
-        padding-inline: 4px;
-        color: #4a4535ad;
-        background-color: $gray0;
-        border-radius: 6px;
-        @media screen and (min-width: 768px) {
-            transform: translateY(-103%) scale(0.9);
-        }
+    border-radius: 6px;
+    @media screen and (min-width: 768px) {
+      transform: translateY(-103%) scale(0.9);
     }
+  }
 }
 
 .textarea {
-    height: 180px;
-    resize: none;
+  height: 180px;
+  resize: none;
 }
 
 .submitButton {
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    background-color: $gray900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 2px;
-    color: $gray0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: $gray900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 2px;
+  color: $gray0;
 }
 
 .btnBorder {
-    width: 312px;
-    height: 50px;
+  width: 312px;
+  height: 50px;
 
-    & button {
-        // background: none;
-        border: none;
-        outline: none;
-        box-shadow: none;
-    }
+  & button {
+    // background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
 }
 
 .btnWrapper {
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px;
-    position: relative;
-    overflow: hidden;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  position: relative;
+  overflow: hidden;
 
+  &::before {
+    content: "";
+    background: conic-gradient(
+      $gradientCyan,
+      $gradientBlue,
+      $gradientCyan,
+      $gradientYellow,
+      $gradientCyan
+    );
+    filter: blur(8px);
+    position: absolute;
+    width: 100%;
+    height: 300%;
+  }
+
+  &:hover,
+  &:focus {
+    filter: brightness(1.1) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.349));
     &::before {
-        content: "";
-        background: conic-gradient(
-            $gradientCyan,
-            $gradientBlue,
-            $gradientCyan,
-            $gradientYellow,
-            $gradientCyan
-        );
-        filter: blur(8px);
-        position: absolute;
-        width: 100%;
-        height: 300%;
+      animation: rotate 4s linear infinite;
     }
-
-    &:hover,
-    &:focus {
-        filter: brightness(1.1)
-            drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.349));
-        &::before {
-            animation: rotate 4s linear infinite;
-        }
-    }
+  }
 }
 
 @keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }

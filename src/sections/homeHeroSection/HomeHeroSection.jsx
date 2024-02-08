@@ -1,7 +1,12 @@
-import OrderBtn from '@/components/Buttons/OrderBtn/OrderBtn';
-import styles from './HomeHeroSection.module.scss';
+"use client";
+
+import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+import { SiteContext } from "@/context/siteContext";
+import { useContext } from "react";
+import styles from "./HomeHeroSection.module.scss";
 
 const HomeHeroSection = () => {
+  const { openModal } = useContext(SiteContext);
   return (
     <section>
       <div className={`${styles.heroContainer} container`}>
@@ -10,7 +15,7 @@ const HomeHeroSection = () => {
           <p className={styles.text}>
             with team <span className={styles.textItem}>Webevery</span>
           </p>
-          <OrderBtn />
+          <OrderBtn onClick={openModal} type="submit" title="Order" />
         </div>
       </div>
     </section>
