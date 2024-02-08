@@ -9,9 +9,9 @@ $gradientYellow: #faff00;
 $gradientCyan: #00f0ff;
 $gradientBlue: #0400b3;
 $gradient: linear-gradient(90deg,
-                $gradientYellow,
-                $gradientCyan,
-                $gradientBlue);
+        $gradientYellow,
+        $gradientCyan,
+        $gradientBlue);
 
 $gray900: #0d0d11;
 $gray800: #2e2e31;
@@ -30,3 +30,4 @@ $successColor: #05FF00;
 $warningColor: #FFC700;
 
 $shadowColor: 6px 12px 32px 0px #1A8CFF1A;
+$formShadow: 6px 12px 32px 0px #1A8CFF80;

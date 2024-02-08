@@ -66,5 +66,17 @@
 <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M1.231 1.231h39.385M1.231 16h26.154M1.231 30.769h16.001"></path>
 </symbol>
 
+<symbol id="icon-snowflake" viewBox="0 0 26 32">
+<path fill="none" stroke="#d50000" style="stroke: var(--color1, #d50000)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M12.801 16l10.667-6M12.801 16v12M12.801 16l-10.667-6M12.801 16l10.667 6M12.801 16v-12M12.801 16l-10.667 6"></path>
+</symbol>
+
+<symbol id="icon-check-mark" viewBox="0 0 46 32">
+<path fill="#05ff00" style="fill: var(--color2, #05ff00)" d="M17.42 30.591l-13.244-13.232c-0.208-0.243-0.317-0.555-0.304-0.875s0.145-0.623 0.371-0.849c0.226-0.226 0.529-0.359 0.849-0.371s0.632 0.096 0.875 0.304l11.429 11.429 22.337-22.311c0.243-0.208 0.555-0.317 0.875-0.304s0.623 0.145 0.849 0.371c0.226 0.226 0.359 0.529 0.371 0.849s-0.096 0.632-0.304 0.875l-24.102 24.114z"></path>
+</symbol>
+
+<symbol id="icon-exclamation" viewBox="0 0 5 32">
+<path fill="#d50000" style="fill: var(--color1, #d50000)" d="M2.461 0.821c0.906 0 1.641 0.735 1.641 1.641v20.513c0 0.906-0.735 1.641-1.641 1.641s-1.641-0.735-1.641-1.641v-20.513c0-0.906 0.735-1.641 1.641-1.641zM0.82 30.362c0-0.908 0.736-1.644 1.644-1.644s1.644 0.736 1.644 1.644c0 0.908-0.736 1.644-1.644 1.644s-1.644-0.736-1.644-1.644z"></path>
+</symbol>
+
 </defs>
 </svg>
