@@ -12,7 +12,7 @@
   @media screen and (min-width: $tablet) {
     padding: 2px;
   }
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $laptop) {
     padding: 3px;
   }
 
@@ -48,9 +48,11 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    font-family: var(--font-work-sans);
+    font-weight: 400;
     font-size: 16px;
     color: $gray0;
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: $laptop) {
       font-size: 20px;
     }
   }
