@@ -7,16 +7,16 @@ import ModalR from "@/components/Modal/Modal";
 
 const saira = Saira({
   subsets: ["latin"],
-  style: ['normal'],
-  weight: ['300', '400', '500'],
-  variable: '--font-saira',
+  style: ["normal"],
+  weight: ["300", "400", "500"],
+  variable: "--font-saira",
 });
 
 const work_sans = Work_Sans({
   subsets: ["latin"],
-  style: ['normal'],
-  weight: ['400', '500'],
-  variable: '--font-work-sans',
+  style: ["normal"],
+  weight: ["400", "500"],
+  variable: "--font-work-sans",
 });
 
 export const metadata = {
