@@ -28,7 +28,9 @@
     //   inset -7px 0px 5px -5px #fdfff26d;
     margin-left: -65%;
     margin-top: -10%;
+    // animation: rotate 54s infinite linear;
     animation: rotate 200s infinite linear;
+
     z-index: -1;
 
     @media screen and (min-width: $mobile) {
