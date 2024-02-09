@@ -1,12 +1,22 @@
 @import "../../app/variables";
 
 .langsWrapper {
-  //   color: aqua;
   & li {
     width: min-content;
-    color: transparent;
     line-height: 1.6;
-    background-image: $gradient;
-    background-clip: text;
+    cursor: pointer;
+    // background-image: $gradient;
+    // background-clip: text;
+    &:hover,
+    &:focus {
+      color: transparent;
+      background-image: $gradient;
+      background-clip: text;
+    }
   }
+}
+.active {
+  color: transparent;
+  background-image: $gradient;
+  background-clip: text;
 }
