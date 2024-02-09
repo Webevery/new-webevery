@@ -77,7 +77,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    row-gap: 16px;
+    row-gap: 20px;
     @media screen and (min-width: 768px) {
     }
 }
@@ -86,41 +86,33 @@
     position: relative;
 }
 
-.formLabel {
-    position: absolute;
-    top: 10px;
-    left: 16px;
-    color: #4a45358b;
-    pointer-events: none;
-    @media screen and (min-width: 768px) {
-        top: 13px;
-        left: 20px;
-    }
-}
-
-.formInput {
+.input {
     width: 312px;
     height: 60px;
     background-color: $gray0;
     outline: none;
-    border-radius: 16px;
-    border: 1px solid #ded8d4;
     padding: 12px 20px;
-    // @media screen and (min-width: 768px) {
-    //     padding: 16px 20px;
-    //     width: 430px;
-    // }
-    &:focus + .formLabel,
-    &:not(:placeholder-shown) + .formLabel {
-        transform: translateY(-90%) scale(0.9);
-        padding-inline: 4px;
-        color: #4a4535ad;
-        background-color: $gray0;
-        border-radius: 6px;
-        @media screen and (min-width: 768px) {
-            transform: translateY(-103%) scale(0.9);
-        }
-    }
+    border-radius: 16px;
+    border: 1px solid rgba(133, 133, 136, 1);
+}
+
+.input::placeholder {
+    font-size: 16px;
+    color: $gray700;
+}
+
+.textarea::placeholder {
+    font-size: 18px;
+    color: $gray700;
+}
+
+.inputError {
+    border: 1px solid rgba(213, 0, 0, 1);
+    color: rgba(213, 0, 0, 1);
+}
+
+.inputSuccess {
+    border: 1px solid rgba(5, 255, 0, 1);
 }
 
 .textarea {
@@ -136,9 +128,21 @@
 
 .error {
     position: absolute;
-    top: -17px;
+    top: -20px;
     right: 10px;
     color: red;
     font-size: 14px;
     font-weight: bold;
+}
+
+.icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 12px;
+    // @media screen and (min-width: $desktop) {
+    //     left: 10px;
+    //     top: 85px;
+    // }
 }
