@@ -8,28 +8,29 @@ import BurgerBtn from "../Buttons/BurgerBtn/BurgerBtn";
 import { SiteContext } from "@/context/siteContext";
 import Image from "next/image";
 import CallBtn from "../Buttons/CallBtn/CallBtn";
+import Link from "next/link";
 
 const Header = () => {
   const { burgerMenu } = useContext(SiteContext);
-  const [isXs, setIsXs] = useState(false);
+  const [isXs, setIsXs] = useState(true);
   // console.log("isXs", isXs);
 
   const [isTablet, setIsTablet] = useState(true);
   // console.log("isTablet", isTablet);
 
   const handleResizeXs = useCallback(() => {
-    if (window.innerWidth < 768) {
-      setIsXs(true);
-    } else {
+    if (window.innerWidth >= 768) {
       setIsXs(false);
+    } else {
+      setIsXs(true);
     }
   }, [setIsXs]);
 
   const handleResizeTablet = useCallback(() => {
-    if (window.innerWidth < 1440) {
-      setIsTablet(true);
-    } else {
+    if (window.innerWidth >= 1440) {
       setIsTablet(false);
+    } else {
+      setIsTablet(true);
     }
   }, [setIsTablet]);
 
@@ -37,7 +38,8 @@ const Header = () => {
     window.addEventListener("resize", handleResizeXs);
     window.addEventListener("resize", handleResizeTablet);
 
-    // handleResizeXs();
+    handleResizeXs();
+    handleResizeTablet();
 
     return () => {
       window.removeEventListener("resize", handleResizeXs);
@@ -53,19 +55,18 @@ const Header = () => {
           className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
         >
           {!isTablet && <CallBtn />}
-          <NavLinks />
+          <NavLinks burgerMenu={burgerMenu} />
           {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
         </div>
 
         <div className={styles.logoWrapper}>
           {!isXs && <LangSwitcher className={styles.mobileLangSwitcher} />}
-          <Image
-            src={"/Logo.webp"}
-            width={72}
-            height={70}
-            alt="Webevery logo"
-            className={styles.logo}
-          />
+          <Link href={"/"} className={styles.logo}>
+            {/* <Image src={"/Logo.webp"} fill alt="Webevery logo" /> */}
+            <svg>
+              <use href="/sprite#icon-Logo"></use>
+            </svg>
+          </Link>
         </div>
       </div>
     </header>

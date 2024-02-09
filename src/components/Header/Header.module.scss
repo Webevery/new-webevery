@@ -39,25 +39,44 @@
   background-color: $gray900;
   font-size: 16px;
   transform: translateX(-100%);
+  // transform: translateX(0%);
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $mobile) {
+    width: 327px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 411px;
+    padding: 24px 32px;
+  }
+  @media screen and (min-width: $laptop) {
+    width: 310px;
+  }
   @media screen and (min-width: $desktop) {
     position: static;
     transform: translateX(0%);
-    display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 40px;
+    width: fit-content;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   & nav {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 16px;
 
     @media screen and (min-width: $mobile) {
       top: 80px;
     }
     @media screen and (min-width: $tablet) {
       top: 120px;
+      gap: 24px;
     }
     @media screen and (min-width: $desktop) {
       position: static;
@@ -70,9 +89,12 @@
 
 .navWrapperVisible {
   transform: translateX(0%);
+  box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.1);
 }
 
 .xsLangSwitcher {
+  display: block;
+
   @media screen and (min-width: $tablet) {
     display: none;
   }
@@ -94,6 +116,26 @@
 .logo {
   width: 32px;
   height: 32px;
+  position: relative;
+
+  // & img {
+  //   object-fit: contain;
+  //   object-position: center;
+  // }
+  & svg {
+    width: 100%;
+    height: 100%;
+    fill: blue;
+    color: red;
+    z-index: 20;
+  }
+  &:hover,
+  &:focus {
+    filter: brightness(2);
+    & img {
+      box-shadow: 0 0 4px white;
+    }
+  }
 
   @media screen and (min-width: $tablet) {
     width: 72px;
