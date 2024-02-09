@@ -28,10 +28,11 @@ const OrderForm = () => {
             message: "",
         },
         resolver: yupResolver(YupOrderFormSchema),
+        mode: "onChange",
     };
 
     const form = useForm(initialValues);
-    const { register, handleSubmit, formState, reset } = form;
+    const { register, watch, handleSubmit, formState, reset } = form;
     const {
         errors,
         isSubmitSuccessful,
@@ -67,91 +68,97 @@ const OrderForm = () => {
                 className={styles.form}
                 noValidate
             >
-                <div className={styles.inputWrap}>
-                    <p className={styles.error}>{errors.userName?.message}</p>
-                    {(() => {
-                        if (errors.userName) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-exclamation' />
-                                </svg>
-                            );
-                        } else if (!errors.userName && dirtyFields.userName) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-check-mark' />
-                                </svg>
-                            );
-                        } else {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-snowflake' />
-                                </svg>
-                            );
-                        }
-                    })()}
-
-                    <input
-                        type='text'
-                        id='userName'
-                        {...register("userName")}
-                        placeholder='Ваше ім&#39;я'
-                        maxLength='30'
-                        className={(() => {
+                <div className={styles.inputHolder}>
+                    <div className={styles.inputWrap}>
+                        <p className={styles.error}>
+                            {errors.userName?.message}
+                        </p>
+                        {(() => {
                             if (errors.userName) {
-                                return `${styles.input} ${styles.inputError}`;
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-exclamation' />
+                                    </svg>
+                                );
                             } else if (
                                 !errors.userName &&
                                 dirtyFields.userName
                             ) {
-                                return `${styles.input} ${styles.inputSuccess}`;
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-check-mark' />
+                                    </svg>
+                                );
                             } else {
-                                return `${styles.input}`;
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-snowflake' />
+                                    </svg>
+                                );
                             }
                         })()}
-                    />
-                </div>
-                <div className={styles.inputWrap}>
-                    {(() => {
-                        if (errors.tel) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-exclamation' />
-                                </svg>
-                            );
-                        } else if (!errors.tel && dirtyFields.tel) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-check-mark' />
-                                </svg>
-                            );
-                        } else {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-snowflake' />
-                                </svg>
-                            );
-                        }
-                    })()}
-                    <input
-                        type='tel'
-                        id='tel'
-                        {...register("tel")}
-                        placeholder='Номер телефону'
-                        maxLength='13'
-                        className={(() => {
-                            if (errors.tel) {
-                                return `${styles.input} ${styles.inputError}`;
-                            } else if (!errors.tel && dirtyFields.tel) {
-                                return `${styles.input} ${styles.inputSuccess}`;
-                            } else {
-                                return `${styles.input}`;
-                            }
-                        })()}
-                    />
-                    <p className={styles.error}>{errors.tel?.message}</p>
-                </div>
 
+                        <input
+                            type='text'
+                            id='userName'
+                            {...register("userName")}
+                            placeholder='Ваше ім&#39;я'
+                            maxLength='30'
+                            className={(() => {
+                                if (errors.userName) {
+                                    return `${styles.input} ${styles.inputError}`;
+                                } else if (
+                                    !errors.userName &&
+                                    dirtyFields.userName
+                                ) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
+                        />
+                    </div>
+                    <div className={styles.inputWrap}>
+                        {(() => {
+                            if (errors.tel) {
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-exclamation' />
+                                    </svg>
+                                );
+                            } else if (!errors.tel && dirtyFields.tel) {
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-check-mark' />
+                                    </svg>
+                                );
+                            } else {
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-snowflake' />
+                                    </svg>
+                                );
+                            }
+                        })()}
+                        <input
+                            type='tel'
+                            id='tel'
+                            {...register("tel")}
+                            placeholder='Номер телефону'
+                            maxLength='13'
+                            className={(() => {
+                                if (errors.tel) {
+                                    return `${styles.input} ${styles.inputError}`;
+                                } else if (!errors.tel && dirtyFields.tel) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
+                        />
+                        <p className={styles.error}>{errors.tel?.message}</p>
+                    </div>
+                </div>
                 <div className={styles.inputWrap}>
                     <textarea
                         className={`${styles.textarea} ${styles.input}`}
