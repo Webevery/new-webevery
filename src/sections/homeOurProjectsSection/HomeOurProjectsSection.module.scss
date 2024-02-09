@@ -1,1 +1,83 @@
 @import "../../app/variables";
+
+.container {
+    padding: 40px 20px;
+
+    @media screen and (min-width:$mobile) {
+        padding: 40px 24px 36px;
+    }
+
+    @media screen and (min-width:$tablet) {
+        padding: 40px 32px 36px;
+    }
+
+    @media screen and (min-width:$laptop) {
+        padding: 80px 32px 0px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        padding: 80px 72px;
+    }
+}
+
+.title {
+    text-align: right;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+
+    @media screen and (min-width:$mobile) {
+        font-size: 48px;
+    }
+
+    @media screen and (min-width:$tablet) {
+        text-align: left;
+        font-size: 58px;
+        margin-bottom: 16px;
+    }
+
+    @media screen and (min-width:$laptop) {
+        font-weight: 400;
+        font-size: 64px;
+        margin-bottom: 32px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        font-weight: 300;
+        font-size: 96px;
+        margin-bottom: 48px;
+    }
+}
+
+.contentWrapper {
+    border: 1px solid yellow;
+
+    @media screen and (min-width:$tablet) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.slider {
+    margin-bottom: 24px;
+    border: 1px dashed red;
+
+    @media screen and (min-width:$tablet) {
+        margin-bottom: 0px;
+    }
+}
+
+.toPortfolioBtn {
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: $shadowColor;
+
+    @media screen and (min-width:$tablet) {
+        margin: 0px 0px 24px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        margin-bottom: 48px;
+    }
+}

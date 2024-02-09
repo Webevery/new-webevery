@@ -43,7 +43,7 @@ const WorkingProcessSlider = () => {
                 {workingProcessData.map(item => (
                     <SwiperSlide key={item.id}>
                         <div className="slideContentWrapper">
-                            <h4 className="slideTitle">
+                            <h4 className="titleGradient slideTitle">
                                 {item.titleEn}
                             </h4>
                             <p className="slideText">
