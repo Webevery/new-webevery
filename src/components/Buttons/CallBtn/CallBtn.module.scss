@@ -6,12 +6,16 @@
   @media screen and (min-width: $mobile) {
     width: 148px;
   }
+
   @media screen and (min-width: $tablet) {
     width: 158px;
     height: 46px;
   }
+  @media screen and (min-width: $laptop) {
+    width: 222px;
+    height: 56px;
+  }
   @media screen and (min-width: $desktop) {
     width: 196px;
-    height: 56px;
   }
 }
