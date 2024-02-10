@@ -1,0 +1,65 @@
+@import '../../app/variables';
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @media screen and (min-width: $laptop) {
+    margin-bottom: 42px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 34px;
+  }
+}
+
+.btnWrapper {
+  @media screen and (min-width: $laptop) {
+    border-radius: 100px;
+    width: 58px;
+    height: 58px;
+    &:first-child {
+      margin-right: 24px;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    width: 86px;
+    height: 58px;
+  }
+}
+
+.btnFilter {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.filterIcon {
+  width: 19px;
+  height: 14px;
+  &:last-child {
+    width: 18px;
+    height: 19px;
+  }
+}
+
+.filterSearchContainer {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.filterSearch {
+  padding: 17px 30px;
+  width: 306px;
+  height: 60px;
+  background: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4b4b4e;
+  outline: none;
+  border-radius: 16px;
+  border: none;
+}
