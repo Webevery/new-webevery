@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { YupOrderFormSchema } from "@/yupShemas/orderFormShema";
@@ -10,7 +10,50 @@ import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import styles from "./OrderForm.module.scss";
 
 const OrderForm = () => {
+    const [isLaptop, setLaptop] = useState(true);
     const { closeModal, isModalOpen } = useContext(SiteContext);
+
+    const initialValues = {
+        defaultValues: {
+            userName: "",
+            tel: "",
+            message: "",
+        },
+        resolver: yupResolver(YupOrderFormSchema),
+        mode: "onChange",
+    };
+
+    const form = useForm(initialValues);
+    const { register, handleSubmit, formState, reset } = form;
+    const { errors, isSubmitSuccessful, isErrors, isSubmitting, dirtyFields } =
+        formState;
+
+    const onSubmit = (data) => {
+        console.log("FormData:", data);
+        closeModal();
+    };
+   
+    const handleResizeLaptop = useCallback(() => {
+        if (window.innerWidth >= 1024) {
+            setLaptop(false);
+        } else {
+            setLaptop(true);
+        }
+    }, [setLaptop]);
+
+     useEffect(() => {
+         if (isSubmitSuccessful) {
+             reset();
+         }
+     }, [isSubmitSuccessful, reset]);
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResizeLaptop);
+        handleResizeLaptop();
+        return () => {
+            window.removeEventListener("resize", handleResizeLaptop);
+        };
+    }, [handleResizeLaptop]);
 
     useEffect(() => {
         if (isModalOpen) {
@@ -21,37 +64,6 @@ const OrderForm = () => {
         };
     }, [isModalOpen]);
 
-    const initialValues = {
-        defaultValues: {
-            userName: "",
-            tel: "",
-            message: "",
-        },
-        resolver: yupResolver(YupOrderFormSchema),
-    };
-
-    const form = useForm(initialValues);
-    const { register, handleSubmit, formState, reset } = form;
-    const {
-        errors,
-        isSubmitSuccessful,
-        isErrors,
-        isSubmitting,
-        // touchedFields,
-        dirtyFields,
-    } = formState;
-
-    const onSubmit = (data) => {
-        console.log("FormData:", data);
-        closeModal();
-    };
-
-    useEffect(() => {
-        if (isSubmitSuccessful) {
-            reset();
-        }
-    }, [isSubmitSuccessful, reset]);
-
     return (
         <div className={styles.container}>
             <button onClick={closeModal} className={styles.closeBtn}>
@@ -60,98 +72,110 @@ const OrderForm = () => {
                 </svg>
             </button>
             <div className={styles.titleWrap}>
-                <h2 className={styles.title}>We call you very soon</h2>
+                {isLaptop ? (
+                    <h2 className={styles.title}>We call you very soon</h2>
+                ) : (
+                    <h2 className={styles.title}>
+                        Write the form and we call you very soon
+                    </h2>
+                )}
             </div>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className={styles.form}
                 noValidate
             >
-                <div className={styles.inputWrap}>
-                    <p className={styles.error}>{errors.userName?.message}</p>
-                    {(() => {
-                        if (errors.userName) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-exclamation' />
-                                </svg>
-                            );
-                        } else if (!errors.userName && dirtyFields.userName) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-check-mark' />
-                                </svg>
-                            );
-                        } else {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-snowflake' />
-                                </svg>
-                            );
-                        }
-                    })()}
-
-                    <input
-                        type='text'
-                        id='userName'
-                        {...register("userName")}
-                        placeholder='Ваше ім&#39;я'
-                        maxLength='30'
-                        className={(() => {
+                <div className={styles.inputHolder}>
+                    <div className={styles.inputWrap}>
+                        <p className={styles.error}>
+                            {errors.userName?.message}
+                        </p>
+                        {(() => {
                             if (errors.userName) {
-                                return `${styles.input} ${styles.inputError}`;
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-exclamation' />
+                                    </svg>
+                                );
                             } else if (
                                 !errors.userName &&
                                 dirtyFields.userName
                             ) {
-                                return `${styles.input} ${styles.inputSuccess}`;
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-check-mark' />
+                                    </svg>
+                                );
                             } else {
-                                return `${styles.input}`;
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-snowflake' />
+                                    </svg>
+                                );
                             }
                         })()}
-                    />
-                </div>
-                <div className={styles.inputWrap}>
-                    {(() => {
-                        if (errors.tel) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-exclamation' />
-                                </svg>
-                            );
-                        } else if (!errors.tel && dirtyFields.tel) {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-check-mark' />
-                                </svg>
-                            );
-                        } else {
-                            return (
-                                <svg className={styles.icon}>
-                                    <use href='/sprite.svg#icon-snowflake' />
-                                </svg>
-                            );
-                        }
-                    })()}
-                    <input
-                        type='tel'
-                        id='tel'
-                        {...register("tel")}
-                        placeholder='Номер телефону'
-                        maxLength='13'
-                        className={(() => {
-                            if (errors.tel) {
-                                return `${styles.input} ${styles.inputError}`;
-                            } else if (!errors.tel && dirtyFields.tel) {
-                                return `${styles.input} ${styles.inputSuccess}`;
-                            } else {
-                                return `${styles.input}`;
-                            }
-                        })()}
-                    />
-                    <p className={styles.error}>{errors.tel?.message}</p>
-                </div>
 
+                        <input
+                            type='text'
+                            id='userName'
+                            {...register("userName")}
+                            placeholder='Ваше ім&#39;я'
+                            maxLength='30'
+                            className={(() => {
+                                if (errors.userName) {
+                                    return `${styles.input} ${styles.inputError}`;
+                                } else if (
+                                    !errors.userName &&
+                                    dirtyFields.userName
+                                ) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
+                        />
+                    </div>
+                    <div className={styles.inputWrap}>
+                        {(() => {
+                            if (errors.tel) {
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-exclamation' />
+                                    </svg>
+                                );
+                            } else if (!errors.tel && dirtyFields.tel) {
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-check-mark' />
+                                    </svg>
+                                );
+                            } else {
+                                return (
+                                    <svg className={styles.icon}>
+                                        <use href='/sprite.svg#icon-snowflake' />
+                                    </svg>
+                                );
+                            }
+                        })()}
+                        <input
+                            type='tel'
+                            id='tel'
+                            {...register("tel")}
+                            placeholder='Номер телефону'
+                            maxLength='13'
+                            className={(() => {
+                                if (errors.tel) {
+                                    return `${styles.input} ${styles.inputError}`;
+                                } else if (!errors.tel && dirtyFields.tel) {
+                                    return `${styles.input} ${styles.inputSuccess}`;
+                                } else {
+                                    return `${styles.input}`;
+                                }
+                            })()}
+                        />
+                        <p className={styles.error}>{errors.tel?.message}</p>
+                    </div>
+                </div>
                 <div className={styles.inputWrap}>
                     <textarea
                         className={`${styles.textarea} ${styles.input}`}
