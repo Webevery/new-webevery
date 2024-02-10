@@ -59,18 +59,13 @@ const HomeOurProjectsSlider = () => {
                         <div className='imgWrapper'>
                             <CldImage
                                 className='slideImg'
-                                // deliveryType='fetch'
-                                // width="960"
-                                // height="600"
                                 fill
-                                src="cld-sample"
-                                // sizes="(max-width: 359px) 100%,
-                                //   (max-width: 1024px) 50vw,
-                                //   33vw"
+                                src="cld-sample-2"
+                                sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
                                 alt="Project photo 1"
                             />
                         </div>
-                        <h2 className='slideTitle'>Project <span className='gradient'>Title 1</span></h2>
+                        <h2 className='slideTitle'> Site for <span className='gradient'>building company</span></h2>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -80,10 +75,11 @@ const HomeOurProjectsSlider = () => {
                                 className='slideImg'
                                 fill
                                 src="sample"
+                                sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
                                 alt="Project photo 1"
                             />
                         </div>
-                        <h2 className='slideTitle'>Project <span className='gradient'>Title 2</span></h2>
+                        <h2 className='slideTitle'>Look at <span className='gradient'>your favorite flowers</span></h2>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -93,10 +89,11 @@ const HomeOurProjectsSlider = () => {
                                 className='slideImg'
                                 fill
                                 src="cld-sample-4"
+                                sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
                                 alt="Project photo 1"
                             />
                         </div>
-                        <h2 className='slideTitle'>Project <span className='gradient'>Title 3</span></h2>
+                        <h2 className='slideTitle'> You can try this <span className='gradient'>wonderful food</span></h2>
                     </div>
                 </SwiperSlide>
             </Swiper>
