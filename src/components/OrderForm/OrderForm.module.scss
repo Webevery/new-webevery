@@ -53,6 +53,10 @@
     padding-left: 24px;
     margin-bottom: 24px;
     width: 360px;
+    @media screen and (min-width: $laptop) {
+        width: 636px;
+        justify-content: center;
+    }
 }
 
 .title {

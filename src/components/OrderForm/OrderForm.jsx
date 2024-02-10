@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { YupOrderFormSchema } from "@/yupShemas/orderFormShema";
@@ -10,16 +10,8 @@ import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import styles from "./OrderForm.module.scss";
 
 const OrderForm = () => {
+    const [isLaptop, setLaptop] = useState(true);
     const { closeModal, isModalOpen } = useContext(SiteContext);
-
-    useEffect(() => {
-        if (isModalOpen) {
-            document.body.style.overflow = "hidden";
-        }
-        return () => {
-            document.body.style.overflow = "unset";
-        };
-    }, [isModalOpen]);
 
     const initialValues = {
         defaultValues: {
@@ -32,26 +24,45 @@ const OrderForm = () => {
     };
 
     const form = useForm(initialValues);
-    const { register, watch, handleSubmit, formState, reset } = form;
-    const {
-        errors,
-        isSubmitSuccessful,
-        isErrors,
-        isSubmitting,
-        // touchedFields,
-        dirtyFields,
-    } = formState;
+    const { register, handleSubmit, formState, reset } = form;
+    const { errors, isSubmitSuccessful, isErrors, isSubmitting, dirtyFields } =
+        formState;
 
     const onSubmit = (data) => {
         console.log("FormData:", data);
         closeModal();
     };
+   
+    const handleResizeLaptop = useCallback(() => {
+        if (window.innerWidth >= 1024) {
+            setLaptop(false);
+        } else {
+            setLaptop(true);
+        }
+    }, [setLaptop]);
+
+     useEffect(() => {
+         if (isSubmitSuccessful) {
+             reset();
+         }
+     }, [isSubmitSuccessful, reset]);
 
     useEffect(() => {
-        if (isSubmitSuccessful) {
-            reset();
+        window.addEventListener("resize", handleResizeLaptop);
+        handleResizeLaptop();
+        return () => {
+            window.removeEventListener("resize", handleResizeLaptop);
+        };
+    }, [handleResizeLaptop]);
+
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = "hidden";
         }
-    }, [isSubmitSuccessful, reset]);
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isModalOpen]);
 
     return (
         <div className={styles.container}>
@@ -61,7 +72,13 @@ const OrderForm = () => {
                 </svg>
             </button>
             <div className={styles.titleWrap}>
-                <h2 className={styles.title}>We call you very soon</h2>
+                {isLaptop ? (
+                    <h2 className={styles.title}>We call you very soon</h2>
+                ) : (
+                    <h2 className={styles.title}>
+                        Write the form and we call you very soon
+                    </h2>
+                )}
             </div>
             <form
                 onSubmit={handleSubmit(onSubmit)}
