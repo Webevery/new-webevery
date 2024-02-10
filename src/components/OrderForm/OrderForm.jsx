@@ -32,7 +32,7 @@ const OrderForm = () => {
         console.log("FormData:", data);
         closeModal();
     };
-   
+
     const handleResizeLaptop = useCallback(() => {
         if (window.innerWidth >= 1024) {
             setLaptop(false);
@@ -41,11 +41,11 @@ const OrderForm = () => {
         }
     }, [setLaptop]);
 
-     useEffect(() => {
-         if (isSubmitSuccessful) {
-             reset();
-         }
-     }, [isSubmitSuccessful, reset]);
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            reset();
+        }
+    }, [isSubmitSuccessful, reset]);
 
     useEffect(() => {
         window.addEventListener("resize", handleResizeLaptop);
@@ -119,7 +119,7 @@ const OrderForm = () => {
                             type='text'
                             id='userName'
                             {...register("userName")}
-                            placeholder='Ваше ім&#39;я'
+                            placeholder='Name'
                             maxLength='30'
                             className={(() => {
                                 if (errors.userName) {
@@ -161,7 +161,7 @@ const OrderForm = () => {
                             type='tel'
                             id='tel'
                             {...register("tel")}
-                            placeholder='Номер телефону'
+                            placeholder='Phone'
                             maxLength='13'
                             className={(() => {
                                 if (errors.tel) {
@@ -182,7 +182,7 @@ const OrderForm = () => {
                         cols='30'
                         rows='2'
                         id='message'
-                        placeholder='Ваше повідомлення'
+                        placeholder='Briefly describe your wish'
                         {...register("message")}
                     />
                     <p className={styles.error}>{errors.message?.message}</p>
