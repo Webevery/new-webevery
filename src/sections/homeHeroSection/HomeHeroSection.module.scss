@@ -8,6 +8,7 @@
   box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
   -webkit-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
+
   &::before {
     content: '';
     display: block;
@@ -46,10 +47,12 @@
       margin-left: -45%;
       margin-top: -5%;
     }
+
     @media screen and (min-width: 540px) {
       margin-left: -40%;
       margin-top: -5%;
     }
+
     @media screen and (min-width: $tablet) {
       width: 900px;
       height: 900px;
@@ -62,14 +65,17 @@
       -moz-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
         0px 0px 150px 0px #1653845c;
     }
+
     @media screen and (min-width: $laptop) {
       margin-left: -18%;
       margin-top: -10%;
     }
+
     @media screen and (min-width: 1280px) {
       margin-left: -10%;
       margin-top: -5%;
     }
+
     @media screen and (min-width: $desktop) {
       width: 1200px;
       height: 1200px;
@@ -77,12 +83,14 @@
       margin-top: -15%;
     }
   }
+
   @media screen and (min-width: $tablet) {
     box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
     -webkit-box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
     -moz-box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
     padding-top: 124px;
   }
+
   @media screen and (min-width: $desktop) {
     box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
     -webkit-box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
@@ -95,6 +103,7 @@
   0% {
     background-position-x: 0px;
   }
+
   100% {
     background-position-x: 1000px;
   }
@@ -107,20 +116,23 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+
   @media screen and (min-width: $mobile) {
     top: 224px;
   }
+
   @media screen and (min-width: $tablet) {
     top: 384px;
     right: 32px;
     align-items: flex-end;
   }
+
   @media screen and (min-width: $laptop) {
     top: 327px;
     right: 72px;
   }
-  @media screen and (min-width: $desktop) {
-  }
+
+  @media screen and (min-width: $desktop) {}
 }
 
 .title {
@@ -131,22 +143,26 @@
   margin-bottom: 24px;
   color: $gray0;
   text-align: center;
+
   @media screen and (min-width: $mobile) {
     font-size: 48px;
     line-height: 53px;
     margin-bottom: 32px;
   }
+
   @media screen and (min-width: $tablet) {
     font-size: 58px;
     line-height: 64px;
     margin-bottom: 8px;
     text-align: end;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 64px;
     line-height: 70px;
     margin-bottom: 16px;
   }
+
   @media screen and (min-width: $desktop) {
     font-size: 96px;
     line-height: 106px;
@@ -156,6 +172,7 @@
 
 .text {
   display: none;
+
   @media screen and (min-width: $tablet) {
     display: block;
     font-size: 38px;
@@ -165,11 +182,13 @@
     text-align: left;
     margin-bottom: 32px;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 36px;
     line-height: 50px;
     letter-spacing: 0.01em;
   }
+
   @media screen and (min-width: $desktop) {
     font-size: 44px;
     line-height: 48px;
@@ -178,20 +197,26 @@
 }
 
 .textItem {
-  font-weight: 500;
-  background: linear-gradient(
-    90deg,
-    #00d7f7 0%,
-    #00cdf4 5.33%,
-    #01a2e6 29.22%,
-    #0192e1 41.44%,
-    #0182dc 46.57%,
-    #025cd0 60.02%,
-    #024ecc 67.12%,
-    #0235c4 79.05%,
-    #0323be 91.35%,
-    #031cbc 100%
-  );
+  font-weight: 500; 
+  background: linear-gradient(90deg,
+      #00d7f7 0%,
+      #00cdf4 5.33%,
+      #01a2e6 29.22%,
+      #0192e1 41.44%,
+      #0182dc 46.57%,
+      #025cd0 60.02%,
+      #024ecc 67.12%,
+      #0235c4 79.05%,
+      #0323be 91.35%,
+      #031cbc 100%);
+
+  // background: linear-gradient(
+  //     87.58deg,
+  //     $gradientCyan 47.63%,
+  //     $gradientBlue 98.76%
+  //   ),
+  //   linear-gradient(0deg, #ffffff, #ffffff);
+
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
