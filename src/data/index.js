@@ -1,2 +1,2 @@
 export {navLinks} from "./navLinks";
-export {serviceData} from "./servicesHomeData";
+export {serviceData} from "./serviceData";

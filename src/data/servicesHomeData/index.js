@@ -1,1 +1,0 @@
-export {serviceData} from "./businessCardDesc";
