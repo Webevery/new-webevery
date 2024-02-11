@@ -14,14 +14,23 @@
     display: block;
     width: 500px;
     height: 500px;
-    background-image: url('../../../public/pattern_planet_hero.jpg');
+    background-image: url('../../../public/pattern_planet_hero.webp');
     border-radius: 50%;
     position: relative;
     background-size: cover;
     background-attachment: lazy;
-    box-shadow: inset -7px 0px 5px -5px #fdfff26d;
-    -webkit-box-shadow: inset -7px 0px 5px -5px #fdfff26d;
-    -moz-box-shadow: inset -7px 0px 5px -5px #fdfff26d;
+    box-shadow: inset -7px 0px 30px -5px #2f8ad5db, 0px 0px 100px 0px #1653845c;
+    -webkit-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+      0px 0px 100px 0px #1653845c;
+    -moz-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+      0px 0px 100px 0px #1653845c;
+    // box-shadow: inset -9px 0px 10px -4px #0b0229,
+    //   inset -7px 0px 30px -5px #2f8ad5db, 0px 0px 35px 0px #2a3baa63;
+
+    // box-shadow: inset -7px 0px 15px -5px #2f8ad5db;
+    // -webkit-box-shadow: inset -7px 0px 15px -5px #2f8ad5db;
+    // -moz-box-shadow: inset -7px 0px 15px -5px #2f8ad5db;
+
     // box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
     //   inset -7px 0px 5px -5px #fdfff26d;
     // -webkit-box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
@@ -30,8 +39,9 @@
     //   inset -7px 0px 5px -5px #fdfff26d;
     margin-left: -65%;
     margin-top: -15%;
-    // animation: rotate 54s infinite linear;
-    animation: rotate 200s infinite linear;
+
+    // для работы нужно раскомментировать 
+    // animation: rotate 200s infinite linear;
 
     z-index: -1;
 
@@ -50,6 +60,12 @@
       height: 900px;
       margin-left: -40%;
       margin-top: -10%;
+      box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+        0px 0px 150px 0px #1653845c;
+      -webkit-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+        0px 0px 150px 0px #1653845c;
+      -moz-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+        0px 0px 150px 0px #1653845c;
     }
 
     @media screen and (min-width: $laptop) {
@@ -98,7 +114,6 @@
 .heroContent {
   position: absolute;
   top: 152px;
-  // top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,19 +121,16 @@
 
   @media screen and (min-width: $mobile) {
     top: 224px;
-    // top: 144px;
   }
 
   @media screen and (min-width: $tablet) {
     top: 384px;
-    // top: 264px;
     right: 32px;
     align-items: flex-end;
   }
 
   @media screen and (min-width: $laptop) {
     top: 327px;
-    // top: 179px;
     right: 72px;
   }
 
@@ -206,7 +218,7 @@
   //     $gradientBlue 98.76%
   //   ),
   //   linear-gradient(0deg, #ffffff, #ffffff);
-
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
