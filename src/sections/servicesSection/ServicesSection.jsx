@@ -1,27 +1,12 @@
-import styles from "./ServicesSection.module.scss";
-import { lendingSiteDesc, businessCardDesc } from "@/data";
+// import styles from "./ServicesSection.module.scss";
 
+import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
 
 const ServicesSection = () => {
   return <section>
     <div>
       <h2>Послуги <span>від малого до великого сайту</span></h2>
-      <ul className={styles.serviceList}>
-        <li className={styles.serviceItem}>
-          <h3>Сайт-візитка</h3>
-          <ul>
-        {businessCardDesc.map((item)=>{
-          return <li key={item.id}>{item.text}</li>
-        })}</ul>
-        </li>
-        <li>
-          <h3>Лендінг</h3>
-          <ul>
-        {lendingSiteDesc.map((item)=>{
-          return <li key={item.id}>{item.text}</li>
-        })}</ul>
-        </li>
-      </ul>
+      <SliderOfServices/>
     </div>
   </section>;
 };
