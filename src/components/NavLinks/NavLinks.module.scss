@@ -12,7 +12,13 @@
     font-size: 20px;
   }
 }
-
+// .linkWrapper {
+//   &:focus,
+//   &:hover {
+//     height: fit-content;
+//     padding: 32px;
+//   }
+// }
 .navLink {
   position: relative;
   display: inline-block;
@@ -34,6 +40,23 @@
       animation: animate 0.5s linear forwards;
     }
   }
+}
+
+.linkWrapper {
+  &:focus,
+  &:hover {
+    & .subLinkWrapper {
+      height: fit-content;
+      padding: 32px;
+    }
+  }
+}
+
+.subLinkWrapper {
+  height: 0px;
+  // height: fit-content;
+  padding: 0px;
+  overflow: hidden;
 }
 
 @keyframes animate {

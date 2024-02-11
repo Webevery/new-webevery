@@ -90,10 +90,12 @@ button {
 }
 
 .titleGradient {
-  background-image: linear-gradient(to right,
-      $gradientYellow,
-      $gradientCyan,
-      $gradientBlue );
+  background-image: linear-gradient(
+    to right,
+    $gradientYellow,
+    $gradientCyan,
+    $gradientBlue
+  );
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
