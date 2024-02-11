@@ -7,7 +7,7 @@ const ServicesSection = () => {
     <div>
       <h2>Послуги <span>від малого до великого сайту</span></h2>
       <ul className={styles.serviceList}>
-        <li>
+        <li className={styles.serviceItem}>
           <h3>Сайт-візитка</h3>
           <ul>
         {businessCardDesc.map((item)=>{
