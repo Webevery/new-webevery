@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation, Keyboard, Autoplay } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 export const SliderOfServices=()=>{
   // const [slidesPerView, setSlidesPerView] = useState(5); // Default value for slidesPerView
@@ -76,7 +76,7 @@ export const SliderOfServices=()=>{
     >
     {serviceData.map(({id,title,desc,price})=>{
       return <SwiperSlide key={id}>
-        <li  className={styles.slideContentWrapper}>
+        <li  className="slideContentWrapper">
         <h3>{title}</h3>
         <ul>
         {desc && desc.map(({id,text})=>{
