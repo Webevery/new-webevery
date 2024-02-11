@@ -192,6 +192,7 @@ const OrderForm = () => {
                     title=' Order call from manager'
                     disabled={isErrors || isSubmitting}
                     className={styles.submitButton}
+                    id={styles.submitId}
                 />
             </form>
         </div>
