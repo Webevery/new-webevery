@@ -1,7 +1,13 @@
 @import '../../app/variables';
 
-.blogContainer {
+.blog {
   display: none;
+  @media screen and (min-width: $laptop) {
+    display: block;
+  }
+}
+
+.blogContainer {
   // padding: 228px 72px 80px 72px;
   // @media screen and (min-width: $mobile) {
   //   padding: 228px 72px 80px 72px;
@@ -10,7 +16,6 @@
   //   padding: 228px 72px 80px 72px;
   // }
   @media screen and (min-width: $laptop) {
-    display: block;
     padding: 204px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
@@ -69,5 +74,98 @@
   @media screen and (min-width: $desktop) {
     font-size: 44px;
     line-height: 1.1;
+  }
+}
+
+.cartContainer {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: repeat(3, 304px);
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  -webkit-column-gap: 24px;
+  -moz-column-gap: 24px;
+  column-gap: 24px;
+  row-gap: 24px;
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: repeat(3, 416px);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+.cartItem {
+  // width: 304px;
+  // height: 434px;
+  box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
+  background-color: #0d0d11;
+  padding: 24px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: $desktop) {
+    padding: 24px 24px;
+  }
+}
+
+.cartImgContainer {
+  position: relative;
+  width: 100%;
+  // width: 272px;
+  height: 200px;
+  margin-bottom: 16px;
+  @media screen and (min-width: $desktop) {
+    width: 368px;
+  }
+}
+
+.cartImg {
+  object-fit: cover;
+}
+
+.cartTitle {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 8px;
+  @media screen and (min-width: $desktop) {
+  }
+}
+
+.cartDesc {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 4px;
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 16px;
+  }
+}
+
+.readMore {
+  margin-left: auto;
+}
+
+.readMoreTitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  background: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.readMoreIcon {
+  width: 32px;
+  height: 12px;
+  margin-left: 16px;
+  @media screen and (min-width: $desktop) {
   }
 }
