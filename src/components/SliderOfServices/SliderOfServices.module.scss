@@ -1,0 +1,26 @@
+@import "../../app/variables";
+
+.serviceList{
+    width: 100%;
+    display: flex;
+    // justify-content: space-between;
+    align-items: baseline;
+    
+}
+
+.serviceItem{
+    
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    padding: 15px;
+    .price{
+        margin: 0 auto;
+    }
+}
+
+.descItem{
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+}

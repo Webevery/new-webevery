@@ -24,18 +24,6 @@
     }
 }
 
-.HomeOurProjectsSwiper .swiper-wrapper {
-    /* height: 235px;
-
-    @media screen and (min-width:360px) {
-        height: 258px;
-    }
-
-    @media screen and (min-width:768px) {
-        height: 529px;
-    } */
-}
-
 .HomeOurProjectsSwiper .swiper-slide {
     display: flex;
     justify-content: center;
@@ -56,10 +44,22 @@
     height: 100%;
     position: relative;
     margin-bottom: 16px;
+    border: 4px solid #0D0D11;
+    border-radius: 16px;
+    overflow: hidden;
+
+    @media screen and (min-width:768px) {
+        border: 8px solid #0D0D11;
+        border-radius: 32px;
+
+    }
 
     @media screen and (min-width:1024px) {
         margin-bottom: 0px;
         margin-right: 24px;
+        border: 12px solid #0D0D11;
+        border-radius: 56px;
+
     }
 
     @media screen and (min-width:1440px) {
@@ -109,7 +109,7 @@
 }
 
 .HomeOurProjectsSwiper .swiper-pagination {
-    bottom: -5px;
+    bottom: -6px;
 }
 
 .HomeOurProjectsSwiper .swiper-pagination-bullet {

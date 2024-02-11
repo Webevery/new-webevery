@@ -39,6 +39,7 @@
     //   inset -7px 0px 5px -5px #fdfff26d;
     margin-left: -65%;
     margin-top: -15%;
+
     animation: rotate 200s infinite linear;
 
     z-index: -1;
@@ -132,7 +133,8 @@
     right: 72px;
   }
 
-  @media screen and (min-width: $desktop) {}
+  @media screen and (min-width: $desktop) {
+  }
 }
 
 .title {
@@ -197,18 +199,20 @@
 }
 
 .textItem {
-  font-weight: 500; 
-  background: linear-gradient(90deg,
-      #00d7f7 0%,
-      #00cdf4 5.33%,
-      #01a2e6 29.22%,
-      #0192e1 41.44%,
-      #0182dc 46.57%,
-      #025cd0 60.02%,
-      #024ecc 67.12%,
-      #0235c4 79.05%,
-      #0323be 91.35%,
-      #031cbc 100%);
+  font-weight: 500;
+  background: linear-gradient(
+    90deg,
+    #00d7f7 0%,
+    #00cdf4 5.33%,
+    #01a2e6 29.22%,
+    #0192e1 41.44%,
+    #0182dc 46.57%,
+    #025cd0 60.02%,
+    #024ecc 67.12%,
+    #0235c4 79.05%,
+    #0323be 91.35%,
+    #031cbc 100%
+  );
 
   // background: linear-gradient(
   //     87.58deg,
@@ -216,7 +220,7 @@
   //     $gradientBlue 98.76%
   //   ),
   //   linear-gradient(0deg, #ffffff, #ffffff);
-
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
