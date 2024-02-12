@@ -13,38 +13,34 @@
     }
 
     @media screen and (min-width:1440px) {
-        /* height: 336px; */
-        height: 800px;
+        /* width: 1296px; */
+        height: 828px;
     }
 }
 
-.swiper-wrapper{
-    height: 800px;
-}
 
-.WorkingProcessSwiper .swiper-wrapper {
+.ServiceSwiper .swiper-wrapper {
     height: 800px;
 
     @media screen and (min-width:768px) {
-        height: 632px;
+        height: 556px;
     }
 
     @media screen and (min-width:1024px) {
-        height:800px;
+        height:629px;
     }
 
     @media screen and (min-width:1440px) {
-        height: 850px;
+        height: 772px;
     }
 }
 
-.WorkingProcessSwiper .swiper-slide {
+.ServiceSwiper .swiper-slide {
     display: flex;
     justify-content: center;
-    height: 850px;
 }
 
-.WorkingProcessSwiper .slideContentWrapper {
+.ServiceSwiper .slideContentWrapper {
     width: 100%;
     height: auto;
     /* display: flex;
@@ -56,21 +52,22 @@
 
     @media screen and (min-width:768px) {
         padding: 24px;
+        width: 340px;
     };
 
     @media screen and (min-width:1024px) {
         padding: 16px 12px;
-        height: 820px;
+        width: 304px;
     };
 
     @media screen and (min-width:1440px) {
         padding: 32px 16px;
-        height: 820px;
+        width: 416px;
     }
 }
 
 
-.WorkingProcessSwiper .swiper-slide h4 {
+.ServiceSwiper .swiper-slide h4 {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.6;
@@ -88,7 +85,8 @@
     }
 }
 
-.WorkingProcessSwiper .swiper-slide p {
+.ServiceSwiperr-slide p {
+    margin-left: auto;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
@@ -99,25 +97,25 @@
     }
 }
 
-.WorkingProcessSwiper .swiper-pagination {
+.ServiceSwiper .swiper-pagination {
     bottom: 0;
 }
 
-.WorkingProcessSwiper .swiper-pagination-bullet {
+.ServiceSwiper .swiper-pagination-bullet {
     width: 4px;
     height: 4px;
     background: #4B4B4E;
 }
 
-.WorkingProcessSwiper .swiper-pagination-bullet:not(:first-child) {
+.ServiceSwiper .swiper-pagination-bullet:not(:first-child) {
     margin-left: 2px;
 }
 
-.WorkingProcessSwiper .swiper-pagination-bullet:not(:last-child) {
+.ServiceSwiper .swiper-pagination-bullet:not(:last-child) {
     margin-right: 2px;
 }
 
-.WorkingProcessSwiper .swiper-pagination-bullet-active {
+.ServiceSwiper .swiper-pagination-bullet-active {
     background: linear-gradient(to right, #faff00,
             #00f0ff,
             #0400b3);

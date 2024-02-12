@@ -69,7 +69,7 @@ export const SliderOfServices=()=>{
           },
       }}
           modules={[Pagination]}
-          className="WorkingProcessSwiper"
+          className="ServiceSwiper"
         >
           <ul className={styles.serviceList}>
     {serviceData.map(({id,title,desc,price})=>{
