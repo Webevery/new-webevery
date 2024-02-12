@@ -110,22 +110,59 @@
 
 .HomeOurProjectsSwiper .swiper-pagination {
     bottom: -6px;
+
+    @media screen and (min-width:1024px) {
+        display: none;
+    }
 }
 
 .HomeOurProjectsSwiper .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
     background: #cbcbcf;
-
-    @media screen and (min-width:1024px) {
-        /* потом исправится */
-        /* display: none; */
-    }
-
 }
 
 .HomeOurProjectsSwiper .swiper-pagination-bullet-active {
     background: linear-gradient(to right, #faff00,
             #00f0ff,
             #0400b3);
+}
+
+.HomeOurProjectsSwiper .swiper-button-prev {
+    visibility: hidden;
+
+    @media screen and (min-width:1024px) {
+        visibility: visible;
+        left: 0px;
+        top: 95%;
+        width: 48px;
+        height: 48px;
+    }
+
+    @media screen and (min-width:1440px) {
+        top: 97%;
+    }
+}
+
+.HomeOurProjectsSwiper .swiper-button-next {
+    visibility: hidden;
+
+    @media screen and (min-width:1024px) {
+        visibility: visible;
+        left: 48px;
+        top: 95%;
+        width: 48px;
+        height: 48px;
+    }
+
+    @media screen and (min-width:1440px) {
+        top: 97%;
+    }
+}
+
+.HomeOurProjectsSwiper .swiper-button-prev:after,
+.HomeOurProjectsSwiper .swiper-button-next:after {
+    font-size: 12px;
+    font-weight: 900;
+    color: #A6A6AA;
 }
