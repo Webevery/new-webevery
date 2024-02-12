@@ -5,12 +5,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
 import './HomeOurProjectsSlider.css';
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { CldImage } from 'next-cloudinary';
 // import { workingProcessData } from '@/data/workingProcessData';
 
@@ -20,25 +20,41 @@ const HomeOurProjectsSlider = () => {
         <>
             <Swiper
                 slidesPerView={1}
-                // spaceBetween={24}
+                spaceBetween={16}
+                keyboard={{
+                    enabled: true,
+                }}
+                navigation={true}
                 pagination={{
                     clickable: true,
                 }}
-                // breakpoints={{
-                //     768: {
-                //         slidesPerView: 2,
-                //         spaceBetween: 24,
-                //     },
-                //     1024: {
-                //         slidesPerView: 4,
-                //         spaceBetween: 24,
-                //     },
-                //     1440: {
-                //         slidesPerView: 4,
-                //         spaceBetween: 24,
-                //     },
-                // }}
-                modules={[Pagination]}
+                loop={true}
+                mousewheel={true}
+
+                breakpoints={{
+                    320: {
+                        spaceBetween: 16,
+                        mousewheel: false,
+                    },
+                    360: {
+                        spaceBetween: 16,
+                        mousewheel: false,
+                    },
+                    768: {
+                        loop: false,
+                        spaceBetween: 16,
+                        mousewheel: true,
+                    },
+                    1024: {
+                        loop: false,
+                        spaceBetween: 24,
+                    },
+                    1440: {
+                        loop: false,
+                        spaceBetween: 48,
+                    },
+                }}
+                modules={[Keyboard, Mousewheel, Navigation, Pagination]}
                 className='HomeOurProjectsSwiper'
             >
                 {/* {workingProcessData.map(item => (
@@ -88,9 +104,9 @@ const HomeOurProjectsSlider = () => {
                             <CldImage
                                 className='slideImg'
                                 fill
-                                src="photo_2024-02-10_22-10-03_mjul8p"
+                                src="photo_2024-02-10_22-09-26_vkvkrm"
                                 sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
-                                alt="Project photo 3 Dimka"
+                                alt="Project photo 3 Maks"
                             />
                         </div>
                         <h2 className='slideTitle'> You can try this <span className='gradient'>wonderful food</span></h2>
@@ -144,9 +160,9 @@ const HomeOurProjectsSlider = () => {
                             <CldImage
                                 className='slideImg'
                                 fill
-                                src="photo_2024-02-10_22-09-26_vkvkrm"
+                                src="photo_2024-02-10_22-09-36_nhibgv"
                                 sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
-                                alt="Project photo 7 Maks"
+                                alt="Project photo 7 Dimka"
                             />
                         </div>
                         <h2 className='slideTitle'> Site for <span className='gradient'>building company</span></h2>
@@ -186,9 +202,9 @@ const HomeOurProjectsSlider = () => {
                             <CldImage
                                 className='slideImg'
                                 fill
-                                src="photo_2024-02-10_22-09-46_xv7zu9"
+                                src="photo_2024-02-10_22-09-31_dapqnd"
                                 sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
-                                alt="Project photo 10 Maks"
+                                alt="Project photo 10 Andrey"
                             />
                         </div>
                         <h2 className='slideTitle'> Site for <span className='gradient'>building company</span></h2>
@@ -214,9 +230,9 @@ const HomeOurProjectsSlider = () => {
                             <CldImage
                                 className='slideImg'
                                 fill
-                                src="photo_2024-02-10_22-09-31_dapqnd"
+                                src="photo_2024-02-10_22-09-54_a5obbu"
                                 sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
-                                alt="Project photo 12 Andrey"
+                                alt="Project photo 12 Maks"
                             />
                         </div>
                         <h2 className='slideTitle'> You can try this <span className='gradient'>wonderful food</span></h2>
