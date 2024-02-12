@@ -60,35 +60,35 @@ export const SliderOfServices=()=>{
               spaceBetween: 24,
           },
           1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 24,
           },
           1440: {
-              slidesPerView: 4,
-              spaceBetween: 24,
+              slidesPerView: 3,
+              spaceBetween: 10,
           },
       }}
           modules={[Pagination]}
           className="WorkingProcessSwiper"
         >
-          <ul 
-    // className={styles.serviceList}
-    >
+          <ul className={styles.serviceList}>
     {serviceData.map(({id,title,desc,price})=>{
-      return <SwiperSlide key={id}>
-        <li  className="slideContentWrapper">
-        <h3>{title}</h3>
+      return <SwiperSlide key={id}className="slideContentWrapper" >
+        <li  className={styles.serviceItem}>
+        <div><h3>{title}</h3>
         <ul>
         {desc && desc.map(({id,text})=>{
           return <li key={id}
           className={styles.descItem}
-           >{text}</li>
+          >{text}</li>
         })}
+        
+        </ul>
+        </div>
         <p
         //  className={styles.price}
          >{price}</p>
-        <OrderBtn/>
-        </ul>
+        <OrderBtn title={"Замовити"}/>
       </li></SwiperSlide>
     })}</ul>
     </Swiper>
