@@ -128,36 +128,9 @@
             #0400b3);
 }
 
-.HomeOurProjectsSwiper .swiper-button-prev {
-    visibility: hidden;
-
-    /* @media screen and (min-width:1024px) {
-        visibility: visible;
-        left: 0px;
-        top: 95%;
-        width: 48px;
-        height: 48px;
-    } */
-
-    /* @media screen and (min-width:1440px) {
-        top: 97%;
-    } */
-}
-
+.HomeOurProjectsSwiper .swiper-button-prev,
 .HomeOurProjectsSwiper .swiper-button-next {
     visibility: hidden;
-
-    /* @media screen and (min-width:1024px) {
-        visibility: visible;
-        left: 48px;
-        top: 95%;
-        width: 48px;
-        height: 48px;
-    } */
-
-    /* @media screen and (min-width:1440px) {
-        top: 97%;
-    } */
 }
 
 .HomeOurProjectsSwiper .swiper-button-prev:after,
@@ -182,5 +155,15 @@
         top: 95%;
         width: 48px;
         height: 48px;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .HomeOurProjectsSwiper .swiper-button-prev {
+        top: 97%;
+    }
+
+    .HomeOurProjectsSwiper .swiper-button-next {
+        top: 97%;
     }
 }
