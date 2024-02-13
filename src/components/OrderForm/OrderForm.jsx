@@ -66,11 +66,13 @@ const OrderForm = () => {
 
     return (
         <div className={styles.container}>
-            <button onClick={closeModal} className={styles.closeBtn}>
-                <svg className={styles.iconBtnClose}>
-                    <use href='/sprite.svg#icon-close' />
-                </svg>
-            </button>
+            {isModalOpen && (
+                <button onClick={closeModal} className={styles.closeBtn}>
+                    <svg className={styles.iconBtnClose}>
+                        <use href='/sprite.svg#icon-close' />
+                    </svg>
+                </button>
+            )}
             <div className={styles.titleWrap}>
                 {isLaptop ? (
                     <h2 className={styles.title}>We call you very soon</h2>
