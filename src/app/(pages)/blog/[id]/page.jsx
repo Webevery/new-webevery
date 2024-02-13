@@ -1,12 +1,8 @@
-import React from 'react'
-import BlogIdSection from '@/sections/blogIdSection/BlogIdSection'
+import React from 'react';
+import BlogIdSection from '@/sections/blogIdSection/BlogIdSection';
 
+const BlogIdPage = ({ params }) => {
+  return <BlogIdSection params={params} />;
+};
 
-const BlogIdPage = () => {
-    return (
-        <BlogIdSection />
-    )
-}
-
-
-export default BlogIdPage
+export default BlogIdPage;
