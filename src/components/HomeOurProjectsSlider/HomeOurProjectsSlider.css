@@ -131,33 +131,33 @@
 .HomeOurProjectsSwiper .swiper-button-prev {
     visibility: hidden;
 
-    @media screen and (min-width:1024px) {
+    /* @media screen and (min-width:1024px) {
         visibility: visible;
         left: 0px;
         top: 95%;
         width: 48px;
         height: 48px;
-    }
+    } */
 
-    @media screen and (min-width:1440px) {
+    /* @media screen and (min-width:1440px) {
         top: 97%;
-    }
+    } */
 }
 
 .HomeOurProjectsSwiper .swiper-button-next {
     visibility: hidden;
 
-    @media screen and (min-width:1024px) {
+    /* @media screen and (min-width:1024px) {
         visibility: visible;
-        left: 200px;
+        left: 48px;
         top: 95%;
         width: 48px;
         height: 48px;
-    }
+    } */
 
-    @media screen and (min-width:1440px) {
+    /* @media screen and (min-width:1440px) {
         top: 97%;
-    }
+    } */
 }
 
 .HomeOurProjectsSwiper .swiper-button-prev:after,
@@ -165,4 +165,22 @@
     font-size: 12px;
     font-weight: 900;
     color: #A6A6AA;
+}
+
+@media screen and (min-width:1024px) {
+    .HomeOurProjectsSwiper .swiper-button-prev {
+        visibility: visible;
+        left: 0px;
+        top: 95%;
+        width: 48px;
+        height: 48px;
+    }
+
+    .HomeOurProjectsSwiper .swiper-button-next {
+        visibility: visible;
+        left: 48px;
+        top: 95%;
+        width: 48px;
+        height: 48px;
+    }
 }
