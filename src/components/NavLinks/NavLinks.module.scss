@@ -12,13 +12,7 @@
     font-size: 20px;
   }
 }
-// .linkWrapper {
-//   &:focus,
-//   &:hover {
-//     height: fit-content;
-//     padding: 32px;
-//   }
-// }
+.subLinkWrapper a,
 .navLink {
   position: relative;
   display: inline-block;
@@ -43,20 +37,42 @@
 }
 
 .linkWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   &:focus,
   &:hover {
     & .subLinkWrapper {
       height: fit-content;
       padding: 32px;
+      @media screen and (min-width: $desktop) {
+        padding: 8px 0 0;
+      }
     }
+    // & .navLink::after {
+    //   width: 100%;
+    // }
   }
 }
 
 .subLinkWrapper {
+  // outline: 1px solid red;
   height: 0px;
-  // height: fit-content;
+  display: flex;
+  flex-direction: column;
   padding: 0px;
   overflow: hidden;
+
+  // &:hover .navLink::after {
+  //   width: 100%;
+  // }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    position: absolute;
+    top: 28px;
+    width: max-content;
+  }
 }
 
 @keyframes animate {

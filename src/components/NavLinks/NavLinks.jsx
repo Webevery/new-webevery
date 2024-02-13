@@ -1,15 +1,24 @@
 import { SiteContext } from "@/context/siteContext";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { navLinks } from "../../data/navLinks";
 import styles from "./NavLinks.module.scss";
 
 const NavLinks = ({ className }) => {
-  const { setBurgermenu } = useContext(SiteContext);
+  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
 
   const links = navLinks.map((link) => {
-    // link.subMenu ? console.log(link.subMenu) : [];
-    // console.log(link);
+    // burgerMenu && typeof document !== undefined;
+    // console.log("typeof document", typeof document);
+
+    // const subLinkWrapper = document.querySelector(".subLinkWrapper");
+    // console.dir("subLinkWrapper", subLinkWrapper);
+
+    // burgerMenu
+    burgerMenu && typeof document !== undefined
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "scroll");
 
     return (
       <div key={link.id} className={styles.linkWrapper}>
@@ -25,7 +34,6 @@ const NavLinks = ({ className }) => {
         {link.subMenu && (
           <div className={styles.subLinkWrapper}>
             {link.subMenu?.map((sub) => {
-              console.log(sub);
               return (
                 <Link
                   key={sub.id}
