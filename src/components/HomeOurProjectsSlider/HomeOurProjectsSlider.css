@@ -133,7 +133,7 @@
 
     @media screen and (min-width:1024px) {
         visibility: visible;
-        left: 0px !important;
+        left: 0px;
         top: 95%;
         width: 48px;
         height: 48px;
@@ -149,7 +149,7 @@
 
     @media screen and (min-width:1024px) {
         visibility: visible;
-        left: 48px;
+        left: 200px;
         top: 95%;
         width: 48px;
         height: 48px;
