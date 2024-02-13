@@ -1,5 +1,6 @@
+"use client";
+
 import { SiteContext } from "@/context/siteContext";
-import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import React, { useCallback, useContext, useEffect } from "react";
 import { navLinks } from "../../data/navLinks";
@@ -8,18 +9,17 @@ import styles from "./NavLinks.module.scss";
 const NavLinks = ({ className }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
 
+  const isDocument = typeof window !== "undefined";
+
+  useEffect(() => {
+    if (burgerMenu && isDocument) {
+      document.body.style.overflowY = "hidden";
+    } else if (isDocument) {
+      document.body.style.overflowY = "scroll";
+    }
+  }, [burgerMenu, isDocument]);
+
   const links = navLinks.map((link) => {
-    // burgerMenu && typeof document !== undefined;
-    // console.log("typeof document", typeof document);
-
-    // const subLinkWrapper = document.querySelector(".subLinkWrapper");
-    // console.dir("subLinkWrapper", subLinkWrapper);
-
-    // burgerMenu
-    burgerMenu && typeof document !== undefined
-      ? (document.body.style.overflowY = "hidden")
-      : (document.body.style.overflowY = "scroll");
-
     return (
       <div key={link.id} className={styles.linkWrapper}>
         <Link
