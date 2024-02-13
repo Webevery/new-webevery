@@ -10,6 +10,7 @@ import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import styles from "./OrderForm.module.scss";
 
 const OrderForm = () => {
+    const isFooterForm = false;
     const [isLaptop, setLaptop] = useState(true);
     const { closeModal, isModalOpen } = useContext(SiteContext);
 
@@ -65,7 +66,13 @@ const OrderForm = () => {
     }, [isModalOpen]);
 
     return (
-        <div className={styles.container}>
+        <div
+            className={
+                isFooterForm
+                    ? `${styles.container} ${styles.containerFooter}`
+                    : styles.container
+            }
+        >
             {isModalOpen && (
                 <button onClick={closeModal} className={styles.closeBtn}>
                     <svg className={styles.iconBtnClose}>
@@ -73,15 +80,17 @@ const OrderForm = () => {
                     </svg>
                 </button>
             )}
-            <div className={styles.titleWrap}>
-                {isLaptop ? (
-                    <h2 className={styles.title}>We call you very soon</h2>
-                ) : (
-                    <h2 className={styles.title}>
-                        Write the form and we call you very soon
-                    </h2>
-                )}
-            </div>
+            {!isFooterForm && (
+                <div className={styles.titleWrap}>
+                    {isLaptop ? (
+                        <h2 className={styles.title}>We call you very soon</h2>
+                    ) : (
+                        <h2 className={styles.title}>
+                            Write the form and we call you very soon
+                        </h2>
+                    )}
+                </div>
+            )}
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className={styles.form}
@@ -180,7 +189,12 @@ const OrderForm = () => {
                 </div>
                 <div className={styles.inputWrap}>
                     <textarea
-                        className={`${styles.textarea} ${styles.input}`}
+                        // className={`${styles.textarea} ${styles.input}`}
+                        className={
+                            isFooterForm
+                                ? `${styles.input} ${styles.textarea} ${styles.textareaFooter}`
+                                : `${styles.input} ${styles.textarea}`
+                        }
                         cols='30'
                         rows='2'
                         id='message'
