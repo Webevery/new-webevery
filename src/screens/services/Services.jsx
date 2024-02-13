@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./Services.module.scss";
-import ServicesSection from "@/sections/servicesSection/ServicesSection";
+// import styles from "./Services.module.scss";
+// import ServicesSection from "@/sections/servicesSection/ServicesSection";
 
 const Services = () => {
   return <div className="screen">
-    <ServicesSection />
+    {/* <ServicesSection /> */}
   </div>;
 };
 
