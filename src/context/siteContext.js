@@ -5,6 +5,7 @@ export const SiteContext = createContext();
 
 export const SiteProvider = ({ children }) => {
   const [burgerMenu, setBurgermenu] = useState(false);
+  // console.log(burgerMenu);
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -16,12 +17,15 @@ export const SiteProvider = ({ children }) => {
   };
 
   return (
-    <SiteContext.Provider value={{
-      burgerMenu, setBurgermenu,
-      isModalOpen,
-      openModal,
-      closeModal,
-    }}>
+    <SiteContext.Provider
+      value={{
+        burgerMenu,
+        setBurgermenu,
+        isModalOpen,
+        openModal,
+        closeModal,
+      }}
+    >
       {children}
     </SiteContext.Provider>
   );

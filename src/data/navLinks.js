@@ -19,7 +19,7 @@ export const navLinks = [
       },
       { id: v4(), href: "/graphicDesign", title: "Graphic Design" },
       { id: v4(), href: "/individualProject", title: "Individual Project" },
-      { id: v4(), href: "/landing", title: "Landinge" },
+      { id: v4(), href: "/landing", title: "Landing" },
       { id: v4(), href: "/logo", title: "Logo" },
       { id: v4(), href: "/qrCodeMenu", title: "QR Code Menu" },
       { id: v4(), href: "/siteCatalog", title: "Site Catalog" },

@@ -1,16 +1,25 @@
+"use client";
+
 import { SiteContext } from "@/context/siteContext";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { navLinks } from "../../data/navLinks";
 import styles from "./NavLinks.module.scss";
 
 const NavLinks = ({ className }) => {
-  const { setBurgermenu } = useContext(SiteContext);
+  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+
+  const isDocument = typeof window !== "undefined";
+
+  useEffect(() => {
+    if (burgerMenu && isDocument) {
+      document.body.style.overflowY = "hidden";
+    } else if (isDocument) {
+      document.body.style.overflowY = "scroll";
+    }
+  }, [burgerMenu, isDocument]);
 
   const links = navLinks.map((link) => {
-    // link.subMenu ? console.log(link.subMenu) : [];
-    // console.log(link);
-
     return (
       <div key={link.id} className={styles.linkWrapper}>
         <Link
@@ -25,7 +34,6 @@ const NavLinks = ({ className }) => {
         {link.subMenu && (
           <div className={styles.subLinkWrapper}>
             {link.subMenu?.map((sub) => {
-              console.log(sub);
               return (
                 <Link
                   key={sub.id}
