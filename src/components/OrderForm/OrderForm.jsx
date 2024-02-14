@@ -9,8 +9,7 @@ import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 
 import styles from "./OrderForm.module.scss";
 
-const OrderForm = () => {
-    const isFooterForm = false;
+const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
     const [isLaptop, setLaptop] = useState(true);
     const { closeModal, isModalOpen } = useContext(SiteContext);
 
@@ -18,7 +17,7 @@ const OrderForm = () => {
         defaultValues: {
             userName: "",
             tel: "",
-            message: "",
+            message: sectionTitle,
         },
         resolver: yupResolver(YupOrderFormSchema),
         mode: "onChange",

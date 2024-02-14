@@ -23,6 +23,10 @@
         height: 532px;
         padding: 24px;
     }
+    @media screen and (min-width: $tablet) {
+        width: 522px;
+        height: 528px;
+    }
     @media screen and (min-width: $laptop) {
         width: 856px;
         height: 562px;
@@ -66,9 +70,14 @@
     @media screen and (min-width: $mobile) {
         width: 360px;
     }
+    @media screen and (min-width: $tablet) {
+        justify-content: center;
+        width: 570px;
+        margin-top: 35px;
+    }
     @media screen and (min-width: $laptop) {
         width: 636px;
-        justify-content: center;
+        margin-top: 0;
     }
 }
 
@@ -99,6 +108,10 @@
 
     @media screen and (min-width: $mobile) {
         width: 312px;
+    }
+
+    @media screen and (min-width: $tablet) {
+        width: 474px;
     }
 
     @media screen and (min-width: $laptop) {
@@ -160,6 +173,10 @@
 .textarea {
     height: 180px;
     resize: none;
+
+    @media screen and (min-width: $tablet) {
+        height: 132px;
+    }
 
     @media screen and (min-width: $laptop) {
         width: 100%;
