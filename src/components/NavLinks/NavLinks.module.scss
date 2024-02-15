@@ -12,6 +12,34 @@
     font-size: 20px;
   }
 }
+
+.linkWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  position: relative;
+  transition-duration: 250ms;
+}
+
+.arrow {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    transform: rotate(90deg);
+    & ~ .navLink::after {
+      width: 100%;
+    }
+  }
+}
+.arrowActive {
+  transform: rotate(90deg);
+}
+
 .subLinkWrapper a,
 .navLink {
   position: relative;
@@ -36,42 +64,89 @@
   }
 }
 
-.linkWrapper {
+.navLink {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  &:focus,
-  &:hover {
-    & .subLinkWrapper {
-      height: fit-content;
-      padding: 32px;
-      @media screen and (min-width: $desktop) {
-        padding: 8px 0 0;
-      }
-    }
-    // & .navLink::after {
-    //   width: 100%;
-    // }
-  }
+  align-items: center;
+  gap: 8px;
 }
 
+.subLinkWrapperVisible,
 .subLinkWrapper {
-  // outline: 1px solid red;
   height: 0px;
   display: flex;
   flex-direction: column;
-  padding: 0px;
+  gap: 32px;
   overflow: hidden;
+  position: absolute;
+  top: 40px;
+  z-index: 20;
+  color: $gray0;
+  background-color: $gray900;
 
-  // &:hover .navLink::after {
-  //   width: 100%;
-  // }
+  padding: 0px 32px;
+
+  margin-left: -24px;
+  /* margin: -18px; */
+  width: 200px;
+
+  @media screen and (min-width: $mobile) {
+    width: 327px;
+    margin-left: -32px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 412px;
+    margin-left: -32px;
+  }
+  @media screen and (min-width: $laptop) {
+    width: 327px;
+    top: 0;
+    left: 100%;
+
+    color: $gray900;
+    background-color: $gray0;
+    width: 0;
+    height: auto;
+    padding: 32px 0px;
+  }
 
   @media screen and (min-width: $desktop) {
     font-size: 20px;
-    position: absolute;
-    top: 28px;
     width: max-content;
+    margin-left: 0;
+    color: $gray900;
+    padding: 0px 32px;
+    background-color: $gray0;
+    top: 40px;
+    height: 0;
+    left: 0;
+  }
+}
+
+.subLinkWrapperVisible {
+  max-height: 70vh;
+  height: auto;
+  padding: 32px;
+  padding-top: 20px;
+
+  overflow: scroll;
+
+  @media screen and (min-width: $laptop) {
+    width: 327px;
+    padding: 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 32px 16px 16px 32px;
+    max-height: fit-content;
+    top: 40px;
+    height: fit-content;
+  }
+}
+
+.subLinkWrapper:hover + .navLink {
+  &::after {
+    width: 100%;
   }
 }
 

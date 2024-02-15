@@ -9,10 +9,12 @@ $gradientYellow: #faff00;
 $gradientCyan: #00f0ff;
 $gradientBlue: #0400b3;
 
-$gradient: linear-gradient(90deg,
-                $gradientYellow,
-                $gradientCyan,
-                $gradientBlue);
+$gradient: linear-gradient(
+  90deg,
+  $gradientYellow,
+  $gradientCyan,
+  $gradientBlue
+);
 
 $gray900: #0d0d11;
 $gray800: #2e2e31;
@@ -26,9 +28,9 @@ $gray100: #ececf0;
 $gray50: #f6f6fa;
 $gray0: #ffffff;
 
-$errorColor: #D50000;
-$successColor: #05FF00;
-$warningColor: #FFC700;
+$errorColor: #d50000;
+$successColor: #05ff00;
+$warningColor: #ffc700;
 
-$shadowColor: 6px 12px 32px 0px #1A8CFF1A;
-$formShadow: 6px 12px 32px 0px #1A8CFF80;
+$shadowColor: 6px 12px 32px 0px #1a8cff1a;
+$formShadow: 6px 12px 32px 0px #1a8cff80;
