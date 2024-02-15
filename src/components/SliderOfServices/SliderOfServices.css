@@ -1,5 +1,5 @@
-.WorkingProcessSwiper {
-    position:relative;
+
+.ServicesSwiper {
     width: 100%;
     height: 222px;
 
@@ -8,7 +8,6 @@
     }
 
     @media screen and (min-width:1024px) {
-        /* height: 424px; */
         height: 454px;
     }
 
@@ -21,7 +20,6 @@
 
 .ServiceSwiper .swiper-wrapper {
     height: 800px;
-
     @media screen and (min-width:768px) {
         height: 556px;
     }
@@ -35,17 +33,15 @@
     }
 }
 
-.ServiceSwiper .swiper-slide {
+
+.ServicesSwiper .swiper-slide {
     display: flex;
     justify-content: center;
 }
 
-.ServiceSwiper .slideContentWrapper {
+
+.ServicesSwiper .slideContentWrapper {
     width: 100%;
-    /* height: auto; */
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
     padding: 32px 16px;
     background-color: #0d0d11;
     box-shadow: 6px 12px 32px 0px #1A8CFF1A;
@@ -67,7 +63,9 @@
 }
 
 
-.ServiceSwiper .swiper-slide h4 {
+
+.ServicesSwiper .swiper-slide h4 {
+
     font-weight: 500;
     font-size: 16px;
     line-height: 1.6;
@@ -85,8 +83,8 @@
     }
 }
 
-.ServiceSwiperr-slide p {
-    margin-left: auto;
+
+.ServicesSwiper .swiper-slide p {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
@@ -101,21 +99,21 @@
     bottom: 0;
 }
 
-.ServiceSwiper .swiper-pagination-bullet {
+.ServicesSwiper .swiper-pagination-bullet {
     width: 4px;
     height: 4px;
     background: #4B4B4E;
 }
 
-.ServiceSwiper .swiper-pagination-bullet:not(:first-child) {
+.ServicesSwiper .swiper-pagination-bullet:not(:first-child) {
     margin-left: 2px;
 }
 
-.ServiceSwiper .swiper-pagination-bullet:not(:last-child) {
+.ServicesSwiper .swiper-pagination-bullet:not(:last-child) {
     margin-right: 2px;
 }
 
-.ServiceSwiper .swiper-pagination-bullet-active {
+.ServicesSwiper .swiper-pagination-bullet-active {
     background: linear-gradient(to right, #faff00,
             #00f0ff,
             #0400b3);
