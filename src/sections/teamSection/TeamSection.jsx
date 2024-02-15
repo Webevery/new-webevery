@@ -1,7 +1,9 @@
+"use client"
+
 import styles from "./TeamSection.module.scss";
 import { team } from '@/data/team';
-import Image from 'next/image';
-import Link from 'next/link';
+//import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 
 const TeamSection = () => {
   return (
@@ -17,12 +19,12 @@ const TeamSection = () => {
             </h2>
           </div>
           <ul className={styles.cartContainer}>
-            {team.map(({ id, img, name, jobTitle }) => (
+            {team.map(({ id, img, alt, name, jobTitle }) => (
               <li key={id} className={styles.cartItem}>
                 <div className={styles.cartImgContainer}>
-                  <Image
+                  <CldImage
                     src={img}
-                    alt="img team"
+                    alt={alt}
                     fill="true"
                     className={styles.cartImg}
                   />
