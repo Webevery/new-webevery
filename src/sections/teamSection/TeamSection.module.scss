@@ -1,1 +1,152 @@
 @import "../../app/variables";
+
+.team {
+    display: block;
+    @media screen and (min-width: $laptop) {
+      display: block;
+    }
+  }
+  
+  .teamContainer {
+    @media screen and (min-width: $laptop) {
+      padding: 204px 32px 80px 32px;
+    }
+    @media screen and (min-width: $desktop) {
+      padding: 228px 72px 80px 72px;
+    }
+  }
+  
+  .titleTeamContainer {
+    @media screen and (min-width: $laptop) {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      row-gap: 16px;
+      margin-bottom: 48px;
+    }
+  
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 72px;
+    }
+  }
+  
+  .titleTeam {
+    @media screen and (min-width: $laptop) {
+      font-weight: 400;
+      font-size: 64px;
+      line-height: 1.1;
+      & span {
+        background: linear-gradient(
+          91deg,
+          $gradientYellow 0%,
+          $gradientCyan 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    @media screen and (min-width: $desktop) {
+      font-weight: 300;
+      font-size: 96px;
+    }
+  }
+  
+  .descTeam {
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1.1;
+    color: #ffffff;
+    @media screen and (min-width: $laptop) {
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      color: #fff;
+    }
+    @media screen and (min-width: $desktop) {
+      font-size: 44px;
+      line-height: 1.1;
+    }
+  }
+  
+  .cartContainer {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    -webkit-box-pack: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
+    -webkit-column-gap: 24px;
+    -moz-column-gap: 24px;
+    column-gap: 24px;
+    row-gap: 24px;
+    @media screen and (min-width: $desktop) {
+      grid-template-columns: repeat(3, 416px);
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+  }
+  
+  .cartItem {
+    box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
+    background-color: #0d0d11;
+    //padding: 24px 16px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    @media screen and (min-width: $desktop) {
+      //padding: 24px 24px;
+    }
+  }
+  
+  .cartImgContainer {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 16px;
+    @media screen and (min-width: $desktop) {
+      width: 368px;
+    }
+  }
+  
+  .cartImg {
+    object-fit: cover;
+  }
+  
+  .cartName {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.4;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 4px;
+    @media screen and (min-width: $desktop) {
+    }
+  }
+  
+  .cartJobTitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 4px;
+    text-align: center;
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 4px;
+    }
+  }
+  
