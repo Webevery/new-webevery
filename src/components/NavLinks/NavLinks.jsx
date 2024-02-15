@@ -25,7 +25,7 @@ const NavLinks = ({ className }) => {
         {link.subMenu && (
           <div className={styles.subLinkWrapper}>
             {link.subMenu?.map((sub) => {
-              console.log(sub);
+              // console.log(sub);
               return (
                 <Link
                   key={sub.id}

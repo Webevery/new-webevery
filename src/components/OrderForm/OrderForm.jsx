@@ -30,7 +30,7 @@ const OrderForm = () => {
         formState;
 
     const onSubmit = (data) => {
-        console.log("FormData:", data);
+        // console.log("FormData:", data);
         closeModal();
     };
 
