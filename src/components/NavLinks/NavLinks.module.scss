@@ -12,6 +12,33 @@
     font-size: 20px;
   }
 }
+
+.linkWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  position: relative;
+  transition-duration: 2s;
+}
+
+.arrow {
+  width: 12px;
+  height: 12px;
+
+  &:focus,
+  &:hover {
+    transform: rotate(90deg);
+    & ~ .navLink::after {
+      width: 100%;
+    }
+  }
+}
+.arrowActive {
+  transform: rotate(90deg);
+}
+
 .subLinkWrapper a,
 .navLink {
   position: relative;
@@ -36,42 +63,61 @@
   }
 }
 
-.linkWrapper {
+.navLink {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  &:focus,
-  &:hover {
-    & .subLinkWrapper {
-      height: fit-content;
-      padding: 32px;
-      @media screen and (min-width: $desktop) {
-        padding: 8px 0 0;
-      }
-    }
-    // & .navLink::after {
-    //   width: 100%;
-    // }
-  }
+  align-items: center;
+  gap: 8px;
 }
 
+.subLinkWrapperVisible,
 .subLinkWrapper {
-  // outline: 1px solid red;
   height: 0px;
   display: flex;
   flex-direction: column;
-  padding: 0px;
+  gap: 32px;
   overflow: hidden;
-
-  // &:hover .navLink::after {
-  //   width: 100%;
-  // }
+  position: absolute;
+  top: 40px;
+  z-index: 20;
+  color: $gray0;
+  background-color: $gray900;
+  width: 327px;
+  margin-left: -32px;
+  padding: 0px 32px;
 
   @media screen and (min-width: $desktop) {
     font-size: 20px;
-    position: absolute;
-    top: 28px;
     width: max-content;
+    margin-left: 0;
+    color: $gray900;
+    padding: 0px 16px;
+
+    background-color: $gray0;
+  }
+}
+
+.subLinkWrapperVisible {
+  max-height: 70vh;
+  height: auto;
+  padding: 32px;
+  padding-top: 20px;
+
+  overflow: scroll;
+
+  @media screen and (min-width: $desktop) {
+    padding: 32px 16px 16px 32px;
+    max-height: fit-content;
+    top: 40px;
+    height: 600px;
+
+    // top: 8px;
+    // padding-top: 56px;
+  }
+}
+
+.subLinkWrapper:hover + .navLink {
+  &::after {
+    width: 100%;
   }
 }
 
