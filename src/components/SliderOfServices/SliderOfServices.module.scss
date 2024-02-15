@@ -10,7 +10,8 @@
 }
 
 .serviceItem{
-    // height: 828px;
+
+    height: 750px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,5 +26,5 @@
     flex-direction: column;
     height: auto;
     padding-bottom: 10px;
-    // justify-content: space-between;
+    justify-content: space-between;
 }

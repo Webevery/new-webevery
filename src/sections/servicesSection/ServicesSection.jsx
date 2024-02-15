@@ -1,4 +1,4 @@
-// import styles from "./ServicesSection.module.scss";
+import styles from "./ServicesSection.module.scss";
 
 // import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
 
