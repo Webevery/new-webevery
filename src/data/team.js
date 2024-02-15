@@ -95,6 +95,6 @@ export const team = [
     alt: "Anastasiia Kuznietsova",
     name: "Anastasiia Kuznietsova",
     jobTitle:
-      "UX/UI/Designer",
+      "Graphic Designer",
   },
 ];
