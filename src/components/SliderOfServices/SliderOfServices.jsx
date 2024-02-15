@@ -55,41 +55,41 @@ export const SliderOfServices = () => {
             clickable: true,
         }}
         breakpoints={{
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 24,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 24,
-            },
-            1440: {
-                slidesPerView: 4,
-                spaceBetween: 24,
-            },
-        }}
-        modules={[Pagination]}
-        className="ServicesSwiper"
-    >
-        <ul
-        // className={styles.serviceList}
+          768: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+          },
+          1024: {
+              slidesPerView: 3,
+              spaceBetween: 24,
+          },
+          1440: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+          },
+      }}
+          modules={[Pagination]}
+          className="ServiceSwiper"
         >
-            {serviceData.map(({ id, title, desc, price }) => {
-                return <SwiperSlide key={id}>
-                    <li className="slideContentWrapper">
-                        <h3>{title}</h3>
-                        <ul>
-                            {desc && desc.map(({ id, text }) => {
-                                return <li key={id}
-                                    className={styles.descItem}
-                                >{text}</li>
-                            })}
-                            <p
-                            //  className={styles.price}
-                            >{price}</p>
-                            <OrderBtn />
-                        </ul>
-                    </li></SwiperSlide>
-            })}</ul>
+          <ul className={styles.serviceList}>
+    {serviceData.map(({id,title,desc,price})=>{
+      return <SwiperSlide key={id}className="slideContentWrapper" >
+        <li  className={styles.serviceItem}>
+        <div><h3>{title}</h3>
+        <ul>
+        {desc && desc.map(({id,text})=>{
+          return <li key={id}
+          className={styles.descItem}
+          >{text}</li>
+        })}
+        
+        </ul>
+        </div>
+        <p
+        //  className={styles.price}
+         >{price}</p>
+        <OrderBtn title={"Замовити"}/>
+      </li></SwiperSlide>
+    })}</ul>
     </Swiper>
 }
