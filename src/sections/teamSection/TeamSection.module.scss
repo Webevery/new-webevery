@@ -20,6 +20,19 @@
   }
 }
 
+//Fade In анимация
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+//-----------------------------
+
 .titleTeamContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,9 +46,28 @@
   flex-direction: column;
   row-gap: 16px;
   margin-bottom: 48px;
-
+  animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $desktop) {
     margin-bottom: 72px;
+  }
+}
+
+.cartItem:nth-child(3n-1) {
+  @media screen and (min-width: $laptop) {
+    transform: translateY(24px);
+  }
+}
+
+.cartItem:hover {
+  @media screen and (min-width: $laptop) {
+    transform: translateY(24px) scale(1.03);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.cartItem:not(:nth-child(3n-1)):hover {
+  @media screen and (min-width: $laptop) {
+    transform: scale(1.03);
   }
 }
 
@@ -77,6 +109,21 @@
   }
 }
 
+//Fade Up анимация
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+//-----------------------------
+
 .cartContainer {
   display: -ms-grid;
   display: grid;
@@ -88,6 +135,7 @@
   -moz-column-gap: 24px;
   column-gap: 24px;
   row-gap: 24px;
+  animation: fadeUp 0.8s ease-in-out forwards;
   @media screen and (min-width: $tablet) {
     grid-template-columns: repeat(2, 1fr);
   }
