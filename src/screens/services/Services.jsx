@@ -3,7 +3,9 @@ import React from "react";
 // import ServicesSection from "@/sections/servicesSection/ServicesSection";
 
 const Services = () => {
-  return <div className="screen">
+  return <div
+  //  className="screen"
+   >
     {/* <ServicesSection /> */}
   </div>;
 };

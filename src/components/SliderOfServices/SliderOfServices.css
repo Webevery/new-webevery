@@ -1,3 +1,4 @@
+
 .ServicesSwiper {
     width: 100%;
     height: 222px;
@@ -11,52 +12,63 @@
     }
 
     @media screen and (min-width:1440px) {
-        height: 366px;
+        /* width: 1296px; */
+        height: 828px;
     }
 }
 
-.ServicesSwiper .swiper-wrapper {
-    height: 210px;
 
+.ServiceSwiper .swiper-wrapper {
+    height: 800px;
     @media screen and (min-width:768px) {
-        height: 632px;
+        height: 556px;
     }
 
     @media screen and (min-width:1024px) {
-        height: 629px;
+        height:629px;
     }
 
     @media screen and (min-width:1440px) {
-        height: 672px;
+        height: 772px;
     }
 }
+
 
 .ServicesSwiper .swiper-slide {
     display: flex;
     justify-content: center;
 }
 
+
 .ServicesSwiper .slideContentWrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 32px 16px;
     background-color: #0d0d11;
     box-shadow: 6px 12px 32px 0px #1A8CFF1A;
 
     @media screen and (min-width:768px) {
         padding: 24px;
-    }
+        width: 340px;
+    };
 
     @media screen and (min-width:1024px) {
         padding: 16px 12px;
-    }
+        width: 304px;
+    };
 
     @media screen and (min-width:1440px) {
         padding: 32px 16px;
+        width: 416px;
     }
 }
 
 
+
 .ServicesSwiper .swiper-slide h4 {
+
     font-weight: 500;
     font-size: 16px;
     line-height: 1.6;
@@ -74,6 +86,7 @@
     }
 }
 
+
 .ServicesSwiper .swiper-slide p {
     font-weight: 400;
     font-size: 16px;
@@ -85,7 +98,7 @@
     }
 }
 
-.ServicesSwiper .swiper-pagination {
+.ServiceSwiper .swiper-pagination {
     bottom: 0;
 }
 

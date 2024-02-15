@@ -3,7 +3,7 @@ import HomeFaqSection from "@/sections/homeFaqSection/HomeFaqSection";
 import HomeHeroSection from "@/sections/homeHeroSection/HomeHeroSection";
 import HomeOrderSection from "@/sections/homeOrderSection/HomeOrderSection";
 import HomeOurProjectsSection from "@/sections/homeOurProjectsSection/HomeOurProjectsSection";
-// import HomeServicesSection from "@/sections/homeServicesSection/HomeServicesSection";
+import HomeServicesSection from "@/sections/homeServicesSection/HomeServicesSection";
 import HomeTeamSection from "@/sections/homeTeamSection/HomeTeamSection";
 import HomeWorkingProcessSection from "@/sections/homeWorkingProcessSection/HomeWorkingProcessSection";
 import ServicesSection from "@/sections/servicesSection/ServicesSection";
@@ -14,7 +14,7 @@ const Home = () => {
       <HomeHeroSection />
       <HomeTeamSection />
       <HomeOurProjectsSection />
-      {/* <HomeServicesSection /> */}
+      <HomeServicesSection />
       <ServicesSection />
       <HomeFaqSection />
       <HomeWorkingProcessSection />

@@ -62,10 +62,7 @@ const Header = () => {
         <div className={styles.logoWrapper}>
           {!isXs && <LangSwitcher className={styles.mobileLangSwitcher} />}
           <Link href={"/"} className={styles.logo}>
-            <Image src={"/Logo.webp"} fill alt="Webevery logo" />
-            {/* <svg>
-              <use href="/sprite#icon-Logo"></use>
-            </svg> */}
+            <Image src={"/Logo.webp"} fill alt="Webevery logo" sizes="50vw" />
           </Link>
         </div>
       </div>
