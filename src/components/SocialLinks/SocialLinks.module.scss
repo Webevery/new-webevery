@@ -1,0 +1,25 @@
+@import "../../app/variables";
+
+.socialList {
+    display: flex;
+    column-gap: 7px;
+    margin-bottom: 16px;
+    @media screen and (min-width: $laptop) {
+        row-gap: 12px;
+        margin: 0 132px 0 0;
+    }
+    @media screen and (min-width: $desktop) {
+        margin: 0 188px 0 0;
+    }
+}
+
+.iconSocialLink {
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    @media screen and (min-width: $laptop) {
+        width: 32px;
+        height: 32px;
+    }
+}

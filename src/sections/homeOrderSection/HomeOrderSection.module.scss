@@ -1,7 +1,10 @@
 @import "../../app/variables";
 
 .section {
-    margin: 40px 0 20px;
+    margin: 40px 0 35px;
+    @media screen and (min-width: $tablet) {
+        margin: 40px 0 52px;
+    }
 }
 
 .contentWrap {
