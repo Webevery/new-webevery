@@ -12,6 +12,7 @@ import './HomeOurProjectsSlider.css';
 // import required modules
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { CldImage } from 'next-cloudinary';
+import Link from 'next/link';
 
 
 const HomeOurProjectsSlider = ({ data }) => {
@@ -59,15 +60,16 @@ const HomeOurProjectsSlider = ({ data }) => {
                 {data.map(item => (
                     <SwiperSlide key={item.slug}>
                         <div className="slideContentWrapper">
-                            <div className='imgWrapper'>
-                                <CldImage
-                                    className='slideImg'
-                                    fill
-                                    src={item.heroImage}
-                                    sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
-                                    alt="Project photo 1 Vova"
-                                />
-                            </div>
+                            <Link className="projectLink" href={`/ourProjects/${item.slug}`}>
+                                <div className='imgWrapper'>
+                                    <CldImage
+                                        className='slideImg'
+                                        fill
+                                        src={item.heroImage}
+                                        sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
+                                        alt="Project photo 1 Vova"
+                                    />
+                                </div></Link>
                             <h2 className='slideTitle'> {item.titleEn} <span className='gradient'>{item.titleGradientEn}</span></h2>
                         </div>
                     </SwiperSlide>

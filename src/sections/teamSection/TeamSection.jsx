@@ -15,7 +15,7 @@ const TeamSection = () => {
               <span>Team</span>
             </h1>
             <h2 className={styles.descTeam}>
-            let&apos;s get to know those who work for you
+              let&apos;s get to know those who work for you
             </h2>
           </div>
           <ul className={styles.cartContainer}>
