@@ -1,9 +1,9 @@
 import { Saira, Work_Sans } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
 import { SiteProvider } from "@/context/siteContext";
 import ModalR from "@/components/Modal/Modal";
+
 
 const saira = Saira({
   subsets: ["latin"],
@@ -31,7 +31,6 @@ export default function RootLayout({ children }) {
         <SiteProvider>
           <Header />
           <main>{children}</main>
-          <Footer />
           <ModalR />
         </SiteProvider>
       </body>

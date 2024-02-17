@@ -1,12 +1,13 @@
-import React from 'react'
-import Blog from '@/screens/blog/Blog'
-
+import Blog from "@/screens/blog/Blog";
+import FooterWithForm from "@/components/Footer/FooterWithForm";
 
 const BlogPage = () => {
     return (
-        <Blog />
-    )
-}
+        <>
+            <Blog />
+            <FooterWithForm />
+        </>
+    );
+};
 
-
-export default BlogPage
+export default BlogPage;
