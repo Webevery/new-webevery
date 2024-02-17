@@ -1,9 +1,9 @@
 'use client';
 
-import { SiteContext } from '@/context/siteContext';
 import { useContext, useState } from 'react';
-import styles from './BlogFilter.module.scss';
+import { SiteContext } from '@/context/siteContext';
 import BlogFilterItem from './BlogFilterItem/BlogFilterItem';
+import styles from './BlogFilter.module.scss';
 
 const BlogFilter = ({ filter, title }) => {
   const {

@@ -1,13 +1,13 @@
 'use client';
 
-import styles from './BlogSection.module.scss';
-import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
-import { blog, blogFilter, blogSorter } from '@/data/blog';
+import { useContext, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { blog, blogFilter, blogSorter } from '@/data/blog';
 import { SiteContext } from '@/context/siteContext';
+import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
+import styles from './BlogSection.module.scss';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -83,6 +83,7 @@ const BlogSection = () => {
                   alt="img blog"
                   fill="true"
                   className={styles.cartImg}
+                  sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
                 />
               </div>
 

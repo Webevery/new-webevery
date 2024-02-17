@@ -1,8 +1,8 @@
 'use client';
 
-import styles from './BlogFilterButton.module.scss';
 import { useContext } from 'react';
 import { SiteContext } from '@/context/siteContext';
+import styles from './BlogFilterButton.module.scss';
 
 const BlogFilter = () => {
   const {

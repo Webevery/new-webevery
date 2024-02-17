@@ -1,9 +1,9 @@
 'use client';
 
-import { blog } from '@/data/blog';
 import Image from 'next/image';
-import styles from './BlogIdSection.module.scss';
 import { useRouter } from 'next/navigation';
+import { blog } from '@/data/blog';
+import styles from './BlogIdSection.module.scss';
 
 const BlogIdSection = ({ params }) => {
   const router = useRouter();

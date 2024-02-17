@@ -4,6 +4,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
   margin-bottom: 20px;
@@ -38,8 +41,14 @@
 
 .btnWrapper {
   border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding: 3px;
   position: relative;
@@ -47,7 +56,7 @@
   border-radius: 100px;
   width: 64px;
   height: 56px;
-  box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
+  box-shadow: $shadowColor;
 
   &:first-child {
     margin-right: 8px;
@@ -96,8 +105,14 @@
   height: 100%;
   border-radius: inherit;
   background-color: $gray900;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   z-index: 1;
   font-family: var(--font-work-sans);
@@ -159,13 +174,13 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
-  color: #4b4b4e;
+  color: $gray700;
   border-radius: 16px;
   outline: none;
   border: none;
 
   border: double 1px transparent;
-  background-image: linear-gradient(white, white), $gradient;
+  background-image: linear-gradient($gray0, $gray0), $gradient;
   background-origin: border-box;
   background-clip: padding-box, border-box;
 

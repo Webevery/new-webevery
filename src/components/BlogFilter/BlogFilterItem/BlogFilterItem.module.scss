@@ -9,8 +9,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
-  color: #ffffff;
+  color: $gray0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   column-gap: 24px;
   position: relative;
@@ -21,7 +25,8 @@
     width: 24px;
     height: 24px;
     border: double 2px transparent;
-    background-image: linear-gradient(#000000, #000000), $gradient;
+    background-image: linear-gradient($backgroundColor, $backgroundColor),
+      $gradient;
     background-origin: border-box;
     background-clip: padding-box, border-box;
     cursor: pointer;
@@ -34,11 +39,15 @@
 
 .checked {
   position: absolute;
-  top: 8px;
-  left: 4px;
+  top: 5px;
+  left: 3px;
   width: 18px;
   height: 13px;
-  fill: #ffffff;
+  fill: $gray0;
+
+  @media screen and (min-width: $tablet) {
+    top: 8px;
+  }
 }
 
 .checkedOff {

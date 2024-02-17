@@ -2,8 +2,15 @@
 
 .projectContainer {
   padding: 112px 20px 40px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   @media screen and (min-width: $mobile) {
     padding: 120px 24px 20px 24px;
@@ -20,6 +27,8 @@
 }
 
 .title {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-weight: 300;
   font-size: 40px;
@@ -50,7 +59,12 @@
 
 .ourProjectsList {
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 24px;
   @media screen and (min-width: $tablet) {
@@ -61,241 +75,5 @@
   }
   @media screen and (min-width: $desktop) {
     row-gap: 104px;
-  }
-}
-
-.ourProjectsItem {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  @media screen and (min-width: $laptop) {
-    flex-direction: row-reverse;
-    column-gap: 24px;
-    &:nth-child(odd) {
-      flex-direction: row;
-    }
-  }
-}
-
-.ourProjectsImgContainer {
-  position: relative;
-  min-width: 280px;
-  height: 186px;
-  box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
-  margin-bottom: 16px;
-  @media screen and (min-width: $mobile) {
-    min-width: 312px;
-    height: 208px;
-  }
-  @media screen and (min-width: $tablet) {
-    min-width: 704px;
-    height: 469px;
-    border-radius: 34px;
-    margin-bottom: 20px;
-    border: double 1px transparent;
-    background-image: linear-gradient(white, white), $gradient;
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-  }
-  @media screen and (min-width: $laptop) {
-    min-width: 632px;
-    height: 422px;
-    border-radius: 56px;
-    margin-bottom: 0px;
-  }
-  @media screen and (min-width: $desktop) {
-    min-width: 966px;
-    height: 645px;
-  }
-}
-
-.img {
-  object-fit: cover;
-  @media screen and (min-width: $tablet) {
-    border-radius: 34px;
-  }
-  @media screen and (min-width: $laptop) {
-    border-radius: 56px;
-  }
-}
-
-.ourProjectsContent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  @media screen and (min-width: $tablet) {
-    &::after {
-      content: '';
-      display: block;
-      height: 1px;
-      width: 100%;
-      background-color: #1a8cff;
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-    }
-  }
-  @media screen and (min-width: $laptop) {
-    &::after {
-      display: none;
-    }
-  }
-  @media screen and (min-width: $desktop) {
-    &::after {
-      display: block;
-      bottom: -24px;
-    }
-  }
-}
-
-// .ourProjectsTitleReverse {
-//   & span {
-//     float: right;
-//     &:not(:last-child) {
-//       margin-right: 1em;
-//     }
-//   }
-// }
-
-.ourProjectsTitle {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.4;
-  background: $gradient;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 12px;
-  // & span {
-  //   &:not(:last-child) {
-  //     margin-right: 0.5em;
-  //   }
-  // }
-  @media screen and (min-width: $mobile) {
-    margin-bottom: 8px;
-  }
-  @media screen and (min-width: $tablet) {
-    font-size: 38px;
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  @media screen and (min-width: $laptop) {
-    font-size: 36px;
-    line-height: 1.4;
-    letter-spacing: 0.01em;
-  }
-  @media screen and (min-width: $desktop) {
-    font-size: 44px;
-    line-height: 1.1;
-  }
-}
-
-.ourProjectsTitleGradient {
-  @media screen and (min-width: $tablet) {
-    background: linear-gradient(white, white);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-.ourProjectsDesc {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #fff;
-  margin-bottom: 16px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  @media screen and (min-width: $mobile) {
-    margin-bottom: 8px;
-  }
-  @media screen and (min-width: $tablet) {
-    -webkit-line-clamp: 2;
-    margin-bottom: 12px;
-  }
-  @media screen and (min-width: $laptop) {
-    font-size: 20px;
-    -webkit-line-clamp: 4;
-  }
-}
-.readMore {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: auto;
-  @media screen and (min-width: $tablet) {
-    margin-bottom: 8px;
-  }
-  @media screen and (min-width: $laptop) {
-    margin-bottom: auto;
-  }
-}
-
-.readMoreTitle {
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 1.6;
-  text-align: center;
-  background: $gradient;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  @media screen and (min-width: $laptop) {
-    font-size: 14px;
-  }
-}
-
-.readMoreIcon {
-  width: 24px;
-  height: 7px;
-  margin-left: 8px;
-  @media screen and (min-width: $tablet) {
-    width: 32px;
-    height: 12px;
-  }
-}
-
-.btnWrapper {
-  display: none;
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    width: 208px;
-    height: 50px;
-    padding: 1px;
-    margin: 0 auto;
-    box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
-  }
-  @media screen and (min-width: $laptop) {
-    padding: 3px;
-    width: 304px;
-    height: 80px;
-  }
-}
-
-.openSite {
-  @media screen and (min-width: $tablet) {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-
-    color: #ffffff;
-  }
-  @media screen and (min-width: $laptop) {
-    font-size: 20px;
   }
 }

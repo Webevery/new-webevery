@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
-import { SiteContext } from "@/context/siteContext";
-import { useContext } from "react";
-import styles from "./HomeHeroSection.module.scss";
+import { useContext } from 'react';
+import { SiteContext } from '@/context/siteContext';
+import OrderBtn from '@/components/Buttons/OrderBtn/OrderBtn';
+import styles from './HomeHeroSection.module.scss';
 
 const HomeHeroSection = () => {
   const { openModal } = useContext(SiteContext);
