@@ -1,46 +1,33 @@
-import styles from './BlogFilter.module.scss';
-import stylescBtn from '../Buttons/Btns.module.scss';
+'use client';
 
-const BlogFilter = () => {
+import { SiteContext } from '@/context/siteContext';
+import { useContext, useState } from 'react';
+import styles from './BlogFilter.module.scss';
+import BlogFilterItem from './BlogFilterItem/BlogFilterItem';
+
+const BlogFilter = ({ filter, title }) => {
+  const {
+    blogFilterShown,
+    // setBlogFilterShown,
+    blogSorterShown,
+    // setBlogSorterShown,
+  } = useContext(SiteContext);
+
+  const isFilterShown =
+    blogFilterShown || blogSorterShown
+      ? `${styles.blogShow} ${styles.blogShowOpen}`
+      : `${styles.blogShow} ${styles.blogShowClose}`;
+
   return (
-    <div className={styles.filterContainer}>
-      <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>
-        <button
-          className={stylescBtn.btn + ' ' + styles.btnFilter}
-          type="button"
-        >
-          <svg className={styles.filterIcon}>
-            <use href="sprite.svg#icon-sorter" />
-          </svg>
-        </button>
-      </div>
-      <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>
-        <button
-          className={stylescBtn.btn + ' ' + styles.btnFilter}
-          type="button"
-        >
-          <svg className={styles.filterIcon}>
-            <use href="sprite.svg#icon-filter" />
-          </svg>
-        </button>
-      </div>
-      <div className={styles.filterSearchContainer}>
-        <input
-          type="text"
-          placeholder="search"
-          className={styles.filterSearch}
-        />
-        <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>
-          <button
-            className={stylescBtn.btn + ' ' + styles.btnFilter}
-            type="button"
-          >
-            <svg className={styles.filterIcon}>
-              <use href="sprite.svg#icon-search" />
-            </svg>
-          </button>
-        </div>
-      </div>
+    <div className={isFilterShown}>
+      <h3 className={styles.blogShowTitle}>{title}</h3>
+      <ul className={styles.blogShowList}>
+        {filter.map(({ id, title }) => (
+          <li key={id} className={styles.blogShowItem}>
+            <BlogFilterItem title={title} id={id} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
