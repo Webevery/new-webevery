@@ -4,7 +4,7 @@
   display: none;
   @media screen and (min-width: $laptop) {
     display: block;
-    background-color: #ffffff;
+    background-color: $gray0;
     flex: 1;
   }
 }
@@ -26,14 +26,16 @@
     -ms-flex-align: center;
     align-items: center;
     column-gap: 16px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     padding: 0 8px;
-    background-color: #000000;
+    background-color: $backgroundColor;
     font-weight: 500;
     font-size: 20px;
     line-height: 1.6;
     text-align: center;
-    color: #ffffff;
+    color: $gray0;
     margin-bottom: 24px;
     cursor: pointer;
   }
@@ -48,7 +50,7 @@
   @media screen and (min-width: $laptop) {
     width: 32px;
     height: 12px;
-    fill: #ffffff;
+    fill: $gray0;
     transform: rotate(180deg);
   }
 }
@@ -58,7 +60,7 @@
     font-weight: 400;
     font-size: 44px;
     line-height: 1.1;
-    color: #0d0d11;
+    color: $gray900;
     margin-bottom: 20px;
   }
 
@@ -119,6 +121,6 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 1.6;
-    color: #0d0d11;
+    color: $gray900;
   }
 }

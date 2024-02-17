@@ -30,8 +30,8 @@
 
 .blogShow {
   padding: 16px 8px;
-  box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
-  background: #000;
+  box-shadow: $shadowColor;
+  background: $backgroundColor;
   @media screen and (min-width: $mobile) {
     padding: 16px 16px;
   }
@@ -48,7 +48,7 @@
   font-weight: 500;
   font-size: 28px;
   line-height: 1.4;
-  color: #ffffff;
+  color: $gray0;
   margin-bottom: 24px;
   @media screen and (min-width: $tablet) {
     font-size: 32px;
@@ -60,7 +60,12 @@
 }
 
 .blogShowList {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 24px;
 }
