@@ -89,10 +89,10 @@ const projectSchema = new mongoose.Schema({
         type: Array,
         required: true,
     },
-    // siteLink: {
-    //     type: String,
-    //     required: true,
-    // },    
+    siteLink: {
+        type: String,
+        required: true,
+    },
     slug: {
         type: String,
         required: true,
