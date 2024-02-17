@@ -1,12 +1,13 @@
-import React from 'react'
-import FAQ from '@/screens/faq/FAQ'
-
+import FAQ from "@/screens/faq/FAQ";
+import FooterWithForm from "@/components/Footer/FooterWithForm";
 
 const FAQPage = () => {
     return (
-        <FAQ />
-    )
-}
+        <>
+            <FAQ />
+            <FooterWithForm />
+        </>
+    );
+};
 
-
-export default FAQPage
+export default FAQPage;

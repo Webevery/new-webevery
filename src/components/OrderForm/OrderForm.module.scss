@@ -34,8 +34,11 @@
 }
 
 .containerFooter {
-    box-shadow: 6px 12px 32px 0px rgba(4, 209, 55, 0.5);
-    height: 366px;
+    box-shadow: none;
+    width: 340px;
+    height: 310px;
+    padding: 0;
+    background-color: #000000;
 }
 
 .closeBtn {
@@ -119,12 +122,20 @@
     }
 }
 
+.formFooter {
+    width: 340px;
+}
+
 .inputHolder {
     width: 100%;
     @media screen and (min-width: $laptop) {
         display: flex;
         column-gap: 20px;
     }
+}
+
+.inputHolderFooter {
+    width: 100%;
 }
 
 .inputWrap {
@@ -199,6 +210,21 @@
     @media screen and (min-width: $laptop) {
         width: 416px;
     }
+}
+
+#submitFooterId {
+    width: 340px;
+    height: 46px;
+    & button {
+        font-size: 16px;
+    }
+
+    // @media screen and (min-width: $laptop) {
+    //     width: 340px;
+    // }
+    // @media screen and (min-width: $desktop) {
+    //     width: 340px;
+    // }
 }
 
 .error {

@@ -1,12 +1,13 @@
-import React from 'react'
-import OurProjects from '@/screens/ourProjects/OurProjects'
-
+import OurProjects from "@/screens/ourProjects/OurProjects";
+import FooterWithForm from "@/components/Footer/FooterWithForm";
 
 const OurProjectsPage = () => {
     return (
-        <OurProjects />
-    )
-}
+        <>
+            <OurProjects />
+            <FooterWithForm />
+        </>
+    );
+};
 
-
-export default OurProjectsPage
+export default OurProjectsPage;

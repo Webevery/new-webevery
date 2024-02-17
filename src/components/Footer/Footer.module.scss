@@ -1,8 +1,9 @@
 @import "../../app/variables";
 
 .footer {
-    height: 130px;
     // border-top: 1px solid white;
+    height: 130px;
+    margin-top: auto;
     padding: 20px 32px 20px;
     @media screen and (min-width: $laptop) {
         height: 412px;
@@ -10,6 +11,18 @@
     @media screen and (min-width: $desktop) {
         padding: 20px 72px 20px 72;
     }
+}
+
+.footerLaptop {
+    margin-top: auto;
+    height: 366px;
+    height: 100%;
+}
+
+.footerDesktop {
+    margin-top: auto;
+    height: 366px;
+    height: 100%;
 }
 
 .container {
@@ -34,6 +47,20 @@
     @media screen and (min-width: $desktop) {
         max-width: 1296px;
     }
+}
+
+.contentLaptopWrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 32px 36px 32px;
+    width: 100%;
+}
+
+.contentDesctopWrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 32px 80px 32px;
+    width: 100%;
 }
 
 .innerWrap {

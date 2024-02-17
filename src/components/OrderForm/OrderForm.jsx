@@ -29,8 +29,8 @@ const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
         formState;
 
     const onSubmit = (data) => {
-        // console.log("FormData:", data);
-        closeModal();
+        console.log("FormData:", data);
+        if (isModalOpen) closeModal();
     };
 
     const handleResizeLaptop = useCallback(() => {
@@ -92,10 +92,21 @@ const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
             )}
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className={styles.form}
+                className={
+                    isFooterForm
+                        ? `${styles.form} ${styles.formFooter}`
+                        : styles.form
+                }
                 noValidate
             >
-                <div className={styles.inputHolder}>
+                <div
+                    // className={styles.inputHolder}
+                    className={
+                        isFooterForm
+                            ? styles.inputHolderFooter
+                            : styles.inputHolder
+                    }
+                >
                     <div className={styles.inputWrap}>
                         <p className={styles.error}>
                             {errors.userName?.message}
@@ -207,7 +218,8 @@ const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
                     title=' Order call from manager'
                     disabled={isErrors || isSubmitting}
                     className={styles.submitButton}
-                    id={styles.submitId}
+                    // id={styles.submitId}
+                    id={isFooterForm ? styles.submitFooterId : styles.submitId}
                 />
             </form>
         </div>

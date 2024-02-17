@@ -1,12 +1,13 @@
-import React from 'react'
-import Team from '@/screens/team/Team'
-
+import Team from "@/screens/team/Team";
+import FooterWithForm from "@/components/Footer/FooterWithForm";
 
 const TeamPage = () => {
     return (
-        <Team />
-    )
-}
+        <>
+            <Team />
+            <FooterWithForm />
+        </>
+    );
+};
 
-
-export default TeamPage
+export default TeamPage;
