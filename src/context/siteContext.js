@@ -1,5 +1,5 @@
-"use client";
-import { useState, createContext } from "react";
+'use client';
+import { useState, createContext } from 'react';
 
 export const SiteContext = createContext();
 
@@ -7,6 +7,10 @@ export const SiteProvider = ({ children }) => {
   const [burgerMenu, setBurgermenu] = useState(false);
   // console.log(burgerMenu);
   const [isModalOpen, setModalOpen] = useState(false);
+
+  const [blogFilterShown, setBlogFilterShown] = useState(false);
+
+  const [blogSorterShown, setBlogSorterShown] = useState(false);
 
   const openModal = () => {
     setModalOpen(true);
@@ -24,6 +28,10 @@ export const SiteProvider = ({ children }) => {
         isModalOpen,
         openModal,
         closeModal,
+        blogFilterShown,
+        setBlogFilterShown,
+        blogSorterShown,
+        setBlogSorterShown,
       }}
     >
       {children}

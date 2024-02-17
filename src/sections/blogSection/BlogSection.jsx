@@ -1,17 +1,63 @@
+'use client';
+
 import styles from './BlogSection.module.scss';
-import BlogFilter from '@/components/BlogFilter/BlogFilter';
-import { blog } from '@/data/blog';
+import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
+import { blog, blogFilter, blogSorter } from '@/data/blog';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { SiteContext } from '@/context/siteContext';
+import BlogFilter from '@/components/BlogFilter/BlogFilter';
 
 const BlogSection = () => {
-  function truncateText(text, maxLength) {
-    if (text.length > maxLength) {
-      return text.substring(0, maxLength - 3) + '...';
-    } else {
-      return text;
+  const [loadedCount, setLoadedCount] = useState(9);
+  const [showLoading, setShowLoading] = useState(false);
+
+  const containerRef = useRef();
+
+  const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
+
+  // function truncateText(text, maxLength) {
+  //   if (text.length > maxLength) {
+  //     return text.substring(0, maxLength - 9) + '...';
+  //   } else {
+  //     return text;
+  //   }
+  // }
+
+  const handleScroll = () => {
+    const container = containerRef.current;
+
+    if (!showLoading && blog?.length && container) {
+      const containerHeight = container.offsetHeight;
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const bottomOffset = containerHeight - scrollY - windowHeight;
+
+      if (bottomOffset < 50 && loadedCount < blog.length) {
+        setShowLoading(true);
+
+        setTimeout(() => {
+          setLoadedCount(loadedCount + 3);
+          setShowLoading(false);
+        }, 500);
+      }
     }
-  }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+    // eslint-disable-next-line
+  }, [blog, loadedCount]);
+
+  const cartContainerFilter =
+    blogFilterShown || blogSorterShown
+      ? `${styles.cartContainer} ${styles.cartContainerOpen}`
+      : `${styles.cartContainer}`;
+
   return (
     <section className={styles.blog}>
       <div className={`container ${styles.blogContainer}`}>
@@ -23,9 +69,13 @@ const BlogSection = () => {
             here is you can read useful articles
           </h2>
         </div>
-        <BlogFilter />
-        <ul className={styles.cartContainer}>
-          {blog.map(({ id, img, title, desc }) => (
+        <BlogFilterButton />
+
+        <ul ref={containerRef} className={cartContainerFilter}>
+          {blogSorterShown && <BlogFilter filter={blogSorter} title="Sorter" />}
+          {blogFilterShown && <BlogFilter filter={blogFilter} title="Filter" />}
+
+          {blog.slice(0, loadedCount).map(({ id, img, title, desc }) => (
             <li key={id} className={styles.cartItem}>
               <div className={styles.cartImgContainer}>
                 <Image
@@ -37,7 +87,8 @@ const BlogSection = () => {
               </div>
 
               <h3 className={styles.cartTitle}>{title}</h3>
-              <p className={styles.cartDesc}>{truncateText(desc, 41)}</p>
+              {/* <p className={styles.cartDesc}>{truncateText(desc, 41)}</p> */}
+              <p className={styles.cartDesc}>{desc}</p>
               <Link href={`/blog/${id}`} className={styles.readMore}>
                 <span className={styles.readMoreTitle}>Read more</span>
                 <svg className={styles.readMoreIcon}>
@@ -62,6 +113,11 @@ const BlogSection = () => {
             </li>
           ))}
         </ul>
+        {showLoading && (
+          <div className={styles.loading}>
+            <h3 className={styles.loadingText}>Loading...</h3>
+          </div>
+        )}
       </div>
     </section>
   );
