@@ -2,8 +2,15 @@
 
 .ourProjectContainer {
   padding: 112px 20px 79px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   @media screen and (min-width: $mobile) {
     padding: 120px 24px 40px 24px;
@@ -23,19 +30,22 @@
 }
 
 .ourProjectsTitle {
+  height: 79px;
   font-weight: 400;
   font-size: 28px;
   line-height: 1.4;
   text-align: center;
-  color: #ffffff;
+  color: $gray0;
   margin-bottom: 12px;
   @media screen and (min-width: $mobile) {
+    height: 70px;
     font-size: 32px;
     line-height: 1.1;
     margin-bottom: 24px;
   }
 
   @media screen and (min-width: $tablet) {
+    height: 53px;
     background: $gradient;
     background-clip: text;
     -webkit-background-clip: text;
@@ -44,11 +54,13 @@
   }
 
   @media screen and (min-width: $laptop) {
+    height: 49px;
     font-size: 44px;
     margin-bottom: 32px;
   }
 
   @media screen and (min-width: $desktop) {
+    height: 70px;
     font-size: 64px;
     margin-bottom: 48px;
   }
@@ -92,35 +104,63 @@
   color: $gray0;
 }
 
+.imageLoader {
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  @media screen and (min-width: $tablet) {
+    border-radius: 30px;
+  }
+  @media screen and (min-width: $laptop) {
+    border-radius: 56px;
+  }
+}
+
 .imgContainer {
   position: relative;
-  width: 280px;
+  width: 100%;
+  // width: 280px;
   height: 186px;
   box-shadow: $shadowColor;
   margin-bottom: 40px;
 
   @media screen and (min-width: $mobile) {
     border-radius: 8px;
-    width: 312px;
+    // width: 312px;
     height: 208px;
     margin-bottom: 20px;
   }
 
+  @media screen and (min-width: 400px) {
+    height: 280px;
+  }
+
+  @media screen and (min-width: 560px) {
+    height: 390px;
+  }
+
   @media screen and (min-width: $tablet) {
     border-radius: 30px;
-    width: 704px;
+    // width: 704px;
     height: 494px;
     border: double 1px transparent;
     background-image: linear-gradient($gray0, $gray0), $gradient;
     background-origin: border-box;
     background-clip: padding-box, border-box;
   }
+  @media screen and (min-width: 900px) {
+    height: 594px;
+  }
 
   @media screen and (min-width: $laptop) {
     border-radius: 56px;
-    width: 960px;
+    // width: 960px;
     height: 675px;
     margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 855px;
   }
 
   @media screen and (min-width: $desktop) {
@@ -139,6 +179,7 @@
 }
 
 .contentWraper {
+  width: 100%;
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -162,7 +203,7 @@
     &:last-child,
     &:nth-last-child(2) {
       box-shadow: $shadowColor;
-      background-color: #000000;
+      background-color: $backgroundColor;
     }
   }
 }
@@ -171,8 +212,10 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 1.4;
-  color: #ffffff;
+  color: $gray0;
   margin-bottom: 12px;
+  width: 100%;
+  text-align: start;
   @media screen and (min-width: $mobile) {
     margin-bottom: 8px;
   }
@@ -190,30 +233,52 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
-  color: #ffffff;
+  color: $gray0;
+  // height: 205px;
 
+  @media screen and (min-width: $mobile) {
+    // height: 180px;
+  }
+  @media screen and (min-width: $tablet) {
+    // height: 77px;
+  }
   @media screen and (min-width: $laptop) {
+    // width: 468px;
+    // height: 192px;
     font-size: 20px;
+  }
+  @media screen and (min-width: $desktop) {
+    // width: 636px;
+    // height: 128px;
   }
 }
 .imgScreensContainer {
   position: relative;
   box-shadow: $shadowColor;
   border-radius: 8px;
-  width: 280px;
+  // width: 280px;
+  width: 100%;
   height: 186px;
   margin-bottom: 20px;
   & img {
+    object-fit: cover;
     border-radius: 8px;
   }
 
   @media screen and (min-width: $mobile) {
-    width: 312px;
+    // width: 312px;
     height: 208px;
+  }
+  @media screen and (min-width: 400px) {
+    height: 280px;
+  }
+
+  @media screen and (min-width: 560px) {
+    height: 390px;
   }
   @media screen and (min-width: $tablet) {
     border-radius: 30px;
-    width: 704px;
+    // width: 704px;
     height: 494px;
     border: double 1px transparent;
     background-image: linear-gradient($gray0, $gray0), $gradient;
@@ -224,16 +289,23 @@
       border-radius: 30px;
     }
   }
+
+  @media screen and (min-width: 900px) {
+    height: 594px;
+  }
   @media screen and (min-width: $laptop) {
     border-radius: 56px;
-    width: 960px;
+    // width: 960px;
     height: 674px;
     & img {
       border-radius: 56px;
     }
   }
+  @media screen and (min-width: 1200px) {
+    height: 855px;
+  }
   @media screen and (min-width: $desktop) {
-    width: 1296px;
+    // width: 1296px;
     height: 910px;
     margin-bottom: 48px;
   }
@@ -252,7 +324,7 @@
     width: 468px;
     height: 152px;
     box-shadow: $shadowColor;
-    background: #000000;
+    background: $backgroundColor;
     margin-bottom: 32px;
   }
 
@@ -267,7 +339,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 1.4;
-  color: #ffffff;
+  color: $gray0;
   margin-bottom: 12px;
   @media screen and (min-width: $mobile) {
     margin-bottom: 8px;
@@ -286,14 +358,18 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
-  color: #ffffff;
+  color: $gray0;
   margin-bottom: 12px;
   align-items: start;
 }
 
 .mobileImgContainer {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   row-gap: 16px;
 }
@@ -358,6 +434,7 @@
     width: 304px;
     height: 534px;
   }
+
   @media screen and (min-width: $desktop) {
     width: 416px;
     height: 732px;

@@ -1,11 +1,12 @@
-import { getOurProjects } from '@/lib/data';
+'use client';
+
 import styles from './OurProjectsSection.module.scss';
 import OurProjects from '@/components/OurProjects/OurProjects';
+import { GetOurProjects } from '@/fetch/ClientFetsh';
 
-const OurProjectsSection = async () => {
-  const data = await getOurProjects();
+const OurProjectsSection = () => {
+  const { data, error, isLoading } = GetOurProjects();
 
-  console.log(data);
   return (
     <section>
       <div className={`container ${styles.projectContainer}`}>

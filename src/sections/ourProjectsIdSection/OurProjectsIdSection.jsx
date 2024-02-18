@@ -1,12 +1,10 @@
 import OurProjectId from '@/components/OurProjectId/OurProjectId';
-import { getOurProject } from '@/lib/data';
-import styles from './OurProjectsIdSection.module.scss';
+// import styles from './OurProjectsIdSection.module.scss';
 
-const OurProjectsIdSection = async ({ params }) => {
-  const data = await getOurProject(params.id);
+const OurProjectsIdSection = ({ params }) => {
   return (
     <section>
-      <OurProjectId data={data} />
+      <OurProjectId params={params} />
     </section>
   );
 };
