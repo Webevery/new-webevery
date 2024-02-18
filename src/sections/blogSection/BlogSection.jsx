@@ -8,12 +8,17 @@ import { SiteContext } from '@/context/siteContext';
 import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
 import styles from './BlogSection.module.scss';
+// import { GetBlogs } from '@/fetch/ClientFetsh';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
   const [showLoading, setShowLoading] = useState(false);
 
   const containerRef = useRef();
+
+  // const { data, error, isLoading } = GetBlogs();
+
+  // console.log(data);
 
   const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
 
