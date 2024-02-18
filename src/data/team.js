@@ -20,8 +20,8 @@ export const team = [
   {
     id: v4(),
     img: "photo_2024-02-10_22-09-54_a5obbu",
-    alt: "Maksim Peltek",
-    name: "Maksim Peltek",
+    alt: "Maksym Peltek",
+    name: "Maksym Peltek",
     jobTitle:
       "Full Stack Developer",
   },
@@ -79,7 +79,7 @@ export const team = [
     alt: "Dmitro Kotenov",
     name: "Dmitro Kotenov",
     jobTitle:
-      "UX/UI/Designer",
+      "UX/UI Designer",
   },
   {
     id: v4(),
@@ -87,7 +87,15 @@ export const team = [
     alt: "Viktoriia Svyrydova",
     name: "Viktoriia Svyrydova",
     jobTitle:
-      "UX/UI/Designer",
+      "UX/UI Designer",
+  },
+  {
+    id: v4(),
+    img: "karina_im3jld",
+    alt: "Karina Kozak",
+    name: "Karina Kozak",
+    jobTitle:
+      "UX/UI Designer",
   },
   {
     id: v4(),

@@ -1,8 +1,11 @@
 import { Project } from "./models";
 import { connectToDB } from "./utils";
+//stop cashing data, when use API
+import { unstable_noStore as noStore } from "next/cache";
 
 
 export const getOurProjects = async () => {
+    noStore();
     try {
         connectToDB();
 
@@ -15,6 +18,7 @@ export const getOurProjects = async () => {
 }
 
 export const getOurProject = async (slug) => {
+    noStore();
     try {
         connectToDB();
 
