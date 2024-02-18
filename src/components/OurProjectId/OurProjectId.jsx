@@ -46,15 +46,15 @@ const OurProjectId = ({ data }) => {
       <ul className={styles.contentWraper}>
         <li className={styles.contentItem}>
           <h3 className={styles.contentTitle}>Problem</h3>
-          <p className={styles.contentDesc}>{data.problemTextEn}</p>
+          <p className={styles.contentDesc}>{data.problemEn}</p>
         </li>
         <li className={styles.contentItem}>
           <h3 className={styles.contentTitle}>Solution</h3>
-          <p className={styles.contentDesc}>{data.solutionTextEn}</p>
+          <p className={styles.contentDesc}>{data.solutionEn}</p>
         </li>
         <li className={styles.contentItem}>
           <h3 className={styles.contentTitle}>How it`s help for business</h3>
-          <p className={styles.contentDesc}>{data.helpTextEn}</p>
+          <p className={styles.contentDesc}>{data.helpEn}</p>
         </li>
       </ul>
       <figure className={styles.imgScreensContainer}>
@@ -62,7 +62,7 @@ const OurProjectId = ({ data }) => {
       </figure>
       <div className={styles.mobileContainer}>
         <h3 className={styles.mobileTitle}>Mobile adapted</h3>
-        <p className={styles.mobileDesc}>{data.adaptationTextEn}</p>
+        <p className={styles.mobileDesc}>{data.adaptationEn}</p>
       </div>
       <ul className={styles.mobileImgContainer}>
         {data.mobileImages.map((img) => (
