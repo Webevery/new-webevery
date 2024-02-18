@@ -12,7 +12,7 @@ const OurProjects = ({ data }) => {
       titleEn,
       titleGradientEn,
       heroImage,
-      problemTextEn,
+      problemEn,
       siteLink,
     }) => (
       <li key={slug} className={styles.ourProjectsItem}>
@@ -47,7 +47,7 @@ const OurProjects = ({ data }) => {
             )}
           </h3>
 
-          <p className={styles.ourProjectsDesc}>{problemTextEn}</p>
+          <p className={styles.ourProjectsDesc}>{problemEn}</p>
           <Link href={`/ourProjects/${slug}`} className={styles.readMore}>
             <span className={styles.readMoreTitle}>Read more</span>
             <svg

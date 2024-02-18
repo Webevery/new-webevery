@@ -17,51 +17,27 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // problemTitle: {
-    //     type: String,
-    //     required: true,
-    // },
-    // problemTitleEn: {
-    //     type: String,
-    //     required: true,
-    // },
-    problemText: {
+    problem: {
         type: String,
         required: true,
     },
-    problemTextEn: {
+    problemEn: {
         type: String,
         required: true,
     },
-    // solutionTitle: {
-    //     type: String,
-    //     required: true,
-    // },
-    // solutionTitleEn: {
-    //     type: String,
-    //     required: true,
-    // },
-    solutionText: {
+    solution: {
         type: String,
         required: true,
     },
-    solutionTextEn: {
+    solutionEn: {
         type: String,
         required: true,
     },
-    // helpTitle: {
-    //     type: String,
-    //     required: true,
-    // },
-    // helpTitleEn: {
-    //     type: String,
-    //     required: true,
-    // },
-    helpText: {
+    help: {
         type: String,
         required: true,
     },
-    helpTextEn: {
+    helpEn: {
         type: String,
         required: true,
     },
@@ -69,19 +45,11 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // adaptationTitle: {
-    //     type: String,
-    //     required: true,
-    // },
-    // adaptationTitleEn: {
-    //     type: String,
-    //     required: true,
-    // },
-    adaptationText: {
+    adaptation: {
         type: String,
         required: true,
     },
-    adaptationTextEn: {
+    adaptationEn: {
         type: String,
         required: true,
     },
@@ -102,4 +70,136 @@ const projectSchema = new mongoose.Schema({
     { timestamps: true, }
 )
 
-export const Project = mongoose.models.Project || mongoose.model("Project", projectSchema)
+const serviceSchema = new mongoose.Schema({
+    title: {
+        type: String,
+    },
+    titleEn: {
+        type: String,
+    },
+    titleGradient: {
+        type: String,
+    },
+    titleGradientEn: {
+        type: String,
+    },
+    mockup: {
+        type: String,
+        required: true,
+    },
+
+    description: {
+        type: String,
+        required: true,
+    },
+    descriptionEn: {
+        type: String,
+        required: true,
+    },
+    price: {
+        type: String,
+        required: true,
+    },
+    priceEn: {
+        type: String,
+        required: true,
+    },
+    directions: {
+        type: Array,
+        required: true,
+    },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+},
+    { timestamps: true, }
+)
+
+const blogSchema = new mongoose.Schema({
+    title: {
+        type: String,
+    },
+    titleEn: {
+        type: String,
+    },
+    image: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    descriptionEn: {
+        type: String,
+        required: true,
+    },
+    direction: {
+        type: String,
+        required: true,
+    },
+    directionEn: {
+        type: String,
+        required: true,
+    },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+},
+    { timestamps: true, }
+)
+
+const coworkerSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    nameEn: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    photo: {
+        type: String,
+        required: true,
+    },
+    position: {
+        type: String,
+        required: true,
+    },
+    positionEn: {
+        type: String,
+        required: true,
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+},
+    { timestamps: true, }
+)
+
+export const Project = mongoose.models.Project || mongoose.model("Project", projectSchema);
+
+export const Service = mongoose.models.Service || mongoose.model("Service", serviceSchema);
+
+export const Blog = mongoose.models.Blog || mongoose.model("Blog", blogSchema);
+
+export const Coworker = mongoose.models.Coworker || mongoose.model("Coworker", coworkerSchema);
