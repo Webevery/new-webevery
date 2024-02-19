@@ -2,12 +2,23 @@
 
 import { SiteContext } from "@/context/siteContext";
 import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { navLinks } from "../../data/navLinks";
 import styles from "./NavLinks.module.scss";
 
-const NavLinks = ({ className, subMenuRef, isClicked, setIsClicked }) => {
+const NavLinks = ({
+  className,
+  subMenuBtnRef,
+  isClicked,
+  setIsClicked,
+  subMenuRef,
+}) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+  const [isSubmenuSlug, setIsSubmenuSlug] = useState(false);
+  console.log("isSubmenuSlug", isSubmenuSlug);
+
+  const pathName = usePathname();
 
   const isClient = typeof window !== "undefined";
 
@@ -20,12 +31,13 @@ const NavLinks = ({ className, subMenuRef, isClicked, setIsClicked }) => {
   }, [burgerMenu, isClient]);
 
   const links = navLinks.map((link) => {
+    console.log(link.subMenu);
     return (
       <div key={link.id} className={styles.linkWrapper}>
         <Link
           href={link.href}
           className={
-            isClicked && link.subMenu
+            link.href === pathName || (isClicked && link.subMenu)
               ? `${styles.navLink} ${styles.active}`
               : `${styles.navLink}`
           }
@@ -48,7 +60,7 @@ const NavLinks = ({ className, subMenuRef, isClicked, setIsClicked }) => {
               e.stopPropagation(); // Stop event propagation
               setIsClicked(!isClicked);
             }}
-            ref={subMenuRef}
+            ref={subMenuBtnRef}
           >
             <use href="/sprite.svg#icon-NavArrow"></use>
           </svg>
@@ -61,8 +73,17 @@ const NavLinks = ({ className, subMenuRef, isClicked, setIsClicked }) => {
                 ? `${styles.subLinkWrapper} ${styles.subLinkWrapperVisible}`
                 : `${styles.subLinkWrapper} `
             }
+            ref={subMenuRef}
           >
             {link.subMenu?.map((sub) => {
+              // console.log("pathName", pathName);
+              console.log("sub.href", sub.href);
+              // if (pathName.includes(sub.href)) {
+              //   // console.log(pathName.includes(sub.href));
+              //   setIsSubmenuSlug(true);
+              // } else {
+              //   setIsSubmenuSlug(false);
+              // }
               return (
                 <Link
                   key={sub.id}

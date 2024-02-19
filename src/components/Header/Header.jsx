@@ -21,11 +21,11 @@ const Header = () => {
 
   const [isXs, setIsXs] = useState(true);
   const [isClicked, setIsClicked] = useState(false);
-
   const [scrolledWindow, setScrolledWindow] = useState(0);
   const menuRef = useRef(null);
   const headerRef = useRef(null);
   const header = headerRef.current;
+  const subMenuBtnRef = useRef(null);
   const subMenuRef = useRef(null);
 
   const [isTablet, setIsTablet] = useState(true);
@@ -48,7 +48,13 @@ const Header = () => {
 
   const closeBurgerOnWindowClick = useCallback(
     (e) => {
-      if (e.target !== menuRef.current || e.target !== subMenuRef.current) {
+      if (e.target === menuRef.current || e.target === subMenuRef.current) {
+        return;
+      } else if (
+        e.target !== menuRef.current ||
+        e.target !== subMenuBtnRef.current ||
+        e.target !== subMenuRef.current
+      ) {
         setBurgermenu(false);
         setIsClicked(false);
       }
@@ -74,7 +80,7 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("resize", handleResizeXs);
     window.addEventListener("resize", handleResizeTablet);
-    if (burgerMenu) {
+    if (burgerMenu || isClicked) {
       window.addEventListener("click", closeBurgerOnWindowClick);
     }
     window.addEventListener("scroll", headerScrollclassName, {
@@ -96,6 +102,7 @@ const Header = () => {
     handleResizeXs,
     handleResizeTablet,
     burgerMenu,
+    isClicked,
     closeBurgerOnWindowClick,
     headerScrollclassName,
   ]);
@@ -110,9 +117,10 @@ const Header = () => {
         >
           {!isTablet && <CallBtn />}
           <NavLinks
-            subMenuRef={subMenuRef}
+            subMenuBtnRef={subMenuBtnRef}
             isClicked={isClicked}
             setIsClicked={setIsClicked}
+            subMenuRef={subMenuRef}
           />
           {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
         </div>

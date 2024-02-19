@@ -4,6 +4,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
+  width: fit-content;
 
   @media screen and (min-width: $tablet) {
     font-size: 24px;
@@ -15,9 +16,8 @@
 
 .linkWrapper {
   display: flex;
-  // flex-direction: row-reverse;
   align-items: center;
-  // justify-content: flex-end;
+  width: fit-content;
   gap: 8px;
   position: relative;
   transition-duration: 250ms;
