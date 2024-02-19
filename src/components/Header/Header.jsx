@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./Header.module.scss";
 import NavLinks from "../NavLinks/NavLinks";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
@@ -11,12 +17,13 @@ import CallBtn from "../Buttons/CallBtn/CallBtn";
 import Link from "next/link";
 
 const Header = () => {
-  const { burgerMenu } = useContext(SiteContext);
+  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+  // console.log("burgerMenu", burgerMenu);
+
   const [isXs, setIsXs] = useState(true);
-  // console.log("isXs", isXs);
+  const menuRef = useRef(null);
 
   const [isTablet, setIsTablet] = useState(true);
-  // console.log("isTablet", isTablet);
 
   const handleResizeXs = useCallback(() => {
     if (window.innerWidth >= 768) {
@@ -34,9 +41,20 @@ const Header = () => {
     }
   }, [setIsTablet]);
 
+  const closeBurgerOnWindowClick = (e) => {
+    // console.log(e.target === menuRef.current);
+    // console.log("burgerMenu", burgerMenu);
+    if (e.target !== menuRef.current) {
+      setBurgermenu(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("resize", handleResizeXs);
     window.addEventListener("resize", handleResizeTablet);
+    if (burgerMenu) {
+      window.addEventListener("click", closeBurgerOnWindowClick);
+    }
 
     handleResizeXs();
     handleResizeTablet();
@@ -44,8 +62,9 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", handleResizeXs);
       window.removeEventListener("resize", handleResizeTablet);
+      window.removeEventListener("click", closeBurgerOnWindowClick);
     };
-  }, [handleResizeXs, handleResizeTablet]);
+  }, [handleResizeXs, handleResizeTablet, burgerMenu]);
 
   return (
     <header className={styles.header}>
@@ -53,6 +72,7 @@ const Header = () => {
         {isTablet && <BurgerBtn />}
         <div
           className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
+          ref={menuRef}
         >
           {!isTablet && <CallBtn />}
           <NavLinks burgerMenu={burgerMenu} />
