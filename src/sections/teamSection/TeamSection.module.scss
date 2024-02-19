@@ -75,7 +75,12 @@
   font-weight: 300;
   font-size: 48px;
   & span {
-    background: linear-gradient(91deg, $gradientYellow 0%, $gradientCyan 100%);
+    background: linear-gradient(
+      91deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
