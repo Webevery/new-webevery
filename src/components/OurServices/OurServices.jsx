@@ -6,9 +6,10 @@ import OrderBtn from "../../components/Buttons/OrderBtn/OrderBtn";
 import Link from "next/link";
 
 const OurServices = ({ data }) => {
+  console.log(data);
   return (
     <ul className={styles.cartContainer}>
-      {data?.map(({ slug, title, directions, price }) => (
+      {data?.map(({ slug, title, titleGradient, directions, price }) => (
         <li key={slug} className={styles.cartItem}>
           <div>
             <Link href={`/services/${slug}`} className={styles.readMore}>
@@ -32,7 +33,10 @@ const OurServices = ({ data }) => {
                 />
               </svg>
             </Link>
-            <h3 className={styles.cartTitle}>{title}</h3>
+            <h3 className={styles.cartTitle}>
+              {titleGradient}
+              {title}
+            </h3>
             <ul>
               {directions.map((item, index) => {
                 return (
