@@ -15,3 +15,13 @@ export const GetOurProjectsById = (id) => {
 //   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 //   return useSWR(`/api/blogs`, fetcher);
 // };
+
+export const GetOurServices = () => {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  return useSWR(`/api/services`, fetcher);
+};
+
+export const GetOurServicesById = (id) => {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  return useSWR(`/api/services/${id}`, fetcher);
+};
