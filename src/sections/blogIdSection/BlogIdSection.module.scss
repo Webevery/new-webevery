@@ -2,16 +2,23 @@
 
 .blog {
   display: none;
+
   @media screen and (min-width: $laptop) {
+    // убрать тестовый паддинг
+    padding: 150px;
+    color: navy;
+    //
     display: block;
     background-color: $gray0;
     flex: 1;
   }
 }
+
 .blogIdContainer {
   @media screen and (min-width: $laptop) {
     padding: 204px 32px 80px 32px;
   }
+
   @media screen and (min-width: $desktop) {
     padding: 228px 72px 80px 72px;
   }
@@ -78,12 +85,13 @@
     display: flex;
     column-gap: 24px;
     flex-direction: row-reverse;
+
     &:not(:last-child) {
       margin-bottom: 33px;
     }
   }
-  @media screen and (min-width: $desktop) {
-  }
+
+  @media screen and (min-width: $desktop) {}
 }
 
 .firstImgContainer {

@@ -2,7 +2,7 @@
 
 import styles from "./ServicesSection.module.scss";
 import OurServices from "@/components/OurServices/OurServices";
-import { GetOurServices } from "@/fetch/ClientFetsh";
+import { GetOurServices } from "@/fetch/ClientFetch";
 
 const ServicesSection = () => {
   const { data } = GetOurServices();

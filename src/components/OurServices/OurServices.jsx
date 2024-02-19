@@ -6,7 +6,7 @@ import OrderBtn from "../../components/Buttons/OrderBtn/OrderBtn";
 import Link from "next/link";
 
 const OurServices = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <ul className={styles.cartContainer}>
       {data?.map(({ slug, title, titleGradient, directions, price }) => (
