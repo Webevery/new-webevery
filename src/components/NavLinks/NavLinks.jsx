@@ -2,13 +2,23 @@
 
 import { SiteContext } from "@/context/siteContext";
 import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { navLinks } from "../../data/navLinks";
 import styles from "./NavLinks.module.scss";
 
-const NavLinks = ({ className }) => {
+const NavLinks = ({
+  className,
+  subMenuBtnRef,
+  isClicked,
+  setIsClicked,
+  subMenuRef,
+}) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
-  const [isClicked, setIsClicked] = useState(false);
+  const [isSubmenuSlug, setIsSubmenuSlug] = useState(false);
+  console.log("isSubmenuSlug", isSubmenuSlug);
+
+  const pathName = usePathname();
 
   const isClient = typeof window !== "undefined";
 
@@ -21,8 +31,24 @@ const NavLinks = ({ className }) => {
   }, [burgerMenu, isClient]);
 
   const links = navLinks.map((link) => {
+    console.log(link.subMenu);
     return (
       <div key={link.id} className={styles.linkWrapper}>
+        <Link
+          href={link.href}
+          className={
+            link.href === pathName || (isClicked && link.subMenu)
+              ? `${styles.navLink} ${styles.active}`
+              : `${styles.navLink}`
+          }
+          onClick={() => {
+            setBurgermenu(false);
+            setIsClicked(false);
+          }}
+        >
+          {link.title}
+        </Link>
+
         {link.subMenu && (
           <svg
             className={
@@ -30,13 +56,16 @@ const NavLinks = ({ className }) => {
                 ? `${styles.arrow} ${styles.arrowActive}`
                 : `${styles.arrow}`
             }
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation(); // Stop event propagation
               setIsClicked(!isClicked);
             }}
+            ref={subMenuBtnRef}
           >
             <use href="/sprite.svg#icon-NavArrow"></use>
           </svg>
         )}
+
         {link.subMenu && (
           <div
             className={
@@ -44,8 +73,17 @@ const NavLinks = ({ className }) => {
                 ? `${styles.subLinkWrapper} ${styles.subLinkWrapperVisible}`
                 : `${styles.subLinkWrapper} `
             }
+            ref={subMenuRef}
           >
             {link.subMenu?.map((sub) => {
+              // console.log("pathName", pathName);
+              console.log("sub.href", sub.href);
+              // if (pathName.includes(sub.href)) {
+              //   // console.log(pathName.includes(sub.href));
+              //   setIsSubmenuSlug(true);
+              // } else {
+              //   setIsSubmenuSlug(false);
+              // }
               return (
                 <Link
                   key={sub.id}
@@ -61,20 +99,6 @@ const NavLinks = ({ className }) => {
             })}
           </div>
         )}
-        <Link
-          href={link.href}
-          className={
-            isClicked && link.subMenu
-              ? `${styles.navLink} ${styles.active}`
-              : `${styles.navLink}`
-          }
-          onClick={() => {
-            setBurgermenu(false);
-            setIsClicked(false);
-          }}
-        >
-          {link.title}
-        </Link>
       </div>
     );
   });
