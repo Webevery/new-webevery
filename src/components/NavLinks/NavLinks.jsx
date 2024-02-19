@@ -6,9 +6,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { navLinks } from "../../data/navLinks";
 import styles from "./NavLinks.module.scss";
 
-const NavLinks = ({ className }) => {
+const NavLinks = ({ className, subMenuRef, isClicked, setIsClicked }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
-  const [isClicked, setIsClicked] = useState(false);
 
   const isClient = typeof window !== "undefined";
 
@@ -23,6 +22,21 @@ const NavLinks = ({ className }) => {
   const links = navLinks.map((link) => {
     return (
       <div key={link.id} className={styles.linkWrapper}>
+        <Link
+          href={link.href}
+          className={
+            isClicked && link.subMenu
+              ? `${styles.navLink} ${styles.active}`
+              : `${styles.navLink}`
+          }
+          onClick={() => {
+            setBurgermenu(false);
+            setIsClicked(false);
+          }}
+        >
+          {link.title}
+        </Link>
+
         {link.subMenu && (
           <svg
             className={
@@ -30,13 +44,16 @@ const NavLinks = ({ className }) => {
                 ? `${styles.arrow} ${styles.arrowActive}`
                 : `${styles.arrow}`
             }
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation(); // Stop event propagation
               setIsClicked(!isClicked);
             }}
+            ref={subMenuRef}
           >
             <use href="/sprite.svg#icon-NavArrow"></use>
           </svg>
         )}
+
         {link.subMenu && (
           <div
             className={
@@ -61,20 +78,6 @@ const NavLinks = ({ className }) => {
             })}
           </div>
         )}
-        <Link
-          href={link.href}
-          className={
-            isClicked && link.subMenu
-              ? `${styles.navLink} ${styles.active}`
-              : `${styles.navLink}`
-          }
-          onClick={() => {
-            setBurgermenu(false);
-            setIsClicked(false);
-          }}
-        >
-          {link.title}
-        </Link>
       </div>
     );
   });

@@ -18,10 +18,15 @@ import Link from "next/link";
 
 const Header = () => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
-  // console.log("burgerMenu", burgerMenu);
 
   const [isXs, setIsXs] = useState(true);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const [scrolledWindow, setScrolledWindow] = useState(0);
   const menuRef = useRef(null);
+  const headerRef = useRef(null);
+  const header = headerRef.current;
+  const subMenuRef = useRef(null);
 
   const [isTablet, setIsTablet] = useState(true);
 
@@ -43,14 +48,28 @@ const Header = () => {
 
   const closeBurgerOnWindowClick = useCallback(
     (e) => {
-      // console.log(e.target === menuRef.current);
-      // console.log("burgerMenu", burgerMenu);
-      if (e.target !== menuRef.current) {
+      if (e.target !== menuRef.current || e.target !== subMenuRef.current) {
         setBurgermenu(false);
+        setIsClicked(false);
       }
     },
     [setBurgermenu]
   );
+
+  const headerScrollclassName = useCallback(() => {
+    if (window.scrollY <= 12) {
+      header?.classList.remove(`${styles.Hidden}`);
+      header?.classList.add(`${styles.Visible}`);
+    } else if (window.scrollY > scrolledWindow) {
+      header?.classList.add(`${styles.Hidden}`);
+      header?.classList.remove(`${styles.Visible}`);
+    } else {
+      header.classList.remove(`${styles.Hidden}`);
+      header.classList.add(`${styles.Visible}`);
+    }
+
+    setScrolledWindow(window.scrollY);
+  }, [scrolledWindow, setScrolledWindow, header?.classList]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResizeXs);
@@ -58,6 +77,9 @@ const Header = () => {
     if (burgerMenu) {
       window.addEventListener("click", closeBurgerOnWindowClick);
     }
+    window.addEventListener("scroll", headerScrollclassName, {
+      passive: true,
+    });
 
     handleResizeXs();
     handleResizeTablet();
@@ -66,16 +88,20 @@ const Header = () => {
       window.removeEventListener("resize", handleResizeXs);
       window.removeEventListener("resize", handleResizeTablet);
       window.removeEventListener("click", closeBurgerOnWindowClick);
+      window.removeEventListener("scroll", headerScrollclassName, {
+        passive: true,
+      });
     };
   }, [
     handleResizeXs,
     handleResizeTablet,
     burgerMenu,
     closeBurgerOnWindowClick,
+    headerScrollclassName,
   ]);
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} ref={headerRef}>
       <div className={`container ${styles.container}`}>
         {isTablet && <BurgerBtn />}
         <div
@@ -83,7 +109,11 @@ const Header = () => {
           ref={menuRef}
         >
           {!isTablet && <CallBtn />}
-          <NavLinks burgerMenu={burgerMenu} />
+          <NavLinks
+            subMenuRef={subMenuRef}
+            isClicked={isClicked}
+            setIsClicked={setIsClicked}
+          />
           {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
         </div>
 
