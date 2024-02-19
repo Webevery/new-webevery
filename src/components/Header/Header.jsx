@@ -41,13 +41,16 @@ const Header = () => {
     }
   }, [setIsTablet]);
 
-  const closeBurgerOnWindowClick = (e) => {
-    // console.log(e.target === menuRef.current);
-    // console.log("burgerMenu", burgerMenu);
-    if (e.target !== menuRef.current) {
-      setBurgermenu(false);
-    }
-  };
+  const closeBurgerOnWindowClick = useCallback(
+    (e) => {
+      // console.log(e.target === menuRef.current);
+      // console.log("burgerMenu", burgerMenu);
+      if (e.target !== menuRef.current) {
+        setBurgermenu(false);
+      }
+    },
+    [setBurgermenu]
+  );
 
   useEffect(() => {
     window.addEventListener("resize", handleResizeXs);
@@ -64,7 +67,12 @@ const Header = () => {
       window.removeEventListener("resize", handleResizeTablet);
       window.removeEventListener("click", closeBurgerOnWindowClick);
     };
-  }, [handleResizeXs, handleResizeTablet, burgerMenu]);
+  }, [
+    handleResizeXs,
+    handleResizeTablet,
+    burgerMenu,
+    closeBurgerOnWindowClick,
+  ]);
 
   return (
     <header className={styles.header}>
