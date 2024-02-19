@@ -9,7 +9,8 @@ const BurgerBtn = () => {
   return (
     <button
       className={styles.burgerBtn}
-      onClick={() => {
+      onClick={(e) => {
+        e.stopPropagation(); // Stop event propagation
         setBurgermenu(!burgerMenu);
       }}
     >

@@ -9,7 +9,6 @@ import styles from "./NavLinks.module.scss";
 const NavLinks = ({ className }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
   const [isClicked, setIsClicked] = useState(false);
-  console.log("isClicked", isClicked);
 
   const isClient = typeof window !== "undefined";
 
