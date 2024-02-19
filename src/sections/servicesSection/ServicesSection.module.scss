@@ -56,7 +56,12 @@
   font-weight: 300;
   font-size: 48px;
   & span {
-    background: linear-gradient(91deg, $gradientYellow 0%, $gradientCyan 100%);
+    background: linear-gradient(
+      91deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -79,6 +84,12 @@
   //text-align: center;
   line-height: 1.1;
   color: #ffffff;
+  & span {
+    background: linear-gradient(91deg, $gradientYellow 0%, $gradientCyan 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   @media screen and (min-width: $mobile) {
     font-size: 32px;
   }
@@ -132,10 +143,20 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: space-between;
+  font-family: var(--font-work-sans);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 48px;
+  min-height: 772px;
+  & ul {
+    margin-bottom: 54px;
+  }
 }
 
 .cartItem:hover {
@@ -152,7 +173,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: auto;
+  margin-bottom: 24px;
+  justify-content: end;
 }
 
 .readMoreTitle {
@@ -174,23 +196,29 @@
 
 .cartTitle {
   font-weight: 500;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.4;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 24px;
 }
 
 .descItem {
   list-style-type: disc;
-  list-style-position: inside;
+  list-style-position: outside;
+  margin-bottom: 10px;
+  margin-left: 30px;
 }
 
 .cartPrice {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 26px;
   line-height: 1.6;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 32px;
   text-align: right;
+}
+
+#serviceOrderBtn {
+  width: 100%;
 }
