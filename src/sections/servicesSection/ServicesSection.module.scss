@@ -145,6 +145,33 @@
   }
 }
 
+.readMore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+.readMoreTitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  background: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.readMoreIcon {
+  width: 32px;
+  height: 12px;
+  margin-left: 16px;
+}
+
 .cartTitle {
   font-weight: 500;
   font-size: 26px;
@@ -154,11 +181,16 @@
   margin-bottom: 4px;
 }
 
+.descItem {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
 .cartPrice {
   font-weight: 400;
   font-size: 20px;
   line-height: 1.6;
   color: #ffffff;
   margin-bottom: 4px;
-  text-align: center;
+  text-align: right;
 }
