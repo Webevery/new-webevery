@@ -85,9 +85,8 @@ const serviceSchema = new mongoose.Schema({
     },
     mockup: {
         type: String,
-        required: true,
+        // required: true,
     },
-
     description: {
         type: String,
         required: true,
@@ -108,6 +107,10 @@ const serviceSchema = new mongoose.Schema({
         type: Array,
         required: true,
     },
+    directionsEn: {
+        type: Array,
+        required: true,
+    },
     slug: {
         type: String,
         required: true,
@@ -124,7 +127,7 @@ const blogSchema = new mongoose.Schema({
     titleEn: {
         type: String,
     },
-    image: {
+    images: {
         type: String,
         required: true,
     },

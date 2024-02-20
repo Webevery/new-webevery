@@ -16,7 +16,7 @@ const HomeOurProjectsSection = async () => {
   const data = await getOurProjects();
 
   // const data = await getData();
-  console.log('data', data)
+  // console.log('data', data)
 
   return <section className={styles.container}>
     <div className="container">

@@ -16,7 +16,7 @@ const NavLinks = ({
 }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
   const [isSubmenuSlug, setIsSubmenuSlug] = useState(false);
-  console.log("isSubmenuSlug", isSubmenuSlug);
+  // console.log("isSubmenuSlug", isSubmenuSlug);
 
   const pathName = usePathname();
 
@@ -31,7 +31,7 @@ const NavLinks = ({
   }, [burgerMenu, isClient]);
 
   const links = navLinks.map((link) => {
-    console.log(link.subMenu);
+    // console.log(link.subMenu);
     return (
       <div key={link.id} className={styles.linkWrapper}>
         <Link
@@ -77,7 +77,7 @@ const NavLinks = ({
           >
             {link.subMenu?.map((sub) => {
               // console.log("pathName", pathName);
-              console.log("sub.href", sub.href);
+              // console.log("sub.href", sub.href);
               // if (pathName.includes(sub.href)) {
               //   // console.log(pathName.includes(sub.href));
               //   setIsSubmenuSlug(true);
