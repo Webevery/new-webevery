@@ -14,7 +14,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
+import {
+  Autoplay,
+  Pagination,
+  Navigation,
+  EffectCoverflow,
+} from "swiper/modules";
+import Loading from "../Loading/Loading";
 
 export const SliderOfTeam = () => {
   const { data, isLoading, error } = GetDataFromSection("team");
@@ -27,10 +33,16 @@ export const SliderOfTeam = () => {
   newData = shuffleArray(newData);
   return (
     <>
-      {!isLoading && (
+      {isLoading ? (
+        <Loading className={styles.loader} />
+      ) : (
         <Swiper
           slidesPerView={3}
           spaceBetween={20}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
           effect={"coverflow"}
           grabCursor={true}
           loop={true}
@@ -59,7 +71,7 @@ export const SliderOfTeam = () => {
             slideShadows: true,
           }}
           navigation={true}
-          modules={[Pagination, Navigation, EffectCoverflow]}
+          modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
           className="teamSwiper"
         >
           <ul className={styles.cartContainer}>

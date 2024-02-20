@@ -1,6 +1,6 @@
 .teamSwiper {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 24px;
+    padding-bottom: 44px;
 }
 
 .teamSwiper .swiper-pagination {
@@ -13,8 +13,61 @@
     background: #cbcbcf;
 }
 
+.teamSwiper .swiper-pagination-bullet:hover {
+    opacity: 1;
+    background: linear-gradient(to right, #faff00,
+            #00f0ff,
+            #0400b3);
+}
+
 .teamSwiper .swiper-pagination-bullet-active {
     background: linear-gradient(to right, #faff00,
             #00f0ff,
             #0400b3);
+}
+
+.teamSwiper .swiper-button-prev {
+    color: #A6A6AA;
+}
+.teamSwiper .swiper-button-prev:hover {
+    color: linear-gradient(to right, #faff00,
+    #00f0ff,
+    #0400b3);
+}
+
+.teamSwiper .swiper-button-prev {
+    color: #A6A6AA;
+    transition: color 0.3s ease;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.teamSwiper .swiper-button-prev:hover {
+    color: transparent;
+    background-image: linear-gradient(to right, #faff00,
+    #00f0ff,
+    #0400b3);
+    -webkit-text-fill-color: transparent;
+}
+
+.teamSwiper .swiper-button-next {
+    color: #A6A6AA;
+    transition: color 0.3s ease;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.teamSwiper .swiper-button-next:hover {
+    color: transparent;
+    background-image: linear-gradient(to right, #faff00,
+    #00f0ff,
+    #0400b3);
+    -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width:1023px) {
+    .teamSwiper .swiper-button-prev,
+    .teamSwiper .swiper-button-next {
+        visibility: hidden;
+    }
 }
