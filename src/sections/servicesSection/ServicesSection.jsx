@@ -1,11 +1,13 @@
+"use client";
+
 import styles from "./ServicesSection.module.scss";
-import { serviceData } from "@/data/serviceData";
+import { GetOurServices } from "@/fetch/ClientFetch";
 import OrderBtn from "../../components/Buttons/OrderBtn/OrderBtn";
 import Link from "next/link";
 
-// import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
-
 const ServicesSection = () => {
+  const { data } = GetOurServices();
+
   return (
     <section>
       <section className={styles.services}>
@@ -18,11 +20,12 @@ const ServicesSection = () => {
               choose <span>the best</span> deal for your business
             </h2>
           </div>
+
           <ul className={styles.cartContainer}>
-            {serviceData.map(({ id, title, desc, price }) => (
-              <li key={id} className={styles.cartItem}>
+            {data?.map(({ slug, title, titleGradient, directions, price }) => (
+              <li key={slug} className={styles.cartItem}>
                 <div>
-                  <Link href={`/services/${id}`} className={styles.readMore}>
+                  <Link href={`/services/${slug}`} className={styles.readMore}>
                     <span className={styles.readMoreTitle}>Read more</span>
                     <svg className={styles.readMoreIcon}>
                       <linearGradient
@@ -43,16 +46,18 @@ const ServicesSection = () => {
                       />
                     </svg>
                   </Link>
-                  <h3 className={styles.cartTitle}>{title}</h3>
+                  <h3 className={styles.cartTitle}>
+                    {titleGradient}
+                    {title}
+                  </h3>
                   <ul>
-                    {desc &&
-                      desc.map(({ id, text }) => {
-                        return (
-                          <li key={id} className={styles.descItem}>
-                            {text}
-                          </li>
-                        );
-                      })}
+                    {directions.map((item, index) => {
+                      return (
+                        <li key={index} className={styles.descItem}>
+                          {item}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
                 <div>

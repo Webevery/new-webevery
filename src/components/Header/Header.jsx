@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./Header.module.scss";
 import NavLinks from "../NavLinks/NavLinks";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
@@ -11,12 +17,18 @@ import CallBtn from "../Buttons/CallBtn/CallBtn";
 import Link from "next/link";
 
 const Header = () => {
-  const { burgerMenu } = useContext(SiteContext);
+  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+
   const [isXs, setIsXs] = useState(true);
-  // console.log("isXs", isXs);
+  const [isClicked, setIsClicked] = useState(false);
+  const [scrolledWindow, setScrolledWindow] = useState(0);
+  const menuRef = useRef(null);
+  const headerRef = useRef(null);
+  const header = headerRef.current;
+  const subMenuBtnRef = useRef(null);
+  const subMenuRef = useRef(null);
 
   const [isTablet, setIsTablet] = useState(true);
-  // console.log("isTablet", isTablet);
 
   const handleResizeXs = useCallback(() => {
     if (window.innerWidth >= 768) {
@@ -34,9 +46,46 @@ const Header = () => {
     }
   }, [setIsTablet]);
 
+  const closeBurgerOnWindowClick = useCallback(
+    (e) => {
+      if (e.target === menuRef.current || e.target === subMenuRef.current) {
+        return;
+      } else if (
+        e.target !== menuRef.current ||
+        e.target !== subMenuBtnRef.current ||
+        e.target !== subMenuRef.current
+      ) {
+        setBurgermenu(false);
+        setIsClicked(false);
+      }
+    },
+    [setBurgermenu]
+  );
+
+  const headerScrollclassName = useCallback(() => {
+    if (window.scrollY <= 12) {
+      header?.classList.remove(`${styles.Hidden}`);
+      header?.classList.add(`${styles.Visible}`);
+    } else if (window.scrollY > scrolledWindow) {
+      header?.classList.add(`${styles.Hidden}`);
+      header?.classList.remove(`${styles.Visible}`);
+    } else {
+      header.classList.remove(`${styles.Hidden}`);
+      header.classList.add(`${styles.Visible}`);
+    }
+
+    setScrolledWindow(window.scrollY);
+  }, [scrolledWindow, setScrolledWindow, header?.classList]);
+
   useEffect(() => {
     window.addEventListener("resize", handleResizeXs);
     window.addEventListener("resize", handleResizeTablet);
+    if (burgerMenu || isClicked) {
+      window.addEventListener("click", closeBurgerOnWindowClick);
+    }
+    window.addEventListener("scroll", headerScrollclassName, {
+      passive: true,
+    });
 
     handleResizeXs();
     handleResizeTablet();
@@ -44,18 +93,35 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", handleResizeXs);
       window.removeEventListener("resize", handleResizeTablet);
+      window.removeEventListener("click", closeBurgerOnWindowClick);
+      window.removeEventListener("scroll", headerScrollclassName, {
+        passive: true,
+      });
     };
-  }, [handleResizeXs, handleResizeTablet]);
+  }, [
+    handleResizeXs,
+    handleResizeTablet,
+    burgerMenu,
+    isClicked,
+    closeBurgerOnWindowClick,
+    headerScrollclassName,
+  ]);
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} ref={headerRef}>
       <div className={`container ${styles.container}`}>
         {isTablet && <BurgerBtn />}
         <div
           className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
+          ref={menuRef}
         >
           {!isTablet && <CallBtn />}
-          <NavLinks burgerMenu={burgerMenu} />
+          <NavLinks
+            subMenuBtnRef={subMenuBtnRef}
+            isClicked={isClicked}
+            setIsClicked={setIsClicked}
+            subMenuRef={subMenuRef}
+          />
           {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
         </div>
 

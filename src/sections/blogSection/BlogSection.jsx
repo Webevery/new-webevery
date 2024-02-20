@@ -8,7 +8,7 @@ import { SiteContext } from '@/context/siteContext';
 import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
 import styles from './BlogSection.module.scss';
-// import { GetBlogs } from '@/fetch/ClientFetsh';
+// import { GetBlogs } from '@/fetch/ClientFetch';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -18,7 +18,7 @@ const BlogSection = () => {
 
   // const { data, error, isLoading } = GetBlogs();
 
-  // console.log(data);
+  // console.log("data", data);
 
   const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
 
