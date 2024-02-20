@@ -64,3 +64,10 @@
     #0400b3);
     -webkit-text-fill-color: transparent;
 }
+
+@media screen and (max-width:1023px) {
+    .teamSwiper .swiper-button-prev,
+    .teamSwiper .swiper-button-next {
+        visibility: hidden;
+    }
+}
