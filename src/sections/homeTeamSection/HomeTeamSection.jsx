@@ -6,8 +6,15 @@ const HomeTeamSection = () => {
   return (
     <section className={styles.container}>
       <div className="container">
+        <h3 className={styles.subTitle}>
+          <span>Our team</span> will bring your ideas to life
+        </h3>
         <SliderOfTeam />
-        <NavigationBtn title="About Team" href={"/team"} />
+        <NavigationBtn
+          id={styles.teamSliderBtn}
+          title="About Team"
+          href={"/team"}
+        />
       </div>
     </section>
   );

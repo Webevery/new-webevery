@@ -1,6 +1,6 @@
 .teamSwiper {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 24px;
+    padding-bottom: 44px;
 }
 
 .teamSwiper .swiper-pagination {
@@ -17,4 +17,12 @@
     background: linear-gradient(to right, #faff00,
             #00f0ff,
             #0400b3);
+}
+
+.teamSwiper .swiper-button-prev {
+    color: #A6A6AA
+}
+
+.teamSwiper .swiper-button-next {
+    color: #A6A6AA
 }
