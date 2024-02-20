@@ -1,11 +1,11 @@
 "use client";
 
 import styles from "./ServiceIdSection.module.scss";
-import { GetService } from "@/fetch/ClientFetch";
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 
 const ServiceIdSection = ({ params }) => {
   const { slug } = params;
-  const { data, error, isLoading } = GetService(slug);
+  const { data, error, isLoading } = GetIdDataFromSection("services", slug);
 
   const dataId = data && !isLoading ? data : error;
 
