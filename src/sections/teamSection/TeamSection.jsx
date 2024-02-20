@@ -1,12 +1,12 @@
 "use client";
 
 import styles from "./TeamSection.module.scss";
-import { GetTeam } from "@/fetch/ClientFetch";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
 import { shuffleArray } from "@/helpers/shuffleArray";
 import { CldImage } from "next-cloudinary";
 
 const TeamSection = () => {
-  const { data, isLoading, error } = GetTeam();
+  const { data, isLoading, error } = GetDataFromSection("team");
 
   let newData = [];
   if (!isLoading) {

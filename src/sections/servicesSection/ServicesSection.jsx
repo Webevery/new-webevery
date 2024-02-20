@@ -1,12 +1,12 @@
 "use client";
 
 import styles from "./ServicesSection.module.scss";
-import { GetOurServices } from "@/fetch/ClientFetch";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
 import OrderBtn from "../../components/Buttons/OrderBtn/OrderBtn";
 import Link from "next/link";
 
 const ServicesSection = () => {
-  const { data } = GetOurServices();
+  const { data } = GetDataFromSection("services");
 
   return (
     <section>

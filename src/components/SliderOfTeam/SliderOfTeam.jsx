@@ -3,9 +3,8 @@ import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./SliderOfTeam.module.scss";
-//import { team } from "@/data/team";
 
-import { GetTeam } from "@/fetch/ClientFetch";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
 import { shuffleArray } from "@/helpers/shuffleArray";
 import { CldImage } from "next-cloudinary";
 import "./SliderOfTeam.css";
@@ -18,7 +17,7 @@ import "swiper/css/effect-coverflow";
 import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
 
 export const SliderOfTeam = () => {
-  const { data, isLoading, error } = GetTeam();
+  const { data, isLoading, error } = GetDataFromSection("team");
 
   let newData = [];
   if (!isLoading) {
