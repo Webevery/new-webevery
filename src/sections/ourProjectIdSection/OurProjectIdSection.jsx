@@ -4,12 +4,13 @@ import styles from './OurProjectIdSection.module.scss';
 import stylescBtn from '../../components/Buttons/Btns.module.scss'
 import { CldImage } from 'next-cloudinary';
 import { v4 } from 'uuid';
-import { GetProject } from '@/fetch/ClientFetch';
+import { GetIdDataFromSection, GetProject } from '@/fetch/ClientFetch';
 import { useEffect, useState } from 'react';
 
 const OurProjectIdSection = ({ params }) => {
   const { slug } = params;
-  const { data, error, isLoading } = GetProject(slug);
+  // const { data, error, isLoading } = GetProject(slug);
+  const { data, error, isLoading } = GetIdDataFromSection('ourProjects', slug);
 
   const dataId = data && !isLoading ? data : error;
   const [isSmallScreen, setIsSmallScreen] = useState(false);

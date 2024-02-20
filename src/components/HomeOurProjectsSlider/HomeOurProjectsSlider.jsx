@@ -10,7 +10,8 @@ import 'swiper/css/pagination';
 import './HomeOurProjectsSlider.css';
 
 // import required modules
-import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
+// import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
+import { Keyboard, Navigation, Pagination } from 'swiper/modules';
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 
@@ -29,21 +30,21 @@ const HomeOurProjectsSlider = ({ data }) => {
                     clickable: true,
                 }}
                 loop={true}
-                mousewheel={true}
+                // mousewheel={true}
 
                 breakpoints={{
                     320: {
                         spaceBetween: 16,
-                        mousewheel: false,
+                        // mousewheel: false,
                     },
                     360: {
                         spaceBetween: 16,
-                        mousewheel: false,
+                        // mousewheel: false,
                     },
                     768: {
                         loop: false,
                         spaceBetween: 16,
-                        mousewheel: true,
+                        // mousewheel: true,
                     },
                     1024: {
                         loop: false,
@@ -54,10 +55,12 @@ const HomeOurProjectsSlider = ({ data }) => {
                         spaceBetween: 48,
                     },
                 }}
-                modules={[Keyboard, Mousewheel, Navigation, Pagination]}
+                // modules={[Keyboard, Mousewheel, Navigation, Pagination]}
+                modules={[Keyboard, Navigation, Pagination]}
+
                 className='HomeOurProjectsSwiper'
             >
-                {data.map(item => (
+                {data?.map(item => (
                     <SwiperSlide key={item.slug}>
                         <div className="slideContentWrapper">
                             <Link className="projectLink" href={`/ourProjects/${item.slug}`}>
