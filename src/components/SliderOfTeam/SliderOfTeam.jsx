@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
+import Loading from "../Loading/Loading";
 
 export const SliderOfTeam = () => {
   const { data, isLoading, error } = GetDataFromSection("team");
@@ -27,7 +28,7 @@ export const SliderOfTeam = () => {
   newData = shuffleArray(newData);
   return (
     <>
-      {!isLoading && (
+      {isLoading ? <Loading className={styles.loader}/> : (
         <Swiper
           slidesPerView={3}
           spaceBetween={20}
