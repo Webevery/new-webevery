@@ -181,9 +181,11 @@
   color: $gray0;
   margin-bottom: 8px;
   @media screen and (min-width: $laptop) {
+    // height: 109px;
     font-size: 26px;
   }
   @media screen and (min-width: $desktop) {
+    height: 73px;
   }
 }
 
@@ -217,7 +219,29 @@
   -ms-flex-align: center;
   align-items: center;
   margin-left: auto;
+  // & .readMoreTitle {
+  //   &:hover,
+  //   &:focus {
+  //     color: #fff;
+  //     background: $gradient;
+  //     background-size: auto auto;
+  //     background-clip: border-box;
+  //     background-size: 200% auto;
+  //     animation: textclip 0.5s linear both;
+
+  //     background-clip: text;
+  //     -webkit-background-clip: text;
+  //     -webkit-text-fill-color: transparent;
+  //   }
+  // }
 }
+// @keyframes textclip {
+//   100% {
+//     background-position: -200% center;
+//     filter: brightness(1.1) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.349));
+//     text-shadow: 0px 1px 2px white;
+//   }
+// }
 
 .readMoreTitle {
   font-weight: 500;

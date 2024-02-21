@@ -164,8 +164,9 @@
   }
 
   @media screen and (min-width: $desktop) {
-    width: 1296px;
-    height: 910px;
+    // width: 1296px;
+    height: 85vh;
+    // height: 910px;
   }
   & img {
     object-fit: cover;
@@ -306,7 +307,9 @@
   }
   @media screen and (min-width: $desktop) {
     // width: 1296px;
-    height: 910px;
+    // height: 910px;
+
+    height: 85vh;
     margin-bottom: 48px;
   }
 }
@@ -402,35 +405,32 @@
 
 .mobileImgItem {
   position: relative;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 132px;
   height: 221px;
   box-shadow: $shadowColor;
-
-  border: double 1px transparent;
-  background-image: linear-gradient($gray0, $gray0), $gradient;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  // margin-bottom: 32px;
+  background-color: #000000;
+  border: 4px solid #0d0d11;
   & img {
     object-fit: cover;
     border-radius: 8px;
   }
 
   @media screen and (min-width: $mobile) {
-    border-radius: 8px;
     width: 148px;
     height: 248px;
   }
   @media screen and (min-width: $tablet) {
+    border: 8px solid #0d0d11;
     border-radius: 56px;
     width: 340px;
     height: 640px;
     & img {
-      border-radius: 56px;
+      border-radius: 44px;
     }
   }
   @media screen and (min-width: $laptop) {
+    border: 12px solid #0d0d11;
     width: 304px;
     height: 534px;
   }
