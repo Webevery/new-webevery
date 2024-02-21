@@ -1,10 +1,9 @@
 "use client";
 
 import { SiteContext } from "@/context/siteContext";
-import { GetDataFromSection } from "@/fetch/ClientFetch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { navLinks } from "../../data/navLinks";
 import styles from "./NavLinks.module.scss";
 import ServisecSubMenu from "./ServisecSubMenu/ServisecSubMenu";
@@ -17,7 +16,6 @@ const NavLinks = ({
   subMenuRef,
 }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
-  const [isSubmenuSlug, setIsSubmenuSlug] = useState(false);
 
   const pathName = usePathname();
 
@@ -26,7 +24,7 @@ const NavLinks = ({
   useEffect(() => {
     if (burgerMenu && isClient) {
       document.body.style.overflowY = "hidden";
-    } else if (isClient) {
+    } else {
       document.body.style.overflowY = "scroll";
     }
   }, [burgerMenu, isClient]);
