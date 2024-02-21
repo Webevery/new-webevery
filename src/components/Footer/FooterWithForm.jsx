@@ -61,6 +61,7 @@ const FooterWithForm = () => {
             window.removeEventListener("resize", handleResizeDesktop);
         };
     }, [handleResizeDesktop]);
+
     return (
         <>
             {(() => {
