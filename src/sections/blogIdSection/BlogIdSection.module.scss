@@ -1,20 +1,18 @@
 @import '../../app/variables';
 
 .blog {
-  display: none;
-
-  @media screen and (min-width: $laptop) {
-    // убрать тестовый паддинг
-    padding: 150px;
-    color: navy;
-    //
-    display: block;
-    background-color: $gray0;
-    flex: 1;
-  }
+  background-color: $gray0;
+  flex: 1;
 }
 
 .blogIdContainer {
+  padding: 112px 22px 40px 22px;
+  @media screen and (min-width: $mobile) {
+    padding: 120px 24px 40px 24px;
+  }
+  @media screen and (min-width: $tablet) {
+    padding: 160px 32px 40px 32px;
+  }
   @media screen and (min-width: $laptop) {
     padding: 204px 32px 80px 32px;
   }
@@ -25,26 +23,32 @@
 }
 
 .backContainer {
-  @media screen and (min-width: $laptop) {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    column-gap: 16px;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    padding: 0 8px;
-    background-color: $backgroundColor;
-    font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  column-gap: 16px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0 8px;
+  background-color: $backgroundColor;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  color: $gray0;
+  margin-bottom: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  @media screen and (min-width: $tablet) {
     font-size: 20px;
-    line-height: 1.6;
-    text-align: center;
-    color: $gray0;
-    margin-bottom: 24px;
-    cursor: pointer;
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: $laptop) {
+    column-gap: 16px;
+    padding: 0 8px;
   }
 
   @media screen and (min-width: $desktop) {
@@ -54,15 +58,22 @@
 }
 
 .backIcon {
-  @media screen and (min-width: $laptop) {
-    width: 32px;
-    height: 12px;
-    fill: $gray0;
-    transform: rotate(180deg);
-  }
+  width: 32px;
+  height: 12px;
+  fill: $gray0;
+  transform: rotate(180deg);
 }
 
 .blogTitle {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+  color: $gray900;
+  margin-bottom: 16px;
+  @media screen and (min-width: $tablet) {
+    font-size: 38px;
+    margin-bottom: 74px;
+  }
   @media screen and (min-width: $laptop) {
     font-weight: 400;
     font-size: 44px;
@@ -78,25 +89,45 @@
 }
 
 .blogContent {
-  @media screen and (min-width: $laptop) {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    column-gap: 24px;
-    flex-direction: row-reverse;
-
-    &:not(:last-child) {
-      margin-bottom: 33px;
-    }
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  column-gap: 14px;
+  flex-direction: column;
+  &:not(:last-child) {
+    flex-direction: column-reverse;
   }
 
-  @media screen and (min-width: $desktop) {}
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: $tablet) {
+    column-gap: 24px;
+    flex-direction: row-reverse;
+    &:not(:last-child) {
+      margin-bottom: 33px;
+      flex-direction: row-reverse;
+    }
+  }
+  @media screen and (min-width: $laptop) {
+    column-gap: 24px;
+  }
 }
 
 .firstImgContainer {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin-bottom: 16px;
+  @media screen and (min-width: $mobile) {
+    height: 312px;
+  }
+  @media screen and (min-width: $tablet) {
+    min-width: 340px;
+    height: 471px;
+  }
   @media screen and (min-width: $laptop) {
-    position: relative;
     min-width: 468px;
     height: 471px;
   }
@@ -108,8 +139,18 @@
 }
 
 .lastImgContainer {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin-bottom: 16px;
+  @media screen and (min-width: $mobile) {
+    height: 312px;
+  }
+  @media screen and (min-width: $tablet) {
+    min-width: 340px;
+    height: 445px;
+  }
   @media screen and (min-width: $laptop) {
-    position: relative;
     min-width: 386px;
     height: 445px;
   }
@@ -125,10 +166,8 @@
 }
 
 .blogDesc {
-  @media screen and (min-width: $laptop) {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 1.6;
-    color: $gray900;
-  }
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  color: $gray900;
 }

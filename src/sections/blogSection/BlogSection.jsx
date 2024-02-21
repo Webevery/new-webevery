@@ -1,14 +1,14 @@
 'use client';
 
 import { useContext, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { blog, blogFilter, blogSorter } from '@/data/blog';
 import { SiteContext } from '@/context/siteContext';
 import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
 import styles from './BlogSection.module.scss';
-// import { GetBlogs } from '@/fetch/ClientFetch';
+import { GetDataFromSection } from '@/fetch/ClientFetch';
+import { CldImage } from 'next-cloudinary';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -16,9 +16,7 @@ const BlogSection = () => {
 
   const containerRef = useRef();
 
-  // const { data, error, isLoading } = GetBlogs();
-
-  // console.log("data", data);
+  const { data, error, isLoading } = GetDataFromSection('blogs');
 
   const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
 
@@ -80,44 +78,74 @@ const BlogSection = () => {
           {blogSorterShown && <BlogFilter filter={blogSorter} title="Sorter" />}
           {blogFilterShown && <BlogFilter filter={blogFilter} title="Filter" />}
 
-          {blog.slice(0, loadedCount).map(({ id, img, title, desc }) => (
-            <li key={id} className={styles.cartItem}>
-              <div className={styles.cartImgContainer}>
-                <Image
-                  src={img}
-                  alt="img blog"
-                  fill="true"
-                  className={styles.cartImg}
-                  sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
-                />
-              </div>
-
-              <h3 className={styles.cartTitle}>{title}</h3>
-              {/* <p className={styles.cartDesc}>{truncateText(desc, 41)}</p> */}
-              <p className={styles.cartDesc}>{desc}</p>
-              <Link href={`/blog/${id}`} className={styles.readMore}>
-                <span className={styles.readMoreTitle}>Read more</span>
-                <svg className={styles.readMoreIcon}>
-                  <linearGradient
-                    id="paint0_linear_3004_8704"
-                    x1="6.97336e-08"
-                    y1="6.28477"
-                    x2="11.302"
-                    y2="-9.00003"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stopColor="#FAFF00" />
-                    <stop offset="0.466629" stopColor="#00F0FF" />
-                    <stop offset="1" stopColor="#0400B3" />
-                  </linearGradient>
-                  <use
-                    href="sprite.svg#icon-arrowReadMore"
-                    style={{ fill: 'url(#paint0_linear_3004_8704)' }}
+          {data
+            ?.slice(0, loadedCount)
+            .map(({ slug, images, titleEn, descriptionEn }) => (
+              <li key={slug} className={styles.cartItem}>
+                <div className={styles.cartImgContainer}>
+                  <CldImage
+                    src={images[0]}
+                    alt="img blog"
+                    fill="true"
+                    className={styles.cartImg}
+                    sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
                   />
-                </svg>
-              </Link>
-            </li>
-          ))}
+                </div>
+
+                <h3 className={styles.cartTitle}>{titleEn}</h3>
+                {/* <p className={styles.cartDesc}>{truncateText(desc, 41)}</p> */}
+                <p className={styles.cartDesc}>{descriptionEn}</p>
+                <Link href={`/blog/${slug}`} className={styles.readMore}>
+                  <span className={styles.readMoreTitle}>Read more</span>
+                  <svg
+                    className={styles.readMoreIcon}
+                    viewBox="0 0 24 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 3.5L19 0.613249L19 6.38675L24 3.5ZM-1.15607e-09 4L19.5 4L19.5 3L1.15607e-09 3L-1.15607e-09 4Z"
+                      fill="url(#paint0_linear_945_6287)"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_945_6287"
+                        x1="5.16375e-08"
+                        y1="3.78477"
+                        x2="11.8197"
+                        y2="-8.20395"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stopColor="#FAFF00" />
+                        <stop offset="0.466629" stopColor="#00F0FF" />
+                        <stop offset="1" stopColor="#0400B3" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </Link>
+                {/* <Link href={`/blog/${slug}`} className={styles.readMore}>
+                  <span className={styles.readMoreTitle}>Read more</span>
+                  <svg className={styles.readMoreIcon}>
+                    <linearGradient
+                      id="paint0_linear_3004_8704"
+                      x1="6.97336e-08"
+                      y1="6.28477"
+                      x2="11.302"
+                      y2="-9.00003"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#FAFF00" />
+                      <stop offset="0.466629" stopColor="#00F0FF" />
+                      <stop offset="1" stopColor="#0400B3" />
+                    </linearGradient>
+                    <use
+                      href="sprite.svg#icon-arrowReadMore"
+                      style={{ fill: 'url(#paint0_linear_3004_8704)' }}
+                    />
+                  </svg>
+                </Link> */}
+              </li>
+            ))}
         </ul>
         {showLoading && (
           <div className={styles.loading}>
