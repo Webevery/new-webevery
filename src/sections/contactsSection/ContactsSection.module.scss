@@ -1,1 +1,174 @@
 @import "../../app/variables";
+
+.contactsContainer {
+    padding: 112px 20px 40px 20px;
+    height: 100%;
+    @media screen and (min-width: $mobile) {
+        padding: 120px 24px 80px 24px;
+    }
+    @media screen and (min-width: $tablet) {
+        padding: 162px 31px 180px 32px;
+    }
+    @media screen and (min-width: $laptop) {
+        padding: 204px 32px 140px 32px;
+    }
+    @media screen and (min-width: $desktop) {
+        padding: 228px 72px 80px 72px;
+    }
+}
+
+.titleWrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    @media screen and (min-width: $mobile) {
+    }
+    @media screen and (min-width: $tablet) {
+        margin-bottom: 30px;
+    }
+    @media screen and (min-width: $laptop) {
+        margin-bottom: 48px;
+    }
+}
+
+.title {
+    font-family: var(--font-saira);
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.1;
+    @media screen and (min-width: $mobile) {
+        font-size: 48px;
+    }
+    @media screen and (min-width: $tablet) {
+        font-size: 58px;
+        background-image: $gradient;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    @media screen and (min-width: $laptop) {
+        font-size: 96px;
+    }
+}
+
+.titleSlice {
+    background-image: linear-gradient(90deg, $gradientCyan, $gradientBlue);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    @media screen and (min-width: $tablet) {
+        background-image: none;
+        background-color: #fff;
+    }
+    @media screen and (min-width: $laptop) {
+        font-size: 96px;
+    }
+}
+
+.subTitle {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    @media screen and (min-width: $tablet) {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+    @media screen and (min-width: $laptop) {
+        font-weight: 400;
+        font-size: 26px;
+    }
+    @media screen and (min-width: $desktop) {
+        font-size: 36px;
+    }
+}
+
+.emailWrap {
+    width: 90px;
+    @media screen and (min-width: $tablet) {
+        width: 105px;
+    }
+}
+
+.phoneWrap {
+    width: 227px;
+    @media screen and (min-width: $tablet) {
+        width: 259px;
+    }
+    @media screen and (min-width: $desktop) {
+        width: 348px;
+    }
+}
+
+.innerWrap {
+    display: block;
+    // width: 321px;
+}
+
+.contentWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: $tablet) {
+        flex-direction: row;
+        align-items: start;
+    }
+    @media screen and (min-width: $laptop) {
+        justify-content: space-between;
+    }
+}
+
+.informBlock {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    @media screen and (min-width: $mobile) {
+        row-gap: 16px;
+        width: 321px;
+    }
+    @media screen and (min-width: $tablet) {
+        row-gap: 32px;
+    }
+    @media screen and (min-width: $laptop) {
+        width: 270px;
+    }
+    @media screen and (min-width: $desktop) {
+        width: 348px;
+    }
+}
+
+.phoneText {
+    font-family: var(--font-work-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    @media screen and (min-width: $tablet) {
+        font-size: 24px;
+    }
+    @media screen and (min-width: $laptop) {
+        font-size: 20px;
+    }
+    @media screen and (min-width: $desktop) {
+        font-size: 26px;
+    }
+}
+
+.mailText {
+    font-family: var(--font-work-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    @media screen and (min-width: $tablet) {
+        font-size: 24px;
+    }
+    @media screen and (min-width: $laptop) {
+        font-size: 20px;
+    }
+    @media screen and (min-width: $desktop) {
+        font-size: 26px;
+    }
+}
+
+// .socialList {
+
+// }

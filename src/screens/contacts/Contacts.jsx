@@ -1,11 +1,12 @@
-import React from "react";
-import styles from "./Contacts.module.scss";
 import ContactsSection from "@/sections/contactsSection/ContactsSection";
+import styles from "./Contacts.module.scss";
 
 const Contacts = () => {
-  return <div className="screen">
-    <ContactsSection />
-  </div>;
+    return (
+        <div className='screen'>
+            <ContactsSection />
+        </div>
+    );
 };
 
 export default Contacts;

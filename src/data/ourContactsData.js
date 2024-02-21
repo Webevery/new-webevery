@@ -16,7 +16,7 @@ export const ourContactsData = [
     },
     {
         name: 'instagram',
-        path: 'https://www.instagram.com/web.every/',
+        path: 'https://www.instagram.com/webevery.dev/',
         svg: '/sprite.svg#icon-instagram',
     },
     {

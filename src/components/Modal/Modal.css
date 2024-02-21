@@ -20,7 +20,7 @@
     overflow-y: auto;
     z-index: 10;
 
-    @media screen and (max-height: 700px) {
+    @media screen and (max-height: 550px) {
         -webkit-box-align: start;
         -ms-flex-align: start;
         align-items: flex-start;
