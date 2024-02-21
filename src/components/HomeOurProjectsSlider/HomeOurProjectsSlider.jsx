@@ -11,7 +11,7 @@ import './HomeOurProjectsSlider.css';
 
 // import required modules
 // import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
-import { Keyboard, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules';
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 
@@ -30,6 +30,10 @@ const HomeOurProjectsSlider = ({ data }) => {
                     clickable: true,
                 }}
                 loop={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
                 // mousewheel={true}
 
                 breakpoints={{
@@ -42,21 +46,21 @@ const HomeOurProjectsSlider = ({ data }) => {
                         // mousewheel: false,
                     },
                     768: {
-                        loop: false,
+                        // loop: false,
                         spaceBetween: 16,
                         // mousewheel: true,
                     },
                     1024: {
-                        loop: false,
+                        // loop: false,
                         spaceBetween: 24,
                     },
                     1440: {
-                        loop: false,
+                        // loop: false,
                         spaceBetween: 48,
                     },
                 }}
                 // modules={[Keyboard, Mousewheel, Navigation, Pagination]}
-                modules={[Keyboard, Navigation, Pagination]}
+                modules={[Autoplay, Keyboard, Navigation, Pagination]}
 
                 className='HomeOurProjectsSwiper'
             >
