@@ -44,3 +44,8 @@ export const GetService = (slug) => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   return useSWR(`/api/services/${slug}`, fetcher);
 };
+
+export const GetTeam = () => {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  return useSWR(`/api/team`, fetcher);
+};

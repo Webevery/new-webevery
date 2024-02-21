@@ -1,11 +1,13 @@
 "use client";
 
 import { SiteContext } from "@/context/siteContext";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { navLinks } from "../../data/navLinks";
 import styles from "./NavLinks.module.scss";
+import ServisecSubMenu from "./ServisecSubMenu/ServisecSubMenu";
 
 const NavLinks = ({
   className,
@@ -16,7 +18,6 @@ const NavLinks = ({
 }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
   const [isSubmenuSlug, setIsSubmenuSlug] = useState(false);
-  // console.log("isSubmenuSlug", isSubmenuSlug);
 
   const pathName = usePathname();
 
@@ -31,13 +32,14 @@ const NavLinks = ({
   }, [burgerMenu, isClient]);
 
   const links = navLinks.map((link) => {
-    // console.log(link.subMenu);
     return (
       <div key={link.id} className={styles.linkWrapper}>
         <Link
           href={link.href}
           className={
-            link.href === pathName || (isClicked && link.subMenu)
+            link.href === pathName ||
+            (isClicked && link.subMenu) ||
+            (pathName.includes("services") && link.href.includes("services"))
               ? `${styles.navLink} ${styles.active}`
               : `${styles.navLink}`
           }
@@ -48,7 +50,6 @@ const NavLinks = ({
         >
           {link.title}
         </Link>
-
         {link.subMenu && (
           <svg
             className={
@@ -65,39 +66,12 @@ const NavLinks = ({
             <use href="/sprite.svg#icon-NavArrow"></use>
           </svg>
         )}
-
         {link.subMenu && (
-          <div
-            className={
-              isClicked
-                ? `${styles.subLinkWrapper} ${styles.subLinkWrapperVisible}`
-                : `${styles.subLinkWrapper} `
-            }
-            ref={subMenuRef}
-          >
-            {link.subMenu?.map((sub) => {
-              // console.log("pathName", pathName);
-              // console.log("sub.href", sub.href);
-              // if (pathName.includes(sub.href)) {
-              //   // console.log(pathName.includes(sub.href));
-              //   setIsSubmenuSlug(true);
-              // } else {
-              //   setIsSubmenuSlug(false);
-              // }
-              return (
-                <Link
-                  key={sub.id}
-                  href={`${link.href}/${sub.href}`}
-                  onClick={() => {
-                    setBurgermenu(false);
-                    setIsClicked(false);
-                  }}
-                >
-                  {sub.title}
-                </Link>
-              );
-            })}
-          </div>
+          <ServisecSubMenu
+            isClicked={isClicked}
+            subMenuRef={subMenuRef}
+            linkHref={link.href}
+          />
         )}
       </div>
     );
