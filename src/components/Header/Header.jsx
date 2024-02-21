@@ -63,7 +63,7 @@ const Header = () => {
   );
 
   const headerScrollclassName = useCallback(() => {
-    if (window.scrollY <= 12) {
+    if (window.scrollY <= 80) {
       header?.classList.remove(`${styles.Hidden}`);
       header?.classList.add(`${styles.Visible}`);
     } else if (window.scrollY > scrolledWindow) {
