@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { socialLinks } from "@/helpers/linkArrays";
-import SocialLinksList from "@/components/SocialLinks/SocialLinksList";
+
 import OrderForm from "@/components/OrderForm/OrderForm";
 import FooterWithForm from "@/components/Footer/FooterWithForm";
 import Footer from "@/components/Footer/Footer";
+import OurContacts from "./OurContacts";
 
 import styles from "./ContactsSection.module.scss";
 
@@ -72,21 +72,15 @@ const ContactsSection = () => {
                                     className={`container ${styles.contactsContainer}`}
                                 >
                                     <div className={styles.titleWrap}>
-                                        <h2 className={styles.title}>
-                                            Contact
-                                        </h2>
-                                        <h2> </h2>
-                                        <h2
-                                            className={`titleGradient ${styles.title}`}
-                                        >
-                                            us
-                                        </h2>
+                                        <h1 className={styles.title}>
+                                            Contact{" "}
+                                            <span className={styles.titleSlice}>
+                                                us
+                                            </span>
+                                        </h1>
                                     </div>
                                     <div className={styles.contentWrap}>
-                                        <div className={styles.informBlock}>
-                                            isMobile
-                                        </div>
-
+                                        <OurContacts />
                                         <OrderForm />
                                     </div>
                                 </div>
@@ -101,9 +95,16 @@ const ContactsSection = () => {
                                 <div
                                     className={`container ${styles.contactsContainer}`}
                                 >
+                                    <div className={styles.titleWrap}>
+                                        <h1 className={styles.title}>
+                                            Contact{" "}
+                                            <span className={styles.titleSlice}>
+                                                us
+                                            </span>
+                                        </h1>
+                                    </div>
                                     <div className={styles.contentWrap}>
-                                        IsLaptop
-                                        {/* <OrderForm /> */}
+                                        <OurContacts />
                                     </div>
                                 </div>
                             </section>
@@ -117,8 +118,16 @@ const ContactsSection = () => {
                                 <div
                                     className={`container ${styles.contactsContainer}`}
                                 >
+                                    <div className={styles.titleWrap}>
+                                        <h1 className={styles.title}>
+                                            Contact{" "}
+                                            <span className={styles.titleSlice}>
+                                                us
+                                            </span>
+                                        </h1>
+                                    </div>
                                     <div className={styles.contentWrap}>
-                                        isDesktop
+                                        <OurContacts />
                                         <OrderForm />
                                     </div>
                                 </div>
