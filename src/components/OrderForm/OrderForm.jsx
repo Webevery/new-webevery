@@ -9,7 +9,7 @@ import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 
 import styles from "./OrderForm.module.scss";
 
-const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
+const OrderForm = ({ isFooterForm = false, comment = "" }) => {
     const [isLaptop, setLaptop] = useState(true);
     const { closeModal, isModalOpen } = useContext(SiteContext);
 
@@ -17,7 +17,7 @@ const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
         defaultValues: {
             userName: "",
             tel: "",
-            message: sectionTitle,
+            message: comment,
         },
         resolver: yupResolver(YupOrderFormSchema),
         mode: "onChange",
@@ -199,7 +199,6 @@ const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
                 </div>
                 <div className={styles.inputWrap}>
                     <textarea
-                        // className={`${styles.textarea} ${styles.input}`}
                         className={
                             isFooterForm
                                 ? `${styles.input} ${styles.textarea} ${styles.textareaFooter}`
@@ -218,7 +217,6 @@ const OrderForm = ({ isFooterForm = false, sectionTitle = "" }) => {
                     title=' Order call from manager'
                     disabled={isErrors || isSubmitting}
                     className={styles.submitButton}
-                    // id={styles.submitId}
                     id={isFooterForm ? styles.submitFooterId : styles.submitId}
                 />
             </form>

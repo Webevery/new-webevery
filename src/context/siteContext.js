@@ -7,16 +7,18 @@ export const SiteProvider = ({ children }) => {
   const [burgerMenu, setBurgermenu] = useState(false);
   // console.log(burgerMenu);
   const [isModalOpen, setModalOpen] = useState(false);
-
+  const [comment, setComment] = useState("");
   const [blogFilterShown, setBlogFilterShown] = useState(false);
 
   const [blogSorterShown, setBlogSorterShown] = useState(false);
 
   const openModal = () => {
+    // setComment(comment);
     setModalOpen(true);
   };
 
   const closeModal = () => {
+    setComment("");
     setModalOpen(false);
   };
 
@@ -25,6 +27,8 @@ export const SiteProvider = ({ children }) => {
       value={{
         burgerMenu,
         setBurgermenu,
+        comment,
+        setComment,
         isModalOpen,
         openModal,
         closeModal,
