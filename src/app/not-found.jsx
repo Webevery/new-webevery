@@ -17,7 +17,7 @@ export default function NotFound() {
                     alt="notFoundPage photo"
                 />
             </div>
-            <NavigationBtn title="Back to home page" href={"/"} />
+            <NavigationBtn id={styles.backToHomeBtn} title="Back to home page" href={"/"} />
         </div>
 
     </section>
