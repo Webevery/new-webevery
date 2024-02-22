@@ -9,7 +9,7 @@ import "./Modal.css";
 // this modal is in the Layout now :)
 
 const ModalR = () => {
-    const { isModalOpen, closeModal } = useContext(SiteContext);
+    const { isModalOpen, closeModal, comment } = useContext(SiteContext);
 
     return (
         <Modal
@@ -21,7 +21,7 @@ const ModalR = () => {
             ariaHideApp={false}
         >
             {/* here must be imported children  like this < Child/>*/}
-            <OrderForm />
+            <OrderForm comment={comment} />
             {/* {children} */}
         </Modal>
     );
