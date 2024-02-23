@@ -64,7 +64,7 @@ export const SliderOfTeam = () => {
             },
           }}
           coverflowEffect={{
-            rotate: 50,
+            rotate: -20,
             stretch: 0,
             depth: 100,
             modifier: 1,
