@@ -8,8 +8,9 @@ const HomeServicesSection = () => {
     <div className="container">
       <h2 className={styles.title}>Послуги</h2> 
       <h3 className={`titleGradient ${styles.subTitleLaptop}`}>від малого до великого сайту</h3>
-      <NavigationBtn
-      title='Детальніше'/>
+      <div className={styles.btnNavContainer}>
+      <NavigationBtn 
+      title='Детальніше'/></div>
       <SliderOfServices/>
     </div>
   </section>;
