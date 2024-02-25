@@ -12,14 +12,14 @@
     column-gap: 24px;
     row-gap: 24px;
     animation: fadeUp 0.8s ease-in-out forwards;
-    @media screen and (min-width: $tablet) {
-      grid-template-columns: repeat(2, 1fr);
+    margin-bottom:20px;
+    // @media screen and (min-width: $tablet) {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
+    // @media screen and (min-width: $laptop) {
+    //   grid-template-columns: repeat(3, 1fr);
+    // }
     }
-    @media screen and (min-width: $laptop) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    
-}
 
 .serviceItem{
     box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
@@ -81,7 +81,7 @@
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 24px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .readMoreTitle {
@@ -124,4 +124,8 @@
     color: #ffffff;
     margin-bottom: 32px;
     text-align: right;
+  }
+
+  #orderBtn{
+    width:100%;
   }
