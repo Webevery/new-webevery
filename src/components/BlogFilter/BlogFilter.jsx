@@ -5,13 +5,11 @@ import { SiteContext } from '@/context/siteContext';
 import BlogFilterItem from './BlogFilterItem/BlogFilterItem';
 import styles from './BlogFilter.module.scss';
 
-const BlogFilter = ({ filter, title }) => {
-  const {
-    blogFilterShown,
-    // setBlogFilterShown,
-    blogSorterShown,
-    // setBlogSorterShown,
-  } = useContext(SiteContext);
+const BlogFilter = ({ filter, title, setFilterArr }) => {
+  const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isFilterClear, setIsFilterClear] = useState(false);
 
   const isFilterShown =
     blogFilterShown || blogSorterShown
@@ -22,9 +20,18 @@ const BlogFilter = ({ filter, title }) => {
     <div className={isFilterShown}>
       <h3 className={styles.blogShowTitle}>{title}</h3>
       <ul className={styles.blogShowList}>
-        {filter.map(({ id, title }) => (
+        {filter.map(({ id, title, titleEn }) => (
           <li key={id} className={styles.blogShowItem}>
-            <BlogFilterItem title={title} id={id} />
+            <BlogFilterItem
+              title={title}
+              titleEn={titleEn}
+              id={id}
+              setFilterArr={setFilterArr}
+              setActiveIndex={setActiveIndex}
+              activeIndex={activeIndex}
+              setIsFilterClear={setIsFilterClear}
+              isFilterClear={isFilterClear}
+            />
           </li>
         ))}
       </ul>

@@ -10,7 +10,14 @@ const BlogFilter = () => {
     setBlogFilterShown,
     blogSorterShown,
     setBlogSorterShown,
+    searchTerm,
+    setSearchTerm,
+    setSearchBlog,
   } = useContext(SiteContext);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <div className={styles.filterContainer}>
@@ -49,9 +56,17 @@ const BlogFilter = () => {
           type="text"
           placeholder="search"
           className={styles.filterSearch}
+          value={searchTerm}
+          onChange={handleSearchChange}
         />
         <div className={styles.btnWrapper + ' ' + styles.btnWrapperSearch}>
-          <button className={styles.btnFilter} type="button">
+          <button
+            className={styles.btnFilter}
+            type="button"
+            onClick={() => {
+              setSearchBlog(true);
+            }}
+          >
             <svg className={styles.filterIcon}>
               <use href="sprite.svg#icon-search" />
             </svg>

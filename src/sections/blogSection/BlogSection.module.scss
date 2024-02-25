@@ -119,6 +119,21 @@
   }
 }
 
+.cartContainerNotFound {
+  @media screen and (min-width: $laptop) {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    & > div {
+      grid-column: span 1;
+    }
+    & > li {
+      grid-column: span 2;
+    }
+  }
+}
+
 .cartContainerOpen {
   @media screen and (min-width: $laptop) {
     display: -ms-grid;
@@ -305,5 +320,21 @@
 @keyframes textclip {
   to {
     background-position: -100%;
+  }
+}
+.notFoundTextStyles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #fff;
+  @media screen and (min-width: $laptop) {
+    font-size: 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 36px;
   }
 }
