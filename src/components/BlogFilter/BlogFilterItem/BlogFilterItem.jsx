@@ -15,10 +15,10 @@ const BlogFilterItem = ({
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const isAmenityChecked = () =>
+  const isFilterChecked = () =>
     id === activeIndex ? setIsChecked(!isChecked) : null;
 
-  const toggleAmenityForFilter = () => {
+  const toggleBlogForFilter = () => {
     if (!isChecked) {
       setFilterArr((filterArr) => [...filterArr, titleEn]);
     } else {
@@ -35,10 +35,13 @@ const BlogFilterItem = ({
     setIsChecked(false);
     setIsFilterClear(false);
     setFilterArr([]);
+
+    // eslint-disable-next-line
   }, [isFilterClear]);
 
   useEffect(() => {
-    isAmenityChecked();
+    isFilterChecked();
+    // eslint-disable-next-line
   }, [activeIndex]);
 
   return (
@@ -50,8 +53,8 @@ const BlogFilterItem = ({
         checked={isChecked}
         onChange={() => {
           setActiveIndex(id),
-            isAmenityChecked(),
-            toggleAmenityForFilter(),
+            isFilterChecked(),
+            toggleBlogForFilter(),
             setIsFilterClear(false);
         }}
       />
