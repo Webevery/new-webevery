@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { blog, blogFilter, blogSorter } from '@/data/blog';
+import { blogFilter, blogSorter } from '@/data/blog';
 import { SiteContext } from '@/context/siteContext';
 import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
@@ -13,31 +13,42 @@ import { CldImage } from 'next-cloudinary';
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
   const [showLoading, setShowLoading] = useState(false);
-
-  const containerRef = useRef();
+  const [filterArr, setFilterArr] = useState([]);
 
   const { data, error, isLoading } = GetDataFromSection('blogs');
 
-  const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
+  const containerRef = useRef();
 
-  // function truncateText(text, maxLength) {
-  //   if (text.length > maxLength) {
-  //     return text.substring(0, maxLength - 9) + '...';
-  //   } else {
-  //     return text;
-  //   }
-  // }
+  const { blogFilterShown, blogSorterShown, searchTerm, searchBlog } =
+    useContext(SiteContext);
+
+  const filterBlogArr = data?.filter(
+    ({ directionEn, titleEn, descriptionEn, title, description }) => {
+      const combinedText =
+        `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
+
+      const directionCondition = filterArr.every((blogFilter) =>
+        directionEn.includes(blogFilter)
+      );
+
+      const searchCondition = searchBlog
+        ? combinedText.includes(searchTerm.toLowerCase())
+        : true;
+
+      return directionCondition && searchCondition;
+    }
+  );
 
   const handleScroll = () => {
     const container = containerRef.current;
 
-    if (!showLoading && blog?.length && container) {
+    if (!showLoading && data?.length && container) {
       const containerHeight = container.offsetHeight;
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const bottomOffset = containerHeight - scrollY - windowHeight;
 
-      if (bottomOffset < 50 && loadedCount < blog.length) {
+      if (bottomOffset < 50 && loadedCount < data.length) {
         setShowLoading(true);
 
         setTimeout(() => {
@@ -54,12 +65,22 @@ const BlogSection = () => {
       window.removeEventListener('scroll', handleScroll);
     };
     // eslint-disable-next-line
-  }, [blog, loadedCount]);
+  }, [data, loadedCount]);
 
   const cartContainerFilter =
     blogFilterShown || blogSorterShown
-      ? `${styles.cartContainer} ${styles.cartContainerOpen}`
+      ? !isLoading && filterBlogArr?.length <= 0
+        ? `${styles.cartContainer} ${styles.cartContainerNotFound}`
+        : `${styles.cartContainer} ${styles.cartContainerOpen}`
       : `${styles.cartContainer}`;
+
+  // function truncateText(text, maxLength) {
+  //   if (text.length > maxLength) {
+  //     return text.substring(0, maxLength - 9) + '...';
+  //   } else {
+  //     return text;
+  //   }
+  // }
 
   return (
     <section className={styles.blog}>
@@ -75,10 +96,22 @@ const BlogSection = () => {
         <BlogFilterButton />
 
         <ul ref={containerRef} className={cartContainerFilter}>
-          {blogSorterShown && <BlogFilter filter={blogSorter} title="Sorter" />}
-          {blogFilterShown && <BlogFilter filter={blogFilter} title="Filter" />}
+          {blogSorterShown && (
+            <BlogFilter
+              filter={blogSorter}
+              title="Sorter"
+              setFilterArr={setFilterArr}
+            />
+          )}
+          {blogFilterShown && (
+            <BlogFilter
+              filter={blogFilter}
+              title="Filter"
+              setFilterArr={setFilterArr}
+            />
+          )}
 
-          {data
+          {filterBlogArr
             ?.slice(0, loadedCount)
             .map(({ slug, images, titleEn, descriptionEn }) => (
               <li key={slug} className={styles.cartItem}>
@@ -123,30 +156,15 @@ const BlogSection = () => {
                     </defs>
                   </svg>
                 </Link>
-                {/* <Link href={`/blog/${slug}`} className={styles.readMore}>
-                  <span className={styles.readMoreTitle}>Read more</span>
-                  <svg className={styles.readMoreIcon}>
-                    <linearGradient
-                      id="paint0_linear_3004_8704"
-                      x1="6.97336e-08"
-                      y1="6.28477"
-                      x2="11.302"
-                      y2="-9.00003"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#FAFF00" />
-                      <stop offset="0.466629" stopColor="#00F0FF" />
-                      <stop offset="1" stopColor="#0400B3" />
-                    </linearGradient>
-                    <use
-                      href="sprite.svg#icon-arrowReadMore"
-                      style={{ fill: 'url(#paint0_linear_3004_8704)' }}
-                    />
-                  </svg>
-                </Link> */}
               </li>
             ))}
+          {!isLoading && filterBlogArr?.length <= 0 && (
+            <li className={styles.notFoundTextStyles}>
+              <p>Статей не найдено!</p>
+            </li>
+          )}
         </ul>
+
         {showLoading && (
           <div className={styles.loading}>
             <h3 className={styles.loadingText}>Loading...</h3>

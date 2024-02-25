@@ -1,14 +1,46 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './BlogFilterItem.module.scss';
 
-const BlogFilterItem = ({ title, id }) => {
+const BlogFilterItem = ({
+  titleEn,
+  title,
+  id,
+  setFilterArr,
+  setActiveIndex,
+  activeIndex,
+  setIsFilterClear,
+  isFilterClear,
+}) => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+  const isAmenityChecked = () =>
+    id === activeIndex ? setIsChecked(!isChecked) : null;
+
+  const toggleAmenityForFilter = () => {
+    if (!isChecked) {
+      setFilterArr((filterArr) => [...filterArr, titleEn]);
+    } else {
+      setFilterArr((filterArr) => filterArr.filter((blog) => blog != titleEn));
+    }
   };
+
+  // if (titleEn === 'Sort from A to Z') {
+  //   const sortedData = data?.sort((a, b) => a.title.localeCompare(b.title));
+  //   setFilterArr(sortedData);
+  // }
+
+  useEffect(() => {
+    setIsChecked(false);
+    setIsFilterClear(false);
+    setFilterArr([]);
+  }, [isFilterClear]);
+
+  useEffect(() => {
+    isAmenityChecked();
+  }, [activeIndex]);
+
   return (
     <div className={styles.blogShowContainer}>
       <input
@@ -16,7 +48,12 @@ const BlogFilterItem = ({ title, id }) => {
         type="checkbox"
         id={id}
         checked={isChecked}
-        onChange={handleCheckboxChange}
+        onChange={() => {
+          setActiveIndex(id),
+            isAmenityChecked(),
+            toggleAmenityForFilter(),
+            setIsFilterClear(false);
+        }}
       />
       <label htmlFor={id} className={styles.blogCheckboxDesc}>
         <svg
@@ -28,7 +65,7 @@ const BlogFilterItem = ({ title, id }) => {
         >
           <use href="sprite.svg#icon-checked" />
         </svg>
-        {title}
+        {titleEn}
       </label>
     </div>
   );
