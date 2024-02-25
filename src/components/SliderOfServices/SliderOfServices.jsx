@@ -114,7 +114,7 @@ export const SliderOfServices = () => {
         <p
          className={styles.price}
          >{price}</p>
-        <OrderBtn title={"Замовити"}/></div>
+        <OrderBtn id={styles.orderBtn} title={"Замовити"}/></div>
       </li></SwiperSlide>
     })}</ul>
     </Swiper>
