@@ -74,11 +74,11 @@ export const SliderOfTeam = () => {
           modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
           className="teamSwiper"
         >
-          <ul className={styles.cartContainer}>
+          <div className={styles.cartContainer}>
             {newData?.map((item) => {
               return (
                 <SwiperSlide key={item.slug} className="slideContentWrapper">
-                  <li key={item.slug} className={styles.cartItem}>
+                  <div key={item.slug} className={styles.cartItem}>
                     <div className={styles.cartImgContainer}>
                       <CldImage
                         src={item.photo}
@@ -91,11 +91,11 @@ export const SliderOfTeam = () => {
 
                     <h3 className={styles.cartName}>{item.nameEn}</h3>
                     <p className={styles.cartJobTitle}>{item.positionEn}</p>
-                  </li>
+                  </div>
                 </SwiperSlide>
               );
             })}
-          </ul>
+          </div>
         </Swiper>
       )}
     </>

@@ -15,30 +15,35 @@ const ServiceIdSection = ({ params }) => {
   console.log(dataId);
 
   return (
-    <section className={styles.container}>
-      <div className="container">
-        <h1>
+    <section className={styles.servicesId}>
+      <div className={`container ${styles.servicesIdContainer}`}>
+        <h1 className={styles.servicesIdTitle}>
           <span>{dataId?.titleGradientEn}</span>
           &nbsp;
           {dataId?.titleEn}
         </h1>
-        <CldImage
-          src={dataId?.mockup}
-          alt={dataId?.titleEn}
-          //fill="true"
-          //className={styles.cartImg}
-          sizes="30vw"
-          width={300}
-          height={300}
-        />
-        <div>
-          <p>{dataId?.descriptionEn}</p>
-          <p>{dataId?.price}</p>
-          <OrderBtn id={styles.serviceOrderBtn} title={"Замовити"} />
+        <div className={styles.servicesIdContent}>
+          <div className={styles.servicesIdImgContainer}>
+            <CldImage
+            src={dataId?.mockup}
+            alt={dataId?.titleEn}
+            fill="true"
+            className={styles.cartImg}
+            sizes="30vw"
+          />
+          </div>
+          
+          <div className={styles.servicesIdDescContainer}>
+            <p className={styles.servicesIdDesc}>{dataId?.descriptionEn}</p>
+            <p className={styles.servicesIdPrice}>{dataId?.price}</p>
+            <OrderBtn id={styles.serviceOrderBtn} title={"Замовити"} />
+          </div>
         </div>
-      </div>
-      <div className="container">
-        <SliderOfServices />
+
+        <div className={`container ${styles.servicesIdSliderContainer}`}>
+          <h3 className={styles.servicesIdSliderTitle}>Choose <span>the best</span> deal for your business:</h3>
+          <SliderOfServices />
+        </div>
       </div>
     </section>
   );
