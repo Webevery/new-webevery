@@ -40,22 +40,12 @@
       font-weight: 300;
       // font-size: 48px;
       // line-height: 1.1;
-      // background-image: linear-gradient(to right, $gradientYellow,
-      //         $gradientCyan,
-      //         $gradientBlue);
-      // -webkit-text-fill-color: transparent;
-      // -webkit-background-clip: text;
       margin-bottom: 8px;
     }
   
     @media screen and (min-width: $laptop) {
       font-weight: 400;
       font-size: 64px;
-      // background-image: linear-gradient(to right, $gradientYellow,
-      //         $gradientCyan,
-      //         $gradientBlue);
-      // -webkit-text-fill-color: transparent;
-      // -webkit-background-clip: text;
       margin-bottom: 16px;
       background-clip: text;
     }
@@ -67,16 +57,10 @@
   }
   
   .subTitleLaptop{
-    background-image: linear-gradient(to right,
-    $gradientYellow,
-    $gradientCyan,
-    $gradientBlue );
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    
+    font-size: 40px;
     @media screen and (min-width: $laptop) {
         display: block;
+        width: 50%;
         font-weight: 400;
         font-size: 36px;
         line-height: 1.4;
@@ -89,4 +73,8 @@
         line-height: 1.1;
         margin-bottom: 48px;
       }
+  }
+
+  .btnNavContainer{
+    margin-bottom: 20px;
   }
