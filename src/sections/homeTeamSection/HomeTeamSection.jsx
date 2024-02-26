@@ -7,12 +7,12 @@ const HomeTeamSection = () => {
     <section className={styles.container}>
       <div className="container">
         <h3 className={styles.subTitle}>
-          <span>Our team</span> will bring your ideas to life
+          <span>Наша команда</span> втілить ваші ідеї в життя
         </h3>
         <SliderOfTeam />
         <NavigationBtn
           id={styles.teamSliderBtn}
-          title="About Team"
+          title="Про Команду"
           href={"/team"}
         />
       </div>
