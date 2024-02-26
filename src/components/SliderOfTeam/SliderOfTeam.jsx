@@ -82,15 +82,15 @@ export const SliderOfTeam = () => {
                     <div className={styles.cartImgContainer}>
                       <CldImage
                         src={item.photo}
-                        alt={item.nameEn}
+                        alt={item.name}
                         fill="true"
                         className={styles.cartImg}
                         sizes="30vw"
                       />
                     </div>
 
-                    <h3 className={styles.cartName}>{item.nameEn}</h3>
-                    <p className={styles.cartJobTitle}>{item.positionEn}</p>
+                    <h3 className={styles.cartName}>{item.name}</h3>
+                    <p className={styles.cartJobTitle}>{item.position}</p>
                   </div>
                 </SwiperSlide>
               );
