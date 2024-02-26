@@ -12,6 +12,8 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  justify-content: center;
+
   @media screen and (min-width: $mobile) {
     padding: 120px 24px 40px 24px;
   }
@@ -25,7 +27,17 @@
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 228px 72px 64px 72px;
+    padding: 180px 72px 64px 72px;
+    // padding: 228px 72px 64px 72px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -37,6 +49,7 @@
   text-align: center;
   color: $gray0;
   margin-bottom: 12px;
+  animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $mobile) {
     height: 70px;
     font-size: 32px;
@@ -116,6 +129,17 @@
   }
 }
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .imgContainer {
   position: relative;
   width: 100%;
@@ -123,6 +147,7 @@
   height: 186px;
   box-shadow: $shadowColor;
   margin-bottom: 40px;
+  animation: fadeUp 0.8s ease-in-out forwards;
 
   @media screen and (min-width: $mobile) {
     border-radius: 8px;

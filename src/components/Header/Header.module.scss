@@ -1,7 +1,7 @@
 @import "../../app/variables";
 
 .header {
-  background-color: $gray900;
+  background-color: $gray900-90;
   padding: 0px 20px;
   height: 72px;
   display: flex;
@@ -10,21 +10,21 @@
   z-index: 10;
   position: fixed;
   transition-duration: 500ms;
-
+  backdrop-filter: blur(6px);
   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.1);
 
   @media screen and (min-width: $mobile) {
-    height: 80px;
+    height: 60px;
     padding: 0px 24px;
   }
 
   @media screen and (min-width: $tablet) {
-    height: 120px;
+    height: 100px;
     padding: 0px 32px;
   }
 
   @media screen and (min-width: $desktop) {
-    height: 148px;
+    height: 100px;
     justify-content: space-between;
     padding: 0px 72px;
   }

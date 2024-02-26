@@ -12,7 +12,17 @@
     padding: 204px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 228px 72px 80px 72px;
+    padding: 180px 72px 80px 72px;
+    // padding: 228px 72px 80px 72px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -28,6 +38,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 24px;
+  animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $mobile) {
     margin-bottom: 18px;
   }
@@ -90,11 +101,23 @@
   }
 }
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .cartContainer {
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 20px;
+  animation: fadeUp 0.8s ease-in-out forwards;
   @media screen and (min-width: $mobile) {
     row-gap: 16px;
   }
@@ -116,6 +139,42 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+}
+
+.cartContainerCloseNotFound {
+  grid-template-rows: 10rem;
+  @media screen and (min-width: $tablet) {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: 10rem;
+    // grid-template-rows: auto;
+    & > li {
+      grid-column: span 2;
+    }
+
+    @media screen and (min-width: $laptop) {
+      grid-template-columns: repeat(3, 1fr);
+      & > li {
+        grid-column: span 3;
+      }
+    }
+  }
+}
+
+.cartContainerNotFound {
+  @media screen and (min-width: $laptop) {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    & > div {
+      grid-column: span 1;
+    }
+    & > li {
+      grid-column: span 2;
+    }
   }
 }
 
@@ -305,5 +364,21 @@
 @keyframes textclip {
   to {
     background-position: -100%;
+  }
+}
+.notFoundTextStyles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #fff;
+  @media screen and (min-width: $laptop) {
+    font-size: 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 36px;
   }
 }

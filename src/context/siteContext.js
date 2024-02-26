@@ -7,10 +7,13 @@ export const SiteProvider = ({ children }) => {
   const [burgerMenu, setBurgermenu] = useState(false);
   // console.log(burgerMenu);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [blogFilterShown, setBlogFilterShown] = useState(false);
 
   const [blogSorterShown, setBlogSorterShown] = useState(false);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchBlog, setSearchBlog] = useState(false);
 
   const openModal = () => {
     // setComment(comment);
@@ -18,7 +21,7 @@ export const SiteProvider = ({ children }) => {
   };
 
   const closeModal = () => {
-    setComment("");
+    setComment('');
     setModalOpen(false);
   };
 
@@ -36,6 +39,10 @@ export const SiteProvider = ({ children }) => {
         setBlogFilterShown,
         blogSorterShown,
         setBlogSorterShown,
+        searchTerm,
+        setSearchTerm,
+        searchBlog,
+        setSearchBlog,
       }}
     >
       {children}

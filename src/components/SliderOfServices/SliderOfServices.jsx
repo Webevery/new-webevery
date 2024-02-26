@@ -1,6 +1,8 @@
 "use client"
 import React from "react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "./SliderOfServices.module.scss";
 import { serviceData } from "@/data";
 // import { useState,useEffect } from "react";
@@ -16,6 +18,7 @@ import "swiper/css/navigation";
 import { Pagination } from "swiper/modules";
 
 export const SliderOfServices = () => {
+  const {data}= GetDataFromSection("services")
     // const [slidesPerView, setSlidesPerView] = useState(5); // Default value for slidesPerView
 
     // // Function to update slidesPerView based on viewport width
@@ -72,23 +75,46 @@ export const SliderOfServices = () => {
           className="ServiceSwiper"
         >
           <ul className={styles.serviceList}>
-    {serviceData.map(({id,title,desc,price})=>{
-      return <SwiperSlide key={id}className="slideContentWrapper" >
+    {data?.map(({slug, title, titleGradient, directions, price})=>{
+      return <SwiperSlide key={slug}className="slideContentWrapper" >
         <li  className={styles.serviceItem}>
-        <div><h3>{title}</h3>
+        <div>
+        <Link href={`/services/${slug}`} className={styles.readMore}>
+                    <span className={styles.readMoreTitle}>Read more</span>
+                    <svg className={styles.readMoreIcon}>
+                      <linearGradient
+                        id="paint0_linear_3004_8704"
+                        x1="6.97336e-08"
+                        y1="6.28477"
+                        x2="11.302"
+                        y2="-9.00003"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stopColor="#FAFF00" />
+                        <stop offset="0.466629" stopColor="#00F0FF" />
+                        <stop offset="1" stopColor="#0400B3" />
+                      </linearGradient>
+                      <use
+                        href="sprite.svg#icon-arrowReadMore"
+                        style={{ fill: "url(#paint0_linear_3004_8704)" }}
+                      />
+                    </svg>
+                  </Link>
+          <h3 className={styles.cartTitle}>{titleGradient}{title}</h3>
         <ul>
-        {desc && desc.map(({id,text})=>{
-          return <li key={id}
+        {directions.map((item,index)=>{
+          return <li key={index}
           className={styles.descItem}
-          >{text}</li>
+          >{item}</li>
         })}
         
         </ul>
         </div>
+        <div>
         <p
-        //  className={styles.price}
+         className={styles.price}
          >{price}</p>
-        <OrderBtn title={"Замовити"}/>
+        <OrderBtn id={styles.orderBtn} title={"Замовити"}/></div>
       </li></SwiperSlide>
     })}</ul>
     </Swiper>
