@@ -1,9 +1,16 @@
 @import "../../app/variables";
 
+.con{
+  // height:1000px;
+  margin-bottom: 10px;
+  // display: block;
+}
+
 .container {
+  // display: block;
     width: 100%;
-    // height: fit-content;
-    height: 1356px;
+    // height: 955px;
+    // height: 1356px;
     // min-width: 360px;
     // height: 462px;
     background-color: $backgroundColor;
