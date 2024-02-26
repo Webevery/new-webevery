@@ -14,12 +14,12 @@
   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.1);
 
   @media screen and (min-width: $mobile) {
-    height: 80px;
+    height: 60px;
     padding: 0px 24px;
   }
 
   @media screen and (min-width: $tablet) {
-    height: 120px;
+    height: 100px;
     padding: 0px 32px;
   }
 
