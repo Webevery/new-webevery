@@ -12,13 +12,26 @@ const BlogFilterItem = ({
   activeIndex,
   setIsFilterClear,
   isFilterClear,
+  sorterArr,
+  setSorterArr,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const isFilterChecked = () =>
     id === activeIndex ? setIsChecked(!isChecked) : null;
 
+  // const toggleBlogForSorter = async (e) => {
+  //   const value = e.target.value;
+
+  //   if (isChecked && value === 'Sort from A to Z') {
+  //     await setSorterArr(true);
+  //   } else {
+  //     await setSorterArr(false);
+  //   }
+  // };
+
   const toggleBlogForFilter = () => {
+    setSorterArr(false);
     if (!isChecked) {
       setFilterArr((filterArr) => [...filterArr, titleEn]);
     } else {
@@ -50,11 +63,13 @@ const BlogFilterItem = ({
         className={styles.checkbox}
         type="checkbox"
         id={id}
+        value={titleEn}
         checked={isChecked}
-        onChange={() => {
+        onChange={(e) => {
           setActiveIndex(id),
             isFilterChecked(),
             toggleBlogForFilter(),
+            // toggleBlogForSorter(e),
             setIsFilterClear(false);
         }}
       />

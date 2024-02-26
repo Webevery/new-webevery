@@ -1,5 +1,16 @@
 @import '../../app/variables';
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .filterContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,6 +21,7 @@
   flex-direction: column;
   width: 100%;
   margin-bottom: 20px;
+  animation: fadeUp 0.8s ease-in-out forwards;
   @media screen and (min-width: $tablet) {
     flex-direction: row;
     -webkit-box-align: center;
