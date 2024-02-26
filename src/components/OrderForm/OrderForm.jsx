@@ -4,6 +4,8 @@ import { useState, useEffect, useContext, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { YupOrderFormSchema } from "@/yupShemas/orderFormShema";
+import { useLockBodySkroll } from "@/hooks/useLockBodyScroll";
+import { useWindowResize } from "@/hooks/useWindowResize";
 import { SiteContext } from "@/context/siteContext";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import SuccessContent from "./SuccessContent";
@@ -11,9 +13,10 @@ import SuccessContent from "./SuccessContent";
 import styles from "./OrderForm.module.scss";
 
 const OrderForm = ({ isFooterForm = false, comment = "" }) => {
-    const [isLaptop, setLaptop] = useState(true);
     const { closeModal, isModalOpen } = useContext(SiteContext);
     const [isSubmited, setSubmited] = useState(false);
+
+    const { isMobile, isTablet } = useWindowResize();
 
     const initialValues = {
         defaultValues: {
@@ -33,6 +36,12 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
     formState;
     // console.log("form:", form);
 
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            reset();
+        }
+    }, [isSubmitSuccessful, reset]);
+
     const onSubmit = (data) => {
         setSubmited(true);
         console.log("data", data);
@@ -44,56 +53,13 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
         }, 2000);
     };
 
-    // console.log("isSubmitting:", isSubmitting);
-
-    // const onSubmit = async (data) => {
-    //     console.log("FormData1:", data);
-    //     const promise = new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             console.log("isSubmitting befor resolve :", isSubmitting);
-    //             resolve(console.log("promise resolved:", data));
-    //             if (isModalOpen) closeModal();
-    //             console.log("FormData2:", data);
-    //         }, 2000);
-    //     });
-    // };
-
-    const handleResizeLaptop = useCallback(() => {
-        if (window.innerWidth >= 1024) {
-            setLaptop(false);
-        } else {
-            setLaptop(true);
-        }
-    }, [setLaptop]);
-
-    useEffect(() => {
-        if (isSubmitSuccessful) {
-            reset();
-        }
-    }, [isSubmitSuccessful, reset]);
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResizeLaptop);
-        handleResizeLaptop();
-        return () => {
-            window.removeEventListener("resize", handleResizeLaptop);
-        };
-    }, [handleResizeLaptop]);
-
-    useEffect(() => {
-        if (isModalOpen) {
-            document.body.style.overflow = "hidden";
-        }
-        return () => {
-            document.body.style.overflow = "unset";
-        };
-    }, [isModalOpen]);
+    useLockBodySkroll();
 
     return (
         <>
-            {!isSubmited ? (
+            {!isSubmited && !isFooterForm ? (
                 <SuccessContent
-                    isFooterForm={isFooterForm}
+                    // isFooterForm={isFooterForm}
                     isSubmited={isSubmited}
                     closeModal={closeModal}
                 />
@@ -117,7 +83,7 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
                     )}
                     {!isFooterForm && (
                         <div className={styles.titleWrap}>
-                            {isLaptop ? (
+                            {isMobile || isTablet ? (
                                 <h2 className={styles.title}>
                                     We call you very soon
                                 </h2>

@@ -286,22 +286,22 @@
     width: 100%;
     height: 100%;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
 
-    background-image: url("../../../public/SuccessFonWebp/Success320.webp");
+    background-image: url("../../../public/SuccessFonWebp/fon320.webp");
 
     @media screen and (min-width: $mobile) {
-        background-image: url("../../../public/SuccessFonWebp/Success360.webp");
+        background-image: url("../../../public/SuccessFonWebp/fon360.webp");
     }
     @media screen and (min-width: $tablet) {
-        background-image: url("../../../public/SuccessFonWebp/Success768.webp");
+        background-image: url("../../../public/SuccessFonWebp/fon768.webp");
     }
     @media screen and (min-width: $laptop) {
-        background-image: url("../../../public/SuccessFonWebp/SuccessFon1024.webp");
+        background-image: url("../../../public/SuccessFonWebp/fon1024.webp");
         // background-size: 632px 432px;
     }
     @media screen and (min-width: $desktop) {
-        background-image: url("../../../public/SuccessFonWebp/Success1440.webp");
+        background-image: url("../../../public/SuccessFonWebp/fon1440.webp");
     }
 }
 
@@ -311,18 +311,21 @@
     font-weight: 500;
     line-height: 1.6;
     width: 242px;
+    margin-top: 20px;
 
     @media screen and (min-width: $mobile) {
         // width: 312px;
     }
     @media screen and (min-width: $tablet) {
-        // width: 474px;
+        // font-size: 20px;
     }
     @media screen and (min-width: $laptop) {
-        //    width: 632px;
-        //     height: 432px;
+        font-size: 20px;
+        width: 307px;
+        margin-top: 60px;
     }
     @media screen and (min-width: $desktop) {
-        // width: 636px;
+        font-size: 26px;
+        width: 407px;
     }
 }
