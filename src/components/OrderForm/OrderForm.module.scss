@@ -267,8 +267,62 @@
     right: 10px;
     width: 12px;
     height: 12px;
-    // @media screen and (min-width: $desktop) {
-    //     left: 10px;
-    //     top: 85px;
-    // }
+}
+
+// styles for SuccessContent component
+
+.containerSuccess {
+    padding: 0;
+    // background-size: contain;
+}
+
+.bgWrap {
+    // border: 1px solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: auto;
+
+    background-image: url("../../../public/SuccessFonWebp/Success320.webp");
+
+    @media screen and (min-width: $mobile) {
+        background-image: url("../../../public/SuccessFonWebp/Success360.webp");
+    }
+    @media screen and (min-width: $tablet) {
+        background-image: url("../../../public/SuccessFonWebp/Success768.webp");
+    }
+    @media screen and (min-width: $laptop) {
+        background-image: url("../../../public/SuccessFonWebp/SuccessFon1024.webp");
+        // background-size: 632px 432px;
+    }
+    @media screen and (min-width: $desktop) {
+        background-image: url("../../../public/SuccessFonWebp/Success1440.webp");
+    }
+}
+
+.successTitle {
+    font-family: var(--font-work-sans);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+    width: 242px;
+
+    @media screen and (min-width: $mobile) {
+        // width: 312px;
+    }
+    @media screen and (min-width: $tablet) {
+        // width: 474px;
+    }
+    @media screen and (min-width: $laptop) {
+        //    width: 632px;
+        //     height: 432px;
+    }
+    @media screen and (min-width: $desktop) {
+        // width: 636px;
+    }
 }

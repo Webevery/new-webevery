@@ -104,14 +104,12 @@ const FooterWithForm = () => {
                                             list={socialLinksAndMail}
                                             className={styles.foterSocList}
                                         />
-
                                         <a
                                             className={styles.phone}
                                             href='tel:+380966058605'
                                         >
                                             +380966058605
                                         </a>
-
                                         <FooterLinks />
                                     </div>
 
