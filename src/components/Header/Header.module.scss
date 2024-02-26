@@ -14,7 +14,6 @@
   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.1);
 
   @media screen and (min-width: $mobile) {
-    height: 60px;
     padding: 0px 24px;
   }
 
@@ -24,7 +23,6 @@
   }
 
   @media screen and (min-width: $desktop) {
-    height: 100px;
     justify-content: space-between;
     padding: 0px 72px;
   }
