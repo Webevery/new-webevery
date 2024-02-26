@@ -14,6 +14,7 @@ const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
   const [showLoading, setShowLoading] = useState(false);
   const [filterArr, setFilterArr] = useState([]);
+  const [sorterArr, setSorterArr] = useState(false);
 
   const { data, error, isLoading } = GetDataFromSection('blogs');
 
@@ -35,9 +36,24 @@ const BlogSection = () => {
         ? combinedText.includes(searchTerm.toLowerCase())
         : true;
 
+      // const sortedData = sorterArr
+      //   ? data?.sort((a, b) => a.titleEn.localeCompare(b.titleEn))
+      //   : true;
       return directionCondition && searchCondition;
     }
   );
+  // .slice()
+  // .sort((a, b) => {
+  //   if (sorterArr) {
+  //     const directionComparison = a.directionEn.localeCompare(b.directionEn);
+  //     return directionComparison === 0
+  //       ? a.titleEn.localeCompare(b.titleEn)
+  //       : directionComparison;
+  //   } else {
+  //     return 0;
+  //   }
+  // })
+  // .slice();
 
   const handleScroll = () => {
     const container = containerRef.current;
@@ -72,6 +88,8 @@ const BlogSection = () => {
       ? !isLoading && filterBlogArr?.length <= 0
         ? `${styles.cartContainer} ${styles.cartContainerNotFound}`
         : `${styles.cartContainer} ${styles.cartContainerOpen}`
+      : !isLoading && filterBlogArr?.length <= 0
+      ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
       : `${styles.cartContainer}`;
 
   // function truncateText(text, maxLength) {
@@ -101,6 +119,8 @@ const BlogSection = () => {
               filter={blogSorter}
               title="Sorter"
               setFilterArr={setFilterArr}
+              sorterArr={sorterArr}
+              setSorterArr={setSorterArr}
             />
           )}
           {blogFilterShown && (
@@ -108,6 +128,8 @@ const BlogSection = () => {
               filter={blogFilter}
               title="Filter"
               setFilterArr={setFilterArr}
+              sorterArr={sorterArr}
+              setSorterArr={setSorterArr}
             />
           )}
 

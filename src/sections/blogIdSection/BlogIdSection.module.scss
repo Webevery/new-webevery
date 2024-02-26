@@ -18,7 +18,8 @@
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 228px 72px 80px 72px;
+    padding: 180px 72px 80px 72px;
+    // padding: 228px 72px 80px 72px;
   }
 }
 
@@ -42,6 +43,7 @@
   margin-bottom: 24px;
   cursor: pointer;
   font-size: 16px;
+  animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $tablet) {
     font-size: 20px;
     margin-bottom: 32px;
@@ -64,12 +66,22 @@
   transform: rotate(180deg);
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .blogTitle {
   font-weight: 400;
   font-size: 32px;
   line-height: 1.1;
   color: $gray900;
   margin-bottom: 16px;
+  animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $tablet) {
     font-size: 38px;
     margin-bottom: 74px;
@@ -88,6 +100,17 @@
   }
 }
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .blogContent {
   position: relative;
   display: -webkit-box;
@@ -95,6 +118,7 @@
   display: flex;
   column-gap: 14px;
   flex-direction: column;
+  animation: fadeUp 0.8s ease-in-out forwards;
   &:not(:last-child) {
     flex-direction: column-reverse;
   }
