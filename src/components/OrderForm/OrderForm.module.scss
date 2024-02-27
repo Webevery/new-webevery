@@ -233,6 +233,8 @@
     }
     @media screen and (min-width: $laptop) {
         height: 60px;
+        margin-left: auto;
+        margin-right: auto;
     }
     @media screen and (min-width: $desktop) {
         height: 80px;
@@ -267,8 +269,65 @@
     right: 10px;
     width: 12px;
     height: 12px;
-    // @media screen and (min-width: $desktop) {
-    //     left: 10px;
-    //     top: 85px;
-    // }
+}
+
+// styles for SuccessContent component
+
+.containerSuccess {
+    padding: 0;
+    // background-size: contain;
+}
+
+.bgWrap {
+    // border: 1px solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+
+    background-image: url("../../../public/SuccessFonWebp/fon320.webp");
+
+    @media screen and (min-width: $mobile) {
+        background-image: url("../../../public/SuccessFonWebp/fon360.webp");
+    }
+    @media screen and (min-width: $tablet) {
+        background-image: url("../../../public/SuccessFonWebp/fon768.webp");
+    }
+    @media screen and (min-width: $laptop) {
+        background-image: url("../../../public/SuccessFonWebp/fon1024.webp");
+        // background-size: 632px 432px;
+    }
+    @media screen and (min-width: $desktop) {
+        background-image: url("../../../public/SuccessFonWebp/fon1440.webp");
+    }
+}
+
+.successTitle {
+    font-family: var(--font-work-sans);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+    width: 242px;
+    margin-top: 20px;
+
+    @media screen and (min-width: $mobile) {
+        // width: 312px;
+    }
+    @media screen and (min-width: $tablet) {
+        // font-size: 20px;
+    }
+    @media screen and (min-width: $laptop) {
+        font-size: 20px;
+        width: 307px;
+        margin-top: 60px;
+    }
+    @media screen and (min-width: $desktop) {
+        font-size: 26px;
+        width: 407px;
+    }
 }

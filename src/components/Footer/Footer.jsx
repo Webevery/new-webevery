@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { socialLinksAndMail } from "@/helpers/linkArrays";
+import { useWindowResize } from "@/hooks/useWindowResize";
 import CallBtn from "../Buttons/CallBtn/CallBtn";
 import SocialLinksList from "../SocialLinks/SocialLinksList";
 import FooterLinks from "./FooterLinks";
@@ -13,28 +13,12 @@ import styles from "./Footer.module.scss";
 // console.log("ourPhones:", ourPhones);
 
 const Footer = () => {
-    const [isLaptop, setLaptop] = useState(true);
-
-    const handleResizeLaptop = useCallback(() => {
-        if (window.innerWidth >= 1024) {
-            setLaptop(false);
-        } else {
-            setLaptop(true);
-        }
-    }, [setLaptop]);
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResizeLaptop);
-        handleResizeLaptop();
-        return () => {
-            window.removeEventListener("resize", handleResizeLaptop);
-        };
-    }, [handleResizeLaptop]);
+    const { isMobile, isTablet } = useWindowResize();
 
     return (
         <footer className={styles.footer}>
             <div className={`container ${styles.container}`}>
-                {isLaptop ? (
+                {isMobile || isTablet ? (
                     <div className={styles.contentWrap}>
                         <SocialLinksList list={socialLinksAndMail} />
                         <CallBtn className={styles.callBtn} />
