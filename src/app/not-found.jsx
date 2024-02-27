@@ -7,7 +7,9 @@ import NavigationBtn from '@/components/Buttons/NavigationBtn/NavigationBtn';
 export default function NotFound() {
     return <section className={styles.container}>
         <div className={`container ${styles.contentWrapper}`}>
-            <h2 className={styles.title}>Sorry page not found</h2>
+            {/* <h2 className={styles.title}>Sorry page not found</h2> */}
+            <h2 className={styles.title}>Сторінка не знайдена</h2>
+
             <div className={styles.imgWrapper}>
                 <CldImage
                     className={styles.image}
@@ -17,7 +19,9 @@ export default function NotFound() {
                     alt="notFoundPage photo"
                 />
             </div>
-            <NavigationBtn id={styles.backToHomeBtn} title="Back to home page" href={"/"} />
+            {/* <NavigationBtn id={styles.backToHomeBtn} title="Back to home page" href={"/"} /> */}
+            <NavigationBtn id={styles.backToHomeBtn} title="На головну" href={"/"} />
+
         </div>
 
     </section>
