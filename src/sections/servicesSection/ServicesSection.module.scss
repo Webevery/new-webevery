@@ -8,15 +8,15 @@
 }
 
 .servicesContainer {
-  padding: 130px 20px 80px 20px;
+  padding: 110px 20px 80px 20px;
   @media screen and (min-width: $tablet) {
-    padding: 204px 20px 80px 20px;
+    padding: 184px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 204px 32px 80px 32px;
+    padding: 184px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 228px 72px 80px 72px;
+    padding: 180px 72px 80px 72px;
   }
 }
 

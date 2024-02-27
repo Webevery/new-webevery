@@ -20,10 +20,10 @@ const TeamSection = () => {
       <div className={`container ${styles.teamContainer}`}>
         <div className={styles.titleTeamContainer}>
           <h1 className={styles.titleTeam}>
-            <span>Team</span>
+            <span>Команда</span>
           </h1>
           <h2 className={styles.descTeam}>
-            let&apos;s get to know those who work for you
+            давайте познайомимося з тими, хто працює для вас
           </h2>
         </div>
         <ul className={styles.cartContainer}>
@@ -32,15 +32,15 @@ const TeamSection = () => {
               <div className={styles.cartImgContainer}>
                 <CldImage
                   src={item.photo}
-                  alt={item.nameEn}
+                  alt={item.name}
                   fill="true"
                   className={styles.cartImg}
                   sizes="50vw"
                 />
               </div>
 
-              <h3 className={styles.cartName}>{item.nameEn}</h3>
-              <p className={styles.cartJobTitle}>{item.positionEn}</p>
+              <h3 className={styles.cartName}>{item.name}</h3>
+              <p className={styles.cartJobTitle}>{item.position}</p>
             </li>
           ))}
         </ul>
