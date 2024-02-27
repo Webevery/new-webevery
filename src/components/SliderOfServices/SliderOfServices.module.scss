@@ -12,7 +12,6 @@
     column-gap: 24px;
     row-gap: 24px;
     animation: fadeUp 0.8s ease-in-out forwards;
-    margin-bottom:20px;
     // @media screen and (min-width: $tablet) {
     //   grid-template-columns: repeat(2, 1fr);
     // }
@@ -39,7 +38,9 @@
   padding-right: 24px;
   padding-bottom: 48px;
   min-height: 772px;
-
+  & ul {
+    margin-bottom: 54px;
+  }
     // height: 750px;
     // display: flex;
     // flex-direction: column;
