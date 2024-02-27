@@ -17,6 +17,7 @@ import Link from 'next/link';
 
 
 const HomeOurProjectsSlider = ({ data }) => {
+
     return (
         <>
             <Swiper
@@ -74,10 +75,11 @@ const HomeOurProjectsSlider = ({ data }) => {
                                         fill
                                         src={item.heroImage}
                                         sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
-                                        alt="Project photo 1 Vova"
+                                        alt={`Photo of ${item.titleEn} ${item.titleGradientEn}`}
                                     />
                                 </div></Link>
-                            <h2 className='slideTitle'> {item.titleEn} <span className='gradient'>{item.titleGradientEn}</span></h2>
+                            {/* <h3 className='slideTitle'> {item.titleEn} <span className='gradient'>{item.titleGradientEn}</span></h3> */}
+                            <h3 className='slideTitle'> {item.title} <span className='gradient'>{item.titleGradient}</span></h3>
                         </div>
                     </SwiperSlide>
                 ))}

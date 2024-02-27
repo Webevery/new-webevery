@@ -15,6 +15,7 @@ import { workingProcessData } from '@/data/workingProcessData';
 
 
 const WorkingProcessSlider = () => {
+    console.log('workingProcessData', workingProcessData)
     return (
         <>
             <Swiper
@@ -43,11 +44,17 @@ const WorkingProcessSlider = () => {
                 {workingProcessData.map(item => (
                     <SwiperSlide key={item.id}>
                         <div className="slideContentWrapper">
-                            <h4 className="titleGradient slideTitle">
+                            {/* <h5 className="titleGradient slideTitle">
                                 {item.titleEn}
-                            </h4>
-                            <p className="slideText">
+                            </h5> */}
+                            <h5 className="titleGradient slideTitle">
+                                {item.title}
+                            </h5>
+                            {/* <p className="slideText">
                                 {item.textEn}
+                            </p> */}
+                            <p className="slideText">
+                                {item.text}
                             </p>
                         </div>
                     </SwiperSlide>
