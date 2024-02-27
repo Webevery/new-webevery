@@ -8,7 +8,7 @@ const SuccessContent = ({ isSubmited, closeModal }) => {
     return (
         <div
             className={
-                !isSubmited
+                isSubmited
                     ? `${styles.container} ${styles.containerSuccess}`
                     : styles.container
             }

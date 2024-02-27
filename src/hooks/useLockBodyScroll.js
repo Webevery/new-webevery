@@ -1,16 +1,14 @@
-import { useContext, useEffect } from 'react';
-import { SiteContext } from "@/context/siteContext";
+import { useEffect } from 'react';
 
-export function useLockBodySkroll() {
-    const { isModalOpen } = useContext(SiteContext);
+export function useLockBodyScroll(boolean) {
 
     useEffect(() => {
-        if (isModalOpen) {
+        if (boolean) {
             document.body.style.overflow = "hidden";
         }
         return () => {
             document.body.style.overflow = "unset";
         };
-    }, [isModalOpen]);
+    }, [boolean]);
 
 }

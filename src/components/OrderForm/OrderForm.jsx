@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useContext, useCallback } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { YupOrderFormSchema } from "@/yupShemas/orderFormShema";
-import { useLockBodySkroll } from "@/hooks/useLockBodyScroll";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useWindowResize } from "@/hooks/useWindowResize";
 import { SiteContext } from "@/context/siteContext";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
@@ -33,9 +33,6 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
     const { errors, isSubmitSuccessful, isErrors, isSubmitting, dirtyFields } =
         formState;
 
-    formState;
-    // console.log("form:", form);
-
     useEffect(() => {
         if (isSubmitSuccessful) {
             reset();
@@ -47,19 +44,16 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
         console.log("data", data);
         setTimeout(() => {
             if (isModalOpen) closeModal();
-            setTimeout(() => {
-                setSubmited(false);
-            }, 300);
+            setSubmited(false);
         }, 3000);
     };
 
-    useLockBodySkroll();
+    useLockBodyScroll(isModalOpen);
 
     return (
         <>
-            {!isSubmited && isModalOpen && !isFooterForm ? (
+            {isSubmited && isModalOpen && !isFooterForm ? (
                 <SuccessContent
-                    // isFooterForm={isFooterForm}
                     isSubmited={isSubmited}
                     closeModal={closeModal}
                 />
