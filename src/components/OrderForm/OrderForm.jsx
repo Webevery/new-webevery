@@ -50,14 +50,14 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
             setTimeout(() => {
                 setSubmited(false);
             }, 300);
-        }, 2000);
+        }, 3000);
     };
 
     useLockBodySkroll();
 
     return (
         <>
-            {!isSubmited && !isFooterForm ? (
+            {!isSubmited && isModalOpen && !isFooterForm ? (
                 <SuccessContent
                     // isFooterForm={isFooterForm}
                     isSubmited={isSubmited}
