@@ -10,8 +10,6 @@ import FooterLinks from "./FooterLinks";
 
 import styles from "./Footer.module.scss";
 
-// console.log("ourPhones:", ourPhones);
-
 const Footer = () => {
     const { isMobile, isTablet } = useWindowResize();
 
@@ -30,14 +28,12 @@ const Footer = () => {
                                 list={socialLinksAndMail}
                                 className={styles.foterSocList}
                             />
-
                             <a
                                 className={styles.phone}
                                 href='tel:+380966058605'
                             >
                                 +380966058605
                             </a>
-
                             <FooterLinks />
                         </div>
 
