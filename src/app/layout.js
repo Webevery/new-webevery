@@ -1,6 +1,7 @@
 import { Saira, Work_Sans } from "next/font/google";
 import { Toaster } from 'sonner';
 import { SiteProvider } from "@/context/siteContext";
+import TranslateProvider from "@/translator/i18Provider";
 import Header from "@/components/Header/Header";
 import ModalR from "@/components/Modal/Modal";
 
@@ -30,10 +31,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${saira.variable} ${work_sans.variable}`}>
         <SiteProvider>
+          <TranslateProvider>
           <Header />
           <main>{children}</main>
           <ModalR />
           <Toaster richColors />
+          </TranslateProvider>
         </SiteProvider>
       </body>
     </html>
