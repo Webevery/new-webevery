@@ -101,7 +101,6 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
                         noValidate
                     >
                         <div
-                            // className={styles.inputHolder}
                             className={
                                 isFooterForm
                                     ? styles.inputHolderFooter
