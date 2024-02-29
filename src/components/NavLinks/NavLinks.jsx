@@ -30,9 +30,73 @@ const NavLinks = ({
   }, [burgerMenu, isClient]);
 
   const links = navLinks.map((link) => {
+    let word = link.href.slice(1);
+    let capitalizedWord =
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+
     return (
-      <div key={link.id} className={styles.linkWrapper}>
-        <Link
+      <>
+        {link.subMenu ? (
+          <div
+            key={link.id}
+            className={styles.linkWrapper}
+            onClick={(e) => {
+              e.stopPropagation(); // Stop event propagation
+              setIsClicked(!isClicked);
+            }}
+            ref={subMenuBtnRef}
+          >
+            <div className={styles.linkTitleWrapper}>
+              <p
+                className={
+                  link.href === pathName ||
+                  (pathName.includes("services") &&
+                    link.href.includes("services"))
+                    ? `${styles.navLink} ${styles.active}`
+                    : `${styles.navLink}`
+                }
+              >
+                {capitalizedWord}
+              </p>
+
+              <div
+                className={
+                  isClicked
+                    ? `${styles.arrow} ${styles.arrowActive}`
+                    : `${styles.arrow}`
+                }
+              ></div>
+            </div>
+            <ServisecSubMenu
+              isClicked={isClicked}
+              setIsClicked={setIsClicked}
+              subMenuRef={subMenuRef}
+              linkHref={link.href}
+              className={styles.sublink}
+            />
+          </div>
+        ) : (
+          <Link
+            href={link.href}
+            className={
+              link.href === pathName ||
+              (isClicked && link.subMenu) ||
+              (pathName.includes("services") && link.href.includes("services"))
+                ? `${styles.navLink} ${styles.active}`
+                : `${styles.navLink}`
+            }
+            onClick={() => {
+              setBurgermenu(false);
+              setIsClicked(false);
+            }}
+          >
+            {link.title}
+          </Link>
+        )}
+
+        {/* <div key={link.id} className={styles.linkWrapper}> */}
+
+        {/* <Link
           href={link.href}
           className={
             link.href === pathName ||
@@ -47,8 +111,8 @@ const NavLinks = ({
           }}
         >
           {link.title}
-        </Link>
-        {link.subMenu && (
+        </Link> */}
+        {/* {link.subMenu && (
           <svg
             className={
               isClicked
@@ -63,15 +127,16 @@ const NavLinks = ({
           >
             <use href="/sprite.svg#icon-NavArrow"></use>
           </svg>
-        )}
-        {link.subMenu && (
+        )} */}
+        {/* {link.subMenu && (
           <ServisecSubMenu
             isClicked={isClicked}
             subMenuRef={subMenuRef}
             linkHref={link.href}
           />
-        )}
-      </div>
+        )} */}
+        {/* </div> */}
+      </>
     );
   });
   return <nav className={`${styles.nav} ${className}`}>{links}</nav>;
