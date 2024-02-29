@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { blogFilter, blogSorter } from '@/data/blog';
+import { fiterBlog } from '@/data/blog';
 import { SiteContext } from '@/context/siteContext';
 import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
@@ -10,11 +10,17 @@ import styles from './BlogSection.module.scss';
 import { GetDataFromSection } from '@/fetch/ClientFetch';
 import { CldImage } from 'next-cloudinary';
 
+// import { currentLanguages } from '@/data';
+// import { useTranslation } from 'react-i18next';
+import BlogSorter from '@/components/BlogSorter/BlogSorter';
+
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
   const [showLoading, setShowLoading] = useState(false);
   const [filterArr, setFilterArr] = useState([]);
-  const [sorterArr, setSorterArr] = useState(false);
+  const [sorterArr, setSorterArr] = useState('');
+
+  // const { i18n } = useTranslation();
 
   const { data, error, isLoading } = GetDataFromSection('blogs');
 
@@ -23,8 +29,8 @@ const BlogSection = () => {
   const { blogFilterShown, blogSorterShown, searchTerm, searchBlog } =
     useContext(SiteContext);
 
-  const filterBlogArr = data?.filter(
-    ({ directionEn, titleEn, descriptionEn, title, description }) => {
+  const filterBlogArr = data
+    ?.filter(({ directionEn, titleEn, descriptionEn, title, description }) => {
       const combinedText =
         `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
 
@@ -36,24 +42,17 @@ const BlogSection = () => {
         ? combinedText.includes(searchTerm.toLowerCase())
         : true;
 
-      // const sortedData = sorterArr
-      //   ? data?.sort((a, b) => a.titleEn.localeCompare(b.titleEn))
-      //   : true;
       return directionCondition && searchCondition;
-    }
-  );
-  // .slice()
-  // .sort((a, b) => {
-  //   if (sorterArr) {
-  //     const directionComparison = a.directionEn.localeCompare(b.directionEn);
-  //     return directionComparison === 0
-  //       ? a.titleEn.localeCompare(b.titleEn)
-  //       : directionComparison;
-  //   } else {
-  //     return 0;
-  //   }
-  // })
-  // .slice();
+    })
+    .slice();
+
+  if (sorterArr === 'AZ') {
+    filterBlogArr.sort((a, b) => a.titleEn.localeCompare(b.titleEn));
+  }
+
+  if (sorterArr === 'ZA') {
+    filterBlogArr.sort((a, b) => b.titleEn.localeCompare(a.titleEn));
+  }
 
   const handleScroll = () => {
     const container = containerRef.current;
@@ -115,27 +114,30 @@ const BlogSection = () => {
 
         <ul ref={containerRef} className={cartContainerFilter}>
           {blogSorterShown && (
-            <BlogFilter
-              filter={blogSorter}
+            <BlogSorter
+              sorter={fiterBlog.blogSorter}
               title="Sorter"
-              setFilterArr={setFilterArr}
               sorterArr={sorterArr}
               setSorterArr={setSorterArr}
             />
           )}
           {blogFilterShown && (
             <BlogFilter
-              filter={blogFilter}
+              filter={fiterBlog.blogFilter}
               title="Filter"
               setFilterArr={setFilterArr}
-              sorterArr={sorterArr}
-              setSorterArr={setSorterArr}
             />
           )}
 
-          {filterBlogArr
-            ?.slice(0, loadedCount)
-            .map(({ slug, images, titleEn, descriptionEn }) => (
+          {filterBlogArr?.slice(0, loadedCount).map(
+            ({
+              slug,
+              images,
+              titleEn,
+              // title,
+              descriptionEn,
+              // description,
+            }) => (
               <li key={slug} className={styles.cartItem}>
                 <div className={styles.cartImgContainer}>
                   <CldImage
@@ -147,8 +149,16 @@ const BlogSection = () => {
                   />
                 </div>
 
-                <h3 className={styles.cartTitle}>{titleEn}</h3>
+                <h3 className={styles.cartTitle}>
+                  {titleEn}
+                  {/* {i18n.language === currentLanguages.EN ? titleEn : title} */}
+                </h3>
                 {/* <p className={styles.cartDesc}>{truncateText(desc, 41)}</p> */}
+                {/* <p className={styles.cartDesc}>
+                    {i18n.language === currentLanguages.EN
+                      ? descriptionEn
+                      : description}
+                  </p> */}
                 <p className={styles.cartDesc}>{descriptionEn}</p>
                 <Link href={`/blog/${slug}`} className={styles.readMore}>
                   <span className={styles.readMoreTitle}>Read more</span>
@@ -179,7 +189,8 @@ const BlogSection = () => {
                   </svg>
                 </Link>
               </li>
-            ))}
+            )
+          )}
           {!isLoading && filterBlogArr?.length <= 0 && (
             <li className={styles.notFoundTextStyles}>
               <p>Статей не найдено!</p>

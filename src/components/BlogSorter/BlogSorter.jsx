@@ -2,14 +2,10 @@
 
 import { useContext, useState } from 'react';
 import { SiteContext } from '@/context/siteContext';
-import BlogFilterItem from './BlogFilterItem/BlogFilterItem';
-import styles from './BlogFilter.module.scss';
+import BlogSorterItem from './BlogSorterItem';
+import styles from '../BlogFilter/BlogFilter.module.scss';
 
-const BlogFilter = ({
-  filter,
-  title,
-  setFilterArr
-}) => {
+const BlogSorter = ({ sorter, title, sorterArr, setSorterArr }) => {
   const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -24,17 +20,18 @@ const BlogFilter = ({
     <div className={isFilterShown}>
       <h3 className={styles.blogShowTitle}>{title}</h3>
       <ul className={styles.blogShowList}>
-        {filter.map(({ id, title, titleEn }) => (
+        {sorter.map(({ id, title, titleEn }) => (
           <li key={id} className={styles.blogShowItem}>
-            <BlogFilterItem
+            <BlogSorterItem
               title={title}
               titleEn={titleEn}
               id={id}
-              setFilterArr={setFilterArr}
               setActiveIndex={setActiveIndex}
               activeIndex={activeIndex}
               setIsFilterClear={setIsFilterClear}
               isFilterClear={isFilterClear}
+              sorterArr={sorterArr}
+              setSorterArr={setSorterArr}
             />
           </li>
         ))}
@@ -43,4 +40,4 @@ const BlogFilter = ({
   );
 };
 
-export default BlogFilter;
+export default BlogSorter;
