@@ -5,7 +5,9 @@ import LangSwitcher from "./LangSwitcher/LangSwitcher";
 
 const TranslatorBtnBlock=({className})=>{
     const {i18n}=useTranslation();
-    const[language, setLanguage]=useState((prev)=> !prev || prev === undefined ? "ua" : prev);
+    const[language, setLanguage]=useState(
+        (prev)=> !prev || prev === undefined ? "ua" : prev
+        );
     const [isLoad, setIsLoad] = useState(true);
 
     useEffect(()=>{
