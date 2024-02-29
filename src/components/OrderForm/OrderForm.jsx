@@ -3,6 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "sonner";
 import { YupOrderFormSchema } from "@/yupShemas/orderFormShema";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useWindowResize } from "@/hooks/useWindowResize";
@@ -41,7 +42,9 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
 
     const onSubmit = (data) => {
         setSubmited(true);
+        if (!isModalOpen) toast.success("Your message has been sent!");
         console.log("data", data);
+
         setTimeout(() => {
             if (isModalOpen) closeModal();
             setSubmited(false);
@@ -98,7 +101,6 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
                         noValidate
                     >
                         <div
-                            // className={styles.inputHolder}
                             className={
                                 isFooterForm
                                     ? styles.inputHolderFooter

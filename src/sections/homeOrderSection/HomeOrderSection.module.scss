@@ -1,9 +1,9 @@
 @import "../../app/variables";
 
 .section {
-    margin: 40px 0 35px;
+    padding: 40px 0 35px;
     @media screen and (min-width: $tablet) {
-        margin: 40px 0 52px;
+        padding: 40px 0 52px;
     }
 }
 
@@ -24,11 +24,12 @@
 }
 
 .titleWrap {
-    width: 310px;
+    width: 260px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     @media screen and (min-width: $mobile) {
+        width: 310px;
     }
     @media screen and (min-width: $tablet) {
         margin-left: 0;
