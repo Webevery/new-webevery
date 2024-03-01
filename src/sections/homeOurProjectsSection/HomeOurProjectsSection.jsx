@@ -2,13 +2,12 @@
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 import styles from "./HomeOurProjectsSection.module.scss";
 import HomeOurProjectsSlider from "@/components/HomeOurProjectsSlider/HomeOurProjectsSlider";
-import { GetDataFromSection, GetOurProjects } from "@/fetch/ClientFetch";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
 
 
 const HomeOurProjectsSection = () => {
-  // const { data, error, isLoading } = GetOurProjects();
+
   const { data, error, isLoading } = GetDataFromSection('ourProjects')
-  // console.log('data', data)
 
   return <section className={styles.container}>
     <div className="container">

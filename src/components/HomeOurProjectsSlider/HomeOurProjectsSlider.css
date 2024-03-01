@@ -40,7 +40,7 @@
 }
 
 .projectLink {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     margin-bottom: 16px;
 
@@ -54,7 +54,6 @@
     width: 100%;
     height: 100%;
     position: relative;
-    /* margin-bottom: 16px; */
     border: 4px solid #0D0D11;
     border-radius: 16px;
     overflow: hidden;
@@ -65,8 +64,6 @@
     }
 
     @media screen and (min-width:1024px) {
-        /* margin-bottom: 0px;
-        margin-right: 24px; */
         border: 12px solid #0D0D11;
         border-radius: 56px;
 
@@ -101,7 +98,12 @@
     }
 
     @media screen and (min-width:1024px) {
+        padding: 0px 20px;
         font-size: 44px;
+    }
+
+    @media screen and (min-width:1440px) {
+        padding: 20px;
     }
 }
 
