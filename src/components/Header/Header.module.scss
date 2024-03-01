@@ -12,7 +12,6 @@
   transition-duration: 500ms;
   backdrop-filter: blur(6px);
   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.1);
-
   @media screen and (min-width: $mobile) {
     padding: 0px 24px;
   }
@@ -45,7 +44,7 @@
 .navWrapper,
 .navWrapperVisible {
   position: absolute;
-  top: 72px;
+  top: 60px;
   left: 0;
   padding: 24px;
   background-color: $gray900;
@@ -57,6 +56,11 @@
   flex-direction: column;
   gap: 16px;
 
+  // background-color: aqua;
+
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
+
   @media screen and (min-width: $mobile) {
     width: 327px;
   }
@@ -64,10 +68,12 @@
   @media screen and (min-width: $tablet) {
     width: 412px;
     padding: 24px 32px;
+    top: 100px;
   }
 
   @media screen and (min-width: $laptop) {
     width: 327px;
+    overflow: visible;
   }
 
   @media screen and (min-width: $desktop) {

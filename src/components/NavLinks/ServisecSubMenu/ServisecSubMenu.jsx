@@ -5,9 +5,31 @@ import styles from "../NavLinks.module.scss";
 
 import Link from "next/link";
 
-const ServisecSubMenu = ({ isClicked, subMenuRef, linkHref }) => {
+const ServisecSubMenu = ({
+  isClicked,
+  setIsClicked,
+  subMenuRef,
+  linkHref,
+  className,
+}) => {
   const { data, isLoading, error } = GetDataFromSection("services");
-  const subMenu = data?.map((sub) => (
+
+  let allData = [];
+  const allServices = {
+    slug: "",
+    title: "",
+    titleEn: "",
+    titleGradient: "Усі сервіси",
+    titleGradientEn: "All services",
+    linkHref,
+  };
+
+  if (data) {
+    allData = [allServices, ...data];
+  }
+
+  const subMenu = allData?.map((sub) => (
+    // const subMenu = data?.map((sub) => (
     <Link
       key={sub.slug}
       href={`${linkHref}/${sub.slug}`}
@@ -24,8 +46,8 @@ const ServisecSubMenu = ({ isClicked, subMenuRef, linkHref }) => {
     <div
       className={
         isClicked
-          ? `${styles.subLinkWrapper} ${styles.subLinkWrapperVisible}`
-          : `${styles.subLinkWrapper} `
+          ? ` ${styles.subLinkWrapper} ${styles.subLinkWrapperVisible}`
+          : `${styles.subLinkWrapper} ${className}`
       }
       ref={subMenuRef}
     >

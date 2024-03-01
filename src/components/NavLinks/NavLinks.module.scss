@@ -5,6 +5,7 @@
   font-weight: 400;
   line-height: 1.6;
   width: fit-content;
+  cursor: pointer;
 
   @media screen and (min-width: $tablet) {
     font-size: 24px;
@@ -16,28 +17,39 @@
 
 .linkWrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
+  align-items: flex-start;
   width: fit-content;
-  gap: 8px;
   position: relative;
   transition-duration: 250ms;
-}
+  height: fit-content;
 
-.arrow {
-  width: 12px;
-  height: 12px;
-  cursor: pointer;
-
-  &:focus,
-  &:hover {
-    transform: rotate(90deg);
-    & ~ .navLink::after {
-      width: 100%;
+  &:hover,
+  &:focus {
+    height: fit-content;
+    & .arrow {
+      transform: rotate(90deg);
+      background-image: $gradient;
     }
   }
 }
+
+.linkTitleWrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.arrow {
+  width: 8px;
+  height: 12px;
+  background-image: linear-gradient($gray0, $gray0);
+  clip-path: polygon(0 0, 0 100%, 78% 50%);
+}
 .arrowActive {
   transform: rotate(90deg);
+  background-image: $gradient;
 }
 
 .subLinkWrapper a,
@@ -64,11 +76,11 @@
   }
 }
 
-.navLink {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+// .navLink {
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
+// }
 
 .subLinkWrapperVisible,
 .subLinkWrapper {
@@ -77,8 +89,7 @@
   flex-direction: column;
   gap: 32px;
   overflow: hidden;
-  position: absolute;
-  top: 40px;
+  height: 0;
   z-index: 20;
   color: $gray0;
   background-color: $gray900;
@@ -86,11 +97,10 @@
   padding: 0px 32px;
 
   margin-left: -24px;
-  /* margin: -18px; */
   width: 200px;
 
   @media screen and (min-width: $mobile) {
-    width: 327px;
+    width: 100%;
     margin-left: -32px;
   }
 
@@ -99,49 +109,60 @@
     margin-left: -32px;
   }
   @media screen and (min-width: $laptop) {
+    position: absolute;
     width: 327px;
     top: 0;
     left: 100%;
 
-    color: $gray900;
-    background-color: $gray0;
     width: 0;
-    height: auto;
     padding: 32px 0px;
     margin-left: 56px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 24px;
+    color: $gray0;
+    background-color: $gray900;
+    box-shadow: $shadowColor;
+    font-size: 20px;
   }
 
   @media screen and (min-width: $desktop) {
-    font-size: 20px;
+    display: flex;
     width: max-content;
     margin-left: 0;
     color: $gray900;
-    padding: 0px 32px;
+    padding: 0px 16px;
     background-color: $gray0;
-    top: 40px;
+    top: 48px;
     height: 0;
     left: 0;
+    &::before {
+      display: none;
+    }
   }
 }
 
 .subLinkWrapperVisible {
-  max-height: 70vh;
-  height: auto;
   padding: 32px;
-  padding-top: 20px;
-
-  overflow: scroll;
+  height: fit-content;
 
   @media screen and (min-width: $laptop) {
-    width: 327px;
     padding: 32px;
-  }
+    width: max-content;
 
+    &::before {
+      content: "";
+      position: absolute;
+
+      width: 100%;
+      height: 3px;
+      background-image: $gradient;
+    }
+  }
   @media screen and (min-width: $desktop) {
-    padding: 32px 16px 16px 32px;
-    max-height: fit-content;
-    top: 40px;
-    height: fit-content;
+    padding: 32px 16px;
+    top: 48px;
   }
 }
 
