@@ -9,12 +9,13 @@ import React, {
 } from "react";
 import styles from "./Header.module.scss";
 import NavLinks from "../NavLinks/NavLinks";
-import LangSwitcher from "../LangSwitcher/LangSwitcher";
+import LangSwitcher from "../TranslatorBtnBlock/LangSwitcher/LangSwitcher";
 import BurgerBtn from "../Buttons/BurgerBtn/BurgerBtn";
 import { SiteContext } from "@/context/siteContext";
 import Image from "next/image";
 import CallBtn from "../Buttons/CallBtn/CallBtn";
 import Link from "next/link";
+import TranslatorBtnBlock from "../TranslatorBtnBlock/TranslatorBtnBlock";
 
 const Header = () => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
@@ -122,11 +123,11 @@ const Header = () => {
             setIsClicked={setIsClicked}
             subMenuRef={subMenuRef}
           />
-          {isXs && <LangSwitcher className={styles.xsLangSwitcher} />}
+          {isXs && <TranslatorBtnBlock className={styles.xsLangSwitcher} />}
         </div>
 
         <div className={styles.logoWrapper}>
-          {!isXs && <LangSwitcher className={styles.mobileLangSwitcher} />}
+          {!isXs && <TranslatorBtnBlock className={styles.mobileLangSwitcher} />}
           <Link href={"/"} className={styles.logo}>
             <Image src={"/Logo.webp"} fill alt="Webevery logo" sizes="50vw" />
           </Link>

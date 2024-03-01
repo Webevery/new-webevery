@@ -1,24 +1,24 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import styles from './BlogFilterItem.module.scss';
+import styles from '../BlogFilter/BlogFilterItem/BlogFilterItem.module.scss';
 
-const BlogFilterItem = ({
+const BlogSorterItem = ({
   titleEn,
   title,
   id,
-  setFilterArr,
   setActiveIndex,
   activeIndex,
   setIsFilterClear,
   isFilterClear,
+  sorterArr,
+  setSorterArr,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     setIsChecked(false);
     setIsFilterClear(false);
-    setFilterArr([]);
 
     // eslint-disable-next-line
   }, [isFilterClear]);
@@ -31,11 +31,15 @@ const BlogFilterItem = ({
   const isFilterChecked = () =>
     id === activeIndex ? setIsChecked(!isChecked) : null;
 
-  const toggleBlogForFilter = () => {
-    if (!isChecked) {
-      setFilterArr((filterArr) => [...filterArr, titleEn]);
+  const toggleBlogForSorter = (e) => {
+    const value = e.target.value;
+
+    if (!isChecked && value === 'Sort from A to Z') {
+      setSorterArr('AZ');
+    } else if (!isChecked && value === 'Sort from Z to A') {
+      setSorterArr('ZA');
     } else {
-      setFilterArr((filterArr) => filterArr.filter((blog) => blog != titleEn));
+      setSorterArr('');
     }
   };
 
@@ -51,10 +55,10 @@ const BlogFilterItem = ({
         id={id}
         value={titleEn}
         checked={isChecked}
-        onChange={() => {
+        onChange={(e) => {
           setActiveIndex(id),
             isFilterChecked(),
-            toggleBlogForFilter(),
+            toggleBlogForSorter(e),
             setIsFilterClear(false);
         }}
       />
@@ -68,4 +72,4 @@ const BlogFilterItem = ({
   );
 };
 
-export default BlogFilterItem;
+export default BlogSorterItem;
