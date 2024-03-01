@@ -15,7 +15,7 @@ import { workingProcessData } from '@/data/workingProcessData';
 
 
 const WorkingProcessSlider = () => {
-    console.log('workingProcessData', workingProcessData)
+
     return (
         <>
             <Swiper

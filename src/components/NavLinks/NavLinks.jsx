@@ -36,8 +36,8 @@ const NavLinks = ({
           href={link.href}
           className={
             link.href === pathName ||
-            (isClicked && link.subMenu) ||
-            (pathName.includes("services") && link.href.includes("services"))
+              (isClicked && link.subMenu) ||
+              (pathName.startsWith("/services") && link.href.includes("services"))
               ? `${styles.navLink} ${styles.active}`
               : `${styles.navLink}`
           }
