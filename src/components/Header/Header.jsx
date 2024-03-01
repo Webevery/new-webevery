@@ -110,7 +110,7 @@ const Header = () => {
   return (
     <header className={styles.header} ref={headerRef}>
       <div className={`container ${styles.container}`}>
-        {isTablet && <BurgerBtn />}
+        {isTablet && <BurgerBtn setIsClicked={setIsClicked} />}
         <div
           className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
           ref={menuRef}
