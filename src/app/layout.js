@@ -1,11 +1,12 @@
 import { Saira, Work_Sans } from "next/font/google";
-import { Toaster } from 'sonner';
+import { Toaster } from "sonner";
 import { SiteProvider } from "@/context/siteContext";
 import TranslateProvider from "@/translator/i18Provider";
 import Header from "@/components/Header/Header";
 import ModalR from "@/components/Modal/Modal";
 
 import "./globals.scss";
+import ToTopBtn from "@/components/ToTopBtn/ToTopBtn";
 
 const saira = Saira({
   subsets: ["latin"],
@@ -34,10 +35,12 @@ export default function RootLayout({ children }) {
           <TranslateProvider>
           <Header />
           <main>{children}</main>
+
           <ModalR />
           <Toaster richColors />
           </TranslateProvider>
         </SiteProvider>
+        <ToTopBtn />
       </body>
     </html>
   );
