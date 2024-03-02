@@ -1,59 +1,42 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { socialLinksAndMail } from "@/helpers/linkArrays";
-import { useWindowResize } from "@/hooks/useWindowResize";
-import CallBtn from "../Buttons/CallBtn/CallBtn";
-import SocialLinksList from "../SocialLinks/SocialLinksList";
-import FooterLinks from "./FooterLinks";
-
-import styles from "./Footer.module.scss";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import FooterWithForm from "./FooterWithForm";
+import FooterWithoutForm from "./FooterWithoutForm";
 
 const Footer = () => {
-    const { isMobile, isTablet } = useWindowResize();
+    const [isFooterForm, setFooterForm] = useState(false);
+    const [isContactsSection, setContactsSection] = useState(false);
 
-    return (
-        <footer className={styles.footer}>
-            <div className={`container ${styles.container}`}>
-                {isMobile || isTablet ? (
-                    <div className={styles.contentWrap}>
-                        <SocialLinksList list={socialLinksAndMail} />
-                        <CallBtn className={styles.callBtn} />
-                    </div>
-                ) : (
-                    <div className={styles.contentWrap}>
-                        <div className={styles.innerWrap}>
-                            <SocialLinksList
-                                list={socialLinksAndMail}
-                                className={styles.foterSocList}
-                            />
-                            <a
-                                className={styles.phone}
-                                href='tel:+380966058605'
-                            >
-                                +380966058605
-                            </a>
-                            <FooterLinks />
-                        </div>
+    const pathname = usePathname();
 
-                        <div className={styles.logoWrapper}>
-                            <Link href={"/"} className={styles.logo}>
-                                <Image
-                                    src={"/LogoFull.png"}
-                                    // fill
-                                    width={180}
-                                    height={42}
-                                    alt='Webevery logo'
-                                />
-                            </Link>
-                            <CallBtn className={styles.callBtn} />
-                        </div>
-                    </div>
-                )}
-            </div>
-        </footer>
-    );
+    useEffect(() => {
+        if (pathname === "/" || pathname.startsWith("/services")) {
+            setFooterForm(false);
+        } else if (pathname === "/contacts") {
+            setFooterForm(false);
+            setContactsSection(true);
+        } else {
+            setFooterForm(true);
+            setContactsSection(false);
+        }
+    }, [pathname, isFooterForm]);
+
+    // console.log("pathname:", pathname);
+    // console.log("isFooterForm:", isFooterForm);
+    // console.log("startsWith:", pathname.startsWith("/services"));
+    // console.log("NOTpathname  /", pathname !== "/");
+
+    return (() => {
+        if (isFooterForm) {
+            return <FooterWithForm />;
+        } else if (isContactsSection) {
+            return <></>;
+        } else {
+            return <FooterWithoutForm />;
+        }
+    })();
 };
 
 export default Footer;
