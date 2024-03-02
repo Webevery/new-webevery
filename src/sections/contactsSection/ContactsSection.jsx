@@ -1,139 +1,78 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-
+import { useWindowResize } from "@/hooks/useWindowResize";
 import OrderForm from "@/components/OrderForm/OrderForm";
-import FooterWithForm from "@/components/Footer/FooterWithForm";
-import Footer from "@/components/Footer/Footer";
 import OurContacts from "./OurContacts";
 
 import styles from "./ContactsSection.module.scss";
 
 const ContactsSection = () => {
-    const [isMobile, setMobile] = useState(false);
-    const [isLaptop, setLaptop] = useState(false);
-    const [isDesktop, setDesktop] = useState(false);
+    const { isMobile, isTablet, isLaptop, isDesktop } = useWindowResize();
 
-    const handleResizeMobile = useCallback(() => {
-        if (window.innerWidth < 768) {
-            setMobile(true);
-        } else {
-            setMobile(false);
-        }
-    }, [setMobile]);
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResizeMobile);
-        handleResizeMobile();
-        return () => {
-            window.removeEventListener("resize", handleResizeMobile);
-        };
-    }, [handleResizeMobile]);
-
-    const handleResizeLaptop = useCallback(() => {
-        if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-            setLaptop(true);
-        } else {
-            setLaptop(false);
-        }
-    }, [setLaptop]);
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResizeLaptop);
-        handleResizeLaptop();
-        return () => {
-            window.removeEventListener("resize", handleResizeLaptop);
-        };
-    }, [handleResizeLaptop]);
-
-    const handleResizeDesktop = useCallback(() => {
-        if (window.innerWidth >= 1024) {
-            setDesktop(true);
-        } else {
-            setDesktop(false);
-        }
-    }, [setDesktop]);
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResizeDesktop);
-        handleResizeDesktop();
-        return () => {
-            window.removeEventListener("resize", handleResizeDesktop);
-        };
-    }, [handleResizeDesktop]);
     return (
         <>
             {(() => {
                 if (isMobile) {
                     return (
-                        <>
-                            <section className={styles.contacts}>
-                                <div
-                                    className={`container ${styles.contactsContainer}`}
-                                >
-                                    <div className={styles.titleWrap}>
-                                        <h1 className={styles.title}>
-                                            Contact{" "}
-                                            <span className={styles.titleSlice}>
-                                                us
-                                            </span>
-                                        </h1>
-                                    </div>
-                                    <div className={styles.contentWrap}>
-                                        <OurContacts />
-                                        <OrderForm />
-                                    </div>
+                        <section className={styles.contacts}>
+                            <div
+                                className={`container ${styles.contactsContainer}`}
+                            >
+                                <div className={styles.titleWrap}>
+                                    <h1 className={styles.title}>
+                                        Contact{" "}
+                                        <span className={styles.titleSlice}>
+                                            us
+                                        </span>
+                                    </h1>
                                 </div>
-                            </section>
-                            <Footer />
-                        </>
+                                <div className={styles.contentWrap}>
+                                    <OurContacts />
+                                    <OrderForm />
+                                </div>
+                            </div>
+                        </section>
                     );
-                } else if (isLaptop) {
+                } else if (isTablet) {
                     return (
-                        <>
-                            <section className={styles.contacts}>
-                                <div
-                                    className={`container ${styles.contactsContainer}`}
-                                >
-                                    <div className={styles.titleWrap}>
-                                        <h1 className={styles.title}>
-                                            Contact{" "}
-                                            <span className={styles.titleSlice}>
-                                                us
-                                            </span>
-                                        </h1>
-                                    </div>
-                                    <div className={styles.contentWrap}>
-                                        <OurContacts />
-                                    </div>
+                        <section className={styles.contacts}>
+                            <div
+                                className={`container ${styles.contactsContainer}`}
+                            >
+                                <div className={styles.titleWrap}>
+                                    <h1 className={styles.title}>
+                                        Contact{" "}
+                                        <span className={styles.titleSlice}>
+                                            us
+                                        </span>
+                                    </h1>
                                 </div>
-                            </section>
-                            <FooterWithForm />
-                        </>
+                                <div className={styles.contentWrap}>
+                                    <OurContacts />
+                                </div>
+                            </div>
+                        </section>
                     );
-                } else if (isDesktop) {
+                } else if (isLaptop || isDesktop) {
                     return (
-                        <>
-                            <section className={styles.contacts}>
-                                <div
-                                    className={`container ${styles.contactsContainer}`}
-                                >
-                                    <div className={styles.titleWrap}>
-                                        <h1 className={styles.title}>
-                                            Contact{" "}
-                                            <span className={styles.titleSlice}>
-                                                us
-                                            </span>
-                                        </h1>
-                                    </div>
-                                    <div className={styles.contentWrap}>
-                                        <OurContacts />
-                                        <OrderForm />
-                                    </div>
+                        <section className={styles.contacts}>
+                            <div
+                                className={`container ${styles.contactsContainer}`}
+                            >
+                                <div className={styles.titleWrap}>
+                                    <h1 className={styles.title}>
+                                        Contact{" "}
+                                        <span className={styles.titleSlice}>
+                                            us
+                                        </span>
+                                    </h1>
                                 </div>
-                            </section>
-                            <Footer />
-                        </>
+                                <div className={styles.contentWrap}>
+                                    <OurContacts />
+                                    <OrderForm />
+                                </div>
+                            </div>
+                        </section>
                     );
                 } else {
                     return <div>Loading ...</div>;

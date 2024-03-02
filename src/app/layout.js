@@ -3,10 +3,12 @@ import { Toaster } from "sonner";
 import { SiteProvider } from "@/context/siteContext";
 import TranslateProvider from "@/translator/i18Provider";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 import ModalR from "@/components/Modal/Modal";
+import ToTopBtn from "@/components/ToTopBtn/ToTopBtn";
 
 import "./globals.scss";
-import ToTopBtn from "@/components/ToTopBtn/ToTopBtn";
+
 
 const saira = Saira({
   subsets: ["latin"],
@@ -33,11 +35,11 @@ export default function RootLayout({ children }) {
       <body className={`${saira.variable} ${work_sans.variable}`}>
         <SiteProvider>
           <TranslateProvider>
-          <Header />
-          <main>{children}</main>
-
-          <ModalR />
-          <Toaster richColors />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <ModalR />
+            <Toaster richColors />
           </TranslateProvider>
         </SiteProvider>
         <ToTopBtn />
