@@ -1,6 +1,9 @@
 'use client';
 
+import { fiterBlog } from '@/data/blog';
+import { currentLanguages } from '@/data/languages';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './BlogFilterItem.module.scss';
 
 const BlogFilterItem = ({
@@ -14,6 +17,8 @@ const BlogFilterItem = ({
   isFilterClear,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
+
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     setIsChecked(false);
@@ -32,11 +37,11 @@ const BlogFilterItem = ({
     id === activeIndex ? setIsChecked(!isChecked) : null;
 
   const toggleBlogForFilter = () => {
-    if (!isChecked) {
-      setFilterArr((filterArr) => [...filterArr, titleEn]);
-    } else {
-      setFilterArr((filterArr) => filterArr.filter((blog) => blog != titleEn));
-    }
+    setFilterArr((filterArr) =>
+      isChecked
+        ? filterArr.filter((blog) => blog !== title)
+        : [...filterArr, title]
+    );
   };
 
   const IconIsChecked = isChecked
@@ -49,7 +54,7 @@ const BlogFilterItem = ({
         className={styles.checkbox}
         type="checkbox"
         id={id}
-        value={titleEn}
+        aria-label={i18n.language === currentLanguages.EN ? titleEn : title}
         checked={isChecked}
         onChange={() => {
           setActiveIndex(id),
@@ -62,7 +67,7 @@ const BlogFilterItem = ({
         <svg className={IconIsChecked}>
           <use href="sprite.svg#icon-checked" />
         </svg>
-        {titleEn}
+        {i18n.language === currentLanguages.EN ? titleEn : title}
       </label>
     </div>
   );

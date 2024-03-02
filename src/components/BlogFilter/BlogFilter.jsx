@@ -5,11 +5,7 @@ import { SiteContext } from '@/context/siteContext';
 import BlogFilterItem from './BlogFilterItem/BlogFilterItem';
 import styles from './BlogFilter.module.scss';
 
-const BlogFilter = ({
-  filter,
-  title,
-  setFilterArr
-}) => {
+const BlogFilter = ({ filter, title, setFilterArr }) => {
   const { blogFilterShown, blogSorterShown } = useContext(SiteContext);
 
   const [activeIndex, setActiveIndex] = useState(0);

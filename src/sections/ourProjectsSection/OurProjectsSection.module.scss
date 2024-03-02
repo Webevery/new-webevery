@@ -13,17 +13,16 @@
   -ms-flex-direction: column;
   flex-direction: column;
   @media screen and (min-width: $mobile) {
-    padding: 120px 24px 20px 24px;
+    padding: 110px 20px 80px 20px;
   }
   @media screen and (min-width: $tablet) {
-    padding: 164px 32px 35px 22px;
+    padding: 184px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 204px 32px 80px 32px;
+    padding: 184px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
     padding: 180px 72px 80px 72px;
-    // padding: 228px 72px 80px 72px;
   }
 }
 

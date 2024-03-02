@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages } from '@/data/languages';
 import styles from '../BlogFilter/BlogFilterItem/BlogFilterItem.module.scss';
 
 const BlogSorterItem = ({
@@ -15,6 +17,8 @@ const BlogSorterItem = ({
   setSorterArr,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
+
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     setIsChecked(false);
@@ -31,21 +35,34 @@ const BlogSorterItem = ({
   const isFilterChecked = () =>
     id === activeIndex ? setIsChecked(!isChecked) : null;
 
-  const toggleBlogForSorter = (e) => {
-    const value = e.target.value;
-
-    if (!isChecked && value === 'Sort from A to Z') {
+  const toggleBlogForSorter = (value) => {
+    if (value === 'Sort from A to Z') {
       setSorterArr('AZ');
-    } else if (!isChecked && value === 'Sort from Z to A') {
+    } else if (value === 'Sort from Z to A') {
       setSorterArr('ZA');
     } else {
       setSorterArr('');
     }
   };
 
-  const IconIsChecked = isChecked
-    ? styles.checked + ' ' + styles.checkedOn
-    : styles.checked + ' ' + styles.checkedOff;
+  const handleCheckboxChange = (e) => {
+    const value = e.target.value;
+
+    if (id === activeIndex) {
+      setActiveIndex(null);
+      toggleBlogForSorter('');
+    } else {
+      setActiveIndex(id);
+      toggleBlogForSorter(value);
+    }
+
+    setIsFilterClear(false);
+  };
+
+  const IconIsChecked =
+    id === activeIndex
+      ? styles.checked + ' ' + styles.checkedOn
+      : styles.checked + ' ' + styles.checkedOff;
 
   return (
     <div className={styles.blogShowContainer}>
@@ -54,19 +71,15 @@ const BlogSorterItem = ({
         type="checkbox"
         id={id}
         value={titleEn}
-        checked={isChecked}
-        onChange={(e) => {
-          setActiveIndex(id),
-            isFilterChecked(),
-            toggleBlogForSorter(e),
-            setIsFilterClear(false);
-        }}
+        aria-label={i18n.language === currentLanguages.EN ? titleEn : title}
+        checked={id === activeIndex}
+        onChange={(e) => handleCheckboxChange(e)}
       />
       <label htmlFor={id} className={styles.blogCheckboxDesc}>
         <svg className={IconIsChecked}>
           <use href="sprite.svg#icon-checked" />
         </svg>
-        {titleEn}
+        {i18n.language === currentLanguages.EN ? titleEn : title}
       </label>
     </div>
   );
