@@ -10,9 +10,9 @@ import styles from './BlogSection.module.scss';
 import { GetDataFromSection } from '@/fetch/ClientFetch';
 import { CldImage } from 'next-cloudinary';
 
-// import { currentLanguages } from '@/data';
-// import { useTranslation } from 'react-i18next';
 import BlogSorter from '@/components/BlogSorter/BlogSorter';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages } from '@/data/languages';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -20,7 +20,7 @@ const BlogSection = () => {
   const [filterArr, setFilterArr] = useState([]);
   const [sorterArr, setSorterArr] = useState('');
 
-  // const { i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const { data, error, isLoading } = GetDataFromSection('blogs');
 
@@ -30,20 +30,29 @@ const BlogSection = () => {
     useContext(SiteContext);
 
   const filterBlogArr = data
-    ?.filter(({ directionEn, titleEn, descriptionEn, title, description }) => {
-      const combinedText =
-        `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
+    ?.filter(
+      ({
+        // directionEn,
+        direction,
+        titleEn,
+        descriptionEn,
+        title,
+        description,
+      }) => {
+        const combinedText =
+          `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
 
-      const directionCondition = filterArr.every((blogFilter) =>
-        directionEn.includes(blogFilter)
-      );
+        const directionCondition = filterArr.every((blogFilter) =>
+          direction.includes(blogFilter)
+        );
 
-      const searchCondition = searchBlog
-        ? combinedText.includes(searchTerm.toLowerCase())
-        : true;
+        const searchCondition = searchBlog
+          ? combinedText.includes(searchTerm.toLowerCase())
+          : true;
 
-      return directionCondition && searchCondition;
-    })
+        return directionCondition && searchCondition;
+      }
+    )
     .slice();
 
   if (sorterArr === 'AZ') {
@@ -129,68 +138,68 @@ const BlogSection = () => {
             />
           )}
 
-          {filterBlogArr?.slice(0, loadedCount).map(
-            ({
-              slug,
-              images,
-              titleEn,
-              // title,
-              descriptionEn,
-              // description,
-            }) => (
-              <li key={slug} className={styles.cartItem}>
-                <div className={styles.cartImgContainer}>
-                  <CldImage
-                    src={images[0]}
-                    alt="img blog"
-                    fill="true"
-                    className={styles.cartImg}
-                    sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
-                  />
-                </div>
+          {filterBlogArr
+            ?.slice(0, loadedCount)
+            .map(
+              ({
+                slug,
+                images,
+                titleEn,
+                title,
+                descriptionEn,
+                description,
+              }) => (
+                <li key={slug} className={styles.cartItem}>
+                  <div className={styles.cartImgContainer}>
+                    <CldImage
+                      src={images[0]}
+                      alt="img blog"
+                      fill="true"
+                      className={styles.cartImg}
+                      sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
+                    />
+                  </div>
 
-                <h3 className={styles.cartTitle}>
-                  {titleEn}
-                  {/* {i18n.language === currentLanguages.EN ? titleEn : title} */}
-                </h3>
-                {/* <p className={styles.cartDesc}>{truncateText(desc, 41)}</p> */}
-                {/* <p className={styles.cartDesc}>
+                  <h3 className={styles.cartTitle}>
+                    {i18n.language === currentLanguages.EN ? titleEn : title}
+                  </h3>
+                  {/* <p className={styles.cartDesc}>{truncateText(desc, 41)}</p> */}
+                  <p className={styles.cartDesc}>
                     {i18n.language === currentLanguages.EN
                       ? descriptionEn
                       : description}
-                  </p> */}
-                <p className={styles.cartDesc}>{descriptionEn}</p>
-                <Link href={`/blog/${slug}`} className={styles.readMore}>
-                  <span className={styles.readMoreTitle}>Read more</span>
-                  <svg
-                    className={styles.readMoreIcon}
-                    viewBox="0 0 24 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M24 3.5L19 0.613249L19 6.38675L24 3.5ZM-1.15607e-09 4L19.5 4L19.5 3L1.15607e-09 3L-1.15607e-09 4Z"
-                      fill="url(#paint0_linear_945_6287)"
-                    />
-                    <defs>
-                      <linearGradient
-                        id="paint0_linear_945_6287"
-                        x1="5.16375e-08"
-                        y1="3.78477"
-                        x2="11.8197"
-                        y2="-8.20395"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#FAFF00" />
-                        <stop offset="0.466629" stopColor="#00F0FF" />
-                        <stop offset="1" stopColor="#0400B3" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </Link>
-              </li>
-            )
-          )}
+                  </p>
+                  <Link href={`/blog/${slug}`} className={styles.readMore}>
+                    <span className={styles.readMoreTitle}>Read more</span>
+                    <svg
+                      className={styles.readMoreIcon}
+                      viewBox="0 0 24 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24 3.5L19 0.613249L19 6.38675L24 3.5ZM-1.15607e-09 4L19.5 4L19.5 3L1.15607e-09 3L-1.15607e-09 4Z"
+                        fill="url(#paint0_linear_945_6287)"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear_945_6287"
+                          x1="5.16375e-08"
+                          y1="3.78477"
+                          x2="11.8197"
+                          y2="-8.20395"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stopColor="#FAFF00" />
+                          <stop offset="0.466629" stopColor="#00F0FF" />
+                          <stop offset="1" stopColor="#0400B3" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </Link>
+                </li>
+              )
+            )}
           {!isLoading && filterBlogArr?.length <= 0 && (
             <li className={styles.notFoundTextStyles}>
               <p>Статей не найдено!</p>
