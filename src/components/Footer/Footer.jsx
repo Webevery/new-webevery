@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import FooterWithForm from "./FooterWithForm";
 import FooterWithoutForm from "./FooterWithoutForm";
+import FooterContactsSection from "./FooterContactsSection";
 
 const Footer = () => {
     const [isFooterForm, setFooterForm] = useState(false);
@@ -23,16 +24,11 @@ const Footer = () => {
         }
     }, [pathname, isFooterForm]);
 
-    // console.log("pathname:", pathname);
-    // console.log("isFooterForm:", isFooterForm);
-    // console.log("startsWith:", pathname.startsWith("/services"));
-    // console.log("NOTpathname  /", pathname !== "/");
-
     return (() => {
         if (isFooterForm) {
             return <FooterWithForm />;
         } else if (isContactsSection) {
-            return <></>;
+            return <FooterContactsSection />;
         } else {
             return <FooterWithoutForm />;
         }
