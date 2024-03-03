@@ -36,9 +36,11 @@
   }
 
   & svg {
-    fill: $gray900;
     width: 40px;
     height: 40px;
+
+    fill: transparent;
+    stroke: $gray900;
   }
   // & img {
   //   position: absolute;
