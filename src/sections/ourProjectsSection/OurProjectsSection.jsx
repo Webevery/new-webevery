@@ -6,11 +6,15 @@ import Link from 'next/link';
 import styles from './OurProjectsSection.module.scss';
 import stylescBtn from '../../components/Buttons/Btns.module.scss';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages } from '@/data/languages';
 
 const OurProjectsSection = () => {
   const { data, error, isLoading } = GetDataFromSection('ourProjects');
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,9 +37,12 @@ const OurProjectsSection = () => {
               ({
                 slug,
                 titleEn,
+                title,
                 titleGradientEn,
+                titleGradient,
                 heroImage,
                 problemEn,
+                problem,
                 siteLink,
               }) => (
                 <li key={slug} className={styles.ourProjectsItem}>
@@ -53,15 +60,21 @@ const OurProjectsSection = () => {
                       {titleEn === 'Site for' ? (
                         <>
                           <span className={styles.ourProjectsTitleGradient}>
-                            {titleEn}
+                            {i18n.language === currentLanguages.EN
+                              ? titleEn
+                              : title}
                           </span>{' '}
-                          {titleGradientEn}
+                          {i18n.language === currentLanguages.EN
+                            ? titleGradientEn
+                            : titleGradient}
                         </>
                       ) : (
                         <>
                           {titleGradientEn}{' '}
                           <span className={styles.ourProjectsTitleGradient}>
-                            {titleEn}
+                            {i18n.language === currentLanguages.EN
+                              ? titleEn
+                              : title}
                           </span>
                         </>
                       )}{' '}
@@ -72,7 +85,11 @@ const OurProjectsSection = () => {
                       )}
                     </h3>
 
-                    <p className={styles.ourProjectsDesc}>{problemEn}</p>
+                    <p className={styles.ourProjectsDesc}>
+                      {i18n.language === currentLanguages.EN
+                        ? problemEn
+                        : problem}
+                    </p>
                     <Link
                       href={`/ourProjects/${slug}`}
                       className={styles.readMore}
@@ -125,7 +142,6 @@ const OurProjectsSection = () => {
                 </li>
               )
             )}
-          {/* <OurProjects data={data} /> */}
         </ul>
       </div>
     </section>

@@ -17,7 +17,6 @@
   }
   @media screen and (min-width: $desktop) {
     padding: 180px 72px 80px 72px;
-  
   }
 }
 
@@ -44,7 +43,12 @@
   font-weight: 400;
   font-size: 40px;
   & span {
-    background: linear-gradient(91deg, $gradientYellow 0%, $gradientCyan 100%);
+    background: linear-gradient(
+      91deg,
+      $gradientYellow,
+      $gradientCyan,
+      $gradientBlue
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -68,11 +72,10 @@
 
 .servicesIdImgContainer {
   position: relative;
-  //width: 100%;
   display: none;
   @media screen and (min-width: $tablet) {
     display: block;
-    min-width: 704px;
+    min-width: 100%;
     aspect-ratio: 4/3;
     margin-bottom: 24px;
   }
@@ -126,7 +129,12 @@
   margin-bottom: 32px;
 
   & span {
-    background: linear-gradient(91deg, $gradientYellow 0%, $gradientCyan 100%);
+    background: linear-gradient(
+      91deg,
+      $gradientYellow,
+      $gradientCyan,
+      $gradientBlue
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

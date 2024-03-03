@@ -3,17 +3,15 @@
 .blogContainer {
   padding: 112px 20px 40px 20px;
   @media screen and (min-width: $mobile) {
-    padding: 120px 24px 80px 24px;
-  }
+      padding: 110px 20px 80px 20px;}
   @media screen and (min-width: $tablet) {
-    padding: 162px 31px 40px 32px;
+    padding: 184px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 204px 32px 80px 32px;
+    padding: 184px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
     padding: 180px 72px 80px 72px;
-    // padding: 228px 72px 80px 72px;
   }
 }
 

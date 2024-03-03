@@ -14,7 +14,7 @@ import { Pagination } from "swiper/modules";
 import { workingProcessData } from "@/data/workingProcessData";
 
 const WorkingProcessSlider = () => {
-  // console.log('workingProcessData', workingProcessData)  // 😉
+
   return (
     <>
       <Swiper
@@ -38,9 +38,9 @@ const WorkingProcessSlider = () => {
           },
         }}
         modules={[Pagination]}
-        className="WorkingProcessSwiper"
+        className='WorkingProcessSwiper'
       >
-        {workingProcessData.map((item) => (
+        {workingProcessData.map(item => (
           <SwiperSlide key={item.id}>
             <div className="slideContentWrapper">
               {/* <h5 className="titleGradient slideTitle">

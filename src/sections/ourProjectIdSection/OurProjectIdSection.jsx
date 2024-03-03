@@ -6,6 +6,8 @@ import { CldImage } from 'next-cloudinary';
 import { v4 } from 'uuid';
 import { GetIdDataFromSection } from '@/fetch/ClientFetch';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages } from '@/data/languages';
 
 const OurProjectIdSection = ({ params }) => {
   const { slug } = params;
@@ -14,6 +16,8 @@ const OurProjectIdSection = ({ params }) => {
 
   const dataId = data && !isLoading ? data : error;
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,15 +38,23 @@ const OurProjectIdSection = ({ params }) => {
             {dataId?.titleEn === 'Site for' ? (
               <>
                 <span className={styles.ourProjectsTitleGradient}>
-                  {dataId?.titleEn}
+                  {i18n.language === currentLanguages.EN
+                    ? data?.titleEn
+                    : data?.title}
                 </span>{' '}
-                {dataId?.titleGradientEn}
+                {i18n.language === currentLanguages.EN
+                  ? data?.titleGradientEn
+                  : data?.titleGradient}
               </>
             ) : (
               <>
-                {dataId?.titleGradientEn}{' '}
+                {i18n.language === currentLanguages.EN
+                  ? data?.titleGradientEn
+                  : data?.titleGradient}{' '}
                 <span className={styles.ourProjectsTitleGradient}>
-                  {dataId?.titleEn}
+                  {i18n.language === currentLanguages.EN
+                    ? data?.titleEn
+                    : data?.title}
                 </span>
               </>
             )}{' '}
@@ -81,17 +93,29 @@ const OurProjectIdSection = ({ params }) => {
           <ul className={styles.contentWraper}>
             <li className={styles.contentItem}>
               <h3 className={styles.contentTitle}>Problem</h3>
-              <p className={styles.contentDesc}>{dataId?.problemEn}</p>
+              <p className={styles.contentDesc}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.problemEn
+                  : data?.problem}
+              </p>
             </li>
             <li className={styles.contentItem}>
               <h3 className={styles.contentTitle}>Solution</h3>
-              <p className={styles.contentDesc}>{dataId?.solutionEn}</p>
+              <p className={styles.contentDesc}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.solutionEn
+                  : data?.solution}
+              </p>
             </li>
             <li className={styles.contentItem}>
               <h3 className={styles.contentTitle}>
                 How it`s help for business
               </h3>
-              <p className={styles.contentDesc}>{dataId?.helpEn}</p>
+              <p className={styles.contentDesc}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.helpEn
+                  : data?.help}
+              </p>
             </li>
           </ul>
           <figure className={styles.imgScreensContainer}>
@@ -109,7 +133,11 @@ const OurProjectIdSection = ({ params }) => {
           </figure>
           <div className={styles.mobileContainer}>
             <h3 className={styles.mobileTitle}>Mobile adapted</h3>
-            <p className={styles.mobileDesc}>{dataId?.adaptationEn}</p>
+            <p className={styles.mobileDesc}>
+              {i18n.language === currentLanguages.EN
+                ? data?.adaptationEn
+                : data?.adaptation}
+            </p>
           </div>
           <ul className={styles.mobileImgContainer}>
             {dataId?.mobileImages.map((img) => (
