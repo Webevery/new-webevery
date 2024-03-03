@@ -2,9 +2,11 @@
 
 import { SiteContext } from "@/context/siteContext";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import { usePathname } from "next/navigation";
 import React, { useContext, useEffect } from "react";
 import { navLinks } from "../../data/navLinks";
+import {currentLanguages} from "@/data";
 import styles from "./NavLinks.module.scss";
 import ServisecSubMenu from "./ServisecSubMenu/ServisecSubMenu";
 
@@ -16,6 +18,8 @@ const NavLinks = ({
   subMenuRef,
 }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+
+  const {i18n}=useTranslation()
 
   const pathName = usePathname();
 
@@ -30,9 +34,9 @@ const NavLinks = ({
   }, [burgerMenu, isClient]);
 
   const links = navLinks.map((link) => {
-    let word = link.href.slice(1);
-    let capitalizedWord =
-      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    let word = i18n.language===currentLanguages.UA ? link.title : link.titleEN;
+    // let capitalizedWord =
+    //   word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 
     if (link.subMenu) {
       return (
@@ -55,7 +59,7 @@ const NavLinks = ({
                   : `${styles.navLink}`
               }
             >
-              {capitalizedWord}
+              {word}
             </p>
 
             <div
@@ -92,7 +96,7 @@ const NavLinks = ({
             setIsClicked(false);
           }}
         >
-          {link.title}
+          {i18n.language===currentLanguages.UA ? link.title : link.titleEN}
         </Link>
       );
     }
