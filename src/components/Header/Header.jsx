@@ -9,7 +9,6 @@ import React, {
 } from "react";
 import styles from "./Header.module.scss";
 import NavLinks from "../NavLinks/NavLinks";
-import LangSwitcher from "../TranslatorBtnBlock/LangSwitcher/LangSwitcher";
 import BurgerBtn from "../Buttons/BurgerBtn/BurgerBtn";
 import { SiteContext } from "@/context/siteContext";
 import Image from "next/image";
@@ -30,6 +29,10 @@ const Header = () => {
   const subMenuRef = useRef(null);
 
   const [isTablet, setIsTablet] = useState(true);
+
+  const[isLoad,setIsLoad]=useState(true)
+
+  useEffect(()=>{setIsLoad(false)},[])
 
   const handleResizeXs = useCallback(() => {
     if (window.innerWidth >= 768) {
@@ -116,13 +119,13 @@ const Header = () => {
           className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
           ref={menuRef}
         >
-          {!isTablet && <CallBtn />}
-          <NavLinks
+          {!isTablet &&  <CallBtn />}
+          {!isLoad && <NavLinks
             subMenuBtnRef={subMenuBtnRef}
             isClicked={isClicked}
             setIsClicked={setIsClicked}
             subMenuRef={subMenuRef}
-          />
+          />}
           {isXs && <TranslatorBtnBlock className={styles.xsLangSwitcher} />}
         </div>
 

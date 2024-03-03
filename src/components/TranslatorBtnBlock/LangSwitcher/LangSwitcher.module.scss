@@ -4,9 +4,6 @@
   & li {
     width: min-content;
     line-height: 1.6;
-    cursor: pointer;
-    // background-image: $gradient;
-    // background-clip: text;
     &:hover,
     &:focus {
       color: transparent;
@@ -19,4 +16,8 @@
   color: transparent;
   background-image: $gradient;
   background-clip: text;
+}
+
+.notActive{
+  cursor: pointer;
 }

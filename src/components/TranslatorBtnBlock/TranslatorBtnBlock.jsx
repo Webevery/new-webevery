@@ -9,16 +9,16 @@ const TranslatorBtnBlock=({className})=>{
         (prev)=> !prev || prev === undefined ? "ua" : prev
         );
     const [isLoad, setIsLoad] = useState(true);
-
+    
     useEffect(()=>{
         const lang= localStorage.getItem("whatLanguage")
         setLanguage(()=> lang ? lang : "ua")
+        
         setIsLoad(false)
     },[]);
 
     const changeLanguage=(languageUser)=>{
-        const whatLanguage= languageUser;
-        localStorage.setItem("whatLanguage",whatLanguage);
+        localStorage.setItem("whatLanguage",languageUser);
         const language= localStorage.getItem("whatLanguage")
         setLanguage(language)
         i18n.changeLanguage(language)
