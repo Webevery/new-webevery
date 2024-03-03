@@ -16,21 +16,19 @@ const ServicesSection = () => {
   const { data } = GetDataFromSection("services");
   const { openModal, setComment } = useContext(SiteContext);
   const { i18n } = useTranslation();
-
-  console.log(data);
-
-  return (
-    <section>
-      <section className={styles.services}>
-        <div className={`container ${styles.servicesContainer}`}>
-          <div className={styles.titleServicesContainer}>
-            <h1 className={styles.titleServices}>
-              <span>Послуги</span>
-            </h1>
-            <h2 className={styles.descServices}>
-              обирайте <span>найкращу</span> пропозицію для вашого бізнесу
-            </h2>
-          </div>
+  
+    return (
+        <section>
+            <section className={styles.services}>
+                <div className={`container ${styles.servicesContainer}`}>
+                    <div className={styles.titleServicesContainer}>
+                        <h1 className={styles.titleServices}>
+                            <span>Послуги</span>
+                        </h1>
+                        <h2 className={styles.descServices}>
+                            обирайте <span>найкращу</span> пропозицію для вашого бізнесу
+                        </h2>
+                    </div>
 
           <ul className={styles.cartContainer}>
             {data?.map(
