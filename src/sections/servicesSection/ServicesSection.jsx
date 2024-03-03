@@ -22,7 +22,7 @@ const ServicesSection = () => {
                             <span>Послуги</span>
                         </h1>
                         <h2 className={styles.descServices}>
-                        обирайте <span>найкращу</span> пропозицію для вашого бізнесу
+                            обирайте <span>найкращу</span> пропозицію для вашого бізнесу
                         </h2>
                     </div>
 

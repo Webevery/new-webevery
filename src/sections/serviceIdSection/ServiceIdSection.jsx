@@ -25,14 +25,14 @@ const ServiceIdSection = ({ params }) => {
         <div className={styles.servicesIdContent}>
           <div className={styles.servicesIdImgContainer}>
             <CldImage
-            src={dataId?.mockup}
-            alt={dataId?.title}
-            fill="true"
-            className={styles.cartImg}
-            sizes="30vw"
-          />
+              src={dataId?.mockup}
+              alt={dataId?.title}
+              fill="true"
+              className={styles.cartImg}
+              sizes="30vw"
+            />
           </div>
-          
+
           <div className={styles.servicesIdDescContainer}>
             <p className={styles.servicesIdDesc}>{dataId?.description}</p>
             <p className={styles.servicesIdPrice}>{dataId?.price}</p>
