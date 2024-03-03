@@ -4,9 +4,12 @@ import styles from "./TeamSection.module.scss";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import { shuffleArray } from "@/helpers/shuffleArray";
 import { CldImage } from "next-cloudinary";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
 
 const TeamSection = () => {
   const { data, isLoading, error } = GetDataFromSection("team");
+  const { i18n } = useTranslation();
 
   let newData = [];
   if (!isLoading) {
@@ -39,8 +42,16 @@ const TeamSection = () => {
                 />
               </div>
 
-              <h3 className={styles.cartName}>{item.name}</h3>
-              <p className={styles.cartJobTitle}>{item.position}</p>
+              <h3 className={styles.cartName}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.nameEn
+                        : item.name}
+                    </h3>
+                    <p className={styles.cartJobTitle}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.positionEn
+                        : item.position}
+                    </p>
             </li>
           ))}
         </ul>

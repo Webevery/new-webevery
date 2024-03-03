@@ -21,9 +21,12 @@ import {
   EffectCoverflow,
 } from "swiper/modules";
 import Loading from "../Loading/Loading";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
 
 export const SliderOfTeam = () => {
   const { data, isLoading, error } = GetDataFromSection("team");
+  const { i18n } = useTranslation();
 
   let newData = [];
   if (!isLoading) {
@@ -89,8 +92,16 @@ export const SliderOfTeam = () => {
                       />
                     </div>
 
-                    <h3 className={styles.cartName}>{item.name}</h3>
-                    <p className={styles.cartJobTitle}>{item.position}</p>
+                    <h3 className={styles.cartName}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.nameEn
+                        : item.name}
+                    </h3>
+                    <p className={styles.cartJobTitle}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.positionEn
+                        : item.position}
+                    </p>
                   </div>
                 </SwiperSlide>
               );

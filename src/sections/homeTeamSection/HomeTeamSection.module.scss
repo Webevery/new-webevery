@@ -23,7 +23,12 @@
   line-height: 1.1;
 
   span {
-    background-image: linear-gradient(to right, $gradientYellow, $gradientCyan);
+    background-image: linear-gradient(
+      to right,
+      $gradientYellow,
+      $gradientCyan,
+      $gradientBlue
+    );
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
