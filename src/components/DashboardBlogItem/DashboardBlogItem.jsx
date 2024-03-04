@@ -28,11 +28,6 @@ const DashboardBlogItem = ({ data }) => {
             <p className={styles.ukrainian}>{data.description}</p>
             <p >{data.directionEn}</p>
             <p className={styles.ukrainian}>{data.direction}</p>
-
-
-
-
-
         </div>
     )
 }
