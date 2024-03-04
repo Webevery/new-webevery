@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { scrollToTop } from "@/helpers/scrollToTop";
 import React, { useEffect, useState } from "react";
 import styles from "./ToTopBtn.module.scss";
 
@@ -23,13 +23,6 @@ const ToTopBtn = () => {
     };
   }, []);
 
-  const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
-
-  function scrollToTop() {
-    if (!isBrowser()) return;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   return (
     <button
       onClick={scrollToTop}
@@ -40,7 +33,6 @@ const ToTopBtn = () => {
       <svg>
         <use href="./sprite.svg#icon-totop"></use>
       </svg>
-      {/* <Image src="/toTopBtn.webp" fill alt="Picture of the author" /> */}
       <div className={styles.arrow}></div>
     </button>
   );

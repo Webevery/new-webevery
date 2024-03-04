@@ -2,7 +2,7 @@
 
 .container {
     width: 100%;
-    padding: 10px 16px;
+    padding: 8px 16px;
     background-color: $gray300;
     color: $gray900;
     border: 1px solid $gray900;
@@ -18,4 +18,47 @@
     @media screen and (min-width:$desktop) {
         padding: 16px 24px;
     }
+}
+
+.container:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.slug {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.directionsList {
+    list-style: inside;
+}
+
+.img {
+    object-fit: cover;
+
+    @media screen and (min-width:$laptop) {
+        width: 222px;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media screen and (min-width:$desktop) {
+        width: 306px;
+        height: 276px;
+    }
+}
+
+.price,
+.description {
+    font-weight: 500;
+}
+
+.ukrainian {
+    color: $lightBlue;
 }

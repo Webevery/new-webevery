@@ -1,121 +1,122 @@
 @import "../../app/variables";
 
 .footer {
-    // border-top: 1px solid white;
-    height: 130px;
-    margin-top: auto;
-    padding: 20px 32px 20px;
-    @media screen and (min-width: $laptop) {
-        height: 412px;
-    }
-    @media screen and (min-width: $desktop) {
-        padding: 20px 72px 20px 72;
-    }
+  // border-top: 1px solid white;
+  height: 130px;
+  margin-top: auto;
+  padding: 20px 32px 20px;
+  @media screen and (min-width: $laptop) {
+    height: 412px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 20px 72px 20px 72;
+  }
 }
 
 .footerLaptop {
-    margin-top: auto;
-    height: 366px;
-    height: 100%;
+  margin-top: auto;
+  height: 366px;
+  height: 100%;
 }
 
 .footerDesktop {
-    margin-top: auto;
-    height: 366px;
-    height: 100%;
+  margin-top: auto;
+  height: 366px;
+  height: 100%;
 }
 
 .container {
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    @media screen and (min-width: $laptop) {
-        justify-content: center;
-    }
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  @media screen and (min-width: $laptop) {
+    justify-content: center;
+  }
 }
 
 .contentWrap {
-    display: block;
-    @media screen and (min-width: $laptop) {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 1024px;
-        margin-top: 40px;
-    }
-    @media screen and (min-width: $desktop) {
-        max-width: 1296px;
-    }
+  display: block;
+  @media screen and (min-width: $laptop) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1024px;
+    margin-top: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 1296px;
+  }
 }
 
 .contentLaptopWrap {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 32px 36px 32px;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 32px 36px 32px;
+  width: 100%;
 }
 
 .contentDesctopWrap {
-    display: flex;
-    justify-content: space-between;
-    padding: 80px 32px 80px 32px;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 32px 80px 32px;
+  width: 100%;
 }
 
 .innerWrap {
-    display: flex;
+  display: flex;
 }
 
 .foterSocList {
-    @media screen and (min-width: $laptop) {
-        display: flex;
-        flex-direction: column;
-    }
+  @media screen and (min-width: $laptop) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .phone {
-    @media screen and (min-width: $laptop) {
-        margin-right: 100px;
-        font-family: var(--font-work-sans);
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 1.6;
-    }
-    @media screen and (min-width: $desktop) {
-        margin-right: 184px;
-    }
-}
-
-.callBtn {
-    // width: 158px;
-    @media screen and (min-width: $laptop) {
-        margin: 20px;
-    }
-}
-
-.linkWrapper {
+  @media screen and (min-width: $laptop) {
+    margin-right: 100px;
     font-family: var(--font-work-sans);
     font-size: 20px;
     font-weight: 400;
     line-height: 1.6;
+    height: fit-content;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-right: 184px;
+  }
+}
+
+.callBtn {
+  // width: 158px;
+  @media screen and (min-width: $laptop) {
+    margin: 20px;
+  }
+}
+
+.linkWrapper {
+  font-family: var(--font-work-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
 .navigation {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
 }
 
 .logoWrapper {
-    // margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  // margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
-    width: 180px;
-    height: 42px;
-    position: relative;
+  width: 180px;
+  height: 42px;
+  position: relative;
 }

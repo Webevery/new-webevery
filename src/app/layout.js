@@ -5,10 +5,9 @@ import TranslateProvider from "@/translator/i18Provider";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ModalR from "@/components/Modal/Modal";
-import ToTopBtn from "@/components/ToTopBtn/ToTopBtn";
 
 import "./globals.scss";
-
+import ToTopBtn from "@/components/Buttons/ToTopBtn/ToTopBtn";
 
 const saira = Saira({
   subsets: ["latin"],

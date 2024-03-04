@@ -143,14 +143,6 @@
   height: 32px;
   position: relative;
 
-  & svg {
-    width: 100%;
-    height: 100%;
-    fill: blue;
-    color: red;
-    z-index: 20;
-  }
-
   &:hover,
   &:focus {
     filter: brightness(2) drop-shadow(6px 12px 24px rgba(26, 140, 255, 0.5));
