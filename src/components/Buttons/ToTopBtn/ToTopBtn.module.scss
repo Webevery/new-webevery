@@ -1,10 +1,10 @@
-@import "../../app/variables";
+@import "../../../app/variables";
 
 .toTopBtnHidden,
 .toTopBtn {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  left: 20px;
+  bottom: 42px;
 
   width: 48px;
   height: 48px;
@@ -42,9 +42,6 @@
     fill: transparent;
     stroke: $gray900;
   }
-  // & img {
-  //   position: absolute;
-  // }
 }
 
 .toTopBtnHidden {
