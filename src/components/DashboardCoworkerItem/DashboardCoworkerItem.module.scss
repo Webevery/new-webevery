@@ -2,7 +2,7 @@
 
 .container {
     width: 100%;
-    padding: 10px 16px;
+    padding: 8px 16px;
     background-color: $gray300;
     color: $gray900;
     border: 1px solid $gray900;
@@ -11,11 +11,41 @@
     gap: 8px;
 
     font-family: var(--font-work-sans);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 1.6;
 
+    @media screen and (min-width:$laptop) {
+        align-items: center;
+    }
+
     @media screen and (min-width:$desktop) {
         padding: 16px 24px;
+        gap: 12px;
     }
+}
+
+.container:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.slug {
+    font-size: 24px;
+    line-height: 1.4;
+
+    @media screen and (min-width:$laptop) {
+        margin-right: auto;
+    }
+}
+
+.img {
+    object-fit: contain;
+    // @media screen and (min-width:$laptop) {
+    //     margin-left: auto;
+    //     margin-right: auto;
+    // }
+}
+
+.ukrainian {
+    color: $lightBlue;
 }

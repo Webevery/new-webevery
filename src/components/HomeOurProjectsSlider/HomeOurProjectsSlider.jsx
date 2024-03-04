@@ -13,9 +13,13 @@ import './HomeOurProjectsSlider.css';
 import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules';
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages } from '@/data';
 
 
 const HomeOurProjectsSlider = ({ data }) => {
+    const { i18n } = useTranslation();
+
 
     return (
         <>
@@ -30,10 +34,10 @@ const HomeOurProjectsSlider = ({ data }) => {
                     clickable: true,
                 }}
                 loop={true}
-                // autoplay={{
-                //     delay: 3000,
-                //     disableOnInteraction: false,
-                // }}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
 
                 breakpoints={{
                     320: {
@@ -70,8 +74,11 @@ const HomeOurProjectsSlider = ({ data }) => {
                                     />
                                 </div>
                             </Link>
-                            {/* <h3 className='slideTitle'> {item.titleEn} <span className='gradient'>{item.titleGradientEn}</span></h3> */}
-                            <h3 className='slideTitle'> {item.title} <span className='gradient'>{item.titleGradient}</span></h3>
+                            <h3 className='slideTitle'>{i18n.language === currentLanguages.EN
+                                ? item.titleEn
+                                : item.title} <span className='gradient'>{i18n.language === currentLanguages.EN
+                                    ? item.titleGradientEn
+                                    : item.titleGradient}</span></h3>
                         </div>
                     </SwiperSlide>
                 ))}
