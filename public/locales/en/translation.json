@@ -7,7 +7,9 @@
     "linkContacts": "Contacts"
   },
   "MainPage": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
+    "WorkingProcessTitle": "Working process",
+    "WorkingProcessSubTitleMob":"other details of the development are discussed individually",
+    "WorkingProcessSubTitleLaptop":"additional development details are tailored to your specific needs and discussed on an individual basis",
     "heroTitle": "Daily and hourly rent",
     "heroSubTitle": "for comfortable living and recreation",
     "galleryTittle": "Аpartments",
