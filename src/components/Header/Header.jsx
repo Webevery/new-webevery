@@ -15,12 +15,13 @@ import Image from "next/image";
 import CallBtn from "../Buttons/CallBtn/CallBtn";
 import Link from "next/link";
 import TranslatorBtnBlock from "../TranslatorBtnBlock/TranslatorBtnBlock";
+import { scrollToTop } from "@/helpers/scrollToTop";
 
 const Header = () => {
-  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+  const { burgerMenu, setBurgermenu, isClicked, setIsClicked } =
+    useContext(SiteContext);
 
   const [isXs, setIsXs] = useState(true);
-  const [isClicked, setIsClicked] = useState(false);
   const [scrolledWindow, setScrolledWindow] = useState(0);
   const menuRef = useRef(null);
   const headerRef = useRef(null);
@@ -30,9 +31,11 @@ const Header = () => {
 
   const [isTablet, setIsTablet] = useState(true);
 
-  const[isLoad,setIsLoad]=useState(true)
+  const [isLoad, setIsLoad] = useState(true);
 
-  useEffect(()=>{setIsLoad(false)},[])
+  useEffect(() => {
+    setIsLoad(false);
+  }, []);
 
   const handleResizeXs = useCallback(() => {
     if (window.innerWidth >= 768) {
@@ -63,7 +66,7 @@ const Header = () => {
         setIsClicked(false);
       }
     },
-    [setBurgermenu]
+    [setBurgermenu, setIsClicked]
   );
 
   const headerScrollclassName = useCallback(() => {
@@ -119,19 +122,28 @@ const Header = () => {
           className={burgerMenu ? styles.navWrapperVisible : styles.navWrapper}
           ref={menuRef}
         >
-          {!isTablet &&  <CallBtn />}
-          {!isLoad && <NavLinks
-            subMenuBtnRef={subMenuBtnRef}
-            isClicked={isClicked}
-            setIsClicked={setIsClicked}
-            subMenuRef={subMenuRef}
-          />}
+          {!isTablet && <CallBtn />}
+          {!isLoad && (
+            <NavLinks
+              subMenuBtnRef={subMenuBtnRef}
+              isClicked={isClicked}
+              setIsClicked={setIsClicked}
+              subMenuRef={subMenuRef}
+            />
+          )}
           {isXs && <TranslatorBtnBlock className={styles.xsLangSwitcher} />}
         </div>
 
         <div className={styles.logoWrapper}>
-          {!isXs && <TranslatorBtnBlock className={styles.mobileLangSwitcher} />}
-          <Link href={"/"} className={styles.logo}>
+          {!isXs && (
+            <TranslatorBtnBlock className={styles.mobileLangSwitcher} />
+          )}
+          <Link
+            href={"/"}
+            className={styles.logo}
+            scroll={false}
+            onClick={scrollToTop}
+          >
             <Image src={"/Logo.webp"} fill alt="Webevery logo" sizes="50vw" />
           </Link>
         </div>
