@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { usePathname } from "next/navigation";
 import React, { useContext, useEffect } from "react";
 import { navLinks } from "../../data/navLinks";
-import {currentLanguages} from "@/data";
+import { currentLanguages } from "@/data";
 import styles from "./NavLinks.module.scss";
 import ServisecSubMenu from "./ServisecSubMenu/ServisecSubMenu";
 
@@ -19,7 +19,7 @@ const NavLinks = ({
 }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
 
-  const {i18n}=useTranslation()
+  const { i18n } = useTranslation();
 
   const pathName = usePathname();
 
@@ -34,7 +34,8 @@ const NavLinks = ({
   }, [burgerMenu, isClient]);
 
   const links = navLinks.map((link) => {
-    let word = i18n.language===currentLanguages.UA ? link.title : link.titleEN;
+    let word =
+      i18n.language === currentLanguages.UA ? link.title : link.titleEN;
     // let capitalizedWord =
     //   word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 
@@ -55,8 +56,8 @@ const NavLinks = ({
                 link.href === pathName ||
                 (pathName.startsWith("/services") &&
                   link.href.includes("services"))
-                  ? `${styles.navLink} ${styles.active}`
-                  : `${styles.navLink}`
+                  ? `${styles.navLink} navLinkHover active`
+                  : `${styles.navLink} navLinkHover`
               }
             >
               {word}
@@ -86,17 +87,17 @@ const NavLinks = ({
           href={link.href}
           className={
             link.href === pathName ||
-              (isClicked && link.subMenu) ||
-              (pathName.startsWith("/services") && link.href.includes("services"))
-              ? `${styles.navLink} ${styles.active}`
-              : `${styles.navLink}`
+            (isClicked && link.subMenu) ||
+            (pathName.startsWith("/services") && link.href.includes("services"))
+              ? `${styles.navLink} navLinkHover active`
+              : `${styles.navLink} navLinkHover`
           }
           onClick={() => {
             setBurgermenu(false);
             setIsClicked(false);
           }}
         >
-          {i18n.language===currentLanguages.UA ? link.title : link.titleEN}
+          {i18n.language === currentLanguages.UA ? link.title : link.titleEN}
         </Link>
       );
     }

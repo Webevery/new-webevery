@@ -4,6 +4,7 @@ import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "../NavLinks.module.scss";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const ServisecSubMenu = ({
   isClicked,
@@ -13,6 +14,7 @@ const ServisecSubMenu = ({
   className,
 }) => {
   const { data, isLoading, error } = GetDataFromSection("services");
+  const pathName = usePathname();
 
   let allData = [];
   const allServices = {
@@ -28,19 +30,35 @@ const ServisecSubMenu = ({
     allData = [allServices, ...data];
   }
 
-  const subMenu = allData?.map((sub) => (
-    // const subMenu = data?.map((sub) => (
-    <Link
-      key={sub.slug}
-      href={`${linkHref}/${sub.slug}`}
-      onClick={() => {
-        setBurgermenu(false);
-        setIsClicked(false);
-      }}
-    >
-      {`${sub.titleGradientEn} ${sub.titleEn}`}
-    </Link>
-  ));
+  const subMenu = allData?.map((sub) => {
+    const subClassName = () => {
+      if (pathName.includes(sub.slug) && sub.slug !== "") {
+        return "navLinkHover active";
+      } else if (pathName === "/services" && pathName.includes(sub.slug)) {
+        return "navLinkHover active";
+      } else {
+        return "navLinkHover ";
+      }
+    };
+
+    return (
+      <Link
+        key={sub.slug}
+        href={`${linkHref}/${sub.slug}`}
+        onClick={() => {
+          setBurgermenu(false);
+          setIsClicked(false);
+        }}
+        // className="navLinkHover"
+        // className={
+        //   pathName.includes(sub.slug) ? "navLinkHover active" : "navLinkHover"
+        // }
+        className={subClassName()}
+      >
+        {`${sub.titleGradientEn} ${sub.titleEn}`}
+      </Link>
+    );
+  });
 
   return (
     <div
