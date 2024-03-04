@@ -18,10 +18,10 @@ import TranslatorBtnBlock from "../TranslatorBtnBlock/TranslatorBtnBlock";
 import { scrollToTop } from "@/helpers/scrollToTop";
 
 const Header = () => {
-  const { burgerMenu, setBurgermenu } = useContext(SiteContext);
+  const { burgerMenu, setBurgermenu, isClicked, setIsClicked } =
+    useContext(SiteContext);
 
   const [isXs, setIsXs] = useState(true);
-  const [isClicked, setIsClicked] = useState(false);
   const [scrolledWindow, setScrolledWindow] = useState(0);
   const menuRef = useRef(null);
   const headerRef = useRef(null);
@@ -66,7 +66,7 @@ const Header = () => {
         setIsClicked(false);
       }
     },
-    [setBurgermenu]
+    [setBurgermenu, setIsClicked]
   );
 
   const headerScrollclassName = useCallback(() => {

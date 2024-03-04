@@ -28,7 +28,7 @@
   background-size: 200% 100%;
   background-position-x: 0%;
   border-radius: 50%;
-  // transition-duration: 500ms;
+  transition-duration: $transitionDuration;
 
   &:hover,
   &:focus {
@@ -41,6 +41,10 @@
 
     fill: transparent;
     stroke: $gray900;
+  }
+  @media screen and (min-width: $laptop) {
+    right: 20px;
+    left: auto;
   }
 }
 

@@ -22,7 +22,7 @@
   align-items: flex-start;
   width: fit-content;
   position: relative;
-  transition-duration: 250ms;
+  transition-duration: $transitionDuration;
   height: fit-content;
 
   &:hover,

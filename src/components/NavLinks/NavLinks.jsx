@@ -106,6 +106,3 @@ const NavLinks = ({
 };
 
 export default NavLinks;
-
-// (pathName.includes("services") &&
-// link.href.includes("services"))

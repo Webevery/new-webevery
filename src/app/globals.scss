@@ -135,6 +135,7 @@ button {
 }
 
 .navLinkHover {
+  position: relative;
   &::after {
     content: "";
     position: absolute;
