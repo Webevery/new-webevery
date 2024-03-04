@@ -133,3 +133,33 @@ button {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
+
+.navLinkHover {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-image: $gradient;
+    bottom: 0;
+    left: 0;
+  }
+  &:hover,
+  &:focus {
+    &::after {
+      animation: animate 0.5s linear forwards;
+    }
+  }
+}
+@keyframes animate {
+  to {
+    width: 100%;
+  }
+}
+
+.active {
+  &::after {
+    width: 100%;
+  }
+}
