@@ -35,7 +35,7 @@ const NavLinks = ({
 
   const links = navLinks.map((link) => {
     let word =
-      i18n.language === currentLanguages.UA ? link.title : link.titleEN;
+      i18n.language === currentLanguages.EN ? link.titleEN : link.title;
     // let capitalizedWord =
     //   word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 
@@ -97,7 +97,7 @@ const NavLinks = ({
             setIsClicked(false);
           }}
         >
-          {i18n.language === currentLanguages.UA ? link.title : link.titleEN}
+          {i18n.language === currentLanguages.EN ? link.titleEN : link.title}
         </Link>
       );
     }
