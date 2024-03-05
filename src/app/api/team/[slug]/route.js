@@ -4,11 +4,13 @@ import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
     const { slug } = params;
+    console.log("params in route", params);
 
     try {
         connectToDB();
 
         const data = await Coworker.findOne({ slug });
+
         return new NextResponse(JSON.stringify(data), { status: 200 })
     } catch (error) {
         return new NextResponse(error, { status: 500 })
