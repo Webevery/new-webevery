@@ -1,14 +1,9 @@
-import DashboardBlogItem from "@/components/DashboardBlogItem/DashboardBlogItem"
-import DashboardBlogUpdateForm from "@/components/DashboardBlogUpdateForm/DashboardBlogUpdateForm"
-import styles from './page.module.scss'
+import DashboardBlogIdSection from "@/sections/DashboardBlogIdSection/DashboardBlogIdSection"
 
 
-const DashboardPageBlog = () => {
+const DashboardPageBlog = ({ params }) => {
     return (
-        <div className={styles.container}>
-            <DashboardBlogItem />
-            <DashboardBlogUpdateForm />
-        </div>
+        <DashboardBlogIdSection params={params} />
     )
 }
 

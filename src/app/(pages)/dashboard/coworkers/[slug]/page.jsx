@@ -1,15 +1,11 @@
-import DashboardCoworkerItem from "@/components/DashboardCoworkerItem/DashboardCoworkerItem"
-import DashboardCoworkerUpdateForm from "@/components/DashboardCoworkerUpdateForm/DashboardCoworkerUpdateForm"
-import styles from './page.module.scss'
+import DashboardCoworkerIdSection from "@/sections/DashboardCoworkerIdSection/DashboardCoworkerIdSection"
 
 
 
-const DashboardPageCoworker = () => {
+const DashboardPageCoworker = ({ params }) => {
+
     return (
-        <div className={styles.container}>
-            <DashboardCoworkerItem />
-            <DashboardCoworkerUpdateForm />
-        </div>
+        <DashboardCoworkerIdSection params={params} />
     )
 }
 
