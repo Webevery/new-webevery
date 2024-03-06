@@ -10,7 +10,7 @@ const HomeHeroSection = () => {
   const { openModal } = useContext(SiteContext);
 
   return (
-    <section>
+    <section className={styles.hero}>
       <div className={`${styles.heroContainer} container`}>
         <div className={styles.heroContent}>
           <BackgroundAnimation />
