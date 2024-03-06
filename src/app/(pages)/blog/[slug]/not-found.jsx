@@ -2,7 +2,7 @@
 import { CldImage } from "next-cloudinary";
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 
-import styles from "../../not-found.module.scss";
+import styles from "@/app/not-found.module.scss";
 
 export default function NotFoundBlog() {
     return (

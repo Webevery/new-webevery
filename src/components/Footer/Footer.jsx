@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { GetSlugArrayFromData } from "@/helpers/slugArraysFromData";
+import { useCheckPathname } from "@/hooks/useCheckPathname";
 import FooterWithForm from "./FooterWithForm";
 import FooterWithoutForm from "./FooterWithoutForm";
 import FooterContactsSection from "./FooterContactsSection";
@@ -12,26 +12,11 @@ const Footer = () => {
     const [isFooterWithoutForm, setFooterWithoutForm] = useState(false);
     const [isContactsSection, setContactsSection] = useState(false);
 
-    const servicesSlugArray = GetSlugArrayFromData("services");
-    const blogSlugArray = GetSlugArrayFromData("blogs");
-    const ourProjectsSlugArray = GetSlugArrayFromData("ourProjects");
-
     const pathname = usePathname();
-
-    const existServicesPage = servicesSlugArray?.some(
-        (item) => `/services/${item}` === pathname
-    );
-
-    const existBlogPage = blogSlugArray?.some(
-        (item) => `/blog/${item}` === pathname
-    );
-
-    const existOurProjectsPage = ourProjectsSlugArray?.some(
-        (item) => `/ourProjects/${item}` === pathname
-    );
+    const isPathExist = useCheckPathname(pathname);
 
     useEffect(() => {
-        if (pathname === "/" || pathname === "/services" || existServicesPage) {
+        if (pathname === "/" || pathname === "/services" || isPathExist) {
             setFooterWihtForm(false);
             setContactsSection(false);
             setFooterWithoutForm(true);
@@ -44,8 +29,7 @@ const Footer = () => {
             pathname === "/team" ||
             pathname === "/blog" ||
             pathname === "/ourProjects" ||
-            existBlogPage ||
-            existOurProjectsPage
+            isPathExist
         ) {
             setFooterWithoutForm(false);
             setContactsSection(false);
@@ -55,13 +39,7 @@ const Footer = () => {
             setContactsSection(false);
             setFooterWithoutForm(false);
         }
-    }, [
-        pathname,
-        isFooterWihtForm,
-        existServicesPage,
-        existBlogPage,
-        existOurProjectsPage,
-    ]);
+    }, [pathname, isFooterWihtForm, isPathExist]);
 
     return (() => {
         if (isFooterWihtForm) {
