@@ -7,6 +7,8 @@
     "linkContacts": "Контакти"
   },
   "MainPage": {
+    "TeamTitle":"Наша команда",
+    "TeamSubTitle":"втілить ваші ідеї в життя",
     "WorkingProcessTitle": "Робочий процес",
     "WorkingProcessSubTitleMob":"додаткові деталі розробки обговорюються індивідуально",
     "WorkingProcessSubTitleLaptop":"додаткові деталі розробки обговорюються в індивідуальному порядку",
@@ -73,6 +75,8 @@
   },
   "Buttons": {
     "CalltBtn": "Подзвонити",
+    "HeroOrderBtn":"Замовити",
+    "HomeTeamBtn":"Про Команду",
     "OrderBtn": "Забронювати",
     "CloseBtn": "Закрити",
     "CardDetailsBtn": "Детальніше",
