@@ -1,4 +1,4 @@
-import DashboardServiceIdSection from "@/sections/dashboardServiceIdSection/DashboardServiceIdSection"
+import DashboardServiceIdSection from "@/sections/DashboardServiceIdSection/DashboardServiceIdSection"
 
 
 const DashboardPageService = ({ params }) => {

@@ -1,4 +1,4 @@
-import DashboardProjectIdSection from "@/sections/dashboardProjectIdSection/DashboardProjectIdSection";
+import DashboardProjectIdSection from "@/sections/DashboardProjectIdSection/DashboardProjectIdSection";
 
 
 const DashboardPageProject = ({ params }) => {
