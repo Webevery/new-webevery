@@ -1,4 +1,4 @@
-import DashboardCoworkersSection from "@/sections/dashboardCoworkersSection/DashboardCoworkersSection"
+import DashboardCoworkersSection from "@/sections/DashboardCoworkersSection/DashboardCoworkersSection"
 
 
 const DashboardPageCoworkers = () => {
