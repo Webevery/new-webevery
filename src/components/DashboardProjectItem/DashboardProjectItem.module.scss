@@ -1,6 +1,8 @@
 @import "../../app/variables";
 
 .container {
+    flex: 1;
+    position: relative;
     width: 100%;
     padding: 8px 16px;
     background-color: $gray300;
@@ -16,8 +18,7 @@
     line-height: 1.6;
 
     @media screen and (min-width:$desktop) {
-        padding: 16px 24px;
-        gap: 12px;
+        padding: 8px 24px;
     }
 }
 
@@ -26,7 +27,6 @@
 }
 
 .slug {
-    margin-top: 16px;
     font-weight: 500;
     font-size: 24px;
     line-height: 1.4;
@@ -42,25 +42,40 @@
     color: $gray0;
 }
 
-.heroImage {
+.imgWrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
     @media screen and (min-width:$laptop) {
-        margin-left: auto;
-        margin-right: auto;
+        justify-content: center;
     }
 }
 
-.screensImage {
-    @media screen and (min-width:$laptop) {
-        margin-left: auto;
-        margin-right: auto;
-        ;
-    }
+.deleteIcon {
+    width: 22px;
+    height: 24px;
+    stroke: $gray900;
+    fill: transparent;
 }
 
-.imgsWrapper {
+.deleteIcon:hover {
+    cursor: pointer;
+    stroke: #ff2828;
+}
+
+.imagesWrapper {
     display: flex;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
+
+    @media screen and (min-width:$laptop) {
+        gap: 4px;
+    }
+}
+
+.column {
+    flex-direction: column;
 }
 
 .titlesBold {

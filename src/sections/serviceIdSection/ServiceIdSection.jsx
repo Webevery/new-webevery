@@ -17,7 +17,7 @@ const ServiceIdSection = ({ params }) => {
 
   const { i18n } = useTranslation();
 
-  console.log(dataId);
+  // console.log(dataId);
 
   return (
     <section className={styles.servicesId}>
