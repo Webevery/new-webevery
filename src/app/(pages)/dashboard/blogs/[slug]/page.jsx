@@ -1,4 +1,4 @@
-import DashboardBlogIdSection from "@/sections/dashboardBlogIdSection/DashboardBlogIdSection"
+import DashboardBlogIdSection from "@/sections/DashboardBlogIdSection/DashboardBlogIdSection"
 
 
 const DashboardPageBlog = ({ params }) => {

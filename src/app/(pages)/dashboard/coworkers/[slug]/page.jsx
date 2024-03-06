@@ -1,4 +1,4 @@
-import DashboardCoworkerIdSection from "@/sections/dashboardCoworkerIdSection/DashboardCoworkerIdSection"
+import DashboardCoworkerIdSection from "@/sections/DashboardCoworkerIdSection/DashboardCoworkerIdSection"
 
 
 const DashboardPageCoworker = ({ params }) => {

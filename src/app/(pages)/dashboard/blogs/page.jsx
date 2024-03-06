@@ -1,4 +1,4 @@
-import DashboardBlogsSection from "@/sections/dashboardBlogsSection/DashboardBlogsSection"
+import DashboardBlogsSection from "@/sections/DashboardBlogsSection/DashboardBlogsSection"
 
 
 const DashboardPageBlogs = () => {
