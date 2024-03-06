@@ -31,7 +31,7 @@ const ToTopBtn = () => {
       aria-label="Кнопка до гори"
     >
       <svg>
-        <use href="./sprite.svg#icon-totop"></use>
+        <use href="/sprite.svg#icon-totop"></use>
       </svg>
       <div className={styles.arrow}></div>
     </button>

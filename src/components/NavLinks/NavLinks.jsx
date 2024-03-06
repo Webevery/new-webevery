@@ -5,8 +5,7 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { usePathname } from "next/navigation";
 import React, { useContext, useEffect } from "react";
-import { navLinks } from "../../data/navLinks";
-import { currentLanguages } from "@/data";
+import {navLinks, currentLanguages } from "@/data";
 import styles from "./NavLinks.module.scss";
 import ServisecSubMenu from "./ServisecSubMenu/ServisecSubMenu";
 

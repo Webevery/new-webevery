@@ -95,7 +95,7 @@ export const SliderOfServices = () => {
                         <stop offset="1" stopColor="#0400B3" />
                       </linearGradient>
                       <use
-                        href="sprite.svg#icon-arrowReadMore"
+                        href="/sprite.svg#icon-arrowReadMore"
                         style={{ fill: "url(#paint0_linear_3004_8704)" }}
                       />
                     </svg>

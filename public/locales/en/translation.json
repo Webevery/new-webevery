@@ -1,12 +1,7 @@
 {
-  "Header": {
-    "headerSale": "Hourly 1-3 h 400 UAH, each subsequent hour + 100 UAH",
-    "linkApartments": "Apartments",
-    "linkDocuments": "Documents",
-    "linkRules": "Rules",
-    "linkContacts": "Contacts"
-  },
   "MainPage": {
+    "TeamTitle":"Our team",
+    "TeamSubTitle":"will bring your ideas to life",
     "WorkingProcessTitle": "Working process",
     "WorkingProcessSubTitleMob":"other details of the development are discussed individually",
     "WorkingProcessSubTitleLaptop":"additional development details are tailored to your specific needs and discussed on an individual basis",
@@ -72,6 +67,8 @@
   },
   "Buttons": {
     "CalltBtn": "Call",
+    "HeroOrderBtn":"Order",
+    "HomeTeamBtn":"About Team",
     "OrderBtn": "Request to book",
     "CloseBtn": "Close",
     "CardDetailsBtn": "Details",
