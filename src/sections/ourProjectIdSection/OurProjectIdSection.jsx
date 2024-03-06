@@ -8,6 +8,7 @@ import { GetIdDataFromSection } from '@/fetch/ClientFetch';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { currentLanguages } from '@/data/languages';
+import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
 
 const OurProjectIdSection = ({ params }) => {
   const { slug } = params;
@@ -32,6 +33,7 @@ const OurProjectIdSection = ({ params }) => {
 
   return (
     <section>
+      <BackgroundAnimation />
       {!isLoading && (
         <div className={`container ${styles.ourProjectContainer}`}>
           <h1 className={styles.ourProjectsTitle}>

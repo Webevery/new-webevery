@@ -8,6 +8,7 @@ import stylescBtn from '../../components/Buttons/Btns.module.scss';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { currentLanguages } from '@/data/languages';
+import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
 
 const OurProjectsSection = () => {
   const { data, error, isLoading } = GetDataFromSection('ourProjects');
@@ -30,6 +31,7 @@ const OurProjectsSection = () => {
   return (
     <section>
       <div className={`container ${styles.projectContainer}`}>
+        <BackgroundAnimation />
         <h1 className={styles.title}>Our Projects</h1>
         <ul className={styles.ourProjectsList}>
           {!isLoading &&
