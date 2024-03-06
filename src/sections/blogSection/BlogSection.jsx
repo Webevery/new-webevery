@@ -13,6 +13,7 @@ import { CldImage } from 'next-cloudinary';
 import BlogSorter from '@/components/BlogSorter/BlogSorter';
 import { useTranslation } from 'react-i18next';
 import { currentLanguages } from '@/data/languages';
+import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -111,6 +112,7 @@ const BlogSection = () => {
   return (
     <section className={styles.blog}>
       <div className={`container ${styles.blogContainer}`}>
+        <BackgroundAnimation />
         <div className={styles.titleBlogContainer}>
           <h1 className={styles.titleBlog}>
             <span>Webevery</span> Blog
@@ -135,6 +137,7 @@ const BlogSection = () => {
               filter={fiterBlog.blogFilter}
               title="Filter"
               setFilterArr={setFilterArr}
+              filterArr={filterArr}
             />
           )}
 

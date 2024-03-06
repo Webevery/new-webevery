@@ -1,6 +1,6 @@
 'use client';
 
-import { fiterBlog } from '@/data/blog';
+// import { fiterBlog } from '@/data/blog';
 import { currentLanguages } from '@/data/languages';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +15,7 @@ const BlogFilterItem = ({
   activeIndex,
   setIsFilterClear,
   isFilterClear,
+  filterArr,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -23,10 +24,11 @@ const BlogFilterItem = ({
   useEffect(() => {
     setIsChecked(false);
     setIsFilterClear(false);
-    setFilterArr([]);
-
+    if (!activeIndex) {
+      setFilterArr([]);
+    }
     // eslint-disable-next-line
-  }, [isFilterClear]);
+  }, [isFilterClear, activeIndex]);
 
   useEffect(() => {
     isFilterChecked();
@@ -37,16 +39,32 @@ const BlogFilterItem = ({
     id === activeIndex ? setIsChecked(!isChecked) : null;
 
   const toggleBlogForFilter = () => {
-    setFilterArr((filterArr) =>
-      isChecked
-        ? filterArr.filter((blog) => blog !== title)
-        : [...filterArr, title]
+    setFilterArr(
+      (filterArr) =>
+        isChecked ? filterArr.filter((blog) => blog !== title) : [title]
+      // : [...filterArr, title]
     );
   };
 
-  const IconIsChecked = isChecked
-    ? styles.checked + ' ' + styles.checkedOn
-    : styles.checked + ' ' + styles.checkedOff;
+  const handleCheckboxChange = () => {
+    if (id === activeIndex) {
+      setActiveIndex(null);
+    } else {
+      setActiveIndex(id);
+      toggleBlogForFilter();
+    }
+
+    setIsFilterClear(false);
+  };
+
+  const IconIsChecked =
+    id === activeIndex
+      ? styles.checked + ' ' + styles.checkedOn
+      : styles.checked + ' ' + styles.checkedOff;
+
+  // const IconIsChecked = isChecked
+  //   ? styles.checked + ' ' + styles.checkedOn
+  //   : styles.checked + ' ' + styles.checkedOff;
 
   return (
     <div className={styles.blogShowContainer}>
@@ -54,14 +72,17 @@ const BlogFilterItem = ({
         className={styles.checkbox}
         type="checkbox"
         id={id}
+        value={title}
         aria-label={i18n.language === currentLanguages.EN ? titleEn : title}
-        checked={isChecked}
-        onChange={() => {
-          setActiveIndex(id),
-            isFilterChecked(),
-            toggleBlogForFilter(),
-            setIsFilterClear(false);
-        }}
+        // checked={isChecked}
+        checked={id === activeIndex}
+        // onChange={() => {
+        //   setActiveIndex(id),
+        //     isFilterChecked(),
+        //     toggleBlogForFilter(),
+        //     setIsFilterClear(false);
+        // }}
+        onChange={() => handleCheckboxChange()}
       />
       <label htmlFor={id} className={styles.blogCheckboxDesc}>
         <svg className={IconIsChecked}>
