@@ -1,15 +1,10 @@
-import DashboardServiceItem from "@/components/DashboardServiceItem/DashboardServiceItem"
-import DashboardServiceUpdateForm from "@/components/DashboardServiceUpdateForm/DashboardServiceUpdateForm"
-import styles from './page.module.scss'
+import DashboardServiceIdSection from "@/sections/dashboardServiceIdSection/DashboardServiceIdSection"
 
 
-const DashboardPageService = () => {
+const DashboardPageService = ({ params }) => {
 
     return (
-        <div className={styles.container}>
-            <DashboardServiceItem />
-            <DashboardServiceUpdateForm />
-        </div>
+        <DashboardServiceIdSection params={params} />
     )
 }
 

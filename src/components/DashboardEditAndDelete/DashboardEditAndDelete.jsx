@@ -18,7 +18,7 @@ const DashboardEditAndDelete = ({ slug, pathname }) => {
             <svg
                 className={styles.deleteIcon}
                 onClick={() => {
-                    console.log(`Delete card ${slug}`)
+                    console.log(`Delete card of ${slug}`)
                     // product.photos.map((item) =>
                     //     handleDeleteImgFromCloudinary(item)
                     // );

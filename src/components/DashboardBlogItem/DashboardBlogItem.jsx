@@ -3,19 +3,20 @@ import { CldImage } from 'next-cloudinary';
 import styles from './DashboardBlogItem.module.scss';
 import DashboardEditAndDelete from '../DashboardEditAndDelete/DashboardEditAndDelete';
 import { usePathname } from 'next/navigation';
+import Loading from '../Loading/Loading';
 
 
-const DashboardBlogItem = ({ data }) => {
+const DashboardBlogItem = ({ data, isLoading }) => {
     const pathname = usePathname()
     const isList = pathname.endsWith('blogs');
 
     return (
-        <div className={styles.container}>
-            <p className={`${styles.slug} ${styles.ukrainian}`}>{data?.slug}</p>
-            <p className={styles.title}>{data?.titleEn}</p>
-            <p className={`${styles.title} ${styles.ukrainian}`}>{data?.title}</p>
+        <>{isLoading ? <Loading /> : <div className={styles.container}>
+            <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>
+            <p className={styles.title}>{data.titleEn}</p>
+            <p className={`${styles.title} ${styles.ukrainian}`}>{data.title}</p>
             <div className={styles.imagesWrapper}>
-                {data?.images.map((item, index) => {
+                {data.images.map((item, index) => {
                     return (<div key={index} className={styles.imgWrapper}>
                         {data && <CldImage
                             className={styles.img}
@@ -23,7 +24,7 @@ const DashboardBlogItem = ({ data }) => {
                             height={200}
                             src={item}
                             sizes="25vw"
-                            alt={`Photo of ${data?.slug}`}
+                            alt={`Photo of ${data.slug}`}
                         />}
                         {!isList && <svg
                             className={styles.deleteIcon}
@@ -46,13 +47,13 @@ const DashboardBlogItem = ({ data }) => {
                 }
             </div>
 
-            <p>{data?.descriptionEn}</p>
-            <p className={styles.ukrainian}>{data?.description}</p>
-            <p >{data?.directionEn}</p>
-            <p className={styles.ukrainian}>{data?.direction}</p>
+            <p>{data.descriptionEn}</p>
+            <p className={styles.ukrainian}>{data.description}</p>
+            <p >{data.directionEn}</p>
+            <p className={styles.ukrainian}>{data.direction}</p>
 
-            {isList && <DashboardEditAndDelete slug={data?.slug} pathname={pathname} />}
-        </div>
+            {isList && <DashboardEditAndDelete slug={data.slug} pathname={pathname} />}
+        </div>}</>
     )
 }
 

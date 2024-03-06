@@ -1,4 +1,4 @@
-import DashboardCoworkerIdSection from "@/sections/DashboardCoworkerIdSection/DashboardCoworkerIdSection"
+import DashboardCoworkerIdSection from "@/sections/dashboardCoworkerIdSection/DashboardCoworkerIdSection"
 
 
 

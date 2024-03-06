@@ -48,7 +48,7 @@ const OrderForm = ({
   const onSubmit = (data) => {
     setSubmited(true);
     if (!isModalOpen) toast.success("Your message has been sent!");
-    console.log("data", data);
+    // console.log("data", data);
 
     setTimeout(() => {
       if (isModalOpen) closeModal();

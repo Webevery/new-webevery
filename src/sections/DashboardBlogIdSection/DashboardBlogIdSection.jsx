@@ -7,11 +7,11 @@ import { GetIdDataFromSection } from '@/fetch/ClientFetch';
 
 const DashboardBlogIdSection = ({ params }) => {
     const { slug } = params;
-    const { data } = GetIdDataFromSection('blogs', slug);
+    const { data, isLoading } = GetIdDataFromSection('blogs', slug);
 
     return (
         <div className={styles.container}>
-            <DashboardBlogItem data={data} />
+            <DashboardBlogItem data={data} isLoading={isLoading} />
             <DashboardBlogUpdateForm />
         </div>
     )
