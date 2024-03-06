@@ -1,6 +1,8 @@
 @import "../../app/variables";
 
 .container {
+    flex: 1;
+    position: relative;
     width: 100%;
     padding: 8px 16px;
     background-color: $gray300;
@@ -16,7 +18,7 @@
     line-height: 1.6;
 
     @media screen and (min-width:$desktop) {
-        padding: 16px 24px;
+        padding: 8px 24px;
     }
 }
 
@@ -38,20 +40,40 @@
     list-style: inside;
 }
 
+.imgWrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @media screen and (min-width:$laptop) {
+        justify-content: center;
+    }
+}
+
 .img {
     object-fit: cover;
 
     @media screen and (min-width:$laptop) {
         width: 222px;
         height: 200px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     @media screen and (min-width:$desktop) {
         width: 306px;
         height: 276px;
     }
+}
+
+.deleteIcon {
+    width: 22px;
+    height: 24px;
+    stroke: $gray900;
+    fill: transparent;
+}
+
+.deleteIcon:hover {
+    cursor: pointer;
+    stroke: #ff2828;
 }
 
 .price,

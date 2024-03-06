@@ -18,7 +18,7 @@
     line-height: 1.6;
 
     @media screen and (min-width:$desktop) {
-        padding: 16px 24px;
+        padding: 8px 24px;
         gap: 12px;
     }
 }
@@ -40,12 +40,15 @@
 .imagesWrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 
-    // @media screen and (min-width:$laptop) {
-    //     flex-direction: row;
-    //     justify-content: center;
-    // }
+    @media screen and (min-width:$laptop) {
+        align-items: center;
+    }
+
+    @media screen and (min-width:$desktop) {
+        gap: 12px;
+    }
 }
 
 .imgWrapper {
@@ -56,6 +59,11 @@
 
 .img {
     object-fit: cover;
+
+    @media screen and (min-width:$laptop) {
+        width: 222px;
+        height: 222px;
+    }
 }
 
 .deleteIcon {

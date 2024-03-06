@@ -1,7 +1,6 @@
 import DashboardCoworkerIdSection from "@/sections/DashboardCoworkerIdSection/DashboardCoworkerIdSection"
 
 
-
 const DashboardPageCoworker = ({ params }) => {
 
     return (

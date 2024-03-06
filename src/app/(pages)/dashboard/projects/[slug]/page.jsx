@@ -1,16 +1,11 @@
-import DashboardProjectItem from "@/components/DashboardProjectItem/DashboardProjectItem"
-import DashboardProjectUpdateForm from "@/components/DashboardProjectUpdateForm/DashboardProjectUpdateForm"
-import styles from './page.module.scss'
+import DashboardProjectIdSection from "@/sections/dashboardProjectIdSection/DashboardProjectIdSection";
 
 
-const DashboardPageProject = () => {
+const DashboardPageProject = ({ params }) => {
     return (
-        <div className={styles.container}>
-            <DashboardProjectItem />
-            <DashboardProjectUpdateForm />
-        </div>
+        <DashboardProjectIdSection params={params} />
     )
 }
 
 
-export default DashboardPageProject
+export default DashboardPageProject;

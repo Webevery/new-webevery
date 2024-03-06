@@ -1,22 +1,24 @@
+"use client";
 import DashboardBlogCreateForm from '@/components/DashboardBlogCreateForm/DashboardBlogCreateForm'
 import DashboardBlogItem from '@/components/DashboardBlogItem/DashboardBlogItem'
 import styles from './DashboardBlogsSection.module.scss'
-import { getData } from '@/fetch/ServerFetch'
+import { GetDataFromSection } from '@/fetch/ClientFetch'
+import Loading from '@/components/Loading/Loading';
 
 
-const DashboardBlogsSection = async () => {
-    const data = await getData('blogs')
+const DashboardBlogsSection = () => {
+    const { data, isLoading } = GetDataFromSection('blogs')
 
     return (
-        <div className={styles.container}>
+        <>{isLoading ? <Loading /> : <div className={styles.container}>
             <div className={styles.cardsList}>
                 {data.map((item, index) => {
-                    return (<DashboardBlogItem key={index} data={item} />)
+                    return (<DashboardBlogItem key={index} data={item} isLoading={isLoading} />)
                 })}
             </div>
 
             <DashboardBlogCreateForm />
-        </div>
+        </div>}</>
     )
 }
 
