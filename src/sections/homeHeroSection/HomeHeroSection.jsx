@@ -16,7 +16,7 @@ const{t}=useTranslation()
 
   useEffect(()=>setIsLoad(false),[])
   return (
-    <section>
+    <section className={styles.hero}>
       <div className={`${styles.heroContainer} container`}>
         <div className={styles.heroContent}>
           <BackgroundAnimation />
