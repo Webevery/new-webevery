@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { navLinks } from "@/data/navLinks";
+import { useTranslation } from "react-i18next";
+import {navLinks, currentLanguages } from "@/data";
 
 import styles from "./Footer.module.scss";
 import { usePathname } from "next/navigation";
@@ -9,6 +10,8 @@ import { SiteContext } from "@/context/siteContext";
 const FooterLinks = () => {
   const pathName = usePathname();
   const { isClicked, setIsClicked } = useContext(SiteContext);
+
+  const {i18n}=useTranslation()
 
   const links = navLinks.map((link) => {
     return (
@@ -26,7 +29,7 @@ const FooterLinks = () => {
             setIsClicked(false);
           }}
         >
-          {link.title}
+          {i18n.language===currentLanguages.EN ? link.titleEN : link.title}
         </Link>
       </div>
     );

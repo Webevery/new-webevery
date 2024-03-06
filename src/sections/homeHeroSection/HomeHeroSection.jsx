@@ -1,7 +1,8 @@
 'use client';
 
-import { useContext } from 'react';
+import {useState, useEffect, useContext } from 'react';
 import { SiteContext } from '@/context/siteContext';
+import { useTranslation } from 'react-i18next';
 import OrderBtn from '@/components/Buttons/OrderBtn/OrderBtn';
 import styles from './HomeHeroSection.module.scss';
 import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
@@ -9,6 +10,11 @@ import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnim
 const HomeHeroSection = () => {
   const { openModal } = useContext(SiteContext);
 
+const{t}=useTranslation()
+
+  const[isLoad,setIsLoad]=useState(true)
+
+  useEffect(()=>setIsLoad(false),[])
   return (
     <section className={styles.hero}>
       <div className={`${styles.heroContainer} container`}>
@@ -19,7 +25,7 @@ const HomeHeroSection = () => {
           <p className={styles.text}>
             with team <span className={styles.textItem}>Webevery</span>
           </p>
-          <OrderBtn onClick={openModal} type="submit" title="Order" />
+          {!isLoad && <OrderBtn onClick={openModal} type="submit" title={t('Buttons.HeroOrderBtn')} />}
         </div>
       </div>
     </section>
