@@ -4,12 +4,12 @@ import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 
 import styles from "@/app/not-found.module.scss";
 
-export default function NotFoundBlog() {
+export default function NotFoundOurProjects() {
     return (
         <section className={styles.container}>
             <div className={`container ${styles.contentWrapper}`}>
                 {/* <h2 className={styles.title}>Sorry page not found</h2> */}
-                <h2 className={styles.title}>Такий блог не знайдено</h2>
+                <h2 className={styles.title}>Такого проекту немає</h2>
 
                 <div className={styles.imgWrapper}>
                     <CldImage
@@ -22,8 +22,8 @@ export default function NotFoundBlog() {
                 </div>
                 <NavigationBtn
                     id={styles.backToHomeBtn}
-                    title='До усіх блогів'
-                    href={"/blog"}
+                    title='До усіх проектів'
+                    href={"/ourProjects"}
                 />
             </div>
         </section>
