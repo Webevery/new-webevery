@@ -26,6 +26,7 @@ export function useCheckPathname(path) {
             path === "/faq" ||
             path === "/team" ||
             path === "/blog" ||
+            path === "/contacts" ||
             path === "/services" ||
             path === "/ourProjects" ||
             existBlogPage ||

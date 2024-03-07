@@ -117,9 +117,7 @@ const Header = () => {
 
     return (
         <>
-            {!isPathExist ? (
-                <header></header>
-            ) : (
+            {isPathExist || pathname.startsWith("/dashboard") ? (
                 <header className={styles.header} ref={headerRef}>
                     <div className={`container ${styles.container}`}>
                         {isTablet && <BurgerBtn setIsClicked={setIsClicked} />}
@@ -169,6 +167,8 @@ const Header = () => {
                         </div>
                     </div>
                 </header>
+            ) : (
+                <header></header>
             )}
         </>
     );

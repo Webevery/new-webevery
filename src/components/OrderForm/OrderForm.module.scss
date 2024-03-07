@@ -86,7 +86,6 @@
     }
     @media screen and (min-width: $laptop) {
         padding-left: 0;
-        width: 526px;
         margin-top: 0;
         margin-bottom: 32px;
     }
@@ -102,7 +101,7 @@
     font-size: 24px;
     font-weight: 500;
     line-height: 1.4;
-    @media screen and (min-width: $laptop) {
+    @media screen and (min-width: $desktop) {
         font-size: 26px;
     }
 }
