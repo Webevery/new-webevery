@@ -30,8 +30,7 @@
   border-radius: 50%;
   transition-duration: $transitionDuration;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-position-x: 100%;
   }
 
