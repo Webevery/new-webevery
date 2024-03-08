@@ -15,163 +15,164 @@ import TranslatorBtnBlock from "../TranslatorBtnBlock/TranslatorBtnBlock";
 import styles from "./Header.module.scss";
 
 const Header = () => {
-    const { burgerMenu, setBurgermenu, isClicked, setIsClicked } =
-        useContext(SiteContext);
+  const { burgerMenu, setBurgermenu, isClicked, setIsClicked } =
+    useContext(SiteContext);
 
-    const [isXs, setIsXs] = useState(true);
-    const [scrolledWindow, setScrolledWindow] = useState(0);
-    const [isTablet, setIsTablet] = useState(true);
-    const [isLoad, setIsLoad] = useState(true);
+  const [isXs, setIsXs] = useState(true);
+  const [scrolledWindow, setScrolledWindow] = useState(0);
+  const [isTablet, setIsTablet] = useState(true);
+  const [isLoad, setIsLoad] = useState(true);
 
-    const menuRef = useRef(null);
-    const headerRef = useRef(null);
-    const header = headerRef.current;
-    const subMenuBtnRef = useRef(null);
-    const subMenuRef = useRef(null);
-    const pathname = usePathname();
-    const isPathExist = useCheckPathname(pathname);
+  const menuRef = useRef(null);
+  const headerRef = useRef(null);
+  const header = headerRef.current;
+  const subMenuBtnRef = useRef(null);
+  const subMenuRef = useRef(null);
+  const translator = useRef(null);
 
-    useEffect(() => {
-        setIsLoad(false);
-    }, []);
+  const pathname = usePathname();
+  const isPathExist = useCheckPathname(pathname);
 
-    const handleResizeXs = useCallback(() => {
-        if (window.innerWidth >= 768) {
-            setIsXs(false);
-        } else {
-            setIsXs(true);
-        }
-    }, [setIsXs]);
+  useEffect(() => {
+    setIsLoad(false);
+  }, []);
 
-    const handleResizeTablet = useCallback(() => {
-        if (window.innerWidth >= 1440) {
-            setIsTablet(false);
-        } else {
-            setIsTablet(true);
-        }
-    }, [setIsTablet]);
+  const handleResizeXs = useCallback(() => {
+    if (window.innerWidth >= 768) {
+      setIsXs(false);
+    } else {
+      setIsXs(true);
+    }
+  }, [setIsXs]);
 
-    const closeBurgerOnWindowClick = useCallback(
-        (e) => {
-            if (
-                e.target === menuRef.current ||
-                e.target === subMenuRef.current
-            ) {
-                return;
-            } else if (
-                e.target !== menuRef.current ||
-                e.target !== subMenuBtnRef.current ||
-                e.target !== subMenuRef.current
-            ) {
-                setBurgermenu(false);
-                setIsClicked(false);
-            }
-        },
-        [setBurgermenu, setIsClicked]
-    );
+  const handleResizeTablet = useCallback(() => {
+    if (window.innerWidth >= 1440) {
+      setIsTablet(false);
+    } else {
+      setIsTablet(true);
+    }
+  }, [setIsTablet]);
 
-    const headerScrollclassName = useCallback(() => {
-        if (window.scrollY <= 80) {
-            header?.classList.remove(`${styles.Hidden}`);
-            header?.classList.add(`${styles.Visible}`);
-        } else if (window.scrollY > scrolledWindow) {
-            header?.classList.add(`${styles.Hidden}`);
-            header?.classList.remove(`${styles.Visible}`);
-        } else {
-            header.classList.remove(`${styles.Hidden}`);
-            header.classList.add(`${styles.Visible}`);
-        }
+  const closeBurgerOnWindowClick = useCallback(
+    (e) => {
+      console.log("e.target", e.target);
+      if (
+        e.target === menuRef.current ||
+        e.target === subMenuRef.current ||
+        e.target !== translator.current
+      ) {
+        return;
+      } else if (
+        e.target !== menuRef.current ||
+        e.target !== subMenuBtnRef.current ||
+        e.target !== subMenuRef.current
+      ) {
+        setBurgermenu(false);
+        setIsClicked(false);
+      }
+    },
+    [setBurgermenu, setIsClicked]
+  );
 
-        setScrolledWindow(window.scrollY);
-    }, [scrolledWindow, setScrolledWindow, header?.classList]);
+  const headerScrollclassName = useCallback(() => {
+    if (window.scrollY <= 80) {
+      header?.classList.remove(`${styles.Hidden}`);
+      header?.classList.add(`${styles.Visible}`);
+    } else if (window.scrollY > scrolledWindow) {
+      header?.classList.add(`${styles.Hidden}`);
+      header?.classList.remove(`${styles.Visible}`);
+    } else {
+      header.classList.remove(`${styles.Hidden}`);
+      header.classList.add(`${styles.Visible}`);
+    }
 
-    useEffect(() => {
-        window.addEventListener("resize", handleResizeXs);
-        window.addEventListener("resize", handleResizeTablet);
-        if (burgerMenu || isClicked) {
-            window.addEventListener("click", closeBurgerOnWindowClick);
-        }
-        window.addEventListener("scroll", headerScrollclassName, {
-            passive: true,
-        });
+    setScrolledWindow(window.scrollY);
+  }, [scrolledWindow, setScrolledWindow, header?.classList]);
 
-        handleResizeXs();
-        handleResizeTablet();
+  useEffect(() => {
+    window.addEventListener("resize", handleResizeXs);
+    window.addEventListener("resize", handleResizeTablet);
+    if (burgerMenu || isClicked) {
+      window.addEventListener("click", closeBurgerOnWindowClick);
+    }
+    window.addEventListener("scroll", headerScrollclassName, {
+      passive: true,
+    });
 
-        return () => {
-            window.removeEventListener("resize", handleResizeXs);
-            window.removeEventListener("resize", handleResizeTablet);
-            window.removeEventListener("click", closeBurgerOnWindowClick);
-            window.removeEventListener("scroll", headerScrollclassName, {
-                passive: true,
-            });
-        };
-    }, [
-        handleResizeXs,
-        handleResizeTablet,
-        burgerMenu,
-        isClicked,
-        closeBurgerOnWindowClick,
-        headerScrollclassName,
-    ]);
+    handleResizeXs();
+    handleResizeTablet();
 
-    return (
-        <>
-            {isPathExist || pathname.startsWith("/dashboard") ? (
-                <header className={styles.header} ref={headerRef}>
-                    <div className={`container ${styles.container}`}>
-                        {isTablet && <BurgerBtn setIsClicked={setIsClicked} />}
-                        <div
-                            className={
-                                burgerMenu
-                                    ? styles.navWrapperVisible
-                                    : styles.navWrapper
-                            }
-                            ref={menuRef}
-                        >
-                            {!isTablet && <CallBtn />}
-                            {!isLoad && (
-                                <NavLinks
-                                    subMenuBtnRef={subMenuBtnRef}
-                                    isClicked={isClicked}
-                                    setIsClicked={setIsClicked}
-                                    subMenuRef={subMenuRef}
-                                />
-                            )}
-                            {isXs && (
-                                <TranslatorBtnBlock
-                                    className={styles.xsLangSwitcher}
-                                />
-                            )}
-                        </div>
+    return () => {
+      window.removeEventListener("resize", handleResizeXs);
+      window.removeEventListener("resize", handleResizeTablet);
+      window.removeEventListener("click", closeBurgerOnWindowClick);
+      window.removeEventListener("scroll", headerScrollclassName, {
+        passive: true,
+      });
+    };
+  }, [
+    handleResizeXs,
+    handleResizeTablet,
+    burgerMenu,
+    isClicked,
+    closeBurgerOnWindowClick,
+    headerScrollclassName,
+  ]);
 
-                        <div className={styles.logoWrapper}>
-                            {!isXs && (
-                                <TranslatorBtnBlock
-                                    className={styles.mobileLangSwitcher}
-                                />
-                            )}
-                            <Link
-                                href={"/"}
-                                className={styles.logo}
-                                scroll={false}
-                                onClick={scrollToTop}
-                            >
-                                <Image
-                                    src={"/Logo.webp"}
-                                    fill
-                                    alt='Webevery logo'
-                                    sizes='50vw'
-                                />
-                            </Link>
-                        </div>
-                    </div>
-                </header>
-            ) : (
-                <header></header>
-            )}
-        </>
-    );
+  return (
+    <>
+      {isPathExist || pathname.startsWith("/dashboard") ? (
+        <header className={styles.header} ref={headerRef}>
+          <div className={`container ${styles.container}`}>
+            {isTablet && <BurgerBtn setIsClicked={setIsClicked} />}
+            <div
+              className={
+                burgerMenu ? styles.navWrapperVisible : styles.navWrapper
+              }
+              ref={menuRef}
+            >
+              {!isTablet && <CallBtn />}
+              {!isLoad && (
+                <NavLinks
+                  subMenuBtnRef={subMenuBtnRef}
+                  isClicked={isClicked}
+                  setIsClicked={setIsClicked}
+                  subMenuRef={subMenuRef}
+                />
+              )}
+              {isXs && (
+                <TranslatorBtnBlock
+                  className={styles.xsLangSwitcher}
+                  ref={translator}
+                />
+              )}
+            </div>
+
+            <div className={styles.logoWrapper}>
+              {!isXs && (
+                <TranslatorBtnBlock className={styles.mobileLangSwitcher} />
+              )}
+              <Link
+                href={"/"}
+                className={styles.logo}
+                scroll={false}
+                onClick={scrollToTop}
+              >
+                <Image
+                  src={"/Logo.webp"}
+                  fill
+                  alt="Webevery logo"
+                  sizes="50vw"
+                />
+              </Link>
+            </div>
+          </div>
+        </header>
+      ) : (
+        <header></header>
+      )}
+    </>
+  );
 };
 
 export default Header;
