@@ -1,29 +1,28 @@
-'use client';
+"use client";
 
-import { useContext, useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { fiterBlog } from '@/data/blog';
-import { SiteContext } from '@/context/siteContext';
-import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
-import BlogFilter from '@/components/BlogFilter/BlogFilter';
-import styles from './BlogSection.module.scss';
-import { GetDataFromSection } from '@/fetch/ClientFetch';
-import { CldImage } from 'next-cloudinary';
+import { useContext, useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { fiterBlog } from "@/data/blog";
+import { SiteContext } from "@/context/siteContext";
+import BlogFilterButton from "@/components/BlogFilterButton/BlogFilterButton";
+import BlogFilter from "@/components/BlogFilter/BlogFilter";
+import styles from "./BlogSection.module.scss";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
+import { CldImage } from "next-cloudinary";
 
-import BlogSorter from '@/components/BlogSorter/BlogSorter';
-import { useTranslation } from 'react-i18next';
-import { currentLanguages } from '@/data/languages';
-import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
+import BlogSorter from "@/components/BlogSorter/BlogSorter";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
   const [showLoading, setShowLoading] = useState(false);
   const [filterArr, setFilterArr] = useState([]);
-  const [sorterArr, setSorterArr] = useState('');
+  const [sorterArr, setSorterArr] = useState("");
 
   const { i18n } = useTranslation();
 
-  const { data, error, isLoading } = GetDataFromSection('blogs');
+  const { data, error, isLoading } = GetDataFromSection("blogs");
 
   const containerRef = useRef();
 
@@ -56,11 +55,11 @@ const BlogSection = () => {
     )
     .slice();
 
-  if (sorterArr === 'AZ') {
+  if (sorterArr === "AZ") {
     filterBlogArr.sort((a, b) => a.titleEn.localeCompare(b.titleEn));
   }
 
-  if (sorterArr === 'ZA') {
+  if (sorterArr === "ZA") {
     filterBlogArr.sort((a, b) => b.titleEn.localeCompare(a.titleEn));
   }
 
@@ -85,9 +84,9 @@ const BlogSection = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
     // eslint-disable-next-line
   }, [data, loadedCount]);
@@ -112,7 +111,6 @@ const BlogSection = () => {
   return (
     <section className={styles.blog}>
       <div className={`container ${styles.blogContainer}`}>
-        <BackgroundAnimation />
         <div className={styles.titleBlogContainer}>
           <h1 className={styles.titleBlog}>
             <span>Webevery</span> Blog

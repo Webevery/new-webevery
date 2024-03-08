@@ -1,17 +1,16 @@
-'use client';
+"use client";
 
-import { GetDataFromSection } from '@/fetch/ClientFetch';
-import { CldImage } from 'next-cloudinary';
-import Link from 'next/link';
-import styles from './OurProjectsSection.module.scss';
-import stylescBtn from '../../components/Buttons/Btns.module.scss';
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { currentLanguages } from '@/data/languages';
-import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
+import { GetDataFromSection } from "@/fetch/ClientFetch";
+import { CldImage } from "next-cloudinary";
+import Link from "next/link";
+import styles from "./OurProjectsSection.module.scss";
+import stylescBtn from "../../components/Buttons/Btns.module.scss";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
 
 const OurProjectsSection = () => {
-  const { data, error, isLoading } = GetDataFromSection('ourProjects');
+  const { data, error, isLoading } = GetDataFromSection("ourProjects");
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -22,16 +21,15 @@ const OurProjectsSection = () => {
       setIsSmallScreen(window.innerWidth <= 768);
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <section>
       <div className={`container ${styles.projectContainer}`}>
-        <BackgroundAnimation />
         <h1 className={styles.title}>Our Projects</h1>
         <ul className={styles.ourProjectsList}>
           {!isLoading &&
@@ -59,28 +57,28 @@ const OurProjectsSection = () => {
                   </figure>
                   <div className={styles.ourProjectsContent}>
                     <h3 className={styles.ourProjectsTitle}>
-                      {titleEn === 'Site for' ? (
+                      {titleEn === "Site for" ? (
                         <>
                           <span className={styles.ourProjectsTitleGradient}>
                             {i18n.language === currentLanguages.EN
                               ? titleEn
                               : title}
-                          </span>{' '}
+                          </span>{" "}
                           {i18n.language === currentLanguages.EN
                             ? titleGradientEn
                             : titleGradient}
                         </>
                       ) : (
                         <>
-                          {titleGradientEn}{' '}
+                          {titleGradientEn}{" "}
                           <span className={styles.ourProjectsTitleGradient}>
                             {i18n.language === currentLanguages.EN
                               ? titleEn
                               : title}
                           </span>
                         </>
-                      )}{' '}
-                      {titleGradientEn === 'ICE CREAM' && (
+                      )}{" "}
+                      {titleGradientEn === "ICE CREAM" && (
                         <span className={styles.ourProjectsTitleGradient}>
                           cafe
                         </span>
@@ -126,7 +124,7 @@ const OurProjectsSection = () => {
                     {!isSmallScreen && (
                       <div
                         className={
-                          stylescBtn.btnWrapper + ' ' + styles.btnWrapper
+                          stylescBtn.btnWrapper + " " + styles.btnWrapper
                         }
                       >
                         <a
@@ -134,7 +132,7 @@ const OurProjectsSection = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={titleGradientEn}
-                          className={stylescBtn.btn + ' ' + styles.openSite}
+                          className={stylescBtn.btn + " " + styles.openSite}
                         >
                           Open site
                         </a>
