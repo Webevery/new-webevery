@@ -8,6 +8,7 @@ import ModalR from "@/components/Modal/Modal";
 
 import "./globals.scss";
 import ToTopBtn from "@/components/Buttons/ToTopBtn/ToTopBtn";
+import BackgroundAnimation from "@/components/BackgroundAnimation/BackgroundAnimation";
 
 const saira = Saira({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${saira.variable} ${work_sans.variable}`}>
+        <BackgroundAnimation />
         <SiteProvider>
           <TranslateProvider>
             <Header />

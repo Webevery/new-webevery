@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import styles from './BackgroundAnimation.module.scss';
+import { useEffect, useRef } from "react";
+import styles from "./BackgroundAnimation.module.scss";
 
 const BackgroundAnimation = () => {
   const starsContainerRef = useRef(null);
@@ -23,7 +23,7 @@ const BackgroundAnimation = () => {
 
       const initializeStars = () => {
         for (let i = 0; i < 50; i++) {
-          const star = document.createElement('div');
+          const star = document.createElement("div");
           star.className = styles.star;
           star.style.left = `${Math.random() * 100}vw`;
           star.style.top = `${Math.random() * 100}vh`;
