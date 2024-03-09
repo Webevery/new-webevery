@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter, usePathname, notFound } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import { useTranslation } from "react-i18next";
@@ -10,17 +11,19 @@ import { currentLanguages } from "@/data/languages";
 import styles from "./BlogIdSection.module.scss";
 
 const BlogIdSection = ({ params }) => {
-    const router = useRouter();
-    const pathname = usePathname();
     const { slug } = params;
     const { data, error, isLoading } = GetIdDataFromSection("blogs", slug);
+    const pathname = usePathname();
     const isPathExist = useCheckPathname(pathname);
-
-    if (!isLoading && !isPathExist) {
-        notFound();
-    }
-
+    const router = useRouter();
     const { i18n } = useTranslation();
+
+    useEffect(() => {
+        if (!isLoading && !isPathExist) {
+            notFound();
+        }
+    }, [isPathExist, isLoading]);
+
     // console.log(data);
 
     return (
