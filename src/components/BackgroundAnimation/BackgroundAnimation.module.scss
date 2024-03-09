@@ -6,7 +6,7 @@
   height: 100vh;
   pointer-events: none;
   overflow: hidden;
-  // animation: spin 5000s linear 0s infinite normal;
+  // animation: spin 1000s linear 0s infinite normal;
 }
 
 .star {
@@ -15,7 +15,7 @@
   height: 2px;
   border-radius: 50%;
   background-color: #b5d4fdb4;
-  animation: sparkle 2s infinite;
+  animation: sparkle 5s infinite;
 }
 
 .star.cometEffect {
@@ -33,13 +33,13 @@
 
 @keyframes cometFall {
   0% {
-    transform: rotate(219deg) translateX(0);
+    transform: rotate(217deg) translateX(0);
     // transform: rotate(320deg) translateX(0);
     opacity: 1;
   }
 
   100% {
-    transform: rotate(219deg) translateX(-1500px);
+    transform: rotate(217deg) translateX(-1500px);
     // transform: rotate(320deg) translateX(-1500px);
     opacity: 0;
   }
@@ -62,5 +62,16 @@
 
 //   to {
 //     transform: rotate(360deg);
+//   }
+// }
+
+// @keyframes spin {
+//   0%,
+//   100% {
+//     transform: rotate(0deg);
+//   }
+
+//   50% {
+//     transform: rotate(120deg);
 //   }
 // }

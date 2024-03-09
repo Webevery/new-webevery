@@ -1,6 +1,7 @@
 @import '../../app/variables';
 
 .ourProjectContainer {
+  position: relative;
   padding: 112px 20px 79px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,9 +14,9 @@
   -ms-flex-direction: column;
   flex-direction: column;
   justify-content: center;
-
   @media screen and (min-width: $mobile) {
-    padding: 110px 20px 80px 20px;}
+    padding: 110px 20px 80px 20px;
+  }
   @media screen and (min-width: $tablet) {
     padding: 184px 20px 80px 20px;
   }
@@ -34,6 +35,51 @@
   100% {
     opacity: 1;
   }
+}
+
+.backContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  column-gap: 16px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0 8px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  color: $backgroundColor;
+  margin-bottom: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #f6f6fa;
+  backdrop-filter: blur(6px);
+  margin-right: auto;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  @media screen and (min-width: $tablet) {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: $laptop) {
+    column-gap: 16px;
+    padding: 0 8px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+}
+
+.backIcon {
+  width: 32px;
+  height: 12px;
+  fill: $backgroundColor;
 }
 
 .ourProjectsTitle {
@@ -220,7 +266,10 @@
 }
 
 .contentItem {
+  position: relative;
+  z-index: 1;
   @media screen and (min-width: $laptop) {
+    background-color: $backgroundColor;
     &:last-child,
     &:nth-last-child(2) {
       box-shadow: $shadowColor;
@@ -335,6 +384,8 @@
 }
 
 .mobileContainer {
+  position: relative;
+  z-index: 1;
   margin-bottom: 12px;
   @media screen and (min-width: $mobile) {
     margin-bottom: 8px;

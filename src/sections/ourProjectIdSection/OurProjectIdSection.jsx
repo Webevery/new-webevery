@@ -1,26 +1,27 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname, notFound } from "next/navigation";
-import { CldImage } from "next-cloudinary";
-import { useTranslation } from "react-i18next";
-import { v4 } from "uuid";
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
-import { currentLanguages } from "@/data/languages";
-import { useCheckPathname } from "@/hooks/useCheckPathname";
-import stylescBtn from "../../components/Buttons/Btns.module.scss";
+import { useRouter, notFound, usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { CldImage } from 'next-cloudinary';
+import { useTranslation } from 'react-i18next';
+import { v4 } from 'uuid';
+import { GetIdDataFromSection } from '@/fetch/ClientFetch';
+import { currentLanguages } from '@/data/languages';
+import { useCheckPathname } from '@/hooks/useCheckPathname';
+import stylescBtn from '../../components/Buttons/Btns.module.scss';
 
-import styles from "./OurProjectIdSection.module.scss";
+import styles from './OurProjectIdSection.module.scss';
 
 const OurProjectIdSection = ({ params }) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const { slug } = params;
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  const { data, error, isLoading } = GetIdDataFromSection("ourProjects", slug);
+  const { data, error, isLoading } = GetIdDataFromSection('ourProjects', slug);
 
   const dataId = data && !isLoading ? data : error;
   const { i18n } = useTranslation();
-  const pathname = usePathname();
 
   const isPathExist = useCheckPathname(pathname);
 
@@ -33,9 +34,9 @@ const OurProjectIdSection = ({ params }) => {
       setIsSmallScreen(window.innerWidth <= 1024);
     };
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -43,14 +44,23 @@ const OurProjectIdSection = ({ params }) => {
     <section>
       {!isLoading && (
         <div className={`container ${styles.ourProjectContainer}`}>
+          <div
+            className={styles.backContainer}
+            onClick={() => router.push('/ourProjects')}
+          >
+            <svg className={styles.backIcon}>
+              <use href="../sprite.svg#icon-arrowReadMore" />
+            </svg>
+            <p>To the page with all projects</p>
+          </div>
           <h1 className={styles.ourProjectsTitle}>
-            {dataId?.titleEn === "Site for" ? (
+            {dataId?.titleEn === 'Site for' ? (
               <>
                 <span className={styles.ourProjectsTitleGradient}>
                   {i18n.language === currentLanguages.EN
                     ? data?.titleEn
                     : data?.title}
-                </span>{" "}
+                </span>{' '}
                 {i18n.language === currentLanguages.EN
                   ? data?.titleGradientEn
                   : data?.titleGradient}
@@ -59,26 +69,26 @@ const OurProjectIdSection = ({ params }) => {
               <>
                 {i18n.language === currentLanguages.EN
                   ? data?.titleGradientEn
-                  : data?.titleGradient}{" "}
+                  : data?.titleGradient}{' '}
                 <span className={styles.ourProjectsTitleGradient}>
                   {i18n.language === currentLanguages.EN
                     ? data?.titleEn
                     : data?.title}
                 </span>
               </>
-            )}{" "}
-            {dataId?.titleGradientEn === "ICE CREAM" && (
+            )}{' '}
+            {dataId?.titleGradientEn === 'ICE CREAM' && (
               <span className={styles.ourProjectsTitleGradient}>cafe</span>
             )}
           </h1>
           {isSmallScreen && (
-            <div className={stylescBtn.btnWrapper + " " + styles.btnWrapper}>
+            <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>
               <a
                 href={dataId?.siteLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={dataId?.titleGradientEn}
-                className={stylescBtn.btn + " " + styles.openSite}
+                className={stylescBtn.btn + ' ' + styles.openSite}
               >
                 Open site
               </a>
