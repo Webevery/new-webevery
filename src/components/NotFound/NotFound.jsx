@@ -1,15 +1,16 @@
 "use client";
+
 import { CldImage } from "next-cloudinary";
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 
-import styles from "@/app/not-found.module.scss";
+import styles from "./NotFound.module.scss";
 
-export default function NotFoundBlog() {
+export default function NotFound({ title, buttonTitle, href }) {
     return (
         <section className={styles.container}>
             <div className={`container ${styles.contentWrapper}`}>
                 {/* <h2 className={styles.title}>Sorry page not found</h2> */}
-                <h2 className={styles.title}>Такий блог не знайдено</h2>
+                <h2 className={styles.title}>{title}</h2>
 
                 <div className={styles.imgWrapper}>
                     <CldImage
@@ -20,10 +21,11 @@ export default function NotFoundBlog() {
                         alt='notFoundPage photo'
                     />
                 </div>
+                {/* <NavigationBtn id={styles.backToHomeBtn} title="Back to home page" href={"/"} /> */}
                 <NavigationBtn
                     id={styles.backToHomeBtn}
-                    title='До усіх блогів'
-                    href={"/blog"}
+                    title={buttonTitle}
+                    href={href}
                 />
             </div>
         </section>

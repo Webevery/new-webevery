@@ -1,74 +1,80 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { useRouter, usePathname, notFound } from 'next/navigation';
-import { CldImage } from 'next-cloudinary';
-import { useTranslation } from 'react-i18next';
-import { GetIdDataFromSection } from '@/fetch/ClientFetch';
-import { useCheckPathname } from '@/hooks/useCheckPathname';
-import { currentLanguages } from '@/data/languages';
+import { useRouter, usePathname } from "next/navigation";
+import { CldImage } from "next-cloudinary";
+import { useTranslation } from "react-i18next";
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import { useCheckPathname } from "@/hooks/useCheckPathname";
+import { currentLanguages } from "@/data/languages";
+import NotFound from "@/components/NotFound/NotFound";
 
-import styles from './BlogIdSection.module.scss';
+import styles from "./BlogIdSection.module.scss";
 
 const BlogIdSection = ({ params }) => {
-  const { slug } = params;
-  const { data, error, isLoading } = GetIdDataFromSection('blogs', slug);
-  const pathname = usePathname();
-  const isPathExist = useCheckPathname(pathname);
-  const router = useRouter();
-  const { i18n } = useTranslation();
+    const { slug } = params;
+    const { data, error, isLoading } = GetIdDataFromSection("blogs", slug);
+    const pathname = usePathname();
+    const isPathExist = useCheckPathname(pathname);
+    const router = useRouter();
+    const { i18n } = useTranslation();
 
-  useEffect(() => {
-    if (!isLoading && !isPathExist) {
-      notFound();
-    }
-  }, [isPathExist, isLoading]);
+    return (
+        <>
+            {isLoading && <h1>Loading...</h1>}
+            {!isPathExist && !isLoading && (
+                <NotFound
+                    title='Блог не знайдено'
+                    buttonTitle='До усіх блогів'
+                    href='/blog'
+                />
+            )}
+            {!isLoading && isPathExist && (
+                <section className={styles.blog}>
+                    (
+                    <div className={`container ${styles.blogIdContainer}`}>
+                        <div
+                            className={styles.backContainer}
+                            onClick={() => router.push("/blog")}
+                        >
+                            <svg className={styles.backIcon}>
+                                <use href='../sprite.svg#icon-arrowReadMore' />
+                            </svg>
+                            <p>To page with all articles</p>
+                        </div>
+                        <div className={styles.blogContent}>
+                            <h1 className={styles.blogTitle}>
+                                {i18n.language === currentLanguages.EN
+                                    ? data?.titleEn
+                                    : data?.title}
+                            </h1>
 
-  return (
-    <section className={styles.blog}>
-      {!isLoading && (
-        <div className={`container ${styles.blogIdContainer}`}>
-          <div
-            className={styles.backContainer}
-            onClick={() => router.push('/blog')}
-          >
-            <svg className={styles.backIcon}>
-              <use href="../sprite.svg#icon-arrowReadMore" />
-            </svg>
-            <p>To page with all articles</p>
-          </div>
-          <div className={styles.blogContent}>
-            <h1 className={styles.blogTitle}>
-              {i18n.language === currentLanguages.EN
-                ? data?.titleEn
-                : data?.title}
-            </h1>
-
-            <figure className={styles.firstImgContainer}>
-              <CldImage
-                src={data?.images[0]}
-                alt="картинка для блогу"
-                fill={true}
-                className={styles.img}
-              />
-            </figure>
-          </div>
-          <div className={styles.blogDescContainer}>
-            <p className={styles.blogDesc}>
-              {i18n.language === currentLanguages.EN
-                ? data?.descriptionEn
-                : data?.description}
-            </p>
-            <p className={styles.blogDesc}>
-              {i18n.language === currentLanguages.EN
-                ? data?.descriptionEn
-                : data?.description}
-            </p>
-          </div>
-        </div>
-      )}
-    </section>
-  );
+                            <figure className={styles.firstImgContainer}>
+                                <CldImage
+                                    src={data?.images[0]}
+                                    alt='картинка для блогу'
+                                    fill={true}
+                                    className={styles.img}
+                                />
+                            </figure>
+                        </div>
+                        <div className={styles.blogDescContainer}>
+                            <p className={styles.blogDesc}>
+                                {i18n.language === currentLanguages.EN
+                                    ? data?.descriptionEn
+                                    : data?.description}
+                            </p>
+                            <p className={styles.blogDesc}>
+                                {i18n.language === currentLanguages.EN
+                                    ? data?.descriptionEn
+                                    : data?.description}
+                            </p>
+                        </div>
+                    </div>
+                    )
+                </section>
+            )}
+        </>
+    );
 };
 
 export default BlogIdSection;
