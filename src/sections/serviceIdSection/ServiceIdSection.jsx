@@ -1,47 +1,89 @@
 "use client";
 
-import styles from "./ServiceIdSection.module.scss";
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
-import OrderBtn from "../../components/Buttons/OrderBtn/OrderBtn";
+import { useTranslation } from "react-i18next";
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import { useCheckPathname } from "@/hooks/useCheckPathname";
+import { currentLanguages } from "@/data/languages";
+import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
 import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
 
+import styles from "./ServiceIdSection.module.scss";
+import NotFound from "@/components/NotFound/NotFound";
+
 const ServiceIdSection = ({ params }) => {
-  const { slug } = params;
-  const { data, error, isLoading } = GetIdDataFromSection("services", slug);
+    const { slug } = params;
+    const pathname = usePathname();
+    const { data, error, isLoading } = GetIdDataFromSection("services", slug);
+    const isPathExist = useCheckPathname(pathname);
+    const { i18n } = useTranslation();
 
-  const dataId = data && !isLoading ? data : error;
+    const dataId = data && !isLoading ? data : error;
 
-  console.log(dataId);
+    // console.log(dataId);
 
-  return (
-    <section className={styles.container}>
-      <div className="container">
-        <h1>
-          <span>{dataId?.titleGradientEn}</span>
-          &nbsp;
-          {dataId?.titleEn}
-        </h1>
-        <CldImage
-          src={dataId?.mockup}
-          alt={dataId?.titleEn}
-          //fill="true"
-          //className={styles.cartImg}
-          sizes="30vw"
-          width={300}
-          height={300}
-        />
-        <div>
-          <p>{dataId?.descriptionEn}</p>
-          <p>{dataId?.price}</p>
-          <OrderBtn id={styles.serviceOrderBtn} title={"Замовити"} />
-        </div>
-      </div>
-      <div className="container">
-        <SliderOfServices />
-      </div>
-    </section>
-  );
+    return (
+        <>
+            {isLoading && <h1>Loading...</h1>}
+            {!isPathExist && !isLoading && (
+                <NotFound
+                    title='Сторінку не знайдено'
+                    buttonTitle='До усіх послуг'
+                    href='/services'
+                />
+            )}
+            {!isLoading && isPathExist && (
+                <section className={styles.servicesId}>
+                    <div className={`container ${styles.servicesIdContainer}`}>
+                        <h1 className={styles.servicesIdTitle}>
+                            <span>{dataId?.titleGradient}</span>
+                            &nbsp;
+                            {dataId?.title}
+                        </h1>
+                        <div className={styles.servicesIdContent}>
+                            <div className={styles.servicesIdImgContainer}>
+                                <CldImage
+                                    src={dataId?.mockup}
+                                    alt={dataId?.title}
+                                    fill='true'
+                                    className={styles.cartImg}
+                                    sizes='30vw'
+                                />
+                            </div>
+
+                            <div className={styles.servicesIdDescContainer}>
+                                <p className={styles.servicesIdDesc}>
+                                    {i18n.language === currentLanguages.EN
+                                        ? dataId?.descriptionEn
+                                        : dataId?.description}
+                                </p>
+                                <p className={styles.servicesIdPrice}>
+                                    {i18n.language === currentLanguages.EN
+                                        ? dataId?.priceEn
+                                        : dataId?.price}
+                                </p>
+                                <OrderBtn
+                                    id={styles.serviceOrderBtn}
+                                    title={"Замовити"}
+                                />
+                            </div>
+                        </div>
+
+                        <div
+                            className={`container ${styles.servicesIdSliderContainer}`}
+                        >
+                            <h3 className={styles.servicesIdSliderTitle}>
+                                Оберіть <span>найкращу</span> пропозицію для
+                                вашого бізнесу:
+                            </h3>
+                            <SliderOfServices />
+                        </div>
+                    </div>
+                </section>
+            )}
+        </>
+    );
 };
 
 export default ServiceIdSection;

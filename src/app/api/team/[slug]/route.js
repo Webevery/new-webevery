@@ -9,6 +9,7 @@ export const GET = async (request, { params }) => {
         connectToDB();
 
         const data = await Coworker.findOne({ slug });
+
         return new NextResponse(JSON.stringify(data), { status: 200 })
     } catch (error) {
         return new NextResponse(error, { status: 500 })

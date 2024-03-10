@@ -8,15 +8,15 @@
 }
 
 .servicesContainer {
-  padding: 130px 20px 80px 20px;
+  padding: 110px 20px 80px 20px;
   @media screen and (min-width: $tablet) {
-    padding: 204px 20px 80px 20px;
+    padding: 184px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 204px 32px 80px 32px;
+    padding: 184px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 228px 72px 80px 72px;
+    padding: 180px 72px 80px 72px;
   }
 }
 
@@ -85,7 +85,12 @@
   line-height: 1.1;
   color: #ffffff;
   & span {
-    background: linear-gradient(91deg, $gradientYellow 0%, $gradientCyan 100%);
+    background: linear-gradient(
+      91deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -201,6 +206,17 @@
   color: #ffffff;
   text-align: center;
   margin-bottom: 24px;
+  & span {
+    background: linear-gradient(
+      91deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .descItem {

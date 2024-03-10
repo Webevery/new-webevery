@@ -5,7 +5,6 @@ import HomeServicesSection from "@/sections/homeServicesSection/HomeServicesSect
 import HomeFaqSection from "@/sections/homeFaqSection/HomeFaqSection";
 import HomeWorkingProcessSection from "@/sections/homeWorkingProcessSection/HomeWorkingProcessSection";
 import HomeOrderSection from "@/sections/homeOrderSection/HomeOrderSection";
-import Footer from "@/components/Footer/Footer";
 
 import styles from "./Home.module.scss";
 
@@ -19,7 +18,6 @@ const Home = () => {
             <HomeFaqSection />
             <HomeWorkingProcessSection />
             <HomeOrderSection />
-            <Footer />
         </div>
     );
 };

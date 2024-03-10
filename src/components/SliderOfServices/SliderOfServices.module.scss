@@ -12,14 +12,13 @@
     column-gap: 24px;
     row-gap: 24px;
     animation: fadeUp 0.8s ease-in-out forwards;
-    @media screen and (min-width: $tablet) {
-      grid-template-columns: repeat(2, 1fr);
+    // @media screen and (min-width: $tablet) {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
+    // @media screen and (min-width: $laptop) {
+    //   grid-template-columns: repeat(3, 1fr);
+    // }
     }
-    @media screen and (min-width: $laptop) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    
-}
 
 .serviceItem{
     box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
@@ -39,7 +38,9 @@
   padding-right: 24px;
   padding-bottom: 48px;
   min-height: 772px;
-
+  & ul {
+    margin-bottom: 54px;
+  }
     // height: 750px;
     // display: flex;
     // flex-direction: column;
@@ -81,7 +82,7 @@
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 24px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .readMoreTitle {
@@ -94,11 +95,18 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .linkCont{
+    display: flex;
+    align-items: center;
+  }
   
   .readMoreIcon {
     width: 32px;
     height: 12px;
+    transform: rotate(180deg);
     margin-left: 16px;
+    
   }
 
   .cartTitle {
@@ -124,4 +132,8 @@
     color: #ffffff;
     margin-bottom: 32px;
     text-align: right;
+  }
+
+  #orderBtn{
+    width:100%;
   }

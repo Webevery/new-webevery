@@ -4,7 +4,7 @@ import { SiteContext } from "@/context/siteContext";
 import React, { useContext } from "react";
 import styles from "./BurgerBtn.module.scss";
 
-const BurgerBtn = () => {
+const BurgerBtn = ({ setIsClicked }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
   return (
     <button
@@ -12,6 +12,7 @@ const BurgerBtn = () => {
       onClick={(e) => {
         e.stopPropagation(); // Stop event propagation
         setBurgermenu(!burgerMenu);
+        setIsClicked(false);
       }}
     >
       {burgerMenu ? (

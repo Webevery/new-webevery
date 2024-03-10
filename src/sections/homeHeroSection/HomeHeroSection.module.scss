@@ -1,118 +1,44 @@
 @import '../../app/variables';
 
-.heroContainer {
+.hero {
   padding-top: 80px;
   position: relative;
-  overflow: hidden;
-  height: 100%;
-  box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
-  -webkit-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
-
+  height: 100vh;
+  width: 100%;
+  box-shadow: inset 0px -133px 133px -33px #000000,
+    inset 0px 133px 133px -53px #000000;
   &::before {
-    content: '';
+    content: ' ';
+    position: absolute;
     display: block;
-    width: 500px;
-    height: 500px;
-    background-image: url('../../../public/pattern_planet_hero.webp');
-    border-radius: 50%;
-    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background-image: url('../../../public/new-webevery_HERO.webp');
     background-size: cover;
+    background-position: 40% 50%;
+    // background-position: 40% 50%;
     background-attachment: lazy;
-    box-shadow: inset -7px 0px 30px -5px #2f8ad5db, 0px 0px 100px 0px #1653845c;
-    -webkit-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
-      0px 0px 100px 0px #1653845c;
-    -moz-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
-      0px 0px 100px 0px #1653845c;
-    // box-shadow: inset -9px 0px 10px -4px #0b0229,
-    //   inset -7px 0px 30px -5px #2f8ad5db, 0px 0px 35px 0px #2a3baa63;
 
-    // box-shadow: inset -7px 0px 15px -5px #2f8ad5db;
-    // -webkit-box-shadow: inset -7px 0px 15px -5px #2f8ad5db;
-    // -moz-box-shadow: inset -7px 0px 15px -5px #2f8ad5db;
-
-    // box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
-    //   inset -7px 0px 5px -5px #fdfff26d;
-    // -webkit-box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
-    //   inset -7px 0px 5px -5px #fdfff26d;
-    // -moz-box-shadow: inset 500px 0px 168px 0px rgba(0, 0, 0, 1),
-    //   inset -7px 0px 5px -5px #fdfff26d;
-    margin-left: -65%;
-    margin-top: -15%;
-
-    animation: rotate 200s infinite linear;
-
-    z-index: -1;
-
-    @media screen and (min-width: $mobile) {
-      margin-left: -45%;
-      margin-top: -5%;
-    }
-
-    @media screen and (min-width: 540px) {
-      margin-left: -40%;
-      margin-top: -5%;
-    }
-
-    @media screen and (min-width: $tablet) {
-      width: 900px;
-      height: 900px;
-      margin-left: -40%;
-      margin-top: -10%;
-      box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
-        0px 0px 150px 0px #1653845c;
-      -webkit-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
-        0px 0px 150px 0px #1653845c;
-      -moz-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
-        0px 0px 150px 0px #1653845c;
-    }
-
-    @media screen and (min-width: $laptop) {
-      margin-left: -18%;
-      margin-top: -10%;
-    }
-
-    @media screen and (min-width: 1280px) {
-      margin-left: -10%;
-      margin-top: -5%;
-    }
-
-    @media screen and (min-width: $desktop) {
-      width: 1200px;
-      height: 1200px;
-      margin-left: -10%;
-      margin-top: -15%;
-    }
+    z-index: -10;
   }
-
-  @media screen and (min-width: $tablet) {
-    box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
-    -webkit-box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
-    -moz-box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
-    padding-top: 124px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
-    -webkit-box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
-    -moz-box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
-    padding-top: 148px;
+  @media screen and (min-width: $laptop) {
+    background-position: center;
   }
 }
 
-@keyframes rotate {
-  0% {
-    background-position-x: 0px;
-  }
-
-  100% {
-    background-position-x: 1000px;
-  }
+.heroContainer {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
 
 .heroContent {
   position: absolute;
-  top: 152px;
+  top: 30%;
+  // top: 152px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,11 +52,13 @@
   width: 100%;
 
   @media screen and (min-width: $mobile) {
-    top: 224px;
+    top: 30%;
+    // top: 224px;
   }
 
   @media screen and (min-width: $tablet) {
-    top: 384px;
+    top: 35%;
+    // top: 384px;
     right: 32px;
     -webkit-box-align: flex-end;
     -ms-flex-align: flex-end;
@@ -138,7 +66,8 @@
   }
 
   @media screen and (min-width: $laptop) {
-    top: 327px;
+    top: 30%;
+    // top: 327px;
     right: 72px;
   }
 
@@ -223,13 +152,105 @@
     #031cbc 100%
   );
 
-  // background: linear-gradient(
-  //     87.58deg,
-  //     $gradientCyan 47.63%,
-  //     $gradientBlue 98.76%
-  //   ),
-  //   linear-gradient(0deg, #ffffff, #ffffff);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
+
+// .heroContainer {
+//   padding-top: 80px;
+//   position: relative;
+//   overflow: hidden;
+//   height: 100%;
+//   box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
+//   -webkit-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
+//   -moz-box-shadow: inset 120px 0px 108px 0px rgba(0, 0, 0, 1);
+
+//   &::before {
+//     content: '';
+//     display: block;
+//     width: 500px;
+//     height: 500px;
+//     background-image: url('../../../public/pattern_planet_hero.webp');
+//     border-radius: 50%;
+//     position: relative;
+//     background-size: cover;
+//     background-attachment: lazy;
+//     box-shadow: inset -7px 0px 30px -5px #2f8ad5db, 0px 0px 100px 0px #1653845c;
+//     -webkit-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+//       0px 0px 100px 0px #1653845c;
+//     -moz-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+//       0px 0px 100px 0px #1653845c;
+//     margin-left: -65%;
+//     margin-top: -15%;
+
+//     // раскомментировать после окончания разработки
+//     // animation: rotate 200s infinite linear;
+
+//     z-index: -1;
+
+//     @media screen and (min-width: $mobile) {
+//       margin-left: -45%;
+//       margin-top: -5%;
+//     }
+
+//     @media screen and (min-width: 540px) {
+//       margin-left: -40%;
+//       margin-top: -5%;
+//     }
+
+//     @media screen and (min-width: $tablet) {
+//       width: 900px;
+//       height: 900px;
+//       margin-left: -40%;
+//       margin-top: -10%;
+//       box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+//         0px 0px 150px 0px #1653845c;
+//       -webkit-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+//         0px 0px 150px 0px #1653845c;
+//       -moz-box-shadow: inset -7px 0px 30px -5px #2f8ad5db,
+//         0px 0px 150px 0px #1653845c;
+//     }
+
+//     @media screen and (min-width: $laptop) {
+//       margin-left: -18%;
+//       margin-top: -10%;
+//     }
+
+//     @media screen and (min-width: 1280px) {
+//       margin-left: -10%;
+//       margin-top: -5%;
+//     }
+
+//     @media screen and (min-width: $desktop) {
+//       width: 1200px;
+//       height: 1200px;
+//       margin-left: -10%;
+//       margin-top: -15%;
+//     }
+//   }
+
+//   @media screen and (min-width: $tablet) {
+//     box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
+//     -webkit-box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
+//     -moz-box-shadow: inset 230px 0px 228px 0px rgba(0, 0, 0, 1);
+//     padding-top: 124px;
+//   }
+
+//   @media screen and (min-width: $desktop) {
+//     box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
+//     -webkit-box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
+//     -moz-box-shadow: inset 480px 0px 248px 0px rgba(0, 0, 0, 1);
+//     padding-top: 148px;
+//   }
+// }
+
+// @keyframes rotate {
+//   0% {
+//     background-position-x: 0px;
+//   }
+
+//   100% {
+//     background-position-x: 1000px;
+//   }
+// }

@@ -10,13 +10,17 @@ import 'swiper/css/pagination';
 import './HomeOurProjectsSlider.css';
 
 // import required modules
-// import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules';
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages } from '@/data';
 
 
 const HomeOurProjectsSlider = ({ data }) => {
+    const { i18n } = useTranslation();
+
+
     return (
         <>
             <Swiper
@@ -34,32 +38,24 @@ const HomeOurProjectsSlider = ({ data }) => {
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                // mousewheel={true}
 
                 breakpoints={{
                     320: {
                         spaceBetween: 16,
-                        // mousewheel: false,
                     },
                     360: {
                         spaceBetween: 16,
-                        // mousewheel: false,
                     },
                     768: {
-                        // loop: false,
                         spaceBetween: 16,
-                        // mousewheel: true,
                     },
                     1024: {
-                        // loop: false,
                         spaceBetween: 24,
                     },
                     1440: {
-                        // loop: false,
                         spaceBetween: 48,
                     },
                 }}
-                // modules={[Keyboard, Mousewheel, Navigation, Pagination]}
                 modules={[Autoplay, Keyboard, Navigation, Pagination]}
 
                 className='HomeOurProjectsSwiper'
@@ -74,10 +70,15 @@ const HomeOurProjectsSlider = ({ data }) => {
                                         fill
                                         src={item.heroImage}
                                         sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 70vw, 1000px"
-                                        alt="Project photo 1 Vova"
+                                        alt={`Photo of ${item.titleEn} ${item.titleGradientEn}`}
                                     />
-                                </div></Link>
-                            <h2 className='slideTitle'> {item.titleEn} <span className='gradient'>{item.titleGradientEn}</span></h2>
+                                </div>
+                            </Link>
+                            <h3 className='slideTitle'>{i18n.language === currentLanguages.EN
+                                ? item.titleEn
+                                : item.title} <span className='gradient'>{i18n.language === currentLanguages.EN
+                                    ? item.titleGradientEn
+                                    : item.titleGradient}</span></h3>
                         </div>
                     </SwiperSlide>
                 ))}

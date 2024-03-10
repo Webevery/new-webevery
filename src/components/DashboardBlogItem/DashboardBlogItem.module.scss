@@ -1,0 +1,83 @@
+@import "../../app/variables";
+
+.container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    padding: 8px 16px;
+    background-color: $gray300;
+    color: $gray900;
+    border: 1px solid $gray900;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-family: var(--font-work-sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+
+    @media screen and (min-width:$desktop) {
+        padding: 8px 24px;
+        gap: 12px;
+    }
+}
+
+.container:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.slug {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.imagesWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media screen and (min-width:$laptop) {
+        align-items: center;
+    }
+
+    @media screen and (min-width:$desktop) {
+        gap: 12px;
+    }
+}
+
+.imgWrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.img {
+    object-fit: cover;
+
+    @media screen and (min-width:$laptop) {
+        width: 222px;
+        height: 222px;
+    }
+}
+
+.deleteIcon {
+    width: 22px;
+    height: 24px;
+    stroke: $gray900;
+    fill: transparent;
+}
+
+.deleteIcon:hover {
+    cursor: pointer;
+    stroke: #ff2828;
+}
+
+.ukrainian {
+    color: $lightBlue;
+}

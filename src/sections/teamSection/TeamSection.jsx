@@ -4,9 +4,12 @@ import styles from "./TeamSection.module.scss";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import { shuffleArray } from "@/helpers/shuffleArray";
 import { CldImage } from "next-cloudinary";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
 
 const TeamSection = () => {
   const { data, isLoading, error } = GetDataFromSection("team");
+  const { i18n } = useTranslation();
 
   let newData = [];
   if (!isLoading) {
@@ -20,10 +23,10 @@ const TeamSection = () => {
       <div className={`container ${styles.teamContainer}`}>
         <div className={styles.titleTeamContainer}>
           <h1 className={styles.titleTeam}>
-            <span>Team</span>
+            <span>Команда</span>
           </h1>
           <h2 className={styles.descTeam}>
-            let&apos;s get to know those who work for you
+            давайте познайомимося з тими, хто працює для вас
           </h2>
         </div>
         <ul className={styles.cartContainer}>
@@ -32,15 +35,23 @@ const TeamSection = () => {
               <div className={styles.cartImgContainer}>
                 <CldImage
                   src={item.photo}
-                  alt={item.nameEn}
+                  alt={item.name}
                   fill="true"
                   className={styles.cartImg}
                   sizes="50vw"
                 />
               </div>
 
-              <h3 className={styles.cartName}>{item.nameEn}</h3>
-              <p className={styles.cartJobTitle}>{item.positionEn}</p>
+              <h3 className={styles.cartName}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.nameEn
+                        : item.name}
+                    </h3>
+                    <p className={styles.cartJobTitle}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.positionEn
+                        : item.position}
+                    </p>
             </li>
           ))}
         </ul>

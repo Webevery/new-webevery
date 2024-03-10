@@ -21,9 +21,12 @@ import {
   EffectCoverflow,
 } from "swiper/modules";
 import Loading from "../Loading/Loading";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
 
 export const SliderOfTeam = () => {
   const { data, isLoading, error } = GetDataFromSection("team");
+  const { i18n } = useTranslation();
 
   let newData = [];
   if (!isLoading) {
@@ -39,9 +42,12 @@ export const SliderOfTeam = () => {
         <Swiper
           slidesPerView={3}
           spaceBetween={20}
+          speed={1500}
           autoplay={{
-            delay: 5000,
+            // delay: 5000,
+            delay: 1000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           effect={"coverflow"}
           grabCursor={true}
@@ -74,28 +80,36 @@ export const SliderOfTeam = () => {
           modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
           className="teamSwiper"
         >
-          <ul className={styles.cartContainer}>
+          <div className={styles.cartContainer}>
             {newData?.map((item) => {
               return (
                 <SwiperSlide key={item.slug} className="slideContentWrapper">
-                  <li key={item.slug} className={styles.cartItem}>
+                  <div key={item.slug} className={styles.cartItem}>
                     <div className={styles.cartImgContainer}>
                       <CldImage
                         src={item.photo}
-                        alt={item.nameEn}
+                        alt={item.name}
                         fill="true"
                         className={styles.cartImg}
                         sizes="30vw"
                       />
                     </div>
 
-                    <h3 className={styles.cartName}>{item.nameEn}</h3>
-                    <p className={styles.cartJobTitle}>{item.positionEn}</p>
-                  </li>
+                    <h3 className={styles.cartName}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.nameEn
+                        : item.name}
+                    </h3>
+                    <p className={styles.cartJobTitle}>
+                      {i18n.language === currentLanguages.EN
+                        ? item.positionEn
+                        : item.position}
+                    </p>
+                  </div>
                 </SwiperSlide>
               );
             })}
-          </ul>
+          </div>
         </Swiper>
       )}
     </>

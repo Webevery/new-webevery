@@ -1,25 +1,128 @@
 @import "../../app/variables";
 
 .socialList {
-    display: flex;
-    column-gap: 7px;
-    margin-bottom: 16px;
-    @media screen and (min-width: $laptop) {
-        row-gap: 12px;
-        margin: 0 132px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  height: 40px;
+  width: 100%;
+
+  @media screen and (min-width: $laptop) {
+    row-gap: 12px;
+    margin: 0 132px 0 0;
+    height: 100%;
+  }
+  @media screen and (min-width: $desktop) {
+    margin: 0 188px 0 0;
+  }
+}
+
+.itemSocialLink {
+  width: 8px;
+  height: 8px;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 1s;
+  & svg {
+    transition-duration: $transitionDuration;
+  }
+
+  &:hover,
+  &:focus {
+    & svg {
+      scale: 0.7;
     }
-    @media screen and (min-width: $desktop) {
-        margin: 0 188px 0 0;
-    }
+  }
+  @media screen and (min-width: $laptop) {
+    width: 36px;
+    height: 36px;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .iconSocialLink {
-    display: block;
-    width: 24px;
-    height: 24px;
-    fill: #fff;
-    @media screen and (min-width: $laptop) {
-        width: 32px;
-        height: 32px;
+  display: block;
+  width: 24px;
+  height: 24px;
+  width: 20px;
+  height: 20px;
+
+  fill: #fff;
+  @media screen and (min-width: $laptop) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.mail {
+  &:hover,
+  &:focus {
+    background-image: $gradient;
+    & svg {
+      background-color: $gray900;
+      border-radius: 50%;
+      scale: 1.2;
+      padding: 4px;
     }
+  }
+}
+
+.telegram {
+  &:hover,
+  &:focus {
+    background-color: #229ed9;
+  }
+}
+
+.instagram:focus,
+.instagram:hover {
+  outline: 1px solid #dc2743;
+  background-color: #f09433;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+}
+
+.linkedin {
+  &:hover,
+  &:focus {
+    background-color: #0e76a8;
+  }
+}
+
+.facebook {
+  &:hover,
+  &:focus {
+    background-color: #4267b2;
+  }
 }

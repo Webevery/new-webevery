@@ -16,6 +16,7 @@ $gradient: linear-gradient(
   $gradientBlue
 );
 
+$gray900-90: #0d0d1190;
 $gray900: #0d0d11;
 $gray800: #2e2e31;
 $gray700: #4b4b4e;
@@ -28,9 +29,13 @@ $gray100: #ececf0;
 $gray50: #f6f6fa;
 $gray0: #ffffff;
 
+$lightBlue: #1a8cff;
+
 $errorColor: #d50000;
 $successColor: #05ff00;
 $warningColor: #ffc700;
 
 $shadowColor: 6px 12px 32px 0px #1a8cff1a;
 $formShadow: 6px 12px 32px 0px #1a8cff80;
+
+$transitionDuration: 250ms;

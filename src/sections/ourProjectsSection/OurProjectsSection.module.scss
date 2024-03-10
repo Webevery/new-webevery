@@ -13,16 +13,25 @@
   -ms-flex-direction: column;
   flex-direction: column;
   @media screen and (min-width: $mobile) {
-    padding: 120px 24px 20px 24px;
+    padding: 110px 20px 80px 20px;
   }
   @media screen and (min-width: $tablet) {
-    padding: 164px 32px 35px 22px;
+    padding: 184px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 204px 32px 80px 32px;
+    padding: 184px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 228px 72px 80px 72px;
+    padding: 180px 72px 80px 72px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -39,6 +48,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 53px;
+  animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $mobile) {
     font-size: 48px;
     margin-bottom: 20px;
@@ -57,6 +67,17 @@
   }
 }
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .ourProjectsList {
   display: flex;
   -webkit-box-align: center;
@@ -67,6 +88,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 24px;
+  animation: fadeUp 0.8s ease-in-out forwards;
   @media screen and (min-width: $tablet) {
     row-gap: 70px;
   }
