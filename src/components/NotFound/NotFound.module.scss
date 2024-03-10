@@ -30,6 +30,8 @@
         line-height: 1.1;
         text-align: center;
         margin-bottom: 24px;
+        // animation-name: identifier;
+        // animation-duration: 2s;
 
         @media screen and (min-width: $mobile) {
             font-size: 32px;
@@ -47,6 +49,8 @@
         height: 66.56vw;
         position: relative;
         margin-bottom: 20px;
+        // animation-name: identifier;
+        // animation-duration: 2s;
 
         @media screen and (min-width: $mobile) {
             height: 64.17vw;
@@ -97,6 +101,8 @@
         line-height: 1.1;
         text-align: center;
         margin-bottom: 16px;
+        // animation-name: identifier;
+        // animation-duration: 2s;
 
         @media screen and (min-height: 360px) {
             font-size: 32px;
@@ -138,11 +144,15 @@
     .image {
         display: block;
         object-fit: contain;
+        // animation-name: identifier;
+        // animation-duration: 2s;
     }
 
     #backToHomeBtn {
         width: 210px;
         height: 36px;
+        // animation-name: identifier;
+        // animation-duration: 2s;
 
         @media screen and (min-height: 360px) {
             width: 280px;
@@ -163,5 +173,23 @@
         @media screen and (min-height: 600px) {
             font-size: 20px;
         }
+    }
+}
+
+@keyframes identifier {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    75% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
     }
 }
