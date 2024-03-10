@@ -4,8 +4,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "./SliderOfServices.module.scss";
-import { serviceData } from "@/data";
-// import { useState,useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import "./SliderOfServices.css";
 
@@ -18,7 +17,10 @@ import "swiper/css/navigation";
 import { Pagination } from "swiper/modules";
 
 export const SliderOfServices = () => {
-  const {data}= GetDataFromSection("services")
+  const {data, isLoading}= GetDataFromSection("services");
+
+  const {i18n,t}=useTranslation();
+
     // const [slidesPerView, setSlidesPerView] = useState(5); // Default value for slidesPerView
 
     // // Function to update slidesPerView based on viewport width
@@ -80,7 +82,7 @@ export const SliderOfServices = () => {
         <li  className={styles.serviceItem}>
         <div>
         <Link href={`/services/${slug}`} className={styles.readMore}>
-                    <span className={styles.readMoreTitle}>Read more</span>
+                    <div className={styles.linkCont}><span className={styles.readMoreTitle}>{t('Buttons.HomeServicesBtn')}</span>
                     <svg className={styles.readMoreIcon}>
                       <linearGradient
                         id="paint0_linear_3004_8704"
@@ -98,7 +100,7 @@ export const SliderOfServices = () => {
                         href="/sprite.svg#icon-arrowReadMore"
                         style={{ fill: "url(#paint0_linear_3004_8704)" }}
                       />
-                    </svg>
+                    </svg></div>
                   </Link>
           <h3 className={styles.cartTitle}>{titleGradient}{title}</h3>
         <ul>
@@ -114,7 +116,7 @@ export const SliderOfServices = () => {
         <p
          className={styles.price}
          >{price}</p>
-        <OrderBtn id={styles.orderBtn} title={"Замовити"}/></div>
+        <OrderBtn id={styles.orderBtn} title={t('Buttons.HomeServiceOrderBtn')}/></div>
       </li></SwiperSlide>
     })}</ul>
     </Swiper>

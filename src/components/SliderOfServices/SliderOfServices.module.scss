@@ -95,11 +95,18 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .linkCont{
+    display: flex;
+    align-items: center;
+  }
   
   .readMoreIcon {
     width: 32px;
     height: 12px;
+    transform: rotate(180deg);
     margin-left: 16px;
+    
   }
 
   .cartTitle {
