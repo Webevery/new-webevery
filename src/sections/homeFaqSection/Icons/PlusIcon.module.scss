@@ -1,0 +1,44 @@
+@import "../../../app/variables.scss";
+
+.svg {
+  width: 24px;
+  height: 24px;
+  //   fill: conic-gradient(
+  //     $gradientCyan,
+  //     $gradientBlue,
+  //     $gradientCyan,
+  //     $gradientYellow,
+  //     $gradientCyan
+  //   );
+  //   stroke: black;
+  stroke: url(#gradient_1);
+
+  @media screen and (min-width: $tablet) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.use {
+  fill: conic-gradient(
+    $gradientCyan,
+    $gradientBlue,
+    $gradientCyan,
+    $gradientYellow,
+    $gradientCyan
+  );
+  stroke: conic-gradient(
+    $gradientCyan,
+    $gradientBlue,
+    $gradientCyan,
+    $gradientYellow,
+    $gradientCyan
+  );
+  color: conic-gradient(
+    $gradientCyan,
+    $gradientBlue,
+    $gradientCyan,
+    $gradientYellow,
+    $gradientCyan
+  );
+}
