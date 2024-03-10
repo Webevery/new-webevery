@@ -1,19 +1,29 @@
+"use client"
+import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 import styles from "./HomeServicesSection.module.scss";
 
 import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
 
 const HomeServicesSection = () => {
+
+  const {t}=useTranslation();
+
+  const [isLoad,setIsLoad]=useState(true);
+
+  useEffect(()=> setIsLoad(false),[]);
+
   return <section
    className={styles.container}
    >
     <div className={`container ${styles.con}`}>
-      <h2 className={styles.title}>Послуги</h2> 
-      <h3 className={`titleGradient ${styles.subTitleLaptop}`}>від малого до великого сайту</h3>
+      {!isLoad && <><h2 className={styles.title}>{t("MainPage.OurServicesTitle")}</h2> 
+      <p className={`titleGradient ${styles.subTitleLaptop}`}>{t("MainPage.OurServicesSubTitle")}</p></>}
       <div className={styles.btnNavContainer}>
-      <NavigationBtn
+      {!isLoad && <NavigationBtn
       id={styles.btnNav}
-      title='Детальніше'/></div>
+      title={t("Buttons.HomeServicesBtn")}/>}</div>
       <SliderOfServices/>
     </div>
   </section>;
