@@ -10,8 +10,10 @@ import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import PlusIcon from "./Icons/PlusIcon";
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 import { currentLanguages } from "@/data/languages.data";
+import { useWindowResize } from "@/hooks/useWindowResize";
 
 const HomeFaqSection = () => {
+  const { isMobile } = useWindowResize();
   const isBrowser = typeof window !== "undefined"; //The approach recommended by Next.js
   // const [activeIndex, setActiveIndex] = useState(0);
   // const { i18n } = useTranslation();
@@ -52,11 +54,12 @@ const HomeFaqSection = () => {
   // const currentLanguageFAQData = () => {
   //   return i18n.language === currentLanguages.UA ? FAQdata : FAQdataEN;
   // };
+
   const howManyItemsToDisplay = () => {
     // const currentLanguageFAQData = () => {
     //   return i18n.language === currentLanguages.UA ? FAQdata : FAQdataEN;
     // };
-    if (isBrowser && window.innerWidth >= 768) {
+    if (!isMobile) {
       return FAQdataEN.slice(0, 6);
     }
     return FAQdataEN.slice(0, 4);
@@ -93,7 +96,9 @@ const HomeFaqSection = () => {
             }}
             key={item.id}
             title={item.question}
-            indicator={<PlusIcon />}
+            indicator={({ isOpen }) =>
+              isOpen ? <PlusIcon svgOpen={true} /> : <PlusIcon />
+            }
           >
             {item.answer}
           </AccordionItem>
