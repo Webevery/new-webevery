@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { GetSlugArrayFromData } from "@/helpers/slugArraysFromData";
 
 export function useCheckPathname(path) {
-    const [isPathExist, setPathExist] = useState(false);
+    const [isPathExist, setPathExist] = useState(true);
 
     const servicesSlugArray = GetSlugArrayFromData("services");
     const blogSlugArray = GetSlugArrayFromData("blogs");
