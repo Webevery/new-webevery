@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "./SliderOfServices.module.scss";
 import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import "./SliderOfServices.css";
 
@@ -77,7 +78,7 @@ export const SliderOfServices = () => {
           className="ServiceSwiper"
         >
           <ul className={styles.serviceList}>
-    {data?.map(({slug, title, titleGradient, directions, price})=>{
+    {data?.map(({slug, title, titleEn, titleGradient, titleGradientEn, directions, directionsEn, price, priceEn})=>{
       return <SwiperSlide key={slug}className="slideContentWrapper" >
         <li  className={styles.serviceItem}>
         <div>
@@ -102,20 +103,24 @@ export const SliderOfServices = () => {
                       />
                     </svg></div>
                   </Link>
-          <h3 className={styles.cartTitle}>{titleGradient}{title}</h3>
+          <h3 className={styles.cartTitle}>{i18n.language=== currentLanguages.EN ? <>{titleGradientEn}{titleEn}</> : <>{titleGradient}{title}</>}</h3>
         <ul>
-        {directions.map((item,index)=>{
+        {i18n.language=== currentLanguages.EN ? <>{directionsEn.map((item,index)=>{
           return <li key={index}
           className={styles.descItem}
           >{item}</li>
-        })}
+        })}</> : <>{directions.map((item,index)=>{
+          return <li key={index}
+          className={styles.descItem}
+          >{item}</li>
+        })}</>}
         
         </ul>
         </div>
         <div>
         <p
          className={styles.price}
-         >{price}</p>
+         >{i18n.language===currentLanguages.EN ? priceEn : price}</p>
         <OrderBtn id={styles.orderBtn} title={t('Buttons.HomeServiceOrderBtn')}/></div>
       </li></SwiperSlide>
     })}</ul>
