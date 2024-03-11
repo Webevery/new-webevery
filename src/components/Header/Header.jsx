@@ -28,7 +28,8 @@ const Header = () => {
   const header = headerRef.current;
   const subMenuBtnRef = useRef(null);
   const subMenuRef = useRef(null);
-  const translator = useRef(null);
+  const translatorEn = useRef(null);
+  const translatorUk = useRef(null);
 
   const pathname = usePathname();
   const isPathExist = useCheckPathname(pathname);
@@ -55,18 +56,14 @@ const Header = () => {
 
   const closeBurgerOnWindowClick = useCallback(
     (e) => {
-      console.log("e.target", e.target);
       if (
         e.target === menuRef.current ||
         e.target === subMenuRef.current ||
-        e.target !== translator.current
+        e.target === translatorEn.current ||
+        e.target === translatorUk.current
       ) {
         return;
-      } else if (
-        e.target !== menuRef.current ||
-        e.target !== subMenuBtnRef.current ||
-        e.target !== subMenuRef.current
-      ) {
+      } else {
         setBurgermenu(false);
         setIsClicked(false);
       }
@@ -143,7 +140,8 @@ const Header = () => {
               {isXs && (
                 <TranslatorBtnBlock
                   className={styles.xsLangSwitcher}
-                  ref={translator}
+                  translatorEn={translatorEn}
+                  translatorUk={translatorUk}
                 />
               )}
             </div>

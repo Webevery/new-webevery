@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./LangSwitcher.module.scss";
 
-const LangSwitcher = ({ changeLanguage, currentLanguage, ref }) => {
+const LangSwitcher = ({
+  changeLanguage,
+  currentLanguage,
+  translatorEn,
+  translatorUk,
+}) => {
   // const[lang, setLang]=useState(()=>{
   //   currentLanguage || !currentLanguage === "ua" ? "ua" : "en"
   // })
@@ -24,12 +29,14 @@ const LangSwitcher = ({ changeLanguage, currentLanguage, ref }) => {
       <li
         className={currentLanguage === "ua" ? styles.notActive : styles.active}
         onClick={onHandleSetEng}
+        ref={translatorEn}
       >
         ENG
       </li>
       <li
         className={currentLanguage === "en" ? styles.notActive : styles.active}
         onClick={onHandleSetUa}
+        ref={translatorUk}
       >
         UKR
       </li>

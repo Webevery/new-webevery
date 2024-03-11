@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LangSwitcher from "./LangSwitcher/LangSwitcher";
 
-const TranslatorBtnBlock = ({ className, ref }) => {
+const TranslatorBtnBlock = ({ translatorUk, translatorEn }) => {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState((prev) =>
     !prev || prev === undefined ? "ua" : prev
@@ -23,18 +23,15 @@ const TranslatorBtnBlock = ({ className, ref }) => {
     setLanguage(language);
     i18n.changeLanguage(language);
   };
-  // return (<div className={className}>
-  //     {!isLoad && <LangSwitcher
-  //     changeLanguage={changeLanguage}
-  //     currentLanguage={language} />}
-  //     </div>)
+
   return (
     <>
       {!isLoad && (
         <LangSwitcher
           changeLanguage={changeLanguage}
           currentLanguage={language}
-          ref={ref}
+          translatorUk={translatorUk}
+          translatorEn={translatorEn}
         />
       )}
     </>
