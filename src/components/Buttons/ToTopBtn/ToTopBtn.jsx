@@ -1,6 +1,7 @@
 "use client";
 
 import { scrollToTop } from "@/helpers/scrollToTop";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "./ToTopBtn.module.scss";
 
@@ -30,10 +31,16 @@ const ToTopBtn = () => {
       title="Кнопка до верху сторінки"
       aria-label="Кнопка до гори"
     >
-      <svg>
+      {/* <svg className={styles.toTopSvg}>
         <use href="/sprite.svg#icon-totop"></use>
-      </svg>
-      <div className={styles.arrow}></div>
+      </svg> */}
+
+      <Image
+        src="/arrow-up.svg"
+        fill
+        alt="Picture of the author"
+        sizes="10vw"
+      />
     </button>
   );
 };
