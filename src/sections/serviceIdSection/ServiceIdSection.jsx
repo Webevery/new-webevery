@@ -6,11 +6,12 @@ import { useTranslation } from "react-i18next";
 import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import { useCheckPathname } from "@/hooks/useCheckPathname";
 import { currentLanguages } from "@/data/languages";
-import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
 import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
+import Loading from "@/components/Loading/Loading";
+import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+import NotFound from "@/components/NotFound/NotFound";
 
 import styles from "./ServiceIdSection.module.scss";
-import NotFound from "@/components/NotFound/NotFound";
 
 const ServiceIdSection = ({ params }) => {
     const { slug } = params;
@@ -25,8 +26,8 @@ const ServiceIdSection = ({ params }) => {
 
     return (
         <>
-            {isLoading && <h1>Loading...</h1>}
-            {!isPathExist && !isLoading && (
+            {isLoading && <Loading className={styles.loading} />}
+            {!isLoading && !isPathExist && (
                 <NotFound
                     title='Сторінку не знайдено'
                     buttonTitle='До усіх послуг'
