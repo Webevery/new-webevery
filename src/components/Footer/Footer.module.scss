@@ -71,6 +71,11 @@
   @media screen and (min-width: $laptop) {
     display: flex;
     flex-direction: column;
+    width: 72px;
+    height: 328px;
+  }
+  @media screen and (min-width: $desktop) {
+    height: 328px;
   }
 }
 
