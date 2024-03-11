@@ -7,9 +7,9 @@ import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import { useCheckPathname } from "@/hooks/useCheckPathname";
 import { currentLanguages } from "@/data/languages";
 import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
-import Loading from "@/components/Loading/Loading";
 import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
 import NotFound from "@/components/NotFound/NotFound";
+import Loading from "@/components/Loading/Loading";
 
 import styles from "./ServiceIdSection.module.scss";
 

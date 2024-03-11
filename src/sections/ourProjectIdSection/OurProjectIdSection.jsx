@@ -1,14 +1,15 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { CldImage } from "next-cloudinary";
 import { useTranslation } from "react-i18next";
 import { v4 } from "uuid";
 import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import { currentLanguages } from "@/data/languages";
 import { useCheckPathname } from "@/hooks/useCheckPathname";
+import { isMobole, isTablet } from "@/hooks/useWindowResize";
 import NotFound from "@/components/NotFound/NotFound";
+import Loading from "@/components/Loading/Loading";
 
 import stylescBtn from "@/components/Buttons/Btns.module.scss";
 import styles from "./OurProjectIdSection.module.scss";
@@ -17,7 +18,6 @@ const OurProjectIdSection = ({ params }) => {
     const router = useRouter();
     const pathname = usePathname();
     const { slug } = params;
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     const { data, error, isLoading } = GetIdDataFromSection(
         "ourProjects",
@@ -29,21 +29,10 @@ const OurProjectIdSection = ({ params }) => {
 
     const isPathExist = useCheckPathname(pathname);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsSmallScreen(window.innerWidth <= 1024);
-        };
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
     return (
         <>
-            {isLoading && <h1>Loading...</h1>}
-            {!isPathExist && !isLoading && (
+            {isLoading && <Loading className={styles.loading} />}
+            {!isLoading && !isPathExist && (
                 <NotFound
                     title='Проект не знайдено'
                     buttonTitle='До усіх проектів'
@@ -102,7 +91,7 @@ const OurProjectIdSection = ({ params }) => {
                                 </span>
                             )}
                         </h1>
-                        {isSmallScreen && (
+                        {(isMobole || isTablet) && (
                             <div
                                 className={
                                     stylescBtn.btnWrapper +
