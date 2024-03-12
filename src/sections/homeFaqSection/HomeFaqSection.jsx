@@ -3,6 +3,7 @@
 import styles from "./HomeFaqSection.module.scss";
 // import HomeFaqSectionItem from "./homeFaqSectionItem/homeFaqSectionItem";
 import { FAQdata, FAQdataEN } from "@/data";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import PlusIcon from "./Icons/PlusIcon";
@@ -14,6 +15,11 @@ const HomeFaqSection = () => {
   const { isMobile } = useWindowResize();
   const isBrowser = typeof window !== "undefined"; //The approach recommended by Next.js
   const {t, i18n}=useTranslation()
+
+  const[isLoad,setIsLoad]=useState(true)
+
+  useEffect(()=>setIsLoad(false),[])
+
   const data= i18n.language===currentLanguages.EN ? FAQdataEN : FAQdata;
   // const [activeIndex, setActiveIndex] = useState(0);
 
@@ -63,7 +69,7 @@ const HomeFaqSection = () => {
   return (
     <section className={styles.faqSection}>
       <h2 className={`titleGradient ${styles.faqSection__title}`}>FAQ</h2>
-      <h3 className={styles.faqSection__title2}>{t('MainPage.FaqSubTitle')}</h3>
+      {!isLoad && <><h3 className={styles.faqSection__title2}>{t('MainPage.FaqSubTitle')}</h3>
       <NavigationBtn
         href={"/faq"}
         className={styles.faqSection__readMore}
@@ -98,7 +104,7 @@ const HomeFaqSection = () => {
             {item.answer}
           </AccordionItem>
         ))}
-      </Accordion>
+      </Accordion></>}
       {/* <ul className={styles.faqSection__list}>
         {FAQdataEN.map((item) => (
           <HomeFaqSectionItem

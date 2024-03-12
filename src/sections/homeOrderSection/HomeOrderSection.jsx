@@ -32,9 +32,9 @@ const HomeOrderSection = () => {
                         {t('MainPage.OrderSectionSubTitle')}
                         </h2>
                     </div>
-                )}</>}
+                )}
 
-                <OrderForm />
+                <OrderForm /></>}
             </div>
         </section>
         // </div>

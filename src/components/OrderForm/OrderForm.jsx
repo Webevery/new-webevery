@@ -10,6 +10,7 @@ import { useWindowResize } from "@/hooks/useWindowResize";
 import { SiteContext } from "@/context/siteContext";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import SuccessContent from "./SuccessContent";
+import { useTranslation } from "react-i18next";
 
 import styles from "./OrderForm.module.scss";
 
@@ -23,6 +24,8 @@ const OrderForm = ({
     const [isSubmited, setSubmited] = useState(false);
 
     const { isMobile, isTablet } = useWindowResize();
+
+    const {t}=useTranslation();
 
     const initialValues = {
         defaultValues: {
@@ -147,7 +150,7 @@ const OrderForm = ({
                                     type='text'
                                     id='userName'
                                     {...register("userName")}
-                                    placeholder='Name'
+                                    placeholder= {t('Form.Name')}
                                     maxLength='30'
                                     className={(() => {
                                         if (errors.userName) {
@@ -189,7 +192,7 @@ const OrderForm = ({
                                     type='tel'
                                     id='tel'
                                     {...register("tel")}
-                                    placeholder='Phone'
+                                    placeholder={t('Form.Phone')}
                                     maxLength='13'
                                     className={(() => {
                                         if (errors.tel) {
@@ -219,7 +222,7 @@ const OrderForm = ({
                                 cols='30'
                                 rows='2'
                                 id='message'
-                                placeholder='Briefly describe your wish'
+                                placeholder={t('Form.TextArea')}
                                 {...register("message")}
                             />
                             <p className={styles.error}>
@@ -228,7 +231,7 @@ const OrderForm = ({
                         </div>
                         <OrderBtn
                             type='submit'
-                            title=' Order call from manager'
+                            title={t('Buttons.FormOrderBtn')}
                             disabled={isErrors || isSubmitting}
                             className={styles.submitButton}
                             id={

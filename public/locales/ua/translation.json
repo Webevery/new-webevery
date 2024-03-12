@@ -89,6 +89,7 @@
     "HomeServicesBtn":"Детальніше",
     "HomeFaqBtn":"Детальніше",
     "HomeServiceOrderBtn": "Замовити",
+    "FormOrderBtn":"Замовити дзвінок від менеджера",
     "CloseBtn": "Закрити",
     "CardDetailsBtn": "Детальніше",
     "FilterBtn": "Шукати",
@@ -102,10 +103,9 @@
     "Submit": "Пiдтвердити"
   },
   "Form": {
-    "SeoTitleH3": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "name": "Ім’я",
-    "phone": "Номер телефону *",
-    "dateOfEntry": "Дата заїзду",
+    "Name": "Ім’я",
+    "Phone": "Номер телефону",
+    "TextArea": "Коротко опишіть ваше побажання",
     "departureDate": "Дата виїзду",
     "numberOfObject": "Номер об’єкту",
     "fieldsDesc": "поле, обовʼязкове для заповнення",

@@ -81,6 +81,7 @@
     "HomeServicesBtn":"Read more",
     "HomeFaqBtn":"Read more",
     "HomeServiceOrderBtn": "Order",
+    "FormOrderBtn":"Order call from manager",
     "CloseBtn": "Close",
     "CardDetailsBtn": "Details",
     "FilterBtn": "Find",
@@ -94,10 +95,9 @@
     "Submit": "Submit"
   },
   "Form": {
-    "SeoTitleH3": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "name": "Name",
-    "phone": "Phone number *",
-    "dateOfEntry": "Date of entry",
+    "Name": "Name",
+    "Phone": "Phone",
+    "TextArea": "Briefly describe your wish",
     "departureDate": "Departure date",
     "numberOfObject": "Number of object",
     "fieldsDesc": "required fields",
