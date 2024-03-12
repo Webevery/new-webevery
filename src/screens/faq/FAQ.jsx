@@ -3,9 +3,11 @@ import styles from "./FAQ.module.scss";
 import FaqSection from "@/sections/faqSection/FaqSection";
 
 const FAQ = () => {
-  return <div className="screen">
-    <FaqSection />
-  </div>;
+  return (
+    <>
+      <FaqSection />
+    </>
+  );
 };
 
 export default FAQ;

@@ -3,9 +3,9 @@
 import { SiteContext } from "@/context/siteContext";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import React, { useContext, useEffect } from "react";
-import {navLinks, currentLanguages } from "@/data";
+import { navLinks, currentLanguages } from "@/data";
 import styles from "./NavLinks.module.scss";
 import ServisecSubMenu from "./ServisecSubMenu/ServisecSubMenu";
 
@@ -21,6 +21,7 @@ const NavLinks = ({
   const { i18n } = useTranslation();
 
   const pathName = usePathname();
+  const params = useParams();
 
   const isClient = typeof window !== "undefined";
 
@@ -52,9 +53,8 @@ const NavLinks = ({
           <div className={styles.linkTitleWrapper}>
             <p
               className={
-                link.href === pathName ||
-                (pathName.startsWith("/services") &&
-                  link.href.includes("services"))
+                pathName === link.href + "/" + params.slug ||
+                pathName === link.href
                   ? `${styles.navLink} navLinkHover active`
                   : `${styles.navLink} navLinkHover`
               }
@@ -85,9 +85,7 @@ const NavLinks = ({
           key={link.id}
           href={link.href}
           className={
-            link.href === pathName ||
-            (isClicked && link.subMenu) ||
-            (pathName.startsWith("/services") && link.href.includes("services"))
+            pathName === link.href + "/" + params.slug || pathName === link.href
               ? `${styles.navLink} navLinkHover active`
               : `${styles.navLink} navLinkHover`
           }

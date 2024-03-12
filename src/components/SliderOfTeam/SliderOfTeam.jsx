@@ -44,7 +44,6 @@ export const SliderOfTeam = () => {
           spaceBetween={20}
           speed={1500}
           autoplay={{
-            // delay: 5000,
             delay: 1000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,

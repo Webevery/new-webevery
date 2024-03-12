@@ -1,160 +1,160 @@
 @import "../../app/variables";
 
 .servicesId {
+  display: block;
+  @media screen and (min-width: $laptop) {
     display: block;
-    @media screen and (min-width: $laptop) {
-        display: block;
-    }
+  }
 }
 
 .servicesIdContainer {
-    padding: 110px 20px 80px 20px;
-    @media screen and (min-width: $tablet) {
-        padding: 184px 20px 80px 20px;
-    }
-    @media screen and (min-width: $laptop) {
-        padding: 184px 32px 80px 32px;
-    }
-    @media screen and (min-width: $desktop) {
-        padding: 180px 72px 80px 72px;
-    }
+  padding: 110px 20px 80px 20px;
+  @media screen and (min-width: $tablet) {
+    padding: 112px 20px 80px 20px;
+  }
+  @media screen and (min-width: $laptop) {
+    padding: 112px 32px 80px 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 112px 72px 80px 72px;
+  }
 }
 
 .servicesIdContent {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
 
-    @media screen and (min-width: $tablet) {
-        margin-bottom: 40px;
-    }
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 40px;
+  }
 
-    @media screen and (min-width: $laptop) {
-        flex-direction: row;
-    }
+  @media screen and (min-width: $laptop) {
+    flex-direction: row;
+  }
 
-    @media screen and (min-width: $desktop) {
-        margin-bottom: 68px;
-    }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 68px;
+  }
 }
 
 .servicesIdTitle {
-    text-align: center;
-    font-weight: 400;
+  text-align: center;
+  font-weight: 400;
+  font-size: 40px;
+  & span {
+    background: linear-gradient(
+      91deg,
+      $gradientYellow,
+      $gradientCyan,
+      $gradientBlue
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @media screen and (min-width: $mobile) {
     font-size: 40px;
-    & span {
-        background: linear-gradient(
-            91deg,
-            $gradientYellow,
-            $gradientCyan,
-            $gradientBlue
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    @media screen and (min-width: $mobile) {
-        font-size: 40px;
-        line-height: 44px;
-        margin-bottom: 20px;
-    }
-    @media screen and (min-width: $tablet) {
-        font-size: 48px;
-        line-height: 52.8px;
-        margin-bottom: 24px;
-    }
-    @media screen and (min-width: $desktop) {
-        font-size: 64px;
-        line-height: 70.4px;
-        margin-bottom: 32px;
-    }
+    line-height: 44px;
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: $tablet) {
+    font-size: 48px;
+    line-height: 52.8px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 64px;
+    line-height: 70.4px;
+    margin-bottom: 32px;
+  }
 }
 
 .servicesIdImgContainer {
-    position: relative;
-    display: none;
-    @media screen and (min-width: $tablet) {
-        display: block;
-        min-width: 100%;
-        aspect-ratio: 4/3;
-        margin-bottom: 24px;
-    }
-    @media screen and (min-width: $laptop) {
-        min-width: 58%;
-    }
+  position: relative;
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+    min-width: 100%;
+    aspect-ratio: 4/3;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $laptop) {
+    min-width: 58%;
+  }
 }
 
 .servicesIdDescContainer {
-    width: 100%;
+  width: 100%;
 
-    @media screen and (min-width: $laptop) {
-        width: 48%;
-        padding-left: 24px;
-    }
+  @media screen and (min-width: $laptop) {
+    width: 48%;
+    padding-left: 24px;
+  }
 }
 
 .servicesIdDesc {
-    font-family: var(--font-work-sans);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 25.6px;
-    margin-bottom: 8px;
+  font-family: var(--font-work-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25.6px;
+  margin-bottom: 8px;
 
-    @media screen and (min-width: $desktop) {
-        font-size: 20px;
-        line-height: 32px;
-        margin-bottom: 16px;
-    }
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 16px;
+  }
 }
 
 .servicesIdPrice {
-    font-family: var(--font-work-sans);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 25.6px;
-    margin-bottom: 24px;
+  font-family: var(--font-work-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25.6px;
+  margin-bottom: 24px;
 
-    @media screen and (min-width: $desktop) {
-        font-size: 20px;
-        line-height: 32px;
-        margin-bottom: 32px;
-    }
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 32px;
+  }
 }
 
 .servicesIdSliderTitle {
-    font-family: var(--font-work-sans);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 25.6px;
+  font-family: var(--font-work-sans);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25.6px;
+  margin-bottom: 32px;
+
+  & span {
+    background: linear-gradient(
+      91deg,
+      $gradientYellow,
+      $gradientCyan,
+      $gradientBlue
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44.8px;
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 36px;
+    line-height: 50.4px;
     margin-bottom: 32px;
-
-    & span {
-        background: linear-gradient(
-            91deg,
-            $gradientYellow,
-            $gradientCyan,
-            $gradientBlue
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    @media screen and (min-width: $tablet) {
-        font-weight: 400;
-        font-size: 32px;
-        line-height: 44.8px;
-        margin-bottom: 24px;
-    }
-
-    @media screen and (min-width: $desktop) {
-        font-size: 36px;
-        line-height: 50.4px;
-        margin-bottom: 32px;
-    }
+  }
 }
 
 .loading {
-    margin-top: 200px;
-    font-size: 40px;
+  margin-top: 200px;
+  font-size: 40px;
 }

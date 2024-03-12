@@ -46,6 +46,7 @@
   height: 12px;
   background-image: linear-gradient($gray0, $gray0);
   clip-path: polygon(0 0, 0 100%, 78% 50%);
+  transition-duration: $transitionDuration;
 }
 .arrowActive {
   transform: rotate(90deg);
