@@ -3,9 +3,11 @@ import styles from "./BlogId.module.scss";
 import BlogIdSection from "@/sections/blogIdSection/BlogIdSection";
 
 const BlogId = ({ params }) => {
-  return <div className="screen">
-    <BlogIdSection params={params} />
-  </div>;
+  return (
+    <>
+      <BlogIdSection params={params} />
+    </>
+  );
 };
 
 export default BlogId;

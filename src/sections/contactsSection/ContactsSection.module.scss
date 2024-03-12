@@ -1,33 +1,16 @@
 @import "../../app/variables";
 
 .section {
-  padding: 80px 20px 40px 20px;
-  @media screen and (min-width: $tablet) {
-    padding: 120px 32px 32px;
-  }
-  @media screen and (min-width: $laptop) {
-    padding: 100px 32px 32px;
-    height: 100vh;
-    justify-content: center;
-  }
+  min-height: 100vh;
+  justify-content: center;
 }
 
-// .contactsContainer {
-// padding: 80px 20px 40px 20px;
-// height: 100%;
-// @media screen and (min-width: $mobile) {
-//   padding: 120px 24px 80px 24px;
-// }
-// @media screen and (min-width: $tablet) {
-//   padding: 120px 32px 32px;
-// }
-// @media screen and (min-width: $laptop) {
-//   padding: 204px 32px 140px 32px;
-// }
-// @media screen and (min-width: $desktop) {
-//   padding: 228px 72px 80px 72px;
-// }
-// }
+.contactsContainer {
+  padding: 100px 32px 32px;
+  @media screen and (min-width: $tablet) {
+    padding: 112px 32px 32px;
+  }
+}
 
 .titleWrap {
   display: flex;

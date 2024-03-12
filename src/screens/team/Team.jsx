@@ -3,9 +3,11 @@ import styles from "./Team.module.scss";
 import TeamSection from "@/sections/teamSection/TeamSection";
 
 const Team = () => {
-  return <div className="screen">
-    <TeamSection />
-  </div>;
+  return (
+    <>
+      <TeamSection />
+    </>
+  );
 };
 
 export default Team;

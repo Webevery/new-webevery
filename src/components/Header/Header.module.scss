@@ -140,6 +140,7 @@
   width: 32px;
   height: 32px;
   position: relative;
+  transition-duration: $transitionDuration;
 
   &:hover,
   &:focus {

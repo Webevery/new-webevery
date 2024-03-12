@@ -4,6 +4,7 @@
   & li {
     width: min-content;
     line-height: 1.6;
+    transition-duration: $transitionDuration;
     &:hover,
     &:focus {
       color: transparent;
@@ -18,6 +19,6 @@
   background-clip: text;
 }
 
-.notActive{
+.notActive {
   cursor: pointer;
 }
