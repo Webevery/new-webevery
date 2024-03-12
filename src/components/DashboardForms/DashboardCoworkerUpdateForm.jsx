@@ -1,4 +1,4 @@
-import styles from './DashboardCoworkerUpdateForm.module.scss';
+import styles from './DashboardForms.module.scss';
 
 
 const DashboardCoworkerUpdateForm = () => {
