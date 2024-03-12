@@ -2,10 +2,8 @@
 // import Link from "next/link";
 import styles from "./HomeFaqSection.module.scss";
 // import HomeFaqSectionItem from "./homeFaqSectionItem/homeFaqSectionItem";
-// import { FAQdata } from "@/data/FAQ.data";
-import { FAQdataEN } from "@/data/FAQEN.data";
-// import { currentLanguages } from "@/data/languages.data";
-// import { useState } from "react";
+import { FAQdata, FAQdataEN } from "@/data";
+import { useTranslation } from "react-i18next";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import PlusIcon from "./Icons/PlusIcon";
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
@@ -15,8 +13,10 @@ import { useWindowResize } from "@/hooks/useWindowResize";
 const HomeFaqSection = () => {
   const { isMobile } = useWindowResize();
   const isBrowser = typeof window !== "undefined"; //The approach recommended by Next.js
+  const {t, i18n}=useTranslation()
+  const data= i18n.language===currentLanguages.EN ? FAQdataEN : FAQdata;
   // const [activeIndex, setActiveIndex] = useState(0);
-  // const { i18n } = useTranslation();
+
   const motionAcc = {
     variants: {
       enter: {
@@ -51,28 +51,23 @@ const HomeFaqSection = () => {
       },
     },
   };
-  // const currentLanguageFAQData = () => {
-  //   return i18n.language === currentLanguages.UA ? FAQdata : FAQdataEN;
-  // };
 
   const howManyItemsToDisplay = () => {
-    // const currentLanguageFAQData = () => {
-    //   return i18n.language === currentLanguages.UA ? FAQdata : FAQdataEN;
-    // };
+    
     if (!isMobile) {
-      return FAQdataEN.slice(0, 6);
+      return data.slice(0, 6);
     }
-    return FAQdataEN.slice(0, 4);
+    return data.slice(0, 4);
   };
 
   return (
     <section className={styles.faqSection}>
       <h2 className={`titleGradient ${styles.faqSection__title}`}>FAQ</h2>
-      <h3 className={styles.faqSection__title2}>Find your question here</h3>
+      <h3 className={styles.faqSection__title2}>{t('MainPage.FaqSubTitle')}</h3>
       <NavigationBtn
         href={"/faq"}
         className={styles.faqSection__readMore}
-        title={"Read more"}
+        title={t('Buttons.HomeFaqBtn')}
       />
       {/* <Link href={"/faq"} className={styles.faqSection__readMore}>
         Read more
