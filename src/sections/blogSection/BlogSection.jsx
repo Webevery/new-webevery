@@ -12,7 +12,7 @@ import { CldImage } from 'next-cloudinary';
 
 import BlogSorter from '@/components/BlogSorter/BlogSorter';
 import { useTranslation } from 'react-i18next';
-import { currentLanguages } from '@/data/languages';
+import { currentLanguages, t } from '@/data/languages';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -20,7 +20,7 @@ const BlogSection = () => {
   const [filterArr, setFilterArr] = useState([]);
   const [sorterArr, setSorterArr] = useState('');
 
-  const { i18n } = useTranslation();
+  const { i18n,t } = useTranslation();
 
   const { data, error, isLoading } = GetDataFromSection('blogs');
 
@@ -113,11 +113,11 @@ const BlogSection = () => {
       <div className={`container ${styles.blogContainer}`}>
         <div className={styles.titleBlogContainer}>
           <h1 className={styles.titleBlog}>
-            <span>Webevery</span> Blog
+            <span>Webevery</span> {!isLoading && t('BlogPage.GenSubTitle')}
           </h1>
-          <h2 className={styles.descBlog}>
-            here is you can read useful articles
-          </h2>
+          {<h2 className={styles.descBlog}>
+            {!isLoading && t('BlogPage.SubTitle')}
+          </h2>}
         </div>
         <BlogFilterButton />
 
@@ -173,7 +173,7 @@ const BlogSection = () => {
                   <div className={styles.bottomContainer}>
                     <p className={styles.date}>11.02.2024</p>
                     <Link href={`/blog/${slug}`} className={styles.readMore}>
-                      <span className={styles.readMoreTitle}>Read more</span>
+                      <span className={styles.readMoreTitle}>{t('Buttons.CardDetailsBtn')}</span>
                       <svg
                         className={styles.readMoreIcon}
                         viewBox="0 0 24 7"

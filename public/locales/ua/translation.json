@@ -50,6 +50,15 @@
     "SubTitle2": "найкращу",
     "SubTitle3": "пропозицію для вашего бізнесу:"
   },
+  "BlogPage":{
+    "GenSubTitle":"Блог",
+    "SubTitle":"тут ви можете прочитати корисні статті"
+  },
+  "BlogIdPage":{
+    "NotFound":"Блог не знайдено",
+    "NotFoundTitleBtn":"До усіх блогів",
+    "NavBtn":"На сторінку з усіма статтями"
+  },
   "Navigation": {
     "MainPage": "Головна",
     "Apartments": "Апартаменти",
