@@ -54,6 +54,10 @@
     "NotFoundTitleBtn":"To all blogs",
     "NavBtn":"To page with all articles"
   },
+  "NotFoundPage":{
+    "NotFoundTitle":"Page not found",
+    "NotFoundTitleBtn":"Home"
+  },
   "Buttons": {
     "CalltBtn": "Call",
     "OrderBtn":"Order",
@@ -65,13 +69,10 @@
     "FormOrderBtn":"Order call from manager",
     "ProjectDetailsBtn":"Read more",
     "ProjectOpenSiteBtn":"Open site",
-    "CloseBtn": "Close",
     "CardDetailsBtn": "Read more",
+    "CloseBtn": "Close",
     "FilterBtn": "Find",
     "FilterClear": "Clear",
-    "FilterQuantRooms": "-rooms",
-    "FilterSleepingPlaces": "Sleeping places",
-    "ObjectsBtn": "All objects",
     "OpenFilterBtn": "Filter",
     "CloseFilterBtn": "Close",
     "LogOutBtn": "LogOut",

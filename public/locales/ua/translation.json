@@ -59,12 +59,9 @@
     "NotFoundTitleBtn":"До усіх блогів",
     "NavBtn":"На сторінку з усіма статтями"
   },
-  "Navigation": {
-    "MainPage": "Головна",
-    "Apartments": "Апартаменти",
-    "Contacts": "Контакти",
-    "Documents": "Документи",
-    "Rules": "Правила"
+  "NotFoundPage":{
+    "NotFoundTitle":"Сторінка не знайдена",
+    "NotFoundTitleBtn":"На головну"
   },
   "Buttons": {
     "CalltBtn": "Подзвонити",
@@ -77,16 +74,12 @@
     "FormOrderBtn":"Замовити дзвінок від менеджера",
     "ProjectDetailsBtn":"Детальніше",
     "ProjectOpenSiteBtn":"Відкрити сайт",
-    "CloseBtn": "Закрити",
     "CardDetailsBtn": "Детальніше",
+    "CloseBtn": "Закрити",
     "FilterBtn": "Шукати",
     "FilterClear": "Очистити",
-    "FilterQuantRooms": "-кім.",
-    "FilterSleepingPlaces": "Спальні місця",
-    "ObjectsBtn": "Всі об’єкти",
     "OpenFilterBtn": "Фільтр",
     "CloseFilterBtn": "Сховати",
-    "LogOutBtn": "Розлогінитися",
     "Submit": "Пiдтвердити"
   },
   "Form": {
