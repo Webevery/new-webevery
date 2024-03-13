@@ -45,6 +45,11 @@
     "SubTitle2": "найкращу",
     "SubTitle3": "пропозицію для вашего бізнесу"
   },
+  "ServiceIdPage": {
+    "SubTitle1":"Обирайте",
+    "SubTitle2": "найкращу",
+    "SubTitle3": "пропозицію для вашего бізнесу:"
+  },
   "Navigation": {
     "MainPage": "Головна",
     "Apartments": "Апартаменти",
@@ -54,7 +59,7 @@
   },
   "Buttons": {
     "CalltBtn": "Подзвонити",
-    "HeroOrderBtn":"Замовити",
+    "OrderBtn":"Замовити",
     "HomeTeamBtn":"Про Команду",
     "HomeProjectsBtn":"До портфоліо",
     "ServicesDetailsBtn":"Детальніше",

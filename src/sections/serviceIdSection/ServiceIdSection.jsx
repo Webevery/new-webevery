@@ -18,7 +18,7 @@ const ServiceIdSection = ({ params }) => {
     const pathname = usePathname();
     const { data, error, isLoading } = GetIdDataFromSection("services", slug);
     const isPathExist = useCheckPathname(pathname);
-    const { i18n } = useTranslation();
+    const { i18n,t } = useTranslation();
 
     const dataId = data && !isLoading ? data : error;
 
@@ -66,7 +66,7 @@ const ServiceIdSection = ({ params }) => {
                                 </p>
                                 <OrderBtn
                                     id={styles.serviceOrderBtn}
-                                    title={"Замовити"}
+                                    title={t('Buttons.OrderBtn')}
                                 />
                             </div>
                         </div>
@@ -75,8 +75,7 @@ const ServiceIdSection = ({ params }) => {
                             className={`container ${styles.servicesIdSliderContainer}`}
                         >
                             <h3 className={styles.servicesIdSliderTitle}>
-                                Оберіть <span>найкращу</span> пропозицію для
-                                вашого бізнесу:
+                                {t('ServiceIdPage.SubTitle1')} <span>{t('ServiceIdPage.SubTitle2')}</span> {t('ServiceIdPage.SubTitle3')}
                             </h3>
                             <SliderOfServices />
                         </div>

@@ -26,7 +26,7 @@ const HomeHeroSection = () => {
             <OrderBtn
               onClick={openModal}
               type="submit"
-              title={t("Buttons.HeroOrderBtn")}
+              title={t("Buttons.OrderBtn")}
             />
           )}
         </div>
