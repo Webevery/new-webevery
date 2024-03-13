@@ -38,9 +38,9 @@ const ServiceIdSection = ({ params }) => {
                 <section className={styles.servicesId}>
                     <div className={`container ${styles.servicesIdContainer}`}>
                         <h1 className={styles.servicesIdTitle}>
-                            <span>{dataId?.titleGradient}</span>
+                            <span>{i18n.language === currentLanguages.EN ? dataId?.titleGradientEn : dataId?.titleGradient}</span>
                             &nbsp;
-                            {dataId?.title}
+                            {i18n.language === currentLanguages.EN ? dataId?.titleEn : dataId?.title}
                         </h1>
                         <div className={styles.servicesIdContent}>
                             <div className={styles.servicesIdImgContainer}>
