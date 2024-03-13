@@ -1,4 +1,4 @@
-import styles from './DashboardBlogCreateForm.module.scss';
+import styles from './DashboardForms.module.scss';
 
 
 const DashboardBlogCreateForm = () => {

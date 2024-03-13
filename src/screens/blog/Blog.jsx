@@ -3,9 +3,11 @@ import styles from "./Blog.module.scss";
 import BlogSection from "@/sections/blogSection/BlogSection";
 
 const Blog = () => {
-  return <div className="screen">
-    <BlogSection />
-  </div>;
+  return (
+    <>
+      <BlogSection />
+    </>
+  );
 };
 
 export default Blog;

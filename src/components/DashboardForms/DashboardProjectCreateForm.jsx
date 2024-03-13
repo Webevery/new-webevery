@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardProjectCreateSchema } from "@/yupShemas/dashboardProjectCreateSchema";
 // import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 
-import styles from "./DashboardProjectCreateForm.module.scss";
+import styles from "./DashboardForms.module.scss";
 
 const DashboardProjectCreateForm = () => {
     const initialValues = {
@@ -33,12 +33,19 @@ const DashboardProjectCreateForm = () => {
     };
 
     const form = useForm(initialValues);
-    const { register, handleSubmit, formState, reset, setValue } = form;
+    const {
+        register,
+        control,
+        handleSubmit,
+        formState,
+        reset,
+        getValues,
+        setValue,
+    } = form;
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = (data) => {
         console.log("FormData:", data);
-        console.log("initialValues:", initialValues);
     };
 
     useEffect(() => {
@@ -276,11 +283,12 @@ const DashboardProjectCreateForm = () => {
                         name='mobileImages'
                         className={styles.uploadBtn}
                         onUpload={(result) => {
-                            console.log("result:", result);
+                            const value = getValues("mobileImages");
                             setValue("mobileImages", [
-                                // ...initialValues.defaultValues.mobileImages,
+                                ...value,
                                 result.info.public_id,
                             ]);
+                            // update(...result.info.public_id);
                         }}
                         uploadPreset='unsigned_preset'
                     >

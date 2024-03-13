@@ -3,8 +3,8 @@
 .toTopBtnHidden,
 .toTopBtn {
   position: fixed;
-  left: 20px;
-  bottom: 42px;
+  left: 24px;
+  bottom: 20px;
 
   width: 48px;
   height: 48px;
@@ -13,6 +13,7 @@
   outline: none;
   border: none;
   z-index: 2;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
@@ -34,15 +35,24 @@
     background-position-x: 100%;
   }
 
-  & svg {
-    width: 40px;
-    height: 40px;
+  // & svg {
+  //   width: 40px;
+  //   height: 40px;
 
-    fill: transparent;
-    stroke: $gray900;
+  //   // fill: transparent;
+  //   // stroke: $gray900;
+  // }
+
+  // & img {
+  //   object-position: center;
+  // }
+
+  @media screen and (min-width: $tablet) {
+    left: 32px;
+    bottom: 20px;
   }
   @media screen and (min-width: $laptop) {
-    right: 20px;
+    right: 32px;
     left: auto;
   }
 }

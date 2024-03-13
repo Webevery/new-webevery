@@ -46,6 +46,7 @@
   height: 12px;
   background-image: linear-gradient($gray0, $gray0);
   clip-path: polygon(0 0, 0 100%, 78% 50%);
+  transition-duration: $transitionDuration;
 }
 .arrowActive {
   transform: rotate(90deg);
@@ -75,6 +76,7 @@
 
   margin-left: -24px;
   width: 200px;
+  transition-duration: $transitionDuration;
 
   @media screen and (min-width: $mobile) {
     width: 100%;
@@ -142,9 +144,3 @@
     top: 48px;
   }
 }
-
-// .subLinkWrapper:hover + .navLink {
-//   &::after {
-//     width: 100%;
-//   }
-// }

@@ -1,4 +1,4 @@
-import styles from './DashboardServiceCreateForm.module.scss';
+import styles from './DashboardForms.module.scss';
 
 
 const DashboardServiceCreateForm = () => {

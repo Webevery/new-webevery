@@ -16,99 +16,79 @@
     "OurProjectsSubTitle":"роботи",
     "OurServicesTitle":"Послуги",
     "OurServicesSubTitle":"від малого до великого сайту",
-    "OrderSectionTitleMob":"To talk about",
-    "OrderSectionTitleTab":"Let`s talk about",
-    "OrderSectionSubTitle":"your new site!",
-    "SeoTitleH1": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "heroTitle": "Подобова та погодинна оренда",
-    "heroSubTitle": "для комфортного проживання та відпочинку",
-    "galleryTittle": "Апартаменти",
-    "contactsTitle": "Зв’яжіться з нами"
+    "FaqSubTitle":"ви можете знайти своє питання тут",
+    "OrderSectionTitleMob":"Поговоримо про",
+    "OrderSectionTitleTab":"Поговоримо про",
+    "OrderSectionSubTitle":"Ваш новий сайт!"
   },
-  "ApartmentsPage": {
-    "SeoTitleH1": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "SeoTitleH2": "Навігація",
-    "Title": "Що буде в апартаментах?",
-    "OneRoom": "Однокімнатні",
-    "TwoRoom": "Двокімнатні",
-    "ThreeRoom": "Трикімнатні",
-    "OneAndTwoRoom": "Однокімнатні та двокімнатні",
-    "OneAndThreeRoom": "Однокімнатні та трикімнатні",
-    "TwoAndThreeRoom": "Двокімнатні та трикімнатні",
-    "NotFound": "Квартири не знайдено",
-    "TextOfDescAdress": "-кімнатна за адресою",
-    "TextOfDescOptions": "Що буде в апартаментах"
+  "TeamPage": {
+    "Title": "Команда",
+    "SubTitle": "давайте познайомимося з тими, хто працює для вас"
   },
-  "ApartIdItem": {
-    "SeoTitleH1": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "SeoTitleH2": "Навігація",
-    "SeoTitleH3": "Детальна інформація про апартаменти",
-    "SeoTitleH4": "Детальна інформація про зручності",
-    "SeoTitleItemSliderH4": "Детальні зображення квартири",
-    "TextWelcome": "Ласкаво просимо до DailyRent."
+  "OurProjectsPage":{
+    "Title":"Наші роботи",
+    "NavLinkText":"На сторінку з усіма проектами",
+    "TitleProblem":"Проблема",
+    "TitleSolutions":"Рішення",
+    "TitleHelpBussines":"Як це допоможе бізнесу",
+    "TitleDesc":"Адаптовано для мобільних пристроїв"
   },
   "ContactsPage": {
-    "SeoTitleH1": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "SeoTitleH2": "Навігація",
-    "SeoTitleH4": "Контактна інформація",
-    "Title": "Затишні квартири у Сумах чекають на твій дзвінок.",
-    "Title1": "Контакти",
-    "Text": "Сміливо телефонуй нам або пиши у будь-яку з соцмереж. Будемо раді допомогти і потеревенити з тобою!",
-    "CountryAndSity": "Україна, Суми",
-    "Adress": "вулиця Воскресенська, 8"
+    "Title": "Контакти",
+    "Phone": "НОМЕР ТЕЛЕФОНУ",
+    "Email": "ПОШТА",
+    "Social": "СОЦІАЛЬНІ МЕРЕЖІ"
   },
-  "RulesPage": {
-    "SeoTitleH1": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "SeoTitleH2": "Навігація",
-    "MainTitle": "Правила проживання:",
-    "TitleSection1": "Правила поведінки в квартирі:",
-    "TitleSection2": "Категорично забороняється:",
-    "TitleSection3": "Адміністрація має право негайно виселити орендаря без повернення грошей за проживання у разі:"
+  "ServicesPage": {
+    "Title": "Послуги",
+    "SubTitle1":"обирайте",
+    "SubTitle2": "найкращу",
+    "SubTitle3": "пропозицію для вашего бізнесу"
   },
-  "DocumentsPage": {
-    "SeoTitleH1": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "SeoTitleH2": "Навігація",
-    "SeoTitleH3": "Файли документів",
-    "Document1": "Витяг з ЄДР юридичних осіб",
-    "Document2": "Витяг з ЄДР юридичних осіб",
-    "Document3": "Витяг з реєстру платників податку"
+  "ServiceIdPage": {
+    "SubTitle1":"Обирайте",
+    "SubTitle2": "найкращу",
+    "SubTitle3": "пропозицію для вашего бізнесу:"
   },
-  "Navigation": {
-    "MainPage": "Головна",
-    "Apartments": "Апартаменти",
-    "Contacts": "Контакти",
-    "Documents": "Документи",
-    "Rules": "Правила"
+  "BlogPage":{
+    "GenSubTitle":"Блог",
+    "SubTitle":"тут ви можете прочитати корисні статті"
+  },
+  "BlogIdPage":{
+    "NotFound":"Блог не знайдено",
+    "NotFoundTitleBtn":"До усіх блогів",
+    "NavBtn":"На сторінку з усіма статтями"
+  },
+  "NotFoundPage":{
+    "NotFoundTitle":"Сторінка не знайдена",
+    "NotFoundTitleBtn":"На головну"
   },
   "Buttons": {
     "CalltBtn": "Подзвонити",
-    "HeroOrderBtn":"Замовити",
+    "OrderBtn":"Замовити",
     "HomeTeamBtn":"Про Команду",
     "HomeProjectsBtn":"До портфоліо",
-    "HomeServicesBtn":"Детальніше",
-    "HomeServiceOrderBtn": "Замовити",
-    "CloseBtn": "Закрити",
+    "ServicesDetailsBtn":"Детальніше",
+    "HomeFaqBtn":"Детальніше",
+    "ServiceCardOrderBtn": "Замовити",
+    "FormOrderBtn":"Замовити дзвінок від менеджера",
+    "ProjectDetailsBtn":"Детальніше",
+    "ProjectOpenSiteBtn":"Відкрити сайт",
     "CardDetailsBtn": "Детальніше",
+    "CloseBtn": "Закрити",
     "FilterBtn": "Шукати",
     "FilterClear": "Очистити",
-    "FilterQuantRooms": "-кім.",
-    "FilterSleepingPlaces": "Спальні місця",
-    "ObjectsBtn": "Всі об’єкти",
     "OpenFilterBtn": "Фільтр",
     "CloseFilterBtn": "Сховати",
-    "LogOutBtn": "Розлогінитися",
     "Submit": "Пiдтвердити"
   },
   "Form": {
-    "SeoTitleH3": "Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.",
-    "name": "Ім’я",
-    "phone": "Номер телефону *",
-    "dateOfEntry": "Дата заїзду",
-    "departureDate": "Дата виїзду",
-    "numberOfObject": "Номер об’єкту",
-    "fieldsDesc": "поле, обовʼязкове для заповнення",
-    "formSubmitedMsg1": "Ваша заявка успішно відправлена!",
-    "formSubmitedMsg2": "Наш менеджер зв’яжеться з Вами найближчим часом.",
+    "Title":"Заповніть форму і ми зателефонуємо вам найближчим часом",
+    "TitleMob":"Ми зателефонуємо вам найближчим часом",
+    "Name": "Ім’я",
+    "Phone": "Номер телефону",
+    "TextArea": "Коротко опишіть ваше побажання",
+    "FormSubmitedMsg": "Вітаємо! Ваше повідомлення відправлено менеджеру.",
     "fieldRequiredMsg": "Заповніть це поле",
     "errorShortName": "Ім’я має бути довшим",
     "errorLongName": "Ім’я має бути коротшим",
@@ -123,5 +103,8 @@
     "dateOfEntry": "Оберіть дату",
     "departureDate": "Оберіть дату",
     "numberObject": "Вкажіть номер об’єкту"
+  },
+  "LoadStatus":{
+    "Load":"Загрузка..."
   }
 }

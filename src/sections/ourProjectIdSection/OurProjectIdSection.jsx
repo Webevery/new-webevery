@@ -1,14 +1,15 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { CldImage } from "next-cloudinary";
 import { useTranslation } from "react-i18next";
 import { v4 } from "uuid";
 import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import { currentLanguages } from "@/data/languages";
 import { useCheckPathname } from "@/hooks/useCheckPathname";
+import { isMobole, isTablet } from "@/hooks/useWindowResize";
 import NotFound from "@/components/NotFound/NotFound";
+import Loading from "@/components/Loading/Loading";
 
 import stylescBtn from "@/components/Buttons/Btns.module.scss";
 import styles from "./OurProjectIdSection.module.scss";
@@ -17,7 +18,6 @@ const OurProjectIdSection = ({ params }) => {
     const router = useRouter();
     const pathname = usePathname();
     const { slug } = params;
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     const { data, error, isLoading } = GetIdDataFromSection(
         "ourProjects",
@@ -25,25 +25,14 @@ const OurProjectIdSection = ({ params }) => {
     );
 
     const dataId = data && !isLoading ? data : error;
-    const { i18n } = useTranslation();
+    const { i18n,t } = useTranslation();
 
     const isPathExist = useCheckPathname(pathname);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsSmallScreen(window.innerWidth <= 1024);
-        };
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
     return (
         <>
-            {isLoading && <h1>Loading...</h1>}
-            {!isPathExist && !isLoading && (
+            {isLoading && <Loading className={styles.loading} />}
+            {!isLoading && !isPathExist && (
                 <NotFound
                     title='Проект не знайдено'
                     buttonTitle='До усіх проектів'
@@ -60,7 +49,7 @@ const OurProjectIdSection = ({ params }) => {
                             <svg className={styles.backIcon}>
                                 <use href='../sprite.svg#icon-arrowReadMore' />
                             </svg>
-                            <p>To the page with all projects</p>
+                            <p>{t('OurProjectsPage.NavLinkText')}</p>
                         </div>
                         <h1 className={styles.ourProjectsTitle}>
                             {dataId?.titleEn === "Site for" ? (
@@ -102,7 +91,7 @@ const OurProjectIdSection = ({ params }) => {
                                 </span>
                             )}
                         </h1>
-                        {isSmallScreen && (
+                        {(isMobole || isTablet) && (
                             <div
                                 className={
                                     stylescBtn.btnWrapper +
@@ -140,7 +129,7 @@ const OurProjectIdSection = ({ params }) => {
                         </figure>
                         <ul className={styles.contentWraper}>
                             <li className={styles.contentItem}>
-                                <h3 className={styles.contentTitle}>Problem</h3>
+                                <h3 className={styles.contentTitle}>{t('OurProjectsPage.TitleProblem')}</h3>
                                 <p className={styles.contentDesc}>
                                     {i18n.language === currentLanguages.EN
                                         ? data?.problemEn
@@ -149,7 +138,7 @@ const OurProjectIdSection = ({ params }) => {
                             </li>
                             <li className={styles.contentItem}>
                                 <h3 className={styles.contentTitle}>
-                                    Solution
+                                {t('OurProjectsPage.TitleSolutions')}
                                 </h3>
                                 <p className={styles.contentDesc}>
                                     {i18n.language === currentLanguages.EN
@@ -159,7 +148,7 @@ const OurProjectIdSection = ({ params }) => {
                             </li>
                             <li className={styles.contentItem}>
                                 <h3 className={styles.contentTitle}>
-                                    How it`s help for business
+                                {t('OurProjectsPage.TitleHelpBussines')}
                                 </h3>
                                 <p className={styles.contentDesc}>
                                     {i18n.language === currentLanguages.EN
@@ -183,7 +172,7 @@ const OurProjectIdSection = ({ params }) => {
                         </figure>
                         <div className={styles.mobileContainer}>
                             <h3 className={styles.mobileTitle}>
-                                Mobile adapted
+                            {t('OurProjectsPage.TitleDesc')}
                             </h3>
                             <p className={styles.mobileDesc}>
                                 {i18n.language === currentLanguages.EN

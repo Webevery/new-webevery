@@ -9,17 +9,17 @@ import HomeOrderSection from "@/sections/homeOrderSection/HomeOrderSection";
 import styles from "./Home.module.scss";
 
 const Home = () => {
-    return (
-        <div className='screen'>
-            <HomeHeroSection />
-            <HomeTeamSection />
-            <HomeOurProjectsSection />
-            <HomeServicesSection />
-            <HomeFaqSection />
-            <HomeWorkingProcessSection />
-            <HomeOrderSection />
-        </div>
-    );
+  return (
+    <>
+      <HomeHeroSection />
+      <HomeTeamSection />
+      <HomeOurProjectsSection />
+      <HomeServicesSection />
+      <HomeFaqSection />
+      <HomeWorkingProcessSection />
+      <HomeOrderSection />
+    </>
+  );
 };
 
 export default Home;

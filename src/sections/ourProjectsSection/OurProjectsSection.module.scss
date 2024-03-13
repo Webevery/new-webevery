@@ -1,4 +1,4 @@
-@import '../../app/variables';
+@import "../../app/variables";
 
 .projectContainer {
   padding: 112px 20px 40px 20px;
@@ -16,13 +16,13 @@
     padding: 110px 20px 80px 20px;
   }
   @media screen and (min-width: $tablet) {
-    padding: 184px 20px 80px 20px;
+    padding: 112px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 184px 32px 80px 32px;
+    padding: 112px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 180px 72px 80px 72px;
+    padding: 112px 72px 80px 72px;
   }
 }
 
@@ -95,9 +95,9 @@
   @media screen and (min-width: $laptop) {
     row-gap: 48px;
   }
-  @media screen and (min-width: $desktop) {
-    row-gap: 104px;
-  }
+  // @media screen and (min-width: $desktop) {
+  //   row-gap: 104px;
+  // }
 }
 
 .ourProjectsItem {
@@ -179,7 +179,7 @@
 
   @media screen and (min-width: $tablet) {
     &::after {
-      content: '';
+      content: "";
       display: block;
       height: 1px;
       width: 100%;

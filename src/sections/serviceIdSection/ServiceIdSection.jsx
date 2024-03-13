@@ -6,18 +6,19 @@ import { useTranslation } from "react-i18next";
 import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import { useCheckPathname } from "@/hooks/useCheckPathname";
 import { currentLanguages } from "@/data/languages";
-import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
 import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
+import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+import NotFound from "@/components/NotFound/NotFound";
+import Loading from "@/components/Loading/Loading";
 
 import styles from "./ServiceIdSection.module.scss";
-import NotFound from "@/components/NotFound/NotFound";
 
 const ServiceIdSection = ({ params }) => {
     const { slug } = params;
     const pathname = usePathname();
     const { data, error, isLoading } = GetIdDataFromSection("services", slug);
     const isPathExist = useCheckPathname(pathname);
-    const { i18n } = useTranslation();
+    const { i18n,t } = useTranslation();
 
     const dataId = data && !isLoading ? data : error;
 
@@ -25,8 +26,8 @@ const ServiceIdSection = ({ params }) => {
 
     return (
         <>
-            {isLoading && <h1>Loading...</h1>}
-            {!isPathExist && !isLoading && (
+            {isLoading && <Loading className={styles.loading} />}
+            {!isLoading && !isPathExist && (
                 <NotFound
                     title='Сторінку не знайдено'
                     buttonTitle='До усіх послуг'
@@ -37,9 +38,9 @@ const ServiceIdSection = ({ params }) => {
                 <section className={styles.servicesId}>
                     <div className={`container ${styles.servicesIdContainer}`}>
                         <h1 className={styles.servicesIdTitle}>
-                            <span>{dataId?.titleGradient}</span>
+                            <span>{i18n.language === currentLanguages.EN ? dataId?.titleGradientEn : dataId?.titleGradient}</span>
                             &nbsp;
-                            {dataId?.title}
+                            {i18n.language === currentLanguages.EN ? dataId?.titleEn : dataId?.title}
                         </h1>
                         <div className={styles.servicesIdContent}>
                             <div className={styles.servicesIdImgContainer}>
@@ -65,7 +66,7 @@ const ServiceIdSection = ({ params }) => {
                                 </p>
                                 <OrderBtn
                                     id={styles.serviceOrderBtn}
-                                    title={"Замовити"}
+                                    title={t('Buttons.OrderBtn')}
                                 />
                             </div>
                         </div>
@@ -74,8 +75,7 @@ const ServiceIdSection = ({ params }) => {
                             className={`container ${styles.servicesIdSliderContainer}`}
                         >
                             <h3 className={styles.servicesIdSliderTitle}>
-                                Оберіть <span>найкращу</span> пропозицію для
-                                вашого бізнесу:
+                                {t('ServiceIdPage.SubTitle1')} <span>{t('ServiceIdPage.SubTitle2')}</span> {t('ServiceIdPage.SubTitle3')}
                             </h3>
                             <SliderOfServices />
                         </div>

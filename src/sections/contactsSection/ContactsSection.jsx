@@ -3,11 +3,19 @@
 import { useWindowResize } from "@/hooks/useWindowResize";
 import OrderForm from "@/components/OrderForm/OrderForm";
 import OurContacts from "./OurContacts";
-
+import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
 import styles from "./ContactsSection.module.scss";
+import { currentLanguages } from "@/data";
 
 const ContactsSection = () => {
   const { isMobile, isTablet, isLaptop, isDesktop } = useWindowResize();
+
+  const[isLoad,setIsLoad]=useState(true)
+  
+  const {t,i18n}= useTranslation();
+
+  useEffect(()=>setIsLoad(false))
 
   return (
     <>
@@ -17,9 +25,9 @@ const ContactsSection = () => {
             <section className={styles.section}>
               <div className={`container ${styles.contactsContainer}`}>
                 <div className={styles.titleWrap}>
-                  <h1 className={styles.title}>
-                    Contact <span className={styles.titleSlice}>us</span>
-                  </h1>
+                  {!isLoad && <h1 className={styles.title}>
+                    {t('ContactsPage.Title')} {i18n.language===currentLanguages.EN && <span className={styles.titleSlice}>us</span>}
+                  </h1>}
                 </div>
                 <div className={styles.contentWrap}>
                   <OurContacts />
@@ -33,9 +41,9 @@ const ContactsSection = () => {
             <section className={styles.section}>
               <div className={`container ${styles.contactsContainer}`}>
                 <div className={styles.titleWrap}>
-                  <h1 className={styles.title}>
-                    Contact <span className={styles.titleSlice}>us</span>
-                  </h1>
+                  {!isLoad && <h1 className={styles.title}>
+                  {t('ContactsPage.Title')} {i18n.language===currentLanguages.EN && <span className={styles.titleSlice}>us</span>}
+                  </h1>}
                 </div>
                 <div className={styles.contentWrap}>
                   <OurContacts />
@@ -49,7 +57,7 @@ const ContactsSection = () => {
               <div className={`container ${styles.contactsContainer}`}>
                 <div className={styles.titleWrap}>
                   <h1 className={styles.title}>
-                    Contact <span className={styles.titleSlice}>us</span>
+                  {t('ContactsPage.Title')} {i18n.language===currentLanguages.EN && <span className={styles.titleSlice}>us</span>}
                   </h1>
                 </div>
                 <div className={styles.contentWrap}>
@@ -63,7 +71,7 @@ const ContactsSection = () => {
             </section>
           );
         } else {
-          return <div>Loading ...</div>;
+          return <div>{!isLoad && t('LoadStatus.Load')}</div>;
         }
       })()}
     </>

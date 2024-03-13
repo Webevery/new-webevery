@@ -50,16 +50,14 @@
   background-color: $gray900;
   font-size: 16px;
   transform: translateX(-100%);
-  // transform: translateX(0%);
   width: 200px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 
-  // background-color: aqua;
-
   overflow-y: auto;
   max-height: calc(100vh - 60px);
+  transition-duration: $transitionDuration;
 
   @media screen and (min-width: $mobile) {
     width: 327px;
@@ -142,6 +140,7 @@
   width: 32px;
   height: 32px;
   position: relative;
+  transition-duration: $transitionDuration;
 
   &:hover,
   &:focus {
