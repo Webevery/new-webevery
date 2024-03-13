@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import { useTranslation } from "react-i18next";
@@ -7,7 +8,6 @@ import { v4 } from "uuid";
 import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import { currentLanguages } from "@/data/languages";
 import { useCheckPathname } from "@/hooks/useCheckPathname";
-import { isMobole, isTablet } from "@/hooks/useWindowResize";
 import NotFound from "@/components/NotFound/NotFound";
 import Loading from "@/components/Loading/Loading";
 
@@ -15,6 +15,7 @@ import stylescBtn from "@/components/Buttons/Btns.module.scss";
 import styles from "./OurProjectIdSection.module.scss";
 
 const OurProjectIdSection = ({ params }) => {
+    const [isLaptop, setLaptop] = useState(false);
     const router = useRouter();
     const pathname = usePathname();
     const { slug } = params;
@@ -29,6 +30,22 @@ const OurProjectIdSection = ({ params }) => {
 
     const isPathExist = useCheckPathname(pathname);
 
+    const handleResizeLaptop = useCallback(() => {
+        if (window.innerWidth > 1024) {
+            setLaptop(true);
+        } else {
+            setLaptop(false);
+        }
+    }, [setLaptop]);
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResizeLaptop);
+        handleResizeLaptop();
+        return () => {
+            window.removeEventListener("resize", handleResizeLaptop);
+        };
+    }, [handleResizeLaptop]);
+
     return (
         <>
             {isLoading && <Loading className={styles.loading} />}
@@ -39,8 +56,8 @@ const OurProjectIdSection = ({ params }) => {
                     href='/ourProjects'
                 />
             )}
-            <section>
-                {!isLoading && isPathExist && (
+            {!isLoading && isPathExist && (
+                <section>
                     <div className={`container ${styles.ourProjectContainer}`}>
                         <div
                             className={styles.backContainer}
@@ -91,7 +108,7 @@ const OurProjectIdSection = ({ params }) => {
                                 </span>
                             )}
                         </h1>
-                        {(isMobole || isTablet) && (
+                        {isLaptop && (
                             <div
                                 className={
                                     stylescBtn.btnWrapper +
@@ -196,8 +213,8 @@ const OurProjectIdSection = ({ params }) => {
                             ))}
                         </ul>
                     </div>
-                )}
-            </section>
+                </section>
+            )}
         </>
     );
 };

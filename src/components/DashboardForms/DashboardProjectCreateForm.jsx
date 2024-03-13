@@ -33,15 +33,8 @@ const DashboardProjectCreateForm = () => {
     };
 
     const form = useForm(initialValues);
-    const {
-        register,
-        control,
-        handleSubmit,
-        formState,
-        reset,
-        getValues,
-        setValue,
-    } = form;
+    const { register, handleSubmit, formState, reset, getValues, setValue } =
+        form;
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = (data) => {
@@ -141,12 +134,14 @@ const DashboardProjectCreateForm = () => {
                         name='heroImage'
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
-                            if (initialValues.heroImage !== "") {
+                            if (getValues("heroImage") !== "") {
                                 // handleDeleteImgFromCloudinary(
                                 //     initialValues.heroImage
                                 // );
                             }
-                            setValue("heroImage", result.info.public_id);
+                            setValue("heroImage", result.info.public_id, {
+                                shouldValidate: true,
+                            });
                             widget.close();
                         }}
                         options={{ multiple: false }}
@@ -234,12 +229,14 @@ const DashboardProjectCreateForm = () => {
                         name='screensImage'
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
-                            if (initialValues.screensImage !== "") {
+                            if (getValues("screensImage") !== "") {
                                 // handleDeleteImgFromCloudinary(
                                 //     initialValues.heroImage
                                 // );
                             }
-                            setValue("screensImage", result.info.public_id);
+                            setValue("screensImage", result.info.public_id, {
+                                shouldValidate: true,
+                            });
                             widget.close();
                         }}
                         options={{ multiple: false }}
@@ -283,11 +280,14 @@ const DashboardProjectCreateForm = () => {
                         name='mobileImages'
                         className={styles.uploadBtn}
                         onUpload={(result) => {
-                            const value = getValues("mobileImages");
-                            setValue("mobileImages", [
-                                ...value,
-                                result.info.public_id,
-                            ]);
+                            setValue(
+                                "mobileImages",
+                                [
+                                    ...getValues("mobileImages"),
+                                    result.info.public_id,
+                                ],
+                                { shouldValidate: true }
+                            );
                             // update(...result.info.public_id);
                         }}
                         uploadPreset='unsigned_preset'
