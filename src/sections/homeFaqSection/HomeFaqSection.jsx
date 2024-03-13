@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import PlusIcon from "./Icons/PlusIcon";
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
-import { currentLanguages } from "@/data/languages.data";
+import { currentLanguages } from "@/data";
 import { useWindowResize } from "@/hooks/useWindowResize";
 
 const HomeFaqSection = () => {
