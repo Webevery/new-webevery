@@ -19,7 +19,13 @@
     "SubTitle": "let's get to know those who work for you"
   },
   "OurProjectsPage":{
-    "Title":"Our Projects"
+    "Title":"Our Projects",
+    "NavLinkText":"To the page with all projects",
+    "TitleProblem":"Problem",
+    "TitleSolutions":"Solutions",
+    "TitleHelpBussines":"How it`s help for business",
+    "TitleDesc":"Mobile adapted"
+
   },
   "ContactsPage": {
     "Title": "Contact",

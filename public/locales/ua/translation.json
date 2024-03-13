@@ -26,7 +26,12 @@
     "SubTitle": "давайте познайомимося з тими, хто працює для вас"
   },
   "OurProjectsPage":{
-    "Title":"Наші роботи"
+    "Title":"Наші роботи",
+    "NavLinkText":"На сторінку з усіма проектами",
+    "TitleProblem":"Проблема",
+    "TitleSolutions":"Рішення",
+    "TitleHelpBussines":"Як це допоможе бізнесу",
+    "TitleDesc":"Адаптовано для мобільних пристроїв"
   },
   "ContactsPage": {
     "Title": "Контакти",
