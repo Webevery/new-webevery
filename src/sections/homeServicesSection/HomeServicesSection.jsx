@@ -23,7 +23,8 @@ const HomeServicesSection = () => {
       <div className={styles.btnNavContainer}>
       {!isLoad && <NavigationBtn
       id={styles.btnNav}
-      title={t("Buttons.ServicesDetailsBtn")}/>}</div>
+      title={t("Buttons.ServicesDetailsBtn")}
+      href="/services"/>}</div>
       <SliderOfServices/>
     </div>
   </section>;
