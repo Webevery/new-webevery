@@ -25,7 +25,7 @@ const OurProjectIdSection = ({ params }) => {
     );
 
     const dataId = data && !isLoading ? data : error;
-    const { i18n } = useTranslation();
+    const { i18n,t } = useTranslation();
 
     const isPathExist = useCheckPathname(pathname);
 
@@ -49,7 +49,7 @@ const OurProjectIdSection = ({ params }) => {
                             <svg className={styles.backIcon}>
                                 <use href='../sprite.svg#icon-arrowReadMore' />
                             </svg>
-                            <p>To the page with all projects</p>
+                            <p>{t('OurProjectsPage.NavLinkText')}</p>
                         </div>
                         <h1 className={styles.ourProjectsTitle}>
                             {dataId?.titleEn === "Site for" ? (
@@ -129,7 +129,7 @@ const OurProjectIdSection = ({ params }) => {
                         </figure>
                         <ul className={styles.contentWraper}>
                             <li className={styles.contentItem}>
-                                <h3 className={styles.contentTitle}>Problem</h3>
+                                <h3 className={styles.contentTitle}>{t('OurProjectsPage.TitleProblem')}</h3>
                                 <p className={styles.contentDesc}>
                                     {i18n.language === currentLanguages.EN
                                         ? data?.problemEn
@@ -138,7 +138,7 @@ const OurProjectIdSection = ({ params }) => {
                             </li>
                             <li className={styles.contentItem}>
                                 <h3 className={styles.contentTitle}>
-                                    Solution
+                                {t('OurProjectsPage.TitleSolutions')}
                                 </h3>
                                 <p className={styles.contentDesc}>
                                     {i18n.language === currentLanguages.EN
@@ -148,7 +148,7 @@ const OurProjectIdSection = ({ params }) => {
                             </li>
                             <li className={styles.contentItem}>
                                 <h3 className={styles.contentTitle}>
-                                    How it`s help for business
+                                {t('OurProjectsPage.TitleHelpBussines')}
                                 </h3>
                                 <p className={styles.contentDesc}>
                                     {i18n.language === currentLanguages.EN
@@ -172,7 +172,7 @@ const OurProjectIdSection = ({ params }) => {
                         </figure>
                         <div className={styles.mobileContainer}>
                             <h3 className={styles.mobileTitle}>
-                                Mobile adapted
+                            {t('OurProjectsPage.TitleDesc')}
                             </h3>
                             <p className={styles.mobileDesc}>
                                 {i18n.language === currentLanguages.EN

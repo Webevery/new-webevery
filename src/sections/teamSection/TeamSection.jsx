@@ -9,7 +9,7 @@ import { currentLanguages } from "@/data/languages";
 
 const TeamSection = () => {
   const { data, isLoading, error } = GetDataFromSection("team");
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   let newData = [];
   if (!isLoading) {
@@ -22,12 +22,12 @@ const TeamSection = () => {
     <section className={styles.team}>
       <div className={`container ${styles.teamContainer}`}>
         <div className={styles.titleTeamContainer}>
-          <h1 className={styles.titleTeam}>
-            <span>Команда</span>
+          {!isLoading && <><h1 className={styles.titleTeam}>
+            <span>{t('TeamPage.Title')}</span>
           </h1>
           <h2 className={styles.descTeam}>
-            давайте познайомимося з тими, хто працює для вас
-          </h2>
+          {t('TeamPage.SubTitle')}
+          </h2></>}
         </div>
         <ul className={styles.cartContainer}>
           {newData?.map((item) => (
