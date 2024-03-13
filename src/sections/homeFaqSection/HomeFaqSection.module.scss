@@ -24,6 +24,7 @@
 
 .faqSection__title {
   // display: flex;
+  display: inline-block;
   font-size: 40px;
   font-weight: 300;
   line-height: 110%;
@@ -121,6 +122,9 @@
 .base {
   // display: flex;
   // flex-wrap: wrap;
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
 
   @media screen and (min-width: $tablet) {
     &:not(:last-child) {
