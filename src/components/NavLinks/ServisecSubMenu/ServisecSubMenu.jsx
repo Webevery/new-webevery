@@ -2,9 +2,10 @@
 import React from "react";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "../NavLinks.module.scss";
-
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { currentLanguages } from "@/data";
 
 const ServisecSubMenu = ({
   isClicked,
@@ -15,6 +16,8 @@ const ServisecSubMenu = ({
 }) => {
   const { data, isLoading, error } = GetDataFromSection("services");
   const pathName = usePathname();
+
+  const {i18n}=useTranslation();
 
   let allData = [];
   const allServices = {
@@ -55,7 +58,7 @@ const ServisecSubMenu = ({
         // }
         className={subClassName()}
       >
-        {`${sub.titleGradientEn} ${sub.titleEn}`}
+        {i18n.language=== currentLanguages.EN ? `${sub.titleGradientEn} ${sub.titleEn}` : `${sub.titleGradient} ${sub.title}`}
       </Link>
     );
   });

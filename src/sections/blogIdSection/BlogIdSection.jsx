@@ -17,15 +17,15 @@ const BlogIdSection = ({ params }) => {
     const pathname = usePathname();
     const isPathExist = useCheckPathname(pathname);
     const router = useRouter();
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
 
     return (
         <>
             {isLoading && <Loading className={styles.loading} />}
             {!isLoading && !isPathExist && (
                 <NotFound
-                    title='Блог не знайдено'
-                    buttonTitle='До усіх блогів'
+                    title={t('BlogIdPage.NotFound')}
+                    buttonTitle={t('BlogIdPage.NotFoundTitleBtn')}
                     href='/blog'
                 />
             )}
@@ -40,7 +40,7 @@ const BlogIdSection = ({ params }) => {
                             <svg className={styles.backIcon}>
                                 <use href='../sprite.svg#icon-arrowReadMore' />
                             </svg>
-                            <p>To page with all articles</p>
+                            <p>{t('BlogIdPage.NavBtn')}</p>
                         </div>
                         <div className={styles.blogIdContent}>
                             <h1 className={styles.blogTitle}>

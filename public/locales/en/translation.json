@@ -45,12 +45,18 @@
     "SubTitle2": "the best",
     "SubTitle3": "deal for your business:"
   },
-  "Navigation": {
-    "MainPage": "Main",
-    "Apartments": "Apartments",
-    "Contacts": "Contacts",
-    "Documents": "Documents",
-    "Rules": "Rules"
+  "BlogPage":{
+    "GenSubTitle":"Blog",
+    "SubTitle":"here is you can read useful articles"
+  },
+  "BlogIdPage":{
+    "NotFound":"Blog not found",
+    "NotFoundTitleBtn":"To all blogs",
+    "NavBtn":"To page with all articles"
+  },
+  "NotFoundPage":{
+    "NotFoundTitle":"Page not found",
+    "NotFoundTitleBtn":"Home"
   },
   "Buttons": {
     "CalltBtn": "Call",
@@ -63,13 +69,10 @@
     "FormOrderBtn":"Order call from manager",
     "ProjectDetailsBtn":"Read more",
     "ProjectOpenSiteBtn":"Open site",
+    "CardDetailsBtn": "Read more",
     "CloseBtn": "Close",
-    "CardDetailsBtn": "Details",
     "FilterBtn": "Find",
     "FilterClear": "Clear",
-    "FilterQuantRooms": "-rooms",
-    "FilterSleepingPlaces": "Sleeping places",
-    "ObjectsBtn": "All objects",
     "OpenFilterBtn": "Filter",
     "CloseFilterBtn": "Close",
     "LogOutBtn": "LogOut",
