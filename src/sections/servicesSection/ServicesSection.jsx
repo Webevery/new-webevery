@@ -15,7 +15,7 @@ import { currentLanguages } from "@/data/languages";
 const ServicesSection = () => {
   const { data } = GetDataFromSection("services");
   const { openModal, setComment } = useContext(SiteContext);
-  const { i18n } = useTranslation();
+  const { i18n,t } = useTranslation();
   
     return (
         <section>
@@ -53,7 +53,7 @@ const ServicesSection = () => {
                         href={`/services/${slug}`}
                         className={styles.readMore}
                       >
-                        <span className={styles.readMoreTitle}>Детальніше</span>
+                        <span className={styles.readMoreTitle}>{t('Buttons.ServicesDetailsBtn')}</span>
                         <svg className={styles.readMoreIcon}>
                           <linearGradient
                             id="paint0_linear_3004_8704"
@@ -100,7 +100,7 @@ const ServicesSection = () => {
                       <p className={styles.cartPrice}>{price}</p>
                       <OrderBtn
                         id={styles.serviceOrderBtn}
-                        title={"Замовити"}
+                        title={t('Buttons.ServiceCardOrderBtn')}
                         onClick={() => {
                           setComment(`${titleGradientEn} ${titleEn}`);
                           openModal();

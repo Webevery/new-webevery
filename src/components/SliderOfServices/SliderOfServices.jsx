@@ -76,7 +76,7 @@ export const SliderOfServices = () => {
                     >
                       <div className={styles.linkCont}>
                         <span className={styles.readMoreTitle}>
-                          {t("Buttons.HomeServicesBtn")}
+                          {t("Buttons.ServicesDetailsBtn")}
                         </span>
                         <svg className={styles.readMoreIcon}>
                           <linearGradient
@@ -141,7 +141,7 @@ export const SliderOfServices = () => {
                     </p>
                     <OrderBtn
                       id={styles.orderBtn}
-                      title={t("Buttons.HomeServiceOrderBtn")}
+                      title={t("Buttons.ServiceCardOrderBtn")}
                     />
                   </div>
                 </li>
