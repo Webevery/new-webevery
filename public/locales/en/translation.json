@@ -29,18 +29,16 @@
   },
   "ContactsPage": {
     "Title": "Contact",
-    "SubTitle": "Us",
+    "SubTitle": "us",
     "Phone": "PHONE NUMBER",
     "Email": "EMAIL",
     "Social": "SOCIAL MEDIA"
   },
-  "ApartIdItem": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "SeoTitleH2": "Navigation",
-    "SeoTitleH3": "Detailed information about the apartments",
-    "SeoTitleH4": "Detailed information about the amenities",
-    "SeoTitleItemSliderH4": "Detailed images of the apartment",
-    "TextWelcome": "Welcome to DailyRent."
+  "ServicesPage": {
+    "Title": "Services",
+    "SubTitle1":"choose",
+    "SubTitle2": "the best",
+    "SubTitle3": "deal for your business"
   },
   "Navigation": {
     "MainPage": "Main",

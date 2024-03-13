@@ -39,6 +39,12 @@
     "Email": "ПОШТА",
     "Social": "СОЦІАЛЬНІ МЕРЕЖІ"
   },
+  "ServicesPage": {
+    "Title": "Послуги",
+    "SubTitle1":"обирайте",
+    "SubTitle2": "найкращу",
+    "SubTitle3": "пропозицію для вашего бізнесу"
+  },
   "Navigation": {
     "MainPage": "Головна",
     "Apartments": "Апартаменти",
