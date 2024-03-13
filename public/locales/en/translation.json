@@ -12,25 +12,21 @@
     "FaqSubTitle":"Find your question here",
     "OrderSectionTitleMob":"To talk about",
     "OrderSectionTitleTab":"Let`s talk about",
-    "OrderSectionSubTitle":"your new site!",
-    "heroTitle": "Daily and hourly rent",
-    "heroSubTitle": "for comfortable living and recreation",
-    "galleryTittle": "Аpartments",
-    "contactsTitle": "Contact Us"
+    "OrderSectionSubTitle":"your new site!"
   },
-  "ApartmentsPage": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "SeoTitleH2": "Navigation",
-    "Title": "What will be in the apartment?",
-    "OneRoom": "One-room",
-    "TwoRoom": "Two-room",
-    "ThreeRoom": "Three-room",
-    "OneAndTwoRoom": "One-room and two-room",
-    "OneAndThreeRoom": "One-room and three-room",
-    "TwoAndThreeRoom": "Two-room and three-room",
-    "NotFound": "apartments not found",
-    "TextOfDescAdress": "-room apartment at the address",
-    "TextOfDescOptions": "What will be in the apartment"
+  "TeamPage": {
+    "Title": "Team",
+    "SubTitle": "let's get to know those who work for you"
+  },
+  "OurProjectsPage":{
+    "Title":"Our Projects"
+  },
+  "ContactsPage": {
+    "Title": "Contact",
+    "SubTitle": "Us",
+    "Phone": "PHONE NUMBER",
+    "Email": "EMAIL",
+    "Social": "SOCIAL MEDIA"
   },
   "ApartIdItem": {
     "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
@@ -39,32 +35,6 @@
     "SeoTitleH4": "Detailed information about the amenities",
     "SeoTitleItemSliderH4": "Detailed images of the apartment",
     "TextWelcome": "Welcome to DailyRent."
-  },
-  "ContactsPage": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "SeoTitleH2": "Navigation",
-    "SeoTitleH4": "Contact information",
-    "Title": "Cozy apartments in Sumy are waiting for your call.",
-    "Title1": "Contacts",
-    "Text": "Feel free to call us or write to us on any of the social media. We will be happy to help and communicate with you!",
-    "CountryAndSity": "Ukraine, Sumy",
-    "Adress": "Voskresenska Street, 8"
-  },
-  "RulesPage": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "SeoTitleH2": "Navigation",
-    "MainTitle": "rules of residence:",
-    "TitleSection1": "Rules of behavior in the apartment:",
-    "TitleSection2": "This is strictly prohibited:",
-    "TitleSection3": "The administration has the right to immediately evict the tenant without refunding the rent in case of:"
-  },
-  "DocumentsPage": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "SeoTitleH2": "Navigation",
-    "SeoTitleH3": "Documents files",
-    "Document1": "Extract from the Unified State Register of Legal Entities",
-    "Document2": "Extract from the Unified State Register of Legal Entities",
-    "Document3": "Extract from the register of taxpayers"
   },
   "Navigation": {
     "MainPage": "Main",
@@ -82,6 +52,8 @@
     "HomeFaqBtn":"Read more",
     "HomeServiceOrderBtn": "Order",
     "FormOrderBtn":"Order call from manager",
+    "ProjectDetailsBtn":"Read more",
+    "ProjectOpenSiteBtn":"Open site",
     "CloseBtn": "Close",
     "CardDetailsBtn": "Details",
     "FilterBtn": "Find",
@@ -95,6 +67,8 @@
     "Submit": "Submit"
   },
   "Form": {
+    "Title":"Fill out the form and we call you very soon",
+    "TitleMob":"We call you very soon",
     "Name": "Name",
     "Phone": "Phone",
     "TextArea": "Briefly describe your wish",
@@ -117,5 +91,8 @@
     "dateOfEntry": "Choose a date",
     "departureDate": "Choose a date",
     "numberObject": "Enter the object number"
+  },
+  "LoadStatus":{
+    "Load":"Loading..."
   }
 }

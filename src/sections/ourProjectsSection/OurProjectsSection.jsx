@@ -14,7 +14,7 @@ const OurProjectsSection = () => {
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,7 +30,7 @@ const OurProjectsSection = () => {
   return (
     <section>
       <div className={`container ${styles.projectContainer}`}>
-        <h1 className={styles.title}>Our Projects</h1>
+       {!isLoading && <h1 className={styles.title}>{t('OurProjectsPage.Title')}</h1>}
         <ul className={styles.ourProjectsList}>
           {!isLoading &&
             data?.map(
@@ -94,7 +94,7 @@ const OurProjectsSection = () => {
                       href={`/ourProjects/${slug}`}
                       className={styles.readMore}
                     >
-                      <span className={styles.readMoreTitle}>Read more</span>
+                      <span className={styles.readMoreTitle}>{t('Buttons.ProjectDetailsBtn')}</span>
                       <svg
                         className={styles.readMoreIcon}
                         viewBox="0 0 24 7"
@@ -134,7 +134,7 @@ const OurProjectsSection = () => {
                           aria-label={titleGradientEn}
                           className={stylescBtn.btn + " " + styles.openSite}
                         >
-                          Open site
+                          {t('Buttons.ProjectOpenSiteBtn')}
                         </a>
                       </div>
                     )}

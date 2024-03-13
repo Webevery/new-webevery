@@ -92,11 +92,11 @@ const OrderForm = ({
                         >
                             {isMobile || isTablet ? (
                                 <h2 className={`${styles.title} `}>
-                                    We call you very soon
+                                    {t('Form.TitleMob')}
                                 </h2>
                             ) : (
                                 <h2 className={styles.title}>
-                                    Fill out the form and we call you very soon
+                                    {t('Form.Title')}
                                 </h2>
                             )}
                         </div>
