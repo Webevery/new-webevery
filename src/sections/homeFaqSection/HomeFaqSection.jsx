@@ -67,44 +67,45 @@ const HomeFaqSection = () => {
 
   return (
     <section className={styles.faqSection}>
-      <h2 className={`titleGradient ${styles.faqSection__title}`}>FAQ</h2>
-      <h3 className={styles.faqSection__title2}>Find your question here</h3>
-      <NavigationBtn
-        href={"/faq"}
-        className={styles.faqSection__readMore}
-        title={"Read more"}
-      />
-      {/* <Link href={"/faq"} className={styles.faqSection__readMore}>
+      <div className={"container"}>
+        <h2 className={`titleGradient ${styles.faqSection__title}`}>FAQ</h2>
+        <h3 className={styles.faqSection__title2}>Find your question here</h3>
+        <NavigationBtn
+          href={"/faq"}
+          className={styles.faqSection__readMore}
+          title={"Read more"}
+        />
+        {/* <Link href={"/faq"} className={styles.faqSection__readMore}>
         Read more
       </Link> */}
-      <Accordion
-        selectionMode="multiple"
-        showDivider={false}
-        motionProps={motionAcc}
-        className={styles.accordion}
-        variant="shadow"
-      >
-        {howManyItemsToDisplay().map((item) => (
-          <AccordionItem
-            classNames={{
-              indicator: styles.indicator,
-              base: styles.base,
-              heading: styles.heading,
-              trigger: styles.trigger,
-              title: styles.title,
-              content: styles.content,
-            }}
-            key={item.id}
-            title={item.question}
-            indicator={({ isOpen }) =>
-              isOpen ? <PlusIcon svgOpen={true} /> : <PlusIcon />
-            }
-          >
-            {item.answer}
-          </AccordionItem>
-        ))}
-      </Accordion>
-      {/* <ul className={styles.faqSection__list}>
+        <Accordion
+          selectionMode="multiple"
+          showDivider={false}
+          motionProps={motionAcc}
+          className={styles.accordion}
+          variant="shadow"
+        >
+          {howManyItemsToDisplay().map((item) => (
+            <AccordionItem
+              classNames={{
+                indicator: styles.indicator,
+                base: styles.base,
+                heading: styles.heading,
+                trigger: styles.trigger,
+                title: styles.title,
+                content: styles.content,
+              }}
+              key={item.id}
+              title={item.question}
+              indicator={({ isOpen }) =>
+                isOpen ? <PlusIcon svgOpen={true} /> : <PlusIcon />
+              }
+            >
+              {item.answer}
+            </AccordionItem>
+          ))}
+        </Accordion>
+        {/* <ul className={styles.faqSection__list}>
         {FAQdataEN.map((item) => (
           <HomeFaqSectionItem
             key={item.id}
@@ -119,6 +120,7 @@ const HomeFaqSection = () => {
           />
         ))}
       </ul> */}
+      </div>
     </section>
   );
 };
