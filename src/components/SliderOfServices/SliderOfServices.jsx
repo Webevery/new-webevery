@@ -7,6 +7,8 @@ import styles from "./SliderOfServices.module.scss";
 import { useTranslation } from "react-i18next";
 import { currentLanguages } from "@/data";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
+import { useContext } from "react";
+import { SiteContext } from "@/context/siteContext";
 import "./SliderOfServices.css";
 
 // Import Swiper styles
@@ -19,7 +21,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 export const SliderOfServices = () => {
   const { data, isLoading } = GetDataFromSection("services");
-
+  const { openModal, setComment } = useContext(SiteContext);
   const { i18n, t } = useTranslation();
 
   return (
@@ -142,6 +144,10 @@ export const SliderOfServices = () => {
                     <OrderBtn
                       id={styles.orderBtn}
                       title={t("Buttons.ServiceCardOrderBtn")}
+                      onClick={() => {
+                        setComment(`${titleGradientEn} ${titleEn}`);
+                        openModal();
+                      }}
                     />
                   </div>
                 </li>
