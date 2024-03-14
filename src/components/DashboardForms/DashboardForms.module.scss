@@ -68,9 +68,13 @@
     }
 }
 
-.formInputTextarea {
+.textarea {
     height: 60px;
-    // margin-bottom: 20px;
+    resize: none;
+}
+
+.bigTextarea {
+    height: 120px;
     resize: none;
 }
 
@@ -84,11 +88,13 @@
     border-radius: 20px;
     color: #fff;
     font-weight: inherit;
+    transition-duration: 250ms;
 
     &:hover,
     &:focus {
         background-color: #a8a7a1;
         color: #4a4535;
+        transition-duration: 250ms;
     }
 }
 

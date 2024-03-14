@@ -31,7 +31,7 @@ const DashboardServiceCreateForm = () => {
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = (data) => {
-        console.log("FormData:", data);
+        console.log("dashboardServiceCreateFormData:", data);
     };
 
     useEffect(() => {
@@ -148,7 +148,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='description'
                         placeholder=' '
                         {...register("description")}
@@ -162,7 +162,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='descriptionEn'
                         placeholder=' '
                         {...register("descriptionEn")}
@@ -202,7 +202,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='directions'
                         placeholder=' '
                         {...register("directions")}
@@ -214,7 +214,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='directionsEn'
                         placeholder=' '
                         {...register("directionsEn")}
@@ -232,7 +232,7 @@ const DashboardServiceCreateForm = () => {
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
                 >
-                    Відправити
+                    Create new!
                 </button>
             </form>
         </div>
