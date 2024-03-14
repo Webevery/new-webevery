@@ -38,7 +38,7 @@ const DashboardProjectCreateForm = () => {
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = (data) => {
-        console.log("FormData:", data);
+        console.log("dashboardProjectCreateFormData:", data);
     };
 
     useEffect(() => {
@@ -154,7 +154,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='problem'
                         placeholder=' '
                         {...register("problem")}
@@ -166,7 +166,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='problemEn'
                         placeholder=' '
                         {...register("problemEn")}
@@ -178,7 +178,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='solution'
                         placeholder=' '
                         {...register("solution")}
@@ -190,7 +190,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='solutionEn'
                         placeholder=' '
                         {...register("solutionEn")}
@@ -202,7 +202,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='help'
                         placeholder=' '
                         {...register("help")}
@@ -214,7 +214,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='helpEn'
                         placeholder=' '
                         {...register("helpEn")}
@@ -251,7 +251,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='adaptation'
                         placeholder=' '
                         {...register("adaptation")}
@@ -263,7 +263,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='adaptationEn'
                         placeholder=' '
                         {...register("adaptationEn")}
@@ -317,7 +317,7 @@ const DashboardProjectCreateForm = () => {
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
                 >
-                    Відправити
+                    Create new!
                 </button>
             </form>
         </div>
