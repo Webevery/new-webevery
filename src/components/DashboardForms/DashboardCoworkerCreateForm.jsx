@@ -35,6 +35,7 @@ const DashboardCoworkerCreateForm = () => {
             reset();
         }
     }, [isSubmitSuccessful, reset]);
+
     return (
         <div className={styles.container}>
             <form
@@ -60,7 +61,7 @@ const DashboardCoworkerCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='name'
+                        type='text'
                         className={styles.formInput}
                         id='name'
                         placeholder=' '
@@ -73,7 +74,7 @@ const DashboardCoworkerCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='nameEn'
+                        type='text'
                         className={styles.formInput}
                         id='nameEn'
                         placeholder=' '
@@ -109,7 +110,7 @@ const DashboardCoworkerCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='position'
+                        type='text'
                         className={styles.formInput}
                         id='position'
                         placeholder=' '
@@ -122,7 +123,7 @@ const DashboardCoworkerCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='positionEn'
+                        type='text'
                         className={styles.formInput}
                         id='positionEn'
                         placeholder=' '

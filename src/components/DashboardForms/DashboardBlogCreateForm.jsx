@@ -28,7 +28,7 @@ const DashboardBlogCreateForm = () => {
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = (data) => {
-        console.log("dashboardCoworkerCreateFormData:", data);
+        console.log("dashboardBlogCreateFormData:", data);
     };
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const DashboardBlogCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='title'
+                        type='text'
                         className={styles.formInput}
                         id='title'
                         placeholder=' '
@@ -75,7 +75,7 @@ const DashboardBlogCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='titleEn'
+                        type='text'
                         className={styles.formInput}
                         id='titleEn'
                         placeholder=' '
