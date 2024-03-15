@@ -1,18 +1,27 @@
 "use client";
+
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import DashboardCoworkerItem from "@/components/DashboardCoworkerItem/DashboardCoworkerItem";
 import DashboardCoworkerUpdateForm from "@/components/DashboardForms/DashboardCoworkerUpdateForm";
+import Loading from "@/components/Loading/Loading";
+
 import styles from "./DashboardCoworkerIdSection.module.scss";
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 
 const DashboardCoworkerIdSection = ({ params }) => {
     const { slug } = params;
     const { data, isLoading } = GetIdDataFromSection("team", slug);
 
     return (
-        <div className={styles.container}>
-            <DashboardCoworkerItem data={data} isLoading={isLoading} />
-            <DashboardCoworkerUpdateForm />
-        </div>
+        <>
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <div className={styles.container}>
+                    <DashboardCoworkerItem data={data} />
+                    <DashboardCoworkerUpdateForm data={data} />
+                </div>
+            )}
+        </>
     );
 };
 
