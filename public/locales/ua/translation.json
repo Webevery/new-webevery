@@ -31,7 +31,9 @@
     "TitleProblem":"Проблема",
     "TitleSolutions":"Рішення",
     "TitleHelpBussines":"Як це допоможе бізнесу",
-    "TitleDesc":"Адаптовано для мобільних пристроїв"
+    "TitleDesc":"Адаптовано для мобільних пристроїв",
+    "NoProjects":"Проект не знайдено",
+    "NoProjectsBtn":"До усіх проектів"
   },
   "ContactsPage": {
     "Title": "Контакти",
@@ -48,11 +50,13 @@
   "ServiceIdPage": {
     "SubTitle1":"Обирайте",
     "SubTitle2": "найкращу",
-    "SubTitle3": "пропозицію для вашего бізнесу:"
+    "SubTitle3": "пропозицію для вашего бізнесу:",
+    "BackToServicesBtn":"До усіх послуг"
   },
   "BlogPage":{
     "GenSubTitle":"Блог",
-    "SubTitle":"тут ви можете прочитати корисні статті"
+    "SubTitle":"тут ви можете прочитати корисні статті",
+    "NoArticles":"Статей не знайдено!"
   },
   "BlogIdPage":{
     "NotFound":"Блог не знайдено",

@@ -206,14 +206,14 @@ const BlogSection = () => {
             )}
           {!isLoading && filterBlogArr?.length <= 0 && (
             <li className={styles.notFoundTextStyles}>
-              <p>Статей не найдено!</p>
+              <p>{t('BlogPage.NoArticles')}</p>
             </li>
           )}
         </ul>
 
         {showLoading && (
           <div className={styles.loading}>
-            <h3 className={styles.loadingText}>Loading...</h3>
+            <h3 className={styles.loadingText}>{t('LoadStatus.Load')}</h3>
           </div>
         )}
       </div>

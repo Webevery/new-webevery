@@ -8,8 +8,8 @@ const Loading = ({ className }) => {
   const[isLoad, setIsLoad]=useState(true)
   useEffect(()=>setIsLoad(false),[])
   return  <h3 className={`${styles.loading} ${className}`}>
-    {/* {!isLoad && t('LoadStatus.Load')} */}
-    Loading...
+    {!isLoad && t('LoadStatus.Load')}
+    {/* Loading... */}
     </h3>;
 };
 

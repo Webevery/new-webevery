@@ -24,7 +24,9 @@
     "TitleProblem":"Problem",
     "TitleSolutions":"Solutions",
     "TitleHelpBussines":"How it`s help for business",
-    "TitleDesc":"Mobile adapted"
+    "TitleDesc":"Mobile adapted",
+    "NoProjects":"Project not found",
+    "NoProjectsBtn":"To all projects"
 
   },
   "ContactsPage": {
@@ -43,11 +45,13 @@
   "ServiceIdPage": {
     "SubTitle1":"Choose",
     "SubTitle2": "the best",
-    "SubTitle3": "deal for your business:"
+    "SubTitle3": "deal for your business:",
+    "BackToServicesBtn":"To all services"
   },
   "BlogPage":{
     "GenSubTitle":"Blog",
-    "SubTitle":"here is you can read useful articles"
+    "SubTitle":"here is you can read useful articles",
+    "NoArticles":"No articles found!!"
   },
   "BlogIdPage":{
     "NotFound":"Blog not found",

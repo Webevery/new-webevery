@@ -34,8 +34,8 @@ const OurProjectIdSection = ({ params }) => {
             {isLoading && <Loading className={styles.loading} />}
             {!isLoading && !isPathExist && (
                 <NotFound
-                    title='Проект не знайдено'
-                    buttonTitle='До усіх проектів'
+                    title={t('OurProjectsPage.NoProjects')}
+                    buttonTitle={t('OurProjectsPage.NoProjectsBtn')}
                     href='/ourProjects'
                 />
             )}
