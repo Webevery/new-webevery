@@ -133,12 +133,12 @@ const serviceSchema = new mongoose.Schema(
     },
     // послуги українською (list - textarea)
     directions: {
-      type: Array,   // String - after request, before render will be changed to Array 
+      type: String,   // String - after request, before render will be changed to Array 
       required: true,
     },
     // послуги англійською (list - textarea)
     directionsEn: {
-      type: Array,   // String - after request, before render will be changed to Array 
+      type: String,   // String - after request, before render will be changed to Array 
       required: true,
     },
     // slug (text - input)
@@ -257,5 +257,4 @@ export const Service =
 
 export const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
 
-export const Coworker =
-  mongoose.models.Coworker || mongoose.model('Coworker', coworkerSchema);
+export const Coworker = mongoose.models.Coworker || mongoose.model('Coworker', coworkerSchema);

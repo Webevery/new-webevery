@@ -24,6 +24,21 @@ export const SliderOfServices = () => {
   const { openModal, setComment } = useContext(SiteContext);
   const { i18n, t } = useTranslation();
 
+  let changedData = [];
+
+  if (!isLoading) {
+    changedData = [...data];
+    changedData.map(item => {
+      if (typeof (item.directions) === "string" && typeof (item.directionsEn) === "string") {
+        const directionsArray = item.directions.split(" | ");
+        const directionsEnArray = item.directionsEn.split(" | ");
+        item.directions = directionsArray;
+        item.directionsEn = directionsEnArray;
+      }
+    })
+  }
+
+
   return (
     <Swiper
       slidesPerView={1}
@@ -56,7 +71,7 @@ export const SliderOfServices = () => {
       className="ServiceSwiper"
     >
       <ul className={styles.serviceList}>
-        {data?.map(
+        {changedData?.map(
           ({
             slug,
             title,
