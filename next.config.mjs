@@ -4,6 +4,5 @@ const nextConfig = {
         TELEGRAM_API: process.env.TELEGRAM_API,
     }
 };
->>>>>
 
 export default nextConfig;
