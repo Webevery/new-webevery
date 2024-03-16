@@ -1,4 +1,4 @@
-@import "../../app/variables";
+@import '../../app/variables';
 
 .blogContainer {
   padding: 100px 20px 40px 20px;
@@ -147,8 +147,6 @@
     display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // grid-template-rows: 10rem;
-    // grid-template-rows: auto;
     & > li {
       grid-column: span 2;
     }
@@ -243,7 +241,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   @media screen and (min-width: $laptop) {
-    // height: 109px;
     font-size: 26px;
   }
   @media screen and (min-width: $desktop) {
@@ -301,31 +298,13 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  // margin-left: auto;
-  // & .readMoreTitle {
-  //   &:hover,
-  //   &:focus {
-  //     color: #fff;
-  //     background: $gradient;
-  //     background-size: auto auto;
-  //     background-clip: border-box;
-  //     background-size: 200% auto;
-  //     animation: textclip 0.5s linear both;
-
-  //     background-clip: text;
-  //     -webkit-background-clip: text;
-  //     -webkit-text-fill-color: transparent;
-  //   }
-  // }
+  &:hover,
+  &:focus {
+    & > .readMoreIcon {
+      animation: readMoreIcon 0.8s ease-in-out forwards;
+    }
+  }
 }
-// @keyframes textclip {
-//   100% {
-//     background-position: -200% center;
-//     filter: brightness(1.1) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.349));
-//     text-shadow: 0px 1px 2px white;
-//   }
-// }
-
 .readMoreTitle {
   font-weight: 500;
   font-size: 14px;
@@ -335,6 +314,15 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@keyframes readMoreIcon {
+  0% {
+    transform: translatX(0px);
+  }
+  100% {
+    transform: translateX(3px);
+  }
 }
 
 .readMoreIcon {

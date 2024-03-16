@@ -1,4 +1,4 @@
-@import "../../app/variables";
+@import '../../app/variables';
 
 .projectContainer {
   padding: 112px 20px 40px 20px;
@@ -95,9 +95,6 @@
   @media screen and (min-width: $laptop) {
     row-gap: 48px;
   }
-  // @media screen and (min-width: $desktop) {
-  //   row-gap: 104px;
-  // }
 }
 
 .ourProjectsItem {
@@ -157,7 +154,7 @@
 }
 
 .img {
-  object-fit: cover;
+  object-fit: inherit;
 
   @media screen and (min-width: $tablet) {
     border-radius: 34px;
@@ -179,7 +176,7 @@
 
   @media screen and (min-width: $tablet) {
     &::after {
-      content: "";
+      content: '';
       display: block;
       height: 1px;
       width: 100%;
@@ -203,15 +200,6 @@
     }
   }
 }
-
-// .ourProjectsTitleReverse {
-//   & span {
-//     float: right;
-//     &:not(:last-child) {
-//       margin-right: 1em;
-//     }
-//   }
-// }
 
 .ourProjectsTitle {
   font-weight: 400;
@@ -296,6 +284,13 @@
   @media screen and (min-width: $laptop) {
     margin-bottom: auto;
   }
+
+  &:hover,
+  &:focus {
+    & > .readMoreIcon {
+      animation: readMoreIcon 0.8s ease-in-out forwards;
+    }
+  }
 }
 
 .readMoreTitle {
@@ -310,6 +305,15 @@
 
   @media screen and (min-width: $laptop) {
     font-size: 14px;
+  }
+}
+
+@keyframes readMoreIcon {
+  0% {
+    transform: translatX(0px);
+  }
+  100% {
+    transform: translateX(5px);
   }
 }
 

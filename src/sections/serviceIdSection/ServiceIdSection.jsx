@@ -18,11 +18,37 @@ const ServiceIdSection = ({ params }) => {
     const pathname = usePathname();
     const { data, error, isLoading } = GetIdDataFromSection("services", slug);
     const isPathExist = useCheckPathname(pathname);
-    const { i18n,t } = useTranslation();
+    const { i18n, t } = useTranslation();
 
     const dataId = data && !isLoading ? data : error;
 
-    // console.log(dataId);
+    let changedData;
+
+    if (!isLoading) {
+        changedData = {
+            _id: dataId._id,
+            title: dataId.title,
+            titleEn: dataId.titleEn,
+            titleGradient: dataId.titleGradient,
+            titleGradientEn: dataId.titleGradientEn,
+            mockup: dataId.mockup,
+            description: dataId.description,
+            descriptionEn: dataId.descriptionEn,
+            price: dataId.price,
+            priceEn: dataId.priceEn,
+            directions: dataId.directions,
+            directionsEn: dataId.directionsEn,
+            slug: dataId.slug,
+        };
+
+        if (changedData && typeof (changedData.directions) === "string" && typeof (changedData.directionsEn) === "string") {
+            const directionsArray = changedData.directions.split(' | ');
+            const directionsEnArray = changedData.directionsEn.split(' | ');
+            changedData.directions = directionsArray;
+            changedData.directionsEn = directionsEnArray;
+        }
+    }
+
 
     return (
         <>
