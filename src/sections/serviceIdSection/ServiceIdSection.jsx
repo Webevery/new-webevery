@@ -55,8 +55,8 @@ const ServiceIdSection = ({ params }) => {
             {isLoading && <Loading className={styles.loading} />}
             {!isLoading && !isPathExist && (
                 <NotFound
-                    title='Сторінку не знайдено'
-                    buttonTitle='До усіх послуг'
+                    title={t('NotFoundPage.NotFoundTitle')}
+                    buttonTitle={t('ServiceIdPage.BackToServicesBtn')}
                     href='/services'
                 />
             )}

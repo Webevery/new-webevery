@@ -26,7 +26,6 @@ const OurProjectIdSection = ({ params }) => {
   const { i18n, t } = useTranslation();
 
   const isPathExist = useCheckPathname(pathname);
-
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth >= 1024);
@@ -43,12 +42,12 @@ const OurProjectIdSection = ({ params }) => {
       {isLoading && <Loading className={styles.loading} />}
       {!isLoading && !isPathExist && (
         <NotFound
-          title="Проект не знайдено"
-          buttonTitle="До усіх проектів"
+          title={t('OurProjectsPage.NoProjects')}
+          buttonTitle={t('OurProjectsPage.NoProjectsBtn')}
           href="/ourProjects"
         />
       )}
-      {!isLoading && isPathExist && (
+     {!isLoading && isPathExist && (
         <section>
           <div className={`container ${styles.ourProjectContainer}`}>
             <div
