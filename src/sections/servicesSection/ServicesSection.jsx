@@ -15,23 +15,36 @@ import { currentLanguages } from "@/data/languages";
 const ServicesSection = () => {
   const { data, isLoading } = GetDataFromSection("services");
   const { openModal, setComment } = useContext(SiteContext);
-  const { i18n,t } = useTranslation();
-  
-    return (
-        <section>
-            <section className={styles.services}>
-                <div className={`container ${styles.servicesContainer}`}>
-                   {!isLoading && <div className={styles.titleServicesContainer}>
-                        <h1 className={styles.titleServices}>
-                            <span>{t('ServicesPage.Title')}</span>
-                        </h1>
-                        <h2 className={styles.descServices}>
-                        {t('ServicesPage.SubTitle1')} <span>{t('ServicesPage.SubTitle2')}</span> {t('ServicesPage.SubTitle3')}
-                        </h2>
-                    </div>}
+  const { i18n, t } = useTranslation();
+
+  let changedData = [];
+  if (!isLoading) {
+    changedData = [...data];
+    changedData.map(item => {
+      if (typeof (item.directions) === "string" && typeof (item.directionsEn) === "string") {
+        const directionsArray = item.directions.split(" | ");
+        const directionsEnArray = item.directionsEn.split(" | ");
+        item.directions = directionsArray;
+        item.directionsEn = directionsEnArray;
+      }
+    })
+  }
+
+  return (
+    <section>
+      <section className={styles.services}>
+        <div className={`container ${styles.servicesContainer}`}>
+          {!isLoading && <div className={styles.titleServicesContainer}>
+            <h1 className={styles.titleServices}>
+              <span>{t('ServicesPage.Title')}</span>
+            </h1>
+            <h2 className={styles.descServices}>
+              {t('ServicesPage.SubTitle1')} <span>{t('ServicesPage.SubTitle2')}</span> {t('ServicesPage.SubTitle3')}
+            </h2>
+          </div>}
 
           <ul className={styles.cartContainer}>
-            {data?.map(
+            {changedData?.map(
               ({
                 slug,
                 title,

@@ -7,6 +7,22 @@ import Loading from "@/components/Loading/Loading";
 
 const DashboardServicesSection = () => {
     const { data, isLoading } = GetDataFromSection("services");
+    // console.log('data', data)
+    let changedData = [];
+
+    if (!isLoading) {
+        changedData = [...data];
+        changedData.map(item => {
+            if (typeof (item.directions) === "string" && typeof (item.directionsEn) === "string") {
+                const directionsArray = item.directions.split(" | ");
+                const directionsEnArray = item.directionsEn.split(" | ");
+                item.directions = directionsArray;
+                item.directionsEn = directionsEnArray;
+            }
+        })
+    }
+    // console.log('changedData', changedData)
+
 
     return (
         <>
@@ -15,7 +31,8 @@ const DashboardServicesSection = () => {
             ) : (
                 <div className={styles.container}>
                     <div className={styles.cardsList}>
-                        {data.map((item, index) => {
+                        {changedData.map((item, index) => {
+                            // console.log("item", item)
                             return (
                                 <DashboardServiceItem key={index} data={item} />
                             );
