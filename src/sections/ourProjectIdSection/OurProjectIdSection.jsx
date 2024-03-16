@@ -47,7 +47,7 @@ const OurProjectIdSection = ({ params }) => {
           href="/ourProjects"
         />
       )}
-      {!isLoading && isPathExist && (
+     {!isLoading && isPathExist && (
         <section>
           <div className={`container ${styles.ourProjectContainer}`}>
             <div
@@ -82,7 +82,6 @@ const OurProjectIdSection = ({ params }) => {
                   Open site
                 </a>
               </div>
->
             )}
 
             <figure className={styles.imgContainer}>
