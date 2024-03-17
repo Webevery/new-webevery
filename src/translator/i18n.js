@@ -6,18 +6,25 @@ import { initReactI18next } from 'react-i18next';
 // have a look at the Quick start guide
 // for passing in lng and translations on init
 
-
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    // detection: { order: ["path", "navigator"] },
+    // whitelist: ['ua','en'], 
+    // supportedLngs:['ua','en'],
+    // lng:"ua",
     fallbackLng: 'ua',
     debug: false, 
     interpolation: {
       escapeValue: false,
     },
+    detection: {
+      order: ['localStorage']
+    }
     // wait: process && !process.release,
+  
   },
   
 );

@@ -8,9 +8,37 @@ const DashboardServiceIdSection = ({ params }) => {
     const { slug } = params;
     const { data, isLoading } = GetIdDataFromSection("services", slug);
 
+    let changedData;
+
+    if (!isLoading) {
+        changedData = {
+            _id: data._id,
+            title: data.title,
+            titleEn: data.titleEn,
+            titleGradient: data.titleGradient,
+            titleGradientEn: data.titleGradientEn,
+            mockup: data.mockup,
+            description: data.description,
+            descriptionEn: data.descriptionEn,
+            price: data.price,
+            priceEn: data.priceEn,
+            directions: data.directions,
+            directionsEn: data.directionsEn,
+            slug: data.slug,
+        };
+
+        if (changedData && typeof (changedData.directions) === "string" && typeof (changedData.directionsEn) === "string") {
+            const directionsArray = changedData.directions.split(' | ');
+            const directionsEnArray = changedData.directionsEn.split(' | ');
+            changedData.directions = directionsArray;
+            changedData.directionsEn = directionsEnArray;
+        }
+    }
+
+
     return (
         <div className={styles.container}>
-            <DashboardServiceItem data={data} isLoading={isLoading} />
+            <DashboardServiceItem data={changedData} isLoading={isLoading} />
             <DashboardServiceUpdateForm />
         </div>
     );

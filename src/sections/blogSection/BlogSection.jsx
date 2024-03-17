@@ -2,17 +2,17 @@
 
 import { useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { CldImage } from 'next-cloudinary';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages, t } from '@/data/languages';
 import { fiterBlog } from '@/data/blog';
 import { SiteContext } from '@/context/siteContext';
 import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
-import styles from './BlogSection.module.scss';
 import { GetDataFromSection } from '@/fetch/ClientFetch';
-import { CldImage } from 'next-cloudinary';
-
 import BlogSorter from '@/components/BlogSorter/BlogSorter';
-import { useTranslation } from 'react-i18next';
-import { currentLanguages, t } from '@/data/languages';
+
+import styles from './BlogSection.module.scss';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -20,7 +20,7 @@ const BlogSection = () => {
   const [filterArr, setFilterArr] = useState([]);
   const [sorterArr, setSorterArr] = useState('');
 
-  const { i18n,t } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const { data, error, isLoading } = GetDataFromSection('blogs');
 
@@ -30,29 +30,20 @@ const BlogSection = () => {
     useContext(SiteContext);
 
   const filterBlogArr = data
-    ?.filter(
-      ({
-        // directionEn,
-        direction,
-        titleEn,
-        descriptionEn,
-        title,
-        description,
-      }) => {
-        const combinedText =
-          `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
+    ?.filter(({ direction, titleEn, descriptionEn, title, description }) => {
+      const combinedText =
+        `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
 
-        const directionCondition = filterArr.every((blogFilter) =>
-          direction.includes(blogFilter)
-        );
+      const directionCondition = filterArr.every((blogFilter) =>
+        direction.includes(blogFilter)
+      );
 
-        const searchCondition = searchBlog
-          ? combinedText.includes(searchTerm.toLowerCase())
-          : true;
+      const searchCondition = searchBlog
+        ? combinedText.includes(searchTerm.toLowerCase())
+        : true;
 
-        return directionCondition && searchCondition;
-      }
-    )
+      return directionCondition && searchCondition;
+    })
     .slice();
 
   if (sorterArr === 'AZ') {
@@ -98,15 +89,7 @@ const BlogSection = () => {
         : `${styles.cartContainer} ${styles.cartContainerOpen}`
       : !isLoading && filterBlogArr?.length <= 0
       ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
-      : `${styles.cartContainer}`;
-
-  // function truncateText(text, maxLength) {
-  //   if (text.length > maxLength) {
-  //     return text.substring(0, maxLength - 9) + '...';
-  //   } else {
-  //     return text;
-  //   }
-  // }
+      : `${styles.cartContainer} `;
 
   return (
     <section className={styles.blog}>
@@ -115,9 +98,11 @@ const BlogSection = () => {
           <h1 className={styles.titleBlog}>
             <span>Webevery</span> {!isLoading && t('BlogPage.GenSubTitle')}
           </h1>
-          {<h2 className={styles.descBlog}>
-            {!isLoading && t('BlogPage.SubTitle')}
-          </h2>}
+          {
+            <h2 className={styles.descBlog}>
+              {!isLoading && t('BlogPage.SubTitle')}
+            </h2>
+          }
         </div>
         <BlogFilterButton />
 
@@ -156,6 +141,7 @@ const BlogSection = () => {
                       src={images[0]}
                       alt="img blog"
                       fill="true"
+                      priority={true}
                       className={styles.cartImg}
                       sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
                     />
@@ -164,7 +150,6 @@ const BlogSection = () => {
                   <h3 className={styles.cartTitle}>
                     {i18n.language === currentLanguages.EN ? titleEn : title}
                   </h3>
-                  {/* <p className={styles.cartDesc}>{truncateText(desc, 41)}</p> */}
                   <p className={styles.cartDesc}>
                     {i18n.language === currentLanguages.EN
                       ? descriptionEn
@@ -173,7 +158,9 @@ const BlogSection = () => {
                   <div className={styles.bottomContainer}>
                     <p className={styles.date}>11.02.2024</p>
                     <Link href={`/blog/${slug}`} className={styles.readMore}>
-                      <span className={styles.readMoreTitle}>{t('Buttons.CardDetailsBtn')}</span>
+                      <span className={styles.readMoreTitle}>
+                        {t('Buttons.CardDetailsBtn')}
+                      </span>
                       <svg
                         className={styles.readMoreIcon}
                         viewBox="0 0 24 7"
@@ -206,14 +193,14 @@ const BlogSection = () => {
             )}
           {!isLoading && filterBlogArr?.length <= 0 && (
             <li className={styles.notFoundTextStyles}>
-              <p>Статей не найдено!</p>
+              <p>{t('BlogPage.NoArticles')}</p>
             </li>
           )}
         </ul>
 
         {showLoading && (
           <div className={styles.loading}>
-            <h3 className={styles.loadingText}>Loading...</h3>
+            <h3 className={styles.loadingText}>{t('LoadStatus.Load')}</h3>
           </div>
         )}
       </div>

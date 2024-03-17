@@ -15,7 +15,7 @@ const ContactsSection = () => {
   
   const {t,i18n}= useTranslation();
 
-  useEffect(()=>setIsLoad(false))
+  useEffect(()=>setIsLoad(false),[])
 
   return (
     <>

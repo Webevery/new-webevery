@@ -33,19 +33,12 @@ const DashboardProjectCreateForm = () => {
     };
 
     const form = useForm(initialValues);
-    const {
-        register,
-        control,
-        handleSubmit,
-        formState,
-        reset,
-        getValues,
-        setValue,
-    } = form;
+    const { register, handleSubmit, formState, reset, getValues, setValue } =
+        form;
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = (data) => {
-        console.log("FormData:", data);
+        console.log("dashboardProjectCreateFormData:", data);
     };
 
     useEffect(() => {
@@ -141,12 +134,14 @@ const DashboardProjectCreateForm = () => {
                         name='heroImage'
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
-                            if (initialValues.heroImage !== "") {
+                            if (getValues("heroImage") !== "") {
                                 // handleDeleteImgFromCloudinary(
                                 //     initialValues.heroImage
                                 // );
                             }
-                            setValue("heroImage", result.info.public_id);
+                            setValue("heroImage", result.info.public_id, {
+                                shouldValidate: true,
+                            });
                             widget.close();
                         }}
                         options={{ multiple: false }}
@@ -159,7 +154,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='problem'
                         placeholder=' '
                         {...register("problem")}
@@ -171,7 +166,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='problemEn'
                         placeholder=' '
                         {...register("problemEn")}
@@ -183,7 +178,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='solution'
                         placeholder=' '
                         {...register("solution")}
@@ -195,7 +190,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='solutionEn'
                         placeholder=' '
                         {...register("solutionEn")}
@@ -207,7 +202,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='help'
                         placeholder=' '
                         {...register("help")}
@@ -219,7 +214,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='helpEn'
                         placeholder=' '
                         {...register("helpEn")}
@@ -234,12 +229,14 @@ const DashboardProjectCreateForm = () => {
                         name='screensImage'
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
-                            if (initialValues.screensImage !== "") {
+                            if (getValues("screensImage") !== "") {
                                 // handleDeleteImgFromCloudinary(
                                 //     initialValues.heroImage
                                 // );
                             }
-                            setValue("screensImage", result.info.public_id);
+                            setValue("screensImage", result.info.public_id, {
+                                shouldValidate: true,
+                            });
                             widget.close();
                         }}
                         options={{ multiple: false }}
@@ -254,7 +251,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='adaptation'
                         placeholder=' '
                         {...register("adaptation")}
@@ -266,7 +263,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.formInputTextarea} ${styles.formInput}`}
+                        className={`${styles.textarea} ${styles.formInput}`}
                         id='adaptationEn'
                         placeholder=' '
                         {...register("adaptationEn")}
@@ -283,11 +280,14 @@ const DashboardProjectCreateForm = () => {
                         name='mobileImages'
                         className={styles.uploadBtn}
                         onUpload={(result) => {
-                            const value = getValues("mobileImages");
-                            setValue("mobileImages", [
-                                ...value,
-                                result.info.public_id,
-                            ]);
+                            setValue(
+                                "mobileImages",
+                                [
+                                    ...getValues("mobileImages"),
+                                    result.info.public_id,
+                                ],
+                                { shouldValidate: true }
+                            );
                             // update(...result.info.public_id);
                         }}
                         uploadPreset='unsigned_preset'
@@ -317,7 +317,7 @@ const DashboardProjectCreateForm = () => {
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
                 >
-                    Відправити
+                    Create new!
                 </button>
             </form>
         </div>

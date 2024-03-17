@@ -1,17 +1,16 @@
-"use client";
+'use client';
 
-import { GetDataFromSection } from "@/fetch/ClientFetch";
-import { CldImage } from "next-cloudinary";
-import Link from "next/link";
-import styles from "./OurProjectsSection.module.scss";
-import stylescBtn from "../../components/Buttons/Btns.module.scss";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { currentLanguages } from "@/data/languages";
+import { useEffect, useState } from 'react';
+import { CldImage } from 'next-cloudinary';
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { currentLanguages } from '@/data/languages';
+import { GetDataFromSection } from '@/fetch/ClientFetch';
+import styles from './OurProjectsSection.module.scss';
+import stylescBtn from '../../components/Buttons/Btns.module.scss';
 
 const OurProjectsSection = () => {
-  const { data, error, isLoading } = GetDataFromSection("ourProjects");
-
+  const { data, error, isLoading } = GetDataFromSection('ourProjects');
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const { i18n, t } = useTranslation();
@@ -21,16 +20,18 @@ const OurProjectsSection = () => {
       setIsSmallScreen(window.innerWidth <= 768);
     };
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
     <section>
       <div className={`container ${styles.projectContainer}`}>
-       {!isLoading && <h1 className={styles.title}>{t('OurProjectsPage.Title')}</h1>}
+        {!isLoading && (
+          <h1 className={styles.title}>{t('OurProjectsPage.Title')}</h1>
+        )}
         <ul className={styles.ourProjectsList}>
           {!isLoading &&
             data?.map(
@@ -51,40 +52,22 @@ const OurProjectsSection = () => {
                       src={heroImage}
                       alt="фото сайту"
                       fill={true}
+                      priority={true}
                       className={styles.img}
                       sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
                     />
                   </figure>
                   <div className={styles.ourProjectsContent}>
                     <h3 className={styles.ourProjectsTitle}>
-                      {titleEn === "Site for" ? (
-                        <>
-                          <span className={styles.ourProjectsTitleGradient}>
-                            {i18n.language === currentLanguages.EN
-                              ? titleEn
-                              : title}
-                          </span>{" "}
-                          {i18n.language === currentLanguages.EN
-                            ? titleGradientEn
-                            : titleGradient}
-                        </>
-                      ) : (
-                        <>
-                          {titleGradientEn}{" "}
-                          <span className={styles.ourProjectsTitleGradient}>
-                            {i18n.language === currentLanguages.EN
-                              ? titleEn
-                              : title}
-                          </span>
-                        </>
-                      )}{" "}
-                      {titleGradientEn === "ICE CREAM" && (
-                        <span className={styles.ourProjectsTitleGradient}>
-                          cafe
-                        </span>
-                      )}
+                      <span className={styles.ourProjectsTitleGradient}>
+                        {i18n.language === currentLanguages.EN
+                          ? titleEn
+                          : title}
+                      </span>{' '}
+                      {i18n.language === currentLanguages.EN
+                        ? titleGradientEn
+                        : titleGradient}
                     </h3>
-
                     <p className={styles.ourProjectsDesc}>
                       {i18n.language === currentLanguages.EN
                         ? problemEn
@@ -94,7 +77,9 @@ const OurProjectsSection = () => {
                       href={`/ourProjects/${slug}`}
                       className={styles.readMore}
                     >
-                      <span className={styles.readMoreTitle}>{t('Buttons.ProjectDetailsBtn')}</span>
+                      <span className={styles.readMoreTitle}>
+                        {t('Buttons.ProjectDetailsBtn')}
+                      </span>
                       <svg
                         className={styles.readMoreIcon}
                         viewBox="0 0 24 7"
@@ -124,7 +109,7 @@ const OurProjectsSection = () => {
                     {!isSmallScreen && (
                       <div
                         className={
-                          stylescBtn.btnWrapper + " " + styles.btnWrapper
+                          stylescBtn.btnWrapper + ' ' + styles.btnWrapper
                         }
                       >
                         <a
@@ -132,7 +117,7 @@ const OurProjectsSection = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={titleGradientEn}
-                          className={stylescBtn.btn + " " + styles.openSite}
+                          className={stylescBtn.btn + ' ' + styles.openSite}
                         >
                           {t('Buttons.ProjectOpenSiteBtn')}
                         </a>

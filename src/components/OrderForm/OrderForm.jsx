@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { YupOrderFormSchema } from "@/yupShemas/orderFormShema";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useWindowResize } from "@/hooks/useWindowResize";
+import { sendToTelegram } from "@/helpers/sendToTelegram";
 import { SiteContext } from "@/context/siteContext";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import SuccessContent from "./SuccessContent";
@@ -50,8 +51,9 @@ const OrderForm = ({
 
     const onSubmit = (data) => {
         setSubmited(true);
+        // sendToTelegram(data);
         if (!isModalOpen) toast.success("Your message has been sent!");
-        // console.log("data", data);
+        console.log("data", data);
 
         setTimeout(() => {
             if (isModalOpen) closeModal();
