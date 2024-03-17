@@ -1,0 +1,50 @@
+@import "../../../app/variables.scss";
+
+.svg {
+  width: 24px;
+  height: 24px;
+  stroke: url(#gradient_1);
+  transition-duration: 500ms;
+
+  @media screen and (min-width: $tablet) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.svgOpen {
+  width: 24px;
+  height: 24px;
+  stroke: url(#gradient_1);
+  transform: rotate(-45deg);
+  transition-duration: 500ms;
+
+  @media screen and (min-width: $tablet) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.use {
+  fill: conic-gradient(
+    $gradientCyan,
+    $gradientBlue,
+    $gradientCyan,
+    $gradientYellow,
+    $gradientCyan
+  );
+  stroke: conic-gradient(
+    $gradientCyan,
+    $gradientBlue,
+    $gradientCyan,
+    $gradientYellow,
+    $gradientCyan
+  );
+  color: conic-gradient(
+    $gradientCyan,
+    $gradientBlue,
+    $gradientCyan,
+    $gradientYellow,
+    $gradientCyan
+  );
+}
