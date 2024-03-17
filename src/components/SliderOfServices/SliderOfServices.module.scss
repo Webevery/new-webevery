@@ -53,11 +53,13 @@
   padding-right: 24px;
   padding-bottom: 48px;
   height: 632px;
+  // font-size: 16px;
   /* display: flex;
   flex-direction: column;
   justify-content: space-between; */
   @media screen and (min-width:768px) {
       height: 669px;
+      font-size: 14px;
   }
 
   @media screen and (min-width:1024px) {
@@ -164,8 +166,13 @@
     font-size: 26px;
     line-height: 1.6;
     color: #ffffff;
-    margin-bottom: 32px;
+    margin-bottom: 5px;
     text-align: right;
+    
+
+  @media screen and (min-width:1440px) {
+    margin-bottom: 32px;
+  }
   }
 
   #orderBtn{
