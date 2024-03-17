@@ -1,9 +1,9 @@
 
 .ServicesSwiper {
     width: 100%;
-    height: 632px;
+    /* height: 632px; */
 
-    @media screen and (min-width:768px) {
+    /* @media screen and (min-width:768px) {
         height: 653px;
     }
 
@@ -13,12 +13,12 @@
 
     @media screen and (min-width:1440px) {
         /* width: 1296px; */
-        height: 828px;
-    }
+        /* height: 828px; */
+    /* } */ 
 }
 
 
-.ServiceSwiper .swiper-wrapper {
+/* .ServiceSwiper .swiper-wrapper {
     height: 632px;
     @media screen and (min-width:768px) {
         height: 629px;
@@ -31,7 +31,7 @@
     @media screen and (min-width:1440px) {
         height: 764px;
     }
-}
+} */
 
 
 .ServicesSwiper .swiper-slide {
@@ -42,6 +42,7 @@
 
 .ServicesSwiper .slideContentWrapper {
     width: 100%;
+    /* height:500px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
