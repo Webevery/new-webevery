@@ -7,33 +7,33 @@
     "linkContacts": "Контакти"
   },
   "MainPage": {
-    "TeamTitle":"Наша команда",
-    "TeamSubTitle":"втілить ваші ідеї в життя",
+    "TeamTitle": "Наша команда",
+    "TeamSubTitle": "Втілить ваші ідеї в життя",
     "WorkingProcessTitle": "Робочий процес",
-    "WorkingProcessSubTitleMob":"додаткові деталі розробки обговорюються індивідуально",
-    "WorkingProcessSubTitleLaptop":"додаткові деталі розробки обговорюються в індивідуальному порядку",
-    "OurProjectsTitle":"Наші",
-    "OurProjectsSubTitle":"роботи",
-    "OurServicesTitle":"Послуги",
-    "OurServicesSubTitle":"від малого до великого сайту",
-    "FaqSubTitle":"ви можете знайти своє питання тут",
-    "OrderSectionTitleMob":"Поговоримо про",
-    "OrderSectionTitleTab":"Поговоримо про",
-    "OrderSectionSubTitle":"Ваш новий сайт!"
+    "WorkingProcessSubTitleMob": "Додаткові деталі розробки обговорюються індивідуально",
+    "WorkingProcessSubTitleLaptop": "Додаткові деталі розробки обговорюються в індивідуальному порядку",
+    "OurProjectsTitle": "Наші",
+    "OurProjectsSubTitle": "Роботи",
+    "OurServicesTitle": "Послуги",
+    "OurServicesSubTitle": "Від малого до великого сайту",
+    "FaqSubTitle": "Ви можете знайти своє питання тут",
+    "OrderSectionTitleMob": "Поговоримо про",
+    "OrderSectionTitleTab": "Поговоримо про",
+    "OrderSectionSubTitle": "Ваш новий сайт!"
   },
   "TeamPage": {
     "Title": "Команда",
     "SubTitle": "давайте познайомимося з тими, хто працює для вас"
   },
-  "OurProjectsPage":{
-    "Title":"Наші роботи",
-    "NavLinkText":"На сторінку з усіма проектами",
-    "TitleProblem":"Проблема",
-    "TitleSolutions":"Рішення",
-    "TitleHelpBussines":"Як це допоможе бізнесу",
-    "TitleDesc":"Адаптовано для мобільних пристроїв",
-    "NoProjects":"Проект не знайдено",
-    "NoProjectsBtn":"До усіх проектів"
+  "OurProjectsPage": {
+    "Title": "Наші роботи",
+    "NavLinkText": "На сторінку з усіма проектами",
+    "TitleProblem": "Проблема",
+    "TitleSolutions": "Рішення",
+    "TitleHelpBussines": "Як це допоможе бізнесу",
+    "TitleDesc": "Адаптовано для мобільних пристроїв",
+    "NoProjects": "Проект не знайдено",
+    "NoProjectsBtn": "До усіх проектів"
   },
   "ContactsPage": {
     "Title": "Контакти",
@@ -43,41 +43,41 @@
   },
   "ServicesPage": {
     "Title": "Послуги",
-    "SubTitle1":"обирайте",
+    "SubTitle1": "обирайте",
     "SubTitle2": "найкращу",
     "SubTitle3": "пропозицію для вашего бізнесу"
   },
   "ServiceIdPage": {
-    "SubTitle1":"Обирайте",
+    "SubTitle1": "Обирайте",
     "SubTitle2": "найкращу",
     "SubTitle3": "пропозицію для вашего бізнесу:",
-    "BackToServicesBtn":"До усіх послуг"
+    "BackToServicesBtn": "До усіх послуг"
   },
-  "BlogPage":{
-    "GenSubTitle":"Блог",
-    "SubTitle":"тут ви можете прочитати корисні статті",
-    "NoArticles":"Статей не знайдено!"
+  "BlogPage": {
+    "GenSubTitle": "Блог",
+    "SubTitle": "тут ви можете прочитати корисні статті",
+    "NoArticles": "Статей не знайдено!"
   },
-  "BlogIdPage":{
-    "NotFound":"Блог не знайдено",
-    "NotFoundTitleBtn":"До усіх блогів",
-    "NavBtn":"На сторінку з усіма статтями"
+  "BlogIdPage": {
+    "NotFound": "Блог не знайдено",
+    "NotFoundTitleBtn": "До усіх блогів",
+    "NavBtn": "На сторінку з усіма статтями"
   },
-  "NotFoundPage":{
-    "NotFoundTitle":"Сторінка не знайдена",
-    "NotFoundTitleBtn":"На головну"
+  "NotFoundPage": {
+    "NotFoundTitle": "Сторінка не знайдена",
+    "NotFoundTitleBtn": "На головну"
   },
   "Buttons": {
     "CalltBtn": "Подзвонити",
-    "OrderBtn":"Замовити",
-    "HomeTeamBtn":"Про Команду",
-    "HomeProjectsBtn":"До портфоліо",
-    "ServicesDetailsBtn":"Детальніше",
-    "HomeFaqBtn":"Детальніше",
+    "OrderBtn": "Замовити",
+    "HomeTeamBtn": "Про Команду",
+    "HomeProjectsBtn": "До портфоліо",
+    "ServicesDetailsBtn": "Детальніше",
+    "HomeFaqBtn": "Детальніше",
     "ServiceCardOrderBtn": "Замовити",
-    "FormOrderBtn":"Замовити дзвінок від менеджера",
-    "ProjectDetailsBtn":"Детальніше",
-    "ProjectOpenSiteBtn":"Відкрити сайт",
+    "FormOrderBtn": "Замовити дзвінок від менеджера",
+    "ProjectDetailsBtn": "Детальніше",
+    "ProjectOpenSiteBtn": "Відкрити сайт",
     "CardDetailsBtn": "Детальніше",
     "CloseBtn": "Закрити",
     "FilterBtn": "Шукати",
@@ -87,8 +87,8 @@
     "Submit": "Пiдтвердити"
   },
   "Form": {
-    "Title":"Заповніть форму і ми зателефонуємо вам найближчим часом",
-    "TitleMob":"Ми зателефонуємо вам найближчим часом",
+    "Title": "Заповніть форму і ми зателефонуємо вам найближчим часом",
+    "TitleMob": "Ми зателефонуємо вам найближчим часом",
     "Name": "Ім’я",
     "Phone": "Номер телефону",
     "TextArea": "Коротко опишіть ваше побажання",
@@ -108,7 +108,7 @@
     "departureDate": "Оберіть дату",
     "numberObject": "Вкажіть номер об’єкту"
   },
-  "LoadStatus":{
-    "Load":"Загрузка..."
+  "LoadStatus": {
+    "Load": "Загрузка..."
   }
 }
