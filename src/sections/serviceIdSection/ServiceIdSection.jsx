@@ -16,29 +16,27 @@ import styles from "./ServiceIdSection.module.scss";
 const ServiceIdSection = ({ params }) => {
     const { slug } = params;
     const pathname = usePathname();
-    const { data, error, isLoading } = GetIdDataFromSection("services", slug);
+    const { data, isLoading } = GetIdDataFromSection("services", slug);
     const isPathExist = useCheckPathname(pathname);
     const { i18n, t } = useTranslation();
-
-    const dataId = data && !isLoading ? data : error;
 
     let changedData;
 
     if (!isLoading) {
         changedData = {
-            _id: dataId._id,
-            title: dataId.title,
-            titleEn: dataId.titleEn,
-            titleGradient: dataId.titleGradient,
-            titleGradientEn: dataId.titleGradientEn,
-            mockup: dataId.mockup,
-            description: dataId.description,
-            descriptionEn: dataId.descriptionEn,
-            price: dataId.price,
-            priceEn: dataId.priceEn,
-            directions: dataId.directions,
-            directionsEn: dataId.directionsEn,
-            slug: dataId.slug,
+            _id: data._id,
+            title: data.title,
+            titleEn: data.titleEn,
+            titleGradient: data.titleGradient,
+            titleGradientEn: data.titleGradientEn,
+            mockup: data.mockup,
+            description: data.description,
+            descriptionEn: data.descriptionEn,
+            price: data.price,
+            priceEn: data.priceEn,
+            directions: data.directions,
+            directionsEn: data.directionsEn,
+            slug: data.slug,
         };
 
         if (changedData && typeof (changedData.directions) === "string" && typeof (changedData.directionsEn) === "string") {
@@ -48,7 +46,6 @@ const ServiceIdSection = ({ params }) => {
             changedData.directionsEn = directionsEnArray;
         }
     }
-
 
     return (
         <>
@@ -64,15 +61,15 @@ const ServiceIdSection = ({ params }) => {
                 <section className={styles.servicesId}>
                     <div className={`container ${styles.servicesIdContainer}`}>
                         <h1 className={styles.servicesIdTitle}>
-                            <span>{i18n.language === currentLanguages.EN ? dataId?.titleGradientEn : dataId?.titleGradient}</span>
+                            <span>{i18n.language === currentLanguages.EN ? changedData.titleGradientEn : changedData.titleGradient}</span>
                             &nbsp;
-                            {i18n.language === currentLanguages.EN ? dataId?.titleEn : dataId?.title}
+                            {i18n.language === currentLanguages.EN ? changedData.titleEn : changedData.title}
                         </h1>
                         <div className={styles.servicesIdContent}>
                             <div className={styles.servicesIdImgContainer}>
                                 <CldImage
-                                    src={dataId?.mockup}
-                                    alt={dataId?.title}
+                                    src={changedData.mockup}
+                                    alt={changedData.title}
                                     fill='true'
                                     className={styles.cartImg}
                                     sizes='30vw'
@@ -82,13 +79,13 @@ const ServiceIdSection = ({ params }) => {
                             <div className={styles.servicesIdDescContainer}>
                                 <p className={styles.servicesIdDesc}>
                                     {i18n.language === currentLanguages.EN
-                                        ? dataId?.descriptionEn
-                                        : dataId?.description}
+                                        ? changedData.descriptionEn
+                                        : changedData.description}
                                 </p>
                                 <p className={styles.servicesIdPrice}>
                                     {i18n.language === currentLanguages.EN
-                                        ? dataId?.priceEn
-                                        : dataId?.price}
+                                        ? changedData.priceEn
+                                        : changedData.price}
                                 </p>
                                 <OrderBtn
                                     id={styles.serviceOrderBtn}
@@ -103,7 +100,7 @@ const ServiceIdSection = ({ params }) => {
                             <h3 className={styles.servicesIdSliderTitle}>
                                 {t('ServiceIdPage.SubTitle1')} <span>{t('ServiceIdPage.SubTitle2')}</span> {t('ServiceIdPage.SubTitle3')}
                             </h3>
-                            <SliderOfServices />
+                            <SliderOfServices slug={slug} />
                         </div>
                     </div>
                 </section>
