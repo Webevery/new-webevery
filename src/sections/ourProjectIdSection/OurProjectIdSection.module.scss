@@ -24,8 +24,17 @@
     padding: 112px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 112px 72px 80px 72px;
+    padding: 142px 72px 80px 72px;
   }
+}
+
+.backContainer {
+  background-color: $gray50;
+  color: $backgroundColor;
+}
+
+.backIcon {
+  fill: $backgroundColor;
 }
 
 @keyframes fadeIn {
@@ -35,50 +44,6 @@
   100% {
     opacity: 1;
   }
-}
-
-.backContainer {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  column-gap: 16px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  padding: 0 8px;
-  font-weight: 500;
-  line-height: 1.6;
-  text-align: center;
-  color: $backgroundColor;
-  margin-bottom: 24px;
-  cursor: pointer;
-  font-size: 16px;
-  background-color: #f6f6fa;
-  backdrop-filter: blur(6px);
-  margin-right: auto;
-  animation: fadeIn 0.8s ease-in-out forwards;
-  @media screen and (min-width: $tablet) {
-    font-size: 20px;
-    margin-bottom: 32px;
-  }
-  @media screen and (min-width: $laptop) {
-    column-gap: 16px;
-    padding: 0 8px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    font-size: 14px;
-  }
-}
-
-.backIcon {
-  width: 32px;
-  height: 12px;
-  fill: $backgroundColor;
 }
 
 .ourProjectsTitle {
