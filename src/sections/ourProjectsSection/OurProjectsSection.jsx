@@ -25,7 +25,7 @@ const OurProjectsSection = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
+  console.log('data', data)
   return (
     <section>
       <div className={`container ${styles.projectContainer}`}>
@@ -42,8 +42,8 @@ const OurProjectsSection = () => {
                 titleGradientEn,
                 titleGradient,
                 heroImage,
-                problemEn,
-                problem,
+                solutionEn,
+                solution,
                 siteLink,
               }) => (
                 <li key={slug} className={styles.ourProjectsItem}>
@@ -70,8 +70,8 @@ const OurProjectsSection = () => {
                     </h3>
                     <p className={styles.ourProjectsDesc}>
                       {i18n.language === currentLanguages.EN
-                        ? problemEn
-                        : problem}
+                        ? solutionEn
+                        : solution}
                     </p>
                     <Link
                       href={`/ourProjects/${slug}`}
