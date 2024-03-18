@@ -16,7 +16,7 @@
     height: 632px;
 
     @media screen and (min-width:768px) {
-        height: 693px;
+        height: 653px;
     }
 
     @media screen and (min-width:1024px) {
@@ -53,14 +53,15 @@
   padding-top: 8px;
   padding-left: 12px;
   padding-right: 12px;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
   // padding-bottom: 48px;
   height: 632px;
   width: 312px;
   // font-size: 16px;
   @media screen and (min-width:768px) {
-      height: 669px;
+      height: 629px;
       font-size: 14px;
+      padding-bottom: 32px;
   }
 
   @media screen and (min-width:1024px) {
@@ -134,6 +135,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    @media screen and (min-width:1024px) {
+      font-size: 14px;
+  }
   }
 
   .linkCont{
@@ -156,6 +160,11 @@
     color: #ffffff;
     text-align: center;
     margin-bottom: 12px;
+    height: 68px;
+    @media screen and (min-width:768px) {
+      height: auto;
+      margin-bottom: 16px;
+  }
     @media screen and (min-width:1440px) {
       margin-bottom: 24px;
   }
@@ -166,6 +175,10 @@
     list-style-position: outside;
     line-height: 1.6;
     margin-left: 30px;
+    font-size: 16px;
+    @media screen and (min-width:1024px) {
+      font-size: 20px;
+  }
   }
   
   .price {
@@ -173,9 +186,15 @@
     font-size: 16px;
     line-height: 1.6;
     color: #ffffff;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     text-align: right;
-    
+    @media screen and (min-width:768px) {
+      font-size: 24px;
+      margin-bottom: 16px;
+  }
+  @media screen and (min-width:1024px) {
+    margin-bottom: 20px;
+}
 
   @media screen and (min-width:1440px) {
     margin-bottom: 32px;
