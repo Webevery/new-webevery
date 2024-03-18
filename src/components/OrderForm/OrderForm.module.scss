@@ -12,6 +12,8 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    justify-content: center;
+    height: 500px;
     width: 320px;
     height: 524px;
     text-align: center;
@@ -36,6 +38,9 @@
         width: 856px;
         height: 562px;
         padding: 24px;
+    }
+    @media screen and (min-width: 1920px) {
+        height: 562px;
     }
 }
 
@@ -74,8 +79,9 @@
 .titleWrap {
     display: flex;
     padding-left: 24px;
-    margin-bottom: 24px;
     width: 320px;
+    margin-top: 0;
+    margin-bottom: 28px;
     @media screen and (min-width: $mobile) {
         width: 360px;
     }

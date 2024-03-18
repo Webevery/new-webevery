@@ -1,81 +1,118 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data";
 import { useWindowResize } from "@/hooks/useWindowResize";
 import OrderForm from "@/components/OrderForm/OrderForm";
 import OurContacts from "./OurContacts";
-import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
+
 import styles from "./ContactsSection.module.scss";
-import { currentLanguages } from "@/data";
 
 const ContactsSection = () => {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useWindowResize();
+    const { isMobile, isTablet, isLaptop, isDesktop } = useWindowResize();
 
-  const[isLoad,setIsLoad]=useState(true)
-  
-  const {t,i18n}= useTranslation();
+    const [isLoad, setIsLoad] = useState(true);
 
-  useEffect(()=>setIsLoad(false),[])
+    const { t, i18n } = useTranslation();
 
-  return (
-    <>
-      {(() => {
-        if (isMobile) {
-          return (
-            <section className={styles.section}>
-              <div className={`container ${styles.contactsContainer}`}>
-                <div className={styles.titleWrap}>
-                  {!isLoad && <h1 className={styles.title}>
-                    {t('ContactsPage.Title')} {i18n.language===currentLanguages.EN && <span className={styles.titleSlice}>us</span>}
-                  </h1>}
-                </div>
-                <div className={styles.contentWrap}>
-                  <OurContacts />
-                  <OrderForm />
-                </div>
-              </div>
-            </section>
-          );
-        } else if (isTablet) {
-          return (
-            <section className={styles.section}>
-              <div className={`container ${styles.contactsContainer}`}>
-                <div className={styles.titleWrap}>
-                  {!isLoad && <h1 className={styles.title}>
-                  {t('ContactsPage.Title')} {i18n.language===currentLanguages.EN && <span className={styles.titleSlice}>us</span>}
-                  </h1>}
-                </div>
-                <div className={styles.contentWrap}>
-                  <OurContacts />
-                </div>
-              </div>
-            </section>
-          );
-        } else if (isLaptop || isDesktop) {
-          return (
-            <section className={styles.section}>
-              <div className={`container ${styles.contactsContainer}`}>
-                <div className={styles.titleWrap}>
-                  <h1 className={styles.title}>
-                  {t('ContactsPage.Title')} {i18n.language===currentLanguages.EN && <span className={styles.titleSlice}>us</span>}
-                  </h1>
-                </div>
-                <div className={styles.contentWrap}>
-                  <OurContacts />
-                  <OrderForm
-                    className={styles.orderForm}
-                    titleClassName={styles.titleClassName}
-                  />
-                </div>
-              </div>
-            </section>
-          );
-        } else {
-          return <div>{!isLoad && t('LoadStatus.Load')}</div>;
-        }
-      })()}
-    </>
-  );
+    useEffect(() => setIsLoad(false), []);
+
+    return (
+        <>
+            {(() => {
+                if (isMobile) {
+                    return (
+                        <section className={styles.section}>
+                            <div
+                                className={`container ${styles.contactsContainer}`}
+                            >
+                                <div className={styles.titleWrap}>
+                                    {!isLoad && (
+                                        <h1 className={styles.title}>
+                                            {t("ContactsPage.Title")}{" "}
+                                            {i18n.language ===
+                                                currentLanguages.EN && (
+                                                <span
+                                                    className={
+                                                        styles.titleSlice
+                                                    }
+                                                >
+                                                    us
+                                                </span>
+                                            )}
+                                        </h1>
+                                    )}
+                                </div>
+                                <div className={styles.contentWrap}>
+                                    <OurContacts />
+                                    <OrderForm />
+                                </div>
+                            </div>
+                        </section>
+                    );
+                } else if (isTablet) {
+                    return (
+                        <section className={styles.section}>
+                            <div
+                                className={`container ${styles.contactsContainer}`}
+                            >
+                                <div className={styles.titleWrap}>
+                                    {!isLoad && (
+                                        <h1 className={styles.title}>
+                                            {t("ContactsPage.Title")}{" "}
+                                            {i18n.language ===
+                                                currentLanguages.EN && (
+                                                <span
+                                                    className={
+                                                        styles.titleSlice
+                                                    }
+                                                >
+                                                    us
+                                                </span>
+                                            )}
+                                        </h1>
+                                    )}
+                                </div>
+                                <div className={styles.contentWrap}>
+                                    <OurContacts />
+                                </div>
+                            </div>
+                        </section>
+                    );
+                } else if (isLaptop || isDesktop) {
+                    return (
+                        <section className={styles.section}>
+                            <div
+                                className={`container ${styles.contactsContainer}`}
+                            >
+                                <div className={styles.titleWrap}>
+                                    <h1 className={styles.title}>
+                                        {t("ContactsPage.Title")}{" "}
+                                        {i18n.language ===
+                                            currentLanguages.EN && (
+                                            <span className={styles.titleSlice}>
+                                                us
+                                            </span>
+                                        )}
+                                    </h1>
+                                </div>
+                                <div className={styles.contentWrap}>
+                                    <OurContacts />
+                                    <OrderForm
+                                    // className={styles.orderForm}
+                                    // titleClassName={styles.titleClassName}
+                                    />
+                                </div>
+                            </div>
+                        </section>
+                    );
+                } else {
+                    return <div>{!isLoad && t("LoadStatus.Load")}</div>;
+                }
+            })()}
+        </>
+    );
 };
 
 export default ContactsSection;
