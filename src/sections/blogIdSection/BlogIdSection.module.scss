@@ -1,228 +1,196 @@
-@import "../../app/variables";
+@import '../../app/variables';
 
 .blog {
-    background-color: $gray0;
-    flex: 1;
+  position: relative;
+  background-color: $gray0;
+  flex: 1;
+  z-index: 1;
 }
 
 .blogIdContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding: 112px 22px 40px 22px;
-    @media screen and (min-width: $mobile) {
-        padding: 110px 20px 80px 20px;
-    }
-    @media screen and (min-width: $tablet) {
-        padding: 184px 20px 80px 20px;
-    }
-    @media screen and (min-width: $laptop) {
-        padding: 184px 32px 80px 32px;
-    }
-    @media screen and (min-width: $desktop) {
-        padding: 180px 72px 80px 72px;
-    }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 112px 22px 40px 22px;
+  @media screen and (min-width: $mobile) {
+    padding: 110px 20px 80px 20px;
+  }
+  @media screen and (min-width: $tablet) {
+    padding: 184px 20px 80px 20px;
+  }
+  @media screen and (min-width: $laptop) {
+    padding: 184px 32px 80px 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 180px 72px 80px 72px;
+  }
 }
 
 .backContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    column-gap: 16px;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    padding: 0 8px;
-    background-color: $backgroundColor;
-    font-weight: 500;
-    line-height: 1.6;
-    text-align: center;
-    color: $gray0;
-    margin-bottom: 24px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: auto;
-    animation: fadeIn 0.8s ease-in-out forwards;
-    @media screen and (min-width: $tablet) {
-        font-size: 20px;
-        margin-bottom: 32px;
-    }
-    @media screen and (min-width: $laptop) {
-        column-gap: 16px;
-        padding: 0 8px;
-    }
-
-    @media screen and (min-width: $desktop) {
-        font-size: 14px;
-        margin-bottom: 16px;
-    }
+  background-color: $backgroundColor;
+  color: $gray0;
 }
 
 .backIcon {
-    width: 32px;
-    height: 12px;
-    fill: $gray0;
+  fill: $gray0;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .blogIdContent {
-    width: 100%;
-    @media screen and (min-width: $tablet) {
-        width: 70%;
-    }
-    @media screen and (min-width: $laptop) {
-        width: 60%;
-    }
+  width: 100%;
+  @media screen and (min-width: $tablet) {
+    width: 70%;
+  }
+  @media screen and (min-width: $laptop) {
+    width: 60%;
+  }
 }
 
 .blogTitle {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+  color: $gray900;
+  margin-bottom: 20px;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  @media screen and (min-width: $tablet) {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: $laptop) {
     font-weight: 400;
-    font-size: 32px;
+    font-size: 52px;
     line-height: 1.1;
-    color: $gray900;
-    margin-bottom: 20px;
-    animation: fadeIn 0.8s ease-in-out forwards;
-    @media screen and (min-width: $tablet) {
-        font-size: 48px;
-        margin-bottom: 32px;
-    }
-    @media screen and (min-width: $laptop) {
-        font-weight: 400;
-        font-size: 52px;
-        line-height: 1.1;
-        margin-bottom: 24px;
-    }
+    margin-bottom: 24px;
+  }
 
-    @media screen and (min-width: $desktop) {
-        font-size: 70px;
-        line-height: 1.1;
-    }
+  @media screen and (min-width: $desktop) {
+    font-size: 70px;
+    line-height: 1.1;
+  }
 }
 
 @keyframes fadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .firstImgContainer {
-    position: relative;
-    width: 100%;
-    height: 280px;
-    margin-bottom: 16px;
-    @media screen and (min-width: $mobile) {
-        height: 312px;
-    }
-    @media screen and (min-width: $tablet) {
-        height: 340px;
-        margin-bottom: 24px;
-    }
-    @media screen and (min-width: $laptop) {
-        height: 390px;
-    }
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin-bottom: 16px;
+  @media screen and (min-width: $mobile) {
+    height: 312px;
+  }
+  @media screen and (min-width: $tablet) {
+    height: 340px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $laptop) {
+    height: 390px;
+  }
 
-    @media screen and (min-width: $desktop) {
-        height: 471px;
-    }
+  @media screen and (min-width: $desktop) {
+    height: 471px;
+  }
 }
 
 .img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .publishedContainer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 16px;
+  row-gap: 4px;
+  margin-bottom: 8px;
+  @media screen and (min-width: $tablet) {
     column-gap: 16px;
-    row-gap: 4px;
-    margin-bottom: 8px;
-    @media screen and (min-width: $tablet) {
-        column-gap: 16px;
-        margin-bottom: 16px;
-    }
-    @media screen and (min-width: $laptop) {
-        column-gap: 24px;
-        margin-bottom: 16px;
-    }
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: $laptop) {
+    column-gap: 24px;
+    margin-bottom: 16px;
+  }
 }
 
 .publishedTitle {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.1;
-    color: $gray900;
-    @media screen and (min-width: $laptop) {
-        font-size: 16px;
-    }
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.1;
+  color: $gray900;
+  @media screen and (min-width: $laptop) {
+    font-size: 16px;
+  }
 }
 
 .publishedDate {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.6;
-    color: $gray800;
-    @media screen and (min-width: $laptop) {
-        font-size: 16px;
-    }
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $gray800;
+  @media screen and (min-width: $laptop) {
+    font-size: 16px;
+  }
 }
 
 .publishedAutor {
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.1;
-    color: $gray900;
-    @media screen and (min-width: $laptop) {
-        font-size: 16px;
-    }
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.1;
+  color: $gray900;
+  @media screen and (min-width: $laptop) {
+    font-size: 16px;
+  }
 }
 
 .blogDescContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-    row-gap: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
 }
 
 .blogDesc {
-    text-align: justify;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-    color: $gray900;
-    @media screen and (min-width: $laptop) {
-        font-size: 20px;
-    }
+  text-align: justify;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $gray900;
+  @media screen and (min-width: $laptop) {
+    font-size: 20px;
+  }
 }
 
 .loading {
-    margin-top: 200px;
-    font-size: 40px;
+  margin-top: 200px;
+  font-size: 40px;
 }
 
 ////////////////////////////////////////////////
