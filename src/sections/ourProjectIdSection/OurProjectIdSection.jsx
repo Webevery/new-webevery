@@ -58,6 +58,16 @@ const OurProjectIdSection = ({ params }) => {
               classNameIcon={styles.backIcon}
             />
             <h1 className={styles.ourProjectsTitle}>
+              {i18n.language === currentLanguages.EN
+                ? data?.titleEn
+                : data?.title}{' '}
+              <span className={styles.ourProjectsTitleGradient}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.titleGradientEn
+                  : data?.titleGradient}
+              </span>
+            </h1>
+            {/* <h1 className={styles.ourProjectsTitle}>
               <span className={styles.ourProjectsTitleGradient}>
                 {i18n.language === currentLanguages.EN
                   ? data?.titleEn
@@ -66,7 +76,7 @@ const OurProjectIdSection = ({ params }) => {
               {i18n.language === currentLanguages.EN
                 ? data?.titleGradientEn
                 : data?.titleGradient}
-            </h1>
+            </h1> */}
 
             {!isSmallScreen && (
               <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>
