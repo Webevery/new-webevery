@@ -14,6 +14,7 @@ import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 
 const BlogIdSection = ({ params }) => {
   const { slug } = params;
+
   const { data, error, isLoading } = GetIdDataFromSection('blogs', slug);
   const pathname = usePathname();
   const isPathExist = useCheckPathname(pathname);
@@ -51,7 +52,9 @@ const BlogIdSection = ({ params }) => {
                   Published:{' '}
                   <span className={styles.publishedDate}>11.02.2024</span>
                 </h4>
-                <p className={styles.publishedAutor}>Webevery</p>
+                <p className={styles.publishedAutor}>
+                  by: <span className={styles.publishedDate}>Webevery</span>
+                </p>
               </div>
               <figure className={styles.firstImgContainer}>
                 <CldImage

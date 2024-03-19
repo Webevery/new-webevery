@@ -24,24 +24,28 @@ const ServiceIdSection = ({ params }) => {
 
     if (!isLoading) {
         changedData = {
-            _id: data._id,
-            title: data.title,
-            titleEn: data.titleEn,
-            titleGradient: data.titleGradient,
-            titleGradientEn: data.titleGradientEn,
-            mockup: data.mockup,
-            description: data.description,
-            descriptionEn: data.descriptionEn,
-            price: data.price,
-            priceEn: data.priceEn,
-            directions: data.directions,
-            directionsEn: data.directionsEn,
-            slug: data.slug,
+            _id: data?._id,
+            title: data?.title,
+            titleEn: data?.titleEn,
+            titleGradient: data?.titleGradient,
+            titleGradientEn: data?.titleGradientEn,
+            mockup: data?.mockup,
+            description: data?.description,
+            descriptionEn: data?.descriptionEn,
+            price: data?.price,
+            priceEn: data?.priceEn,
+            directions: data?.directions,
+            directionsEn: data?.directionsEn,
+            slug: data?.slug,
         };
 
-        if (changedData && typeof (changedData.directions) === "string" && typeof (changedData.directionsEn) === "string") {
-            const directionsArray = changedData.directions.split(' | ');
-            const directionsEnArray = changedData.directionsEn.split(' | ');
+        if (
+            changedData &&
+            typeof changedData.directions === "string" &&
+            typeof changedData.directionsEn === "string"
+        ) {
+            const directionsArray = changedData.directions.split(" | ");
+            const directionsEnArray = changedData.directionsEn.split(" | ");
             changedData.directions = directionsArray;
             changedData.directionsEn = directionsEnArray;
         }
@@ -52,8 +56,8 @@ const ServiceIdSection = ({ params }) => {
             {isLoading && <Loading className={styles.loading} />}
             {!isLoading && !isPathExist && (
                 <NotFound
-                    title={t('NotFoundPage.NotFoundTitle')}
-                    buttonTitle={t('ServiceIdPage.BackToServicesBtn')}
+                    title={t("NotFoundPage.NotFoundTitle")}
+                    buttonTitle={t("ServiceIdPage.BackToServicesBtn")}
                     href='/services'
                 />
             )}
@@ -61,9 +65,15 @@ const ServiceIdSection = ({ params }) => {
                 <section className={styles.servicesId}>
                     <div className={`container ${styles.servicesIdContainer}`}>
                         <h1 className={styles.servicesIdTitle}>
-                            <span>{i18n.language === currentLanguages.EN ? changedData.titleGradientEn : changedData.titleGradient}</span>
+                            <span>
+                                {i18n.language === currentLanguages.EN
+                                    ? changedData.titleGradientEn
+                                    : changedData.titleGradient}
+                            </span>
                             &nbsp;
-                            {i18n.language === currentLanguages.EN ? changedData.titleEn : changedData.title}
+                            {i18n.language === currentLanguages.EN
+                                ? changedData.titleEn
+                                : changedData.title}
                         </h1>
                         <div className={styles.servicesIdContent}>
                             <div className={styles.servicesIdImgContainer}>
@@ -89,7 +99,7 @@ const ServiceIdSection = ({ params }) => {
                                 </p>
                                 <OrderBtn
                                     id={styles.serviceOrderBtn}
-                                    title={t('Buttons.OrderBtn')}
+                                    title={t("Buttons.OrderBtn")}
                                 />
                             </div>
                         </div>
@@ -98,7 +108,9 @@ const ServiceIdSection = ({ params }) => {
                             className={`container ${styles.servicesIdSliderContainer}`}
                         >
                             <h3 className={styles.servicesIdSliderTitle}>
-                                {t('ServiceIdPage.SubTitle1')} <span>{t('ServiceIdPage.SubTitle2')}</span> {t('ServiceIdPage.SubTitle3')}
+                                {t("ServiceIdPage.SubTitle1")}{" "}
+                                <span>{t("ServiceIdPage.SubTitle2")}</span>{" "}
+                                {t("ServiceIdPage.SubTitle3")}
                             </h3>
                             <SliderOfServices slug={slug} />
                         </div>
