@@ -72,7 +72,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='title'
+                        type='text'
                         className={styles.formInput}
                         id='title'
                         placeholder=' '
@@ -85,7 +85,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='titleEn'
+                        type='text'
                         className={styles.formInput}
                         id='titleEn'
                         placeholder=' '
@@ -98,7 +98,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='titleGradient'
+                        type='text'
                         className={styles.formInput}
                         id='titleGradient'
                         placeholder=' '
@@ -113,7 +113,7 @@ const DashboardProjectCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='titleGradientEn'
+                        type='text'
                         className={styles.formInput}
                         id='titleGradientEn'
                         placeholder=' '
@@ -195,7 +195,7 @@ const DashboardProjectCreateForm = () => {
                         placeholder=' '
                         {...register("solutionEn")}
                     />
-                    <label htmlFor='help' className={styles.formLabel}>
+                    <label htmlFor='solutionEn' className={styles.formLabel}>
                         SolutionEn
                     </label>
                     <p className={styles.error}>{errors.solutionEn?.message}</p>
