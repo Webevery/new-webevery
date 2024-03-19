@@ -11,7 +11,8 @@ export const dashboardServiceCreateSchema = yup.object({
     titleGradientEn: yup
         .string(),
     mockup: yup
-        .string().required("mockup is required"),
+        .string()
+        .required("mockup is required"),
     description: yup
         .string()
         .required("Description is required"),
