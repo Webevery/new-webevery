@@ -1,36 +1,36 @@
 import * as yup from "yup";
 
 
-export const dashboardServiceCreateSchema = yup.object({
-    title: yup
+export const dashboardServiceUpdateSchema = yup.object({
+    newTitle: yup
         .string(),
-    titleEn: yup
+    newTitleEn: yup
         .string(),
-    titleGradient: yup
+    newTitleGradient: yup
         .string(),
-    titleGradientEn: yup
+    newTitleGradientEn: yup
         .string(),
-    mockup: yup
+    newMockup: yup
         .string().required("mockup is required"),
-    description: yup
+    newDescription: yup
         .string()
         .required("Description is required"),
-    descriptionEn: yup
+    newDescriptionEn: yup
         .string()
         .required("DescriptionEn is required"),
-    price: yup
+    newPrice: yup
         .string()
         .required("Price is required"),
-    priceEn: yup
+    newPriceEn: yup
         .string()
         .required("PriceEn is required"),
-    directions: yup
+    newDirections: yup
         .string()
         .required("Directions is required"),
-    directionsEn: yup
+    newDirectionsEn: yup
         .string()
         .required("DirectionsEn is required"),
-    slug: yup
+    newSlug: yup
         .string()
         .required("Slug is required")
 
