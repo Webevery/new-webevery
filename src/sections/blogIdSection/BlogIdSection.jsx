@@ -14,6 +14,7 @@ import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 
 const BlogIdSection = ({ params }) => {
   const { slug } = params;
+
   const { data, error, isLoading } = GetIdDataFromSection('blogs', slug);
   const pathname = usePathname();
   const isPathExist = useCheckPathname(pathname);
