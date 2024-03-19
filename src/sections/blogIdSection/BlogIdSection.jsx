@@ -51,7 +51,9 @@ const BlogIdSection = ({ params }) => {
                   Published:{' '}
                   <span className={styles.publishedDate}>11.02.2024</span>
                 </h4>
-                <p className={styles.publishedAutor}>Webevery</p>
+                <p className={styles.publishedAutor}>
+                  by: <span className={styles.publishedDate}>Webevery</span>
+                </p>
               </div>
               <figure className={styles.firstImgContainer}>
                 <CldImage
