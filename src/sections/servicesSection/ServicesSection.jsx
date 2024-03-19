@@ -115,7 +115,9 @@ const ServicesSection = () => {
                         id={styles.serviceOrderBtn}
                         title={t('Buttons.ServiceCardOrderBtn')}
                         onClick={() => {
-                          setComment(`${titleGradientEn} ${titleEn}`);
+                          if (i18n.language === currentLanguages.EN) {
+                            setComment(`${titleGradientEn} ${titleEn}`);
+                          }else{setComment(`${titleGradient} ${title}`)}
                           openModal();
                         }}
                       />
