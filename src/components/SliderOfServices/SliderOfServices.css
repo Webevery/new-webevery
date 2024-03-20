@@ -50,7 +50,7 @@
 
 
 .ServicesSwiper .swiper-pagination {
-    bottom: -6px;
+    top:97%;
     @media screen and (min-width:1024px) {
         display: none;
     }
