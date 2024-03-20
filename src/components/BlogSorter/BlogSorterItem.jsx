@@ -40,6 +40,10 @@ const BlogSorterItem = ({
       setSorterArr('AZ');
     } else if (value === 'Sort from Z to A') {
       setSorterArr('ZA');
+    } else if (value === 'Sortfrom new to old') {
+      setSorterArr('NO');
+    } else if (value === 'Sort from old to new') {
+      setSorterArr('ON');
     } else {
       setSorterArr('');
     }
