@@ -56,7 +56,6 @@
   // padding-bottom: 48px;
   height: 632px;
   width: 312px;
-  // font-size: 16px;
   @media screen and (min-width:768px) {
       height: 629px;
       padding-bottom: 32px;
@@ -120,6 +119,9 @@
   align-items: center;
   margin-bottom: 12px;
   justify-content: flex-end;
+  @media screen and (min-width:1024px) {
+    margin-bottom: 16px;
+}
   @media screen and (min-width:1440px) {
     margin-bottom: 24px;
 }
