@@ -1,20 +1,6 @@
 
 .ServicesSwiper {
-    width: 100%;
-    /* height: 632px; */
-
-    /* @media screen and (min-width:768px) {
-        height: 653px;
-    }
-
-    @media screen and (min-width:1024px) {
-        height: 612px;
-    }
-
-    @media screen and (min-width:1440px) {
-        /* width: 1296px; */
-        /* height: 828px; */
-    /* } */ 
+    width: 100%; 
 }
 
 
@@ -33,23 +19,25 @@
     }
 } */
 
-
+/* 
 .ServicesSwiper .swiper-slide {
     display: flex;
     justify-content: center;
-}
+} */
 
 
-.ServicesSwiper .slideContentWrapper {
+/* .ServicesSwiper .slideContentWrapper {
     background-color: #0d0d11;
+    height: 632px; */
     /* box-shadow: 6px 12px 32px 0px #1A8CFF1A; */
 
-    @media screen and (min-width:768px) {
+    /* @media screen and (min-width:768px) {
+        height: 653px;
         padding: 24px;
         width: 340px;
-    };
+    }; */
 
-    @media screen and (min-width:1024px) {
+    /* @media screen and (min-width:1024px) {
         padding: 16px 12px;
         width: 304px;
     };
@@ -57,30 +45,62 @@
     @media screen and (min-width:1440px) {
         padding: 32px 16px;
         width: 416px;
+    } */
+/* } */
+
+
+.ServicesSwiper .swiper-pagination {
+    bottom: -6px;
+    @media screen and (min-width:1024px) {
+        display: none;
     }
 }
 
-
-.ServiceSwiper .swiper-pagination {
-    bottom: 0px;
-}
-
 .ServicesSwiper .swiper-pagination-bullet {
-    width: 4px;
-    height: 4px;
-    background: #4B4B4E;
+    width: 8px;
+    height: 8px;
+    background: #cbcbcf;
 }
 
-.ServicesSwiper .swiper-pagination-bullet:not(:first-child) {
-    margin-left: 2px;
-}
-
-.ServicesSwiper .swiper-pagination-bullet:not(:last-child) {
-    margin-right: 2px;
+.ServicesSwiper .swiper-pagination-bullet:hover {
+    opacity: 1;
+    background: linear-gradient(to right, #faff00,
+            #00f0ff,
+            #0400b3);
 }
 
 .ServicesSwiper .swiper-pagination-bullet-active {
     background: linear-gradient(to right, #faff00,
             #00f0ff,
             #0400b3);
+}
+
+.ServicesSwiper .swiper-button-prev,
+.ServicesSwiper .swiper-button-next {
+    visibility: hidden;
+}
+
+.ServicesSwiper .swiper-button-prev:after,
+.ServicesSwiper .swiper-button-next:after {
+    font-size: 12px;
+    font-weight: 900;
+    color: #A6A6AA;
+}
+
+@media screen and (min-width:1024px) {
+    .ServicesSwiper .swiper-button-prev {
+        visibility: visible;
+        left: 48%;
+        top: 97%;
+        width: 48px;
+        height: 48px;
+    }
+
+    .ServicesSwiper .swiper-button-next {
+        visibility: visible;
+        left: 52%;
+        top: 97%;
+        width: 48px;
+        height: 48px;
+    }
 }

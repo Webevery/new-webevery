@@ -17,7 +17,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 export const SliderOfServices = ({ slug }) => {
   const { data, isLoading } = GetDataFromSection("services");
@@ -45,7 +45,7 @@ export const SliderOfServices = ({ slug }) => {
   return (
     <Swiper
       slidesPerView={1}
-      // spaceBetween={0}
+      spaceBetween={20}
       pagination={{
         clickable: true,
       }}
@@ -70,8 +70,9 @@ export const SliderOfServices = ({ slug }) => {
           spaceBetween: 10,
         },
       }}
-      modules={[Pagination, Autoplay]}
-      className={`ServiceSwiper ${styles.serviceList}`}
+      navigation={true}
+      modules={[Pagination, Autoplay, Navigation]}
+      className={`ServicesSwiper ${styles.serviceList}`}
     >
         {filteredData?.map(({
             slug,
