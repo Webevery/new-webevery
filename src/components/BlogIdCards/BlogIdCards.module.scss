@@ -1,0 +1,48 @@
+@import '../../app/variables';
+
+.cartContainer {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 20px;
+  animation: fadeUp 0.8s ease-in-out forwards;
+  @media screen and (min-width: $mobile) {
+    row-gap: 16px;
+  }
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    -webkit-box-pack: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
+    row-gap: 18px;
+    -webkit-column-gap: 24px;
+    -moz-column-gap: 24px;
+    column-gap: 24px;
+  }
+  @media screen and (min-width: $laptop) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+  @media screen and (min-width: $desktop) {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+.notFoundTextStyles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #fff;
+  @media screen and (min-width: $laptop) {
+    font-size: 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 36px;
+  }
+}

@@ -54,9 +54,12 @@
 .blogIdContent {
   width: 100%;
   @media screen and (min-width: $tablet) {
-    width: 70%;
+    width: 90%;
   }
   @media screen and (min-width: $laptop) {
+    width: 70%;
+  }
+  @media screen and (min-width: $desktop) {
     width: 60%;
   }
 }
@@ -64,29 +67,23 @@
 .blogTitle {
   font-weight: 400;
   font-size: 40px;
-  // font-size: 32px;
   line-height: 1.1;
   color: $gray900;
   margin-bottom: 16px;
-  // margin-bottom: 20px;
   animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $tablet) {
     font-size: 58px;
-    // font-size: 48px;
     margin-bottom: 20px;
-    // margin-bottom: 32px;
   }
   @media screen and (min-width: $laptop) {
     font-weight: 400;
     font-size: 64px;
-    // font-size: 52px;
     line-height: 1.1;
     margin-bottom: 24px;
   }
 
   @media screen and (min-width: $desktop) {
     font-size: 96px;
-    // font-size: 70px;
     line-height: 1.1;
   }
 }
@@ -107,7 +104,6 @@
   width: 100%;
   height: 280px;
   margin-bottom: 12px;
-  // margin-bottom: 20px;
   @media screen and (min-width: $mobile) {
     height: 312px;
   }
@@ -136,7 +132,6 @@
   column-gap: 16px;
   row-gap: 4px;
   margin-bottom: 12px;
-  // margin-bottom: 8px;
   @media screen and (min-width: $tablet) {
     column-gap: 16px;
     margin-bottom: 16px;
@@ -185,6 +180,13 @@
   display: flex;
   flex-direction: column;
   row-gap: 24px;
+  margin-bottom: 24px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: $laptop) {
+    margin-bottom: 40px;
+  }
 }
 
 .blogDesc {
@@ -203,379 +205,18 @@
   font-size: 40px;
 }
 
-////////////////////////////////////////////////
-// .blog {
-//   background-color: $gray0;
-//   flex: 1;
-// }
-
-// .blogIdContainer {
-//   padding: 112px 22px 40px 22px;
-//   @media screen and (min-width: $mobile) {
-//     padding: 110px 20px 80px 20px;
-//   }
-//   @media screen and (min-width: $tablet) {
-//     padding: 184px 20px 80px 20px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     padding: 184px 32px 80px 32px;
-//   }
-//   @media screen and (min-width: $desktop) {
-//     padding: 180px 72px 80px 72px;
-//   }
-// }
-
-// .backContainer {
-//   display: -webkit-box;
-//   display: -ms-flexbox;
-//   display: flex;
-//   -webkit-box-align: center;
-//   -ms-flex-align: center;
-//   align-items: center;
-//   column-gap: 16px;
-//   width: -webkit-max-content;
-//   width: -moz-max-content;
-//   width: max-content;
-//   padding: 0 8px;
-//   background-color: $backgroundColor;
-//   font-weight: 500;
-//   line-height: 1.6;
-//   text-align: center;
-//   color: $gray0;
-//   margin-bottom: 24px;
-//   cursor: pointer;
-//   font-size: 16px;
-//   animation: fadeIn 0.8s ease-in-out forwards;
-//   @media screen and (min-width: $tablet) {
-//     font-size: 20px;
-//     margin-bottom: 32px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     column-gap: 16px;
-//     padding: 0 8px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     font-size: 14px;
-//     margin-bottom: 16px;
-//   }
-// }
-
-// .backIcon {
-//   width: 32px;
-//   height: 12px;
-//   fill: $gray0;
-// }
-
-// @keyframes fadeIn {
-//   0% {
-//     opacity: 0;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
-
-// .blogTitle {
-//   font-weight: 400;
-//   font-size: 40px;
-//   line-height: 1.1;
-//   color: $gray900;
-//   margin-bottom: 20px;
-//   animation: fadeIn 0.8s ease-in-out forwards;
-//   @media screen and (min-width: $tablet) {
-//     font-size: 56px;
-//     margin-bottom: 74px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     font-weight: 400;
-//     font-size: 64px;
-//     line-height: 1.1;
-//     color: $gray900;
-//     margin-bottom: 0px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     font-size: 96px;
-//     line-height: 1.1;
-//     color: #0d0d11;
-//   }
-// }
-
-// @keyframes fadeUp {
-//   0% {
-//     opacity: 0;
-//     transform: translateY(30px);
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
-
-// .blogContent {
-//   position: relative;
-//   column-gap: 14px;
-//   animation: fadeUp 0.8s ease-in-out forwards;
-
-//   &:not(:last-child) {
-//     margin-bottom: 16px;
-//   }
-//   @media screen and (min-width: $tablet) {
-//     column-gap: 24px;
-//     &:not(:last-child) {
-//       margin-bottom: 33px;
-//     }
-//   }
-//   @media screen and (min-width: $laptop) {
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//     column-gap: 24px;
-//   }
-//   @media screen and (min-width: $desktop) {
-//   }
-// }
-
-// .blogDescContainer {
-//   @media screen and (min-width: $tablet) {
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//     column-gap: 24px;
-//   }
-// }
-
-// .firstImgContainer {
-//   position: relative;
-//   width: 100%;
-//   height: 280px;
-//   @media screen and (min-width: $mobile) {
-//     height: 312px;
-//   }
-//   @media screen and (min-width: $tablet) {
-//     width: 340px;
-//     height: 340px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     min-width: 468px;
-//     height: 471px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     min-width: 636px;
-//     height: 636px;
-//   }
-// }
-
-// .img {
-//   object-fit: cover;
-// }
-
-// .blogDesc {
-//   font-weight: 400;
-//   font-size: 16px;
-//   line-height: 1.6;
-//   color: $gray900;
-//   @media screen and (min-width: $laptop) {
-//     font-size: 20px;
-//   }
-// }
-////////////////////////////////////////////////////////////
-// @import '../../app/variables';
-
-// .blog {
-//   background-color: $gray0;
-//   flex: 1;
-// }
-
-// .blogIdContainer {
-//   padding: 112px 22px 40px 22px;
-//   @media screen and (min-width: $mobile) {
-//     padding: 120px 24px 40px 24px;
-//   }
-//   @media screen and (min-width: $tablet) {
-//     padding: 160px 32px 40px 32px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     padding: 204px 32px 80px 32px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     padding: 180px 72px 80px 72px;
-//     // padding: 228px 72px 80px 72px;
-//   }
-// }
-
-// .backContainer {
-//   display: -webkit-box;
-//   display: -ms-flexbox;
-//   display: flex;
-//   -webkit-box-align: center;
-//   -ms-flex-align: center;
-//   align-items: center;
-//   column-gap: 16px;
-//   width: -webkit-max-content;
-//   width: -moz-max-content;
-//   width: max-content;
-//   padding: 0 8px;
-//   background-color: $backgroundColor;
-//   font-weight: 500;
-//   line-height: 1.6;
-//   text-align: center;
-//   color: $gray0;
-//   margin-bottom: 24px;
-//   cursor: pointer;
-//   font-size: 16px;
-//   animation: fadeIn 0.8s ease-in-out forwards;
-//   @media screen and (min-width: $tablet) {
-//     font-size: 20px;
-//     margin-bottom: 32px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     column-gap: 16px;
-//     padding: 0 8px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     font-size: 14px;
-//     margin-bottom: 16px;
-//   }
-// }
-
-// .backIcon {
-//   width: 32px;
-//   height: 12px;
-//   fill: $gray0;
-//   transform: rotate(180deg);
-// }
-
-// @keyframes fadeIn {
-//   0% {
-//     opacity: 0;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
-
-// .blogTitle {
-//   font-weight: 400;
-//   font-size: 32px;
-//   line-height: 1.1;
-//   color: $gray900;
-//   margin-bottom: 16px;
-//   animation: fadeIn 0.8s ease-in-out forwards;
-//   @media screen and (min-width: $tablet) {
-//     font-size: 38px;
-//     margin-bottom: 74px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     font-weight: 400;
-//     font-size: 44px;
-//     line-height: 1.1;
-//     color: $gray900;
-//     margin-bottom: 20px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     font-size: 64px;
-//     margin-bottom: 24px;
-//   }
-// }
-
-// @keyframes fadeUp {
-//   0% {
-//     opacity: 0;
-//     transform: translateY(30px);
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
-
-// .blogContent {
-//   position: relative;
-//   display: -webkit-box;
-//   display: -ms-flexbox;
-//   display: flex;
-//   column-gap: 14px;
-//   flex-direction: column;
-//   animation: fadeUp 0.8s ease-in-out forwards;
-//   &:not(:last-child) {
-//     flex-direction: column-reverse;
-//   }
-
-//   &:not(:last-child) {
-//     margin-bottom: 16px;
-//   }
-//   @media screen and (min-width: $tablet) {
-//     column-gap: 24px;
-//     flex-direction: row-reverse;
-//     &:not(:last-child) {
-//       margin-bottom: 33px;
-//       flex-direction: row-reverse;
-//     }
-//   }
-//   @media screen and (min-width: $laptop) {
-//     column-gap: 24px;
-//   }
-// }
-
-// .firstImgContainer {
-//   position: relative;
-//   width: 100%;
-//   height: 280px;
-//   margin-bottom: 16px;
-//   @media screen and (min-width: $mobile) {
-//     height: 312px;
-//   }
-//   @media screen and (min-width: $tablet) {
-//     min-width: 340px;
-//     height: 471px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     min-width: 468px;
-//     height: 471px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     min-width: 636px;
-//     height: 640px;
-//   }
-// }
-
-// .lastImgContainer {
-//   position: relative;
-//   width: 100%;
-//   height: 280px;
-//   margin-bottom: 16px;
-//   @media screen and (min-width: $mobile) {
-//     height: 312px;
-//   }
-//   @media screen and (min-width: $tablet) {
-//     min-width: 340px;
-//     height: 445px;
-//   }
-//   @media screen and (min-width: $laptop) {
-//     min-width: 386px;
-//     height: 445px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     min-width: 416px;
-//     height: 480px;
-//   }
-// }
-
-// .img {
-//   object-fit: cover;
-// }
-
-// .blogDesc {
-//   font-weight: 400;
-//   font-size: 20px;
-//   line-height: 1.6;
-//   color: $gray900;
-// }
+.interestingBlogs {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+  color: #0d0d11;
+  margin-bottom: 16px;
+  @media screen and (min-width: $tablet) {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $laptop) {
+    font-size: 44px;
+    margin-bottom: 32px;
+  }
+}
