@@ -19,12 +19,12 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 
-export const SliderOfServices = () => {
+export const SliderOfServices = ({ slug }) => {
   const { data, isLoading } = GetDataFromSection("services");
   const { openModal, setComment } = useContext(SiteContext);
   const { i18n, t } = useTranslation();
 
-  let changedData = [];
+  let changedData;
 
   if (!isLoading) {
     changedData = [...data];
@@ -37,6 +37,9 @@ export const SliderOfServices = () => {
       }
     })
   }
+
+  // for render on ServiceIdPage
+  const filteredData = changedData?.filter(item => item.slug !== slug)
 
 
   return (
@@ -70,8 +73,9 @@ export const SliderOfServices = () => {
       modules={[Pagination, Autoplay]}
       className={`ServiceSwiper ${styles.serviceList}`}
     >
-      {/* <div className={styles.serviceList}> */}
-        {changedData?.map(
+      <div className={styles.serviceList}>
+        {filteredData?.map(
+
           ({
             slug,
             title,

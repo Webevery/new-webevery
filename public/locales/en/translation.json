@@ -1,33 +1,32 @@
 {
   "MainPage": {
-    "TeamTitle":"Our team",
-    "TeamSubTitle":"will bring your ideas to life",
+    "TeamTitle": "Our team",
+    "TeamSubTitle": "will bring your ideas to life",
     "WorkingProcessTitle": "Working process",
-    "WorkingProcessSubTitleMob":"other details of the development are discussed individually",
-    "WorkingProcessSubTitleLaptop":"additional development details are tailored to your specific needs and discussed on an individual basis",
-    "OurProjectsTitle":"Our",
-    "OurProjectsSubTitle":"projects",
-    "OurServicesTitle":"Services",
-    "OurServicesSubTitle":"from landing to large site",
-    "FaqSubTitle":"Find your question here",
-    "OrderSectionTitleMob":"To talk about",
-    "OrderSectionTitleTab":"Let`s talk about",
-    "OrderSectionSubTitle":"your new site!"
+    "WorkingProcessSubTitleMob": "other details of the development are discussed individually",
+    "WorkingProcessSubTitleLaptop": "additional development details are tailored to your specific needs and discussed on an individual basis",
+    "OurProjectsTitle": "Our",
+    "OurProjectsSubTitle": "projects",
+    "OurServicesTitle": "Services",
+    "OurServicesSubTitle": "from landing to large site",
+    "FaqSubTitle": "Find your question here",
+    "OrderSectionTitleMob": "To talk about",
+    "OrderSectionTitleTab": "Let`s talk about",
+    "OrderSectionSubTitle": "your new site!"
   },
   "TeamPage": {
     "Title": "Team",
     "SubTitle": "let's get to know those who work for you"
   },
-  "OurProjectsPage":{
-    "Title":"Our Projects",
-    "NavLinkText":"To the page with all projects",
-    "TitleProblem":"Problem",
-    "TitleSolutions":"Solutions",
-    "TitleHelpBussines":"How it`s help for business",
-    "TitleDesc":"Mobile adapted",
-    "NoProjects":"Project not found",
-    "NoProjectsBtn":"To all projects"
-
+  "OurProjectsPage": {
+    "Title": "Our Projects",
+    "NavLinkText": "To the page with all projects",
+    "TitleProblem": "Problem",
+    "TitleSolutions": "Solutions",
+    "TitleHelpBussines": "How does it help business",
+    "TitleDesc": "Mobile adapted",
+    "NoProjects": "Project not found",
+    "NoProjectsBtn": "To all projects"
   },
   "ContactsPage": {
     "Title": "Contact",
@@ -38,41 +37,41 @@
   },
   "ServicesPage": {
     "Title": "Services",
-    "SubTitle1":"choose",
+    "SubTitle1": "choose",
     "SubTitle2": "the best",
     "SubTitle3": "deal for your business"
   },
   "ServiceIdPage": {
-    "SubTitle1":"Choose",
+    "SubTitle1": "Choose",
     "SubTitle2": "the best",
     "SubTitle3": "deal for your business:",
-    "BackToServicesBtn":"To all services"
+    "BackToServicesBtn": "To all services"
   },
-  "BlogPage":{
-    "GenSubTitle":"Blog",
-    "SubTitle":"here is you can read useful articles",
-    "NoArticles":"No articles found!!"
+  "BlogPage": {
+    "GenSubTitle": "Blog",
+    "SubTitle": "here is you can read useful articles",
+    "NoArticles": "No articles found!!"
   },
-  "BlogIdPage":{
-    "NotFound":"Blog not found",
-    "NotFoundTitleBtn":"To all blogs",
-    "NavBtn":"To page with all articles"
+  "BlogIdPage": {
+    "NotFound": "Blog not found",
+    "NotFoundTitleBtn": "To all blogs",
+    "NavBtn": "To page with all articles"
   },
-  "NotFoundPage":{
-    "NotFoundTitle":"Page not found",
-    "NotFoundTitleBtn":"Home"
+  "NotFoundPage": {
+    "NotFoundTitle": "Page not found",
+    "NotFoundTitleBtn": "Home"
   },
   "Buttons": {
     "CalltBtn": "Call",
-    "OrderBtn":"Order",
-    "HomeTeamBtn":"About Team",
-    "HomeProjectsBtn":"To portfolio",
-    "ServicesDetailsBtn":"Read more",
-    "HomeFaqBtn":"Read more",
+    "OrderBtn": "Order",
+    "HomeTeamBtn": "About Team",
+    "HomeProjectsBtn": "To portfolio",
+    "ServicesDetailsBtn": "Read more",
+    "HomeFaqBtn": "Read more",
     "ServiceCardOrderBtn": "Order",
-    "FormOrderBtn":"Order call from manager",
-    "ProjectDetailsBtn":"Read more",
-    "ProjectOpenSiteBtn":"Open site",
+    "FormOrderBtn": "Order call from manager",
+    "ProjectDetailsBtn": "Read more",
+    "ProjectOpenSiteBtn": "Open site",
     "CardDetailsBtn": "Read more",
     "CloseBtn": "Close",
     "FilterBtn": "Find",
@@ -83,8 +82,8 @@
     "Submit": "Submit"
   },
   "Form": {
-    "Title":"Fill out the form and we call you very soon",
-    "TitleMob":"We call you very soon",
+    "Title": "Fill out the form and we call you very soon",
+    "TitleMob": "We call you very soon",
     "Name": "Name",
     "Phone": "Phone",
     "TextArea": "Briefly describe your wish",
@@ -105,7 +104,7 @@
     "departureDate": "Choose a date",
     "numberObject": "Enter the object number"
   },
-  "LoadStatus":{
-    "Load":"Loading..."
+  "LoadStatus": {
+    "Load": "Loading..."
   }
 }

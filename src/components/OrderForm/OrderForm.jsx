@@ -15,18 +15,12 @@ import { useTranslation } from "react-i18next";
 
 import styles from "./OrderForm.module.scss";
 
-const OrderForm = ({
-    isFooterForm = false,
-    comment = "",
-    className,
-    titleClassName,
-}) => {
-    const { closeModal, isModalOpen } = useContext(SiteContext);
+const OrderForm = ({ isFooterForm = false, comment = "" }) => {
     const [isSubmited, setSubmited] = useState(false);
-
+    const { closeModal, isModalOpen } = useContext(SiteContext);
     const { isMobile, isTablet } = useWindowResize();
 
-    const {t}=useTranslation();
+    const { t } = useTranslation();
 
     const initialValues = {
         defaultValues: {
@@ -51,7 +45,7 @@ const OrderForm = ({
 
     const onSubmit = (data) => {
         setSubmited(true);
-        // sendToTelegram(data);
+        sendToTelegram(data);
         if (!isModalOpen) toast.success("Your message has been sent!");
         console.log("data", data);
 
@@ -75,7 +69,7 @@ const OrderForm = ({
                     className={
                         isFooterForm
                             ? `${styles.container} ${styles.containerFooter}`
-                            : `${styles.container} ${className}`
+                            : styles.container
                     }
                 >
                     {isModalOpen && (
@@ -89,16 +83,14 @@ const OrderForm = ({
                         </button>
                     )}
                     {!isFooterForm && (
-                        <div
-                            className={`${styles.titleWrap} ${titleClassName}`}
-                        >
+                        <div className={styles.titleWrap}>
                             {isMobile || isTablet ? (
                                 <h2 className={`${styles.title} `}>
-                                    {t('Form.TitleMob')}
+                                    {t("Form.TitleMob")}
                                 </h2>
                             ) : (
                                 <h2 className={styles.title}>
-                                    {t('Form.Title')}
+                                    {t("Form.Title")}
                                 </h2>
                             )}
                         </div>
@@ -152,7 +144,7 @@ const OrderForm = ({
                                     type='text'
                                     id='userName'
                                     {...register("userName")}
-                                    placeholder= {t('Form.Name')}
+                                    placeholder={t("Form.Name")}
                                     maxLength='30'
                                     className={(() => {
                                         if (errors.userName) {
@@ -194,7 +186,7 @@ const OrderForm = ({
                                     type='tel'
                                     id='tel'
                                     {...register("tel")}
-                                    placeholder={t('Form.Phone')}
+                                    placeholder={t("Form.Phone")}
                                     maxLength='13'
                                     className={(() => {
                                         if (errors.tel) {
@@ -224,7 +216,7 @@ const OrderForm = ({
                                 cols='30'
                                 rows='2'
                                 id='message'
-                                placeholder={t('Form.TextArea')}
+                                placeholder={t("Form.TextArea")}
                                 {...register("message")}
                             />
                             <p className={styles.error}>
@@ -233,7 +225,7 @@ const OrderForm = ({
                         </div>
                         <OrderBtn
                             type='submit'
-                            title={t('Buttons.FormOrderBtn')}
+                            title={t("Buttons.FormOrderBtn")}
                             disabled={isErrors || isSubmitting}
                             className={styles.submitButton}
                             id={

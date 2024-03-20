@@ -1,7 +1,10 @@
 "use client";
+
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import DashboardServiceItem from "@/components/DashboardServiceItem/DashboardServiceItem";
 import DashboardServiceUpdateForm from "@/components/DashboardForms/DashboardServiceUpdateForm";
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import Loading from "@/components/Loading/Loading";
+
 import styles from "./DashboardServiceIdSection.module.scss";
 
 const DashboardServiceIdSection = ({ params }) => {
@@ -27,20 +30,29 @@ const DashboardServiceIdSection = ({ params }) => {
             slug: data.slug,
         };
 
-        if (changedData && typeof (changedData.directions) === "string" && typeof (changedData.directionsEn) === "string") {
-            const directionsArray = changedData.directions.split(' | ');
-            const directionsEnArray = changedData.directionsEn.split(' | ');
+        if (
+            changedData &&
+            typeof changedData.directions === "string" &&
+            typeof changedData.directionsEn === "string"
+        ) {
+            const directionsArray = changedData.directions.split(" | ");
+            const directionsEnArray = changedData.directionsEn.split(" | ");
             changedData.directions = directionsArray;
             changedData.directionsEn = directionsEnArray;
         }
     }
 
-
     return (
-        <div className={styles.container}>
-            <DashboardServiceItem data={changedData} isLoading={isLoading} />
-            <DashboardServiceUpdateForm />
-        </div>
+        <>
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <div className={styles.container}>
+                    <DashboardServiceItem data={changedData} />
+                    <DashboardServiceUpdateForm data={data} />
+                </div>
+            )}
+        </>
     );
 };
 

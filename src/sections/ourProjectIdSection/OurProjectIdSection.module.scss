@@ -24,8 +24,16 @@
     padding: 112px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 112px 72px 80px 72px;
+    padding: 142px 72px 80px 72px;
   }
+}
+
+.backContainer {
+  color: $gray50;
+}
+
+.backIcon {
+  fill: $gray50;
 }
 
 @keyframes fadeIn {
@@ -35,50 +43,6 @@
   100% {
     opacity: 1;
   }
-}
-
-.backContainer {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  column-gap: 16px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  padding: 0 8px;
-  font-weight: 500;
-  line-height: 1.6;
-  text-align: center;
-  color: $backgroundColor;
-  margin-bottom: 24px;
-  cursor: pointer;
-  font-size: 16px;
-  background-color: #f6f6fa;
-  backdrop-filter: blur(6px);
-  margin-right: auto;
-  animation: fadeIn 0.8s ease-in-out forwards;
-  @media screen and (min-width: $tablet) {
-    font-size: 20px;
-    margin-bottom: 32px;
-  }
-  @media screen and (min-width: $laptop) {
-    column-gap: 16px;
-    padding: 0 8px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    font-size: 14px;
-  }
-}
-
-.backIcon {
-  width: 32px;
-  height: 12px;
-  fill: $backgroundColor;
 }
 
 .ourProjectsTitle {
@@ -99,10 +63,10 @@
 
   @media screen and (min-width: $tablet) {
     height: 53px;
-    background: $gradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // background: $gradient;
+    // background-clip: text;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
     font-size: 48px;
   }
 
@@ -121,10 +85,14 @@
 
 .ourProjectsTitleGradient {
   @media screen and (min-width: $tablet) {
-    background: linear-gradient($gray0, $gray0);
+    background: $gradient;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    // background: linear-gradient($gray0, $gray0);
+    // background-clip: text;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
   }
 }
 
@@ -261,14 +229,14 @@
 .contentItem {
   position: relative;
   z-index: 1;
-  @media screen and (min-width: $laptop) {
-    background-color: $backgroundColor;
-    &:last-child,
-    &:nth-last-child(2) {
-      box-shadow: $shadowColor;
-      background-color: $backgroundColor;
-    }
-  }
+  // @media screen and (min-width: $laptop) {
+  // background-color: $backgroundColor;
+  // &:last-child,
+  // &:nth-last-child(2) {
+  //   box-shadow: $shadowColor;
+  //   background-color: $backgroundColor;
+  // }
+  // }
 }
 
 .contentTitle {
@@ -368,15 +336,15 @@
   @media screen and (min-width: $laptop) {
     margin-right: auto;
     width: 468px;
-    height: 152px;
-    box-shadow: $shadowColor;
-    background: $backgroundColor;
+    // height: 152px;
+    // box-shadow: $shadowColor;
+    // background: $backgroundColor;
     margin-bottom: 32px;
   }
 
   @media screen and (min-width: $desktop) {
     width: 636px;
-    height: 184px;
+    // height: 184px;
     margin-bottom: 24px;
   }
 }
@@ -405,7 +373,7 @@
   font-size: 16px;
   line-height: 1.6;
   color: $gray0;
-  margin-bottom: 12px;
+  // margin-bottom: 12px;
   align-items: start;
 }
 

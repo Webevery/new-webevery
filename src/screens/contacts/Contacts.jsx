@@ -1,12 +1,12 @@
 import ContactsSection from "@/sections/contactsSection/ContactsSection";
-import styles from "./Contacts.module.scss";
+// import styles from "./Contacts.module.scss";
 
 const Contacts = () => {
-  return (
-    <>
-      <ContactsSection />
-    </>
-  );
+    return (
+        <>
+            <ContactsSection />
+        </>
+    );
 };
 
 export default Contacts;

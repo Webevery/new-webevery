@@ -66,7 +66,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='title'
+                        type='text'
                         className={styles.formInput}
                         id='title'
                         placeholder=' '
@@ -79,7 +79,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='titleEn'
+                        type='text'
                         className={styles.formInput}
                         id='titleEn'
                         placeholder=' '
@@ -92,7 +92,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='titleGradient'
+                        type='text'
                         className={styles.formInput}
                         id='titleGradient'
                         placeholder=' '
@@ -107,7 +107,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='titleGradientEn'
+                        type='text'
                         className={styles.formInput}
                         id='titleGradientEn'
                         placeholder=' '
@@ -176,7 +176,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='price'
+                        type='text'
                         className={styles.formInput}
                         id='price'
                         placeholder=' '
@@ -189,7 +189,7 @@ const DashboardServiceCreateForm = () => {
                 </div>
                 <div className={styles.inputGroup}>
                     <input
-                        type='priceEn'
+                        type='text'
                         className={styles.formInput}
                         id='priceEn'
                         placeholder=' '

@@ -13,6 +13,7 @@ import Loading from '@/components/Loading/Loading';
 
 import stylescBtn from '@/components/Buttons/Btns.module.scss';
 import styles from './OurProjectIdSection.module.scss';
+import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 
 const OurProjectIdSection = ({ params }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -47,19 +48,26 @@ const OurProjectIdSection = ({ params }) => {
           href="/ourProjects"
         />
       )}
-     {!isLoading && isPathExist && (
+      {!isLoading && isPathExist && (
         <section>
           <div className={`container ${styles.ourProjectContainer}`}>
-            <div
-              className={styles.backContainer}
+            <BreadCrumbs
               onClick={() => router.push('/ourProjects')}
-            >
-              <svg className={styles.backIcon}>
-                <use href="../sprite.svg#icon-arrowReadMore" />
-              </svg>
-              <p>{t('OurProjectsPage.NavLinkText')}</p>
-            </div>
+              title={t('OurProjectsPage.NavLinkText')}
+              classNameContainer={styles.backContainer}
+              classNameIcon={styles.backIcon}
+            />
             <h1 className={styles.ourProjectsTitle}>
+              {i18n.language === currentLanguages.EN
+                ? data?.titleEn
+                : data?.title}{' '}
+              <span className={styles.ourProjectsTitleGradient}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.titleGradientEn
+                  : data?.titleGradient}
+              </span>
+            </h1>
+            {/* <h1 className={styles.ourProjectsTitle}>
               <span className={styles.ourProjectsTitleGradient}>
                 {i18n.language === currentLanguages.EN
                   ? data?.titleEn
@@ -68,7 +76,7 @@ const OurProjectIdSection = ({ params }) => {
               {i18n.language === currentLanguages.EN
                 ? data?.titleGradientEn
                 : data?.titleGradient}
-            </h1>
+            </h1> */}
 
             {!isSmallScreen && (
               <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>

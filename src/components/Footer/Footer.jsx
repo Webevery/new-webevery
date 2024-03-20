@@ -8,7 +8,7 @@ import FooterWithoutForm from "./FooterWithoutForm";
 import FooterContactsSection from "./FooterContactsSection";
 
 const Footer = () => {
-    const [isFooterWihtForm, setFooterWihtForm] = useState(false);
+    const [isFooterWithForm, setFooterWithForm] = useState(false);
     const [isFooterWithoutForm, setFooterWithoutForm] = useState(false);
     const [isContactsSection, setContactsSection] = useState(false);
 
@@ -16,33 +16,35 @@ const Footer = () => {
     const isPathExist = useCheckPathname(pathname);
 
     useEffect(() => {
-        if (pathname === "/" || pathname === "/services" || isPathExist) {
-            setFooterWihtForm(false);
+        if (
+            (pathname === "/" && isPathExist) ||
+            (pathname === "/services" && isPathExist)
+        ) {
+            setFooterWithForm(false);
             setContactsSection(false);
             setFooterWithoutForm(true);
         } else if (pathname === "/contacts") {
-            setFooterWihtForm(false);
+            setFooterWithForm(false);
             setFooterWithoutForm(false);
             setContactsSection(true);
         } else if (
-            pathname === "/faq" ||
-            pathname === "/team" ||
-            pathname === "/blog" ||
-            pathname === "/ourProjects" ||
-            isPathExist
+            (pathname === "/faq" && isPathExist) ||
+            (pathname === "/team" && isPathExist) ||
+            (pathname === "/blog" && isPathExist) ||
+            (pathname === "/ourProjects" && isPathExist)
         ) {
             setFooterWithoutForm(false);
             setContactsSection(false);
-            setFooterWihtForm(true);
+            setFooterWithForm(true);
         } else {
-            setFooterWihtForm(false);
+            setFooterWithForm(false);
             setContactsSection(false);
             setFooterWithoutForm(false);
         }
-    }, [pathname, isFooterWihtForm, isPathExist]);
+    }, [pathname, isFooterWithForm, isPathExist]);
 
     return (() => {
-        if (isFooterWihtForm) {
+        if (isFooterWithForm) {
             return <FooterWithForm />;
         } else if (isFooterWithoutForm) {
             return <FooterWithoutForm />;

@@ -3,19 +3,16 @@ import * as yup from "yup";
 
 export const dashboardServiceCreateSchema = yup.object({
     title: yup
-        .string()
-        .required("Title is required"),
+        .string(),
     titleEn: yup
-        .string()
-        .required("Title is required"),
+        .string(),
     titleGradient: yup
-        .string()
-        .required("TitleGradient is required"),
+        .string(),
     titleGradientEn: yup
-        .string()
-        .required("TitleGradient is required"),
+        .string(),
     mockup: yup
-        .string().required("mockup is required"),
+        .string()
+        .required("mockup is required"),
     description: yup
         .string()
         .required("Description is required"),

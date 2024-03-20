@@ -1,87 +1,84 @@
-"use client";
+'use client';
 
-import { useRouter, usePathname } from "next/navigation";
-import { CldImage } from "next-cloudinary";
-import { useTranslation } from "react-i18next";
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
-import { useCheckPathname } from "@/hooks/useCheckPathname";
-import { currentLanguages } from "@/data/languages";
-import NotFound from "@/components/NotFound/NotFound";
-import Loading from "@/components/Loading/Loading";
+import { useRouter, usePathname } from 'next/navigation';
+import { CldImage } from 'next-cloudinary';
+import { useTranslation } from 'react-i18next';
+import { GetIdDataFromSection } from '@/fetch/ClientFetch';
+import { useCheckPathname } from '@/hooks/useCheckPathname';
+import { currentLanguages } from '@/data/languages';
+import NotFound from '@/components/NotFound/NotFound';
+import Loading from '@/components/Loading/Loading';
 
-import styles from "./BlogIdSection.module.scss";
+import styles from './BlogIdSection.module.scss';
+import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 
 const BlogIdSection = ({ params }) => {
-    const { slug } = params;
-    const { data, error, isLoading } = GetIdDataFromSection("blogs", slug);
-    const pathname = usePathname();
-    const isPathExist = useCheckPathname(pathname);
-    const router = useRouter();
-    const { i18n, t } = useTranslation();
+  const { slug } = params;
 
-    return (
-        <>
-            {isLoading && <Loading className={styles.loading} />}
-            {!isLoading && !isPathExist && (
-                <NotFound
-                    title={t('BlogIdPage.NotFound')}
-                    buttonTitle={t('BlogIdPage.NotFoundTitleBtn')}
-                    href='/blog'
+  const { data, error, isLoading } = GetIdDataFromSection('blogs', slug);
+  const pathname = usePathname();
+  const isPathExist = useCheckPathname(pathname);
+  const router = useRouter();
+  const { i18n, t } = useTranslation();
+
+  return (
+    <>
+      {isLoading && <Loading className={styles.loading} />}
+      {!isLoading && !isPathExist && (
+        <NotFound
+          title={t('BlogIdPage.NotFound')}
+          buttonTitle={t('BlogIdPage.NotFoundTitleBtn')}
+          href="/blog"
+        />
+      )}
+      {!isLoading && isPathExist && (
+        <section className={styles.blog}>
+          (
+          <div className={`container ${styles.blogIdContainer}`}>
+            <BreadCrumbs
+              onClick={() => router.push('/blog')}
+              title={t('BlogIdPage.NavBtn')}
+              classNameContainer={styles.backContainer}
+              classNameIcon={styles.backIcon}
+            />
+            <div className={styles.blogIdContent}>
+              <h1 className={styles.blogTitle}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.titleEn
+                  : data?.title}
+              </h1>
+              <div className={styles.publishedContainer}>
+                <h4 className={styles.publishedTitle}>
+                  Published:{' '}
+                  <span className={styles.publishedDate}>11.02.2024</span>
+                </h4>
+                <p className={styles.publishedAutor}>
+                  by: <span className={styles.publishedDate}>Webevery</span>
+                </p>
+              </div>
+              <figure className={styles.firstImgContainer}>
+                <CldImage
+                  src={data?.images[0]}
+                  alt="картинка для блогу"
+                  fill={true}
+                  className={styles.img}
                 />
-            )}
-            {!isLoading && isPathExist && (
-                <section className={styles.blog}>
-                    (
-                    <div className={`container ${styles.blogIdContainer}`}>
-                        <div
-                            className={styles.backContainer}
-                            onClick={() => router.push("/blog")}
-                        >
-                            <svg className={styles.backIcon}>
-                                <use href='../sprite.svg#icon-arrowReadMore' />
-                            </svg>
-                            <p>{t('BlogIdPage.NavBtn')}</p>
-                        </div>
-                        <div className={styles.blogIdContent}>
-                            <h1 className={styles.blogTitle}>
-                                {i18n.language === currentLanguages.EN
-                                    ? data?.titleEn
-                                    : data?.title}
-                            </h1>
-                            <div className={styles.publishedContainer}>
-                                <h4 className={styles.publishedTitle}>
-                                    Published:{" "}
-                                    <span className={styles.publishedDate}>
-                                        11.02.2024
-                                    </span>
-                                </h4>
-                                <p className={styles.publishedAutor}>
-                                    Webevery
-                                </p>
-                            </div>
-                            <figure className={styles.firstImgContainer}>
-                                <CldImage
-                                    src={data?.images[0]}
-                                    alt='картинка для блогу'
-                                    fill={true}
-                                    className={styles.img}
-                                />
-                            </figure>
+              </figure>
 
-                            <div className={styles.blogDescContainer}>
-                                <p className={styles.blogDesc}>
-                                    {i18n.language === currentLanguages.EN
-                                        ? data?.descriptionEn
-                                        : data?.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    )
-                </section>
-            )}
-        </>
-    );
+              <div className={styles.blogDescContainer}>
+                <p className={styles.blogDesc}>
+                  {i18n.language === currentLanguages.EN
+                    ? data?.descriptionEn
+                    : data?.description}
+                </p>
+              </div>
+            </div>
+          </div>
+          )
+        </section>
+      )}
+    </>
+  );
 };
 
 export default BlogIdSection;

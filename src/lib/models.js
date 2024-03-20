@@ -208,17 +208,6 @@ const coworkerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // // пошта (text - input) - возможно, впоследствии уберётся
-    // email: {
-    //   type: String,
-    //   required: true,
-    //   unique: true,
-    // },
-    // // пароль (text - input) - возможно, впоследствии уберётся
-    // password: {
-    //   type: String,
-    //   required: true,
-    // },
     // фото (image - button)
     photo: {
       type: String,
@@ -234,16 +223,37 @@ const coworkerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // // Адмін (text - checkbox: isAdmin) - возможно, впоследствии уберётся
-    // isAdmin: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     // slug (text - input)
     slug: {
       type: String,
       required: true,
       unique: true,
+    },
+  },
+  { timestamps: true }
+);
+
+const userSchema = new mongoose.Schema(
+  {
+    // ім'я  (text - input)
+    name: {
+      type: String,
+      required: true,
+    },
+    // пошта (text - input)
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    // пароль (text - input)
+    password: {
+      type: String,
+      required: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }
@@ -258,3 +268,5 @@ export const Service =
 export const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
 
 export const Coworker = mongoose.models.Coworker || mongoose.model('Coworker', coworkerSchema);
+
+export const User = mongoose.models.User || mongoose.model('User', userSchema);
