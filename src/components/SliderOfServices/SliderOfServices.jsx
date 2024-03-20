@@ -46,9 +46,9 @@ export const SliderOfServices = ({ slug }) => {
     <Swiper
       slidesPerView={1}
       // spaceBetween={0}
-      // pagination={{
-      //   clickable: true,
-      // }}
+      pagination={{
+        clickable: true,
+      }}
       autoplay={{
         delay: 1000,
         disableOnInteraction: false,
