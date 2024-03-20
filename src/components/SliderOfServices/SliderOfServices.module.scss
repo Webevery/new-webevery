@@ -166,6 +166,9 @@
       height: auto;
       margin-bottom: 16px;
   }
+  @media screen and (min-width:1024px) {
+    margin-bottom: 12px;
+}
     @media screen and (min-width:1440px) {
       margin-bottom: 24px;
   }
