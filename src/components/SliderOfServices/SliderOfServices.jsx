@@ -45,10 +45,10 @@ export const SliderOfServices = ({ slug }) => {
   return (
     <Swiper
       slidesPerView={1}
-      spaceBetween={0}
-      // pagination={{
-      //   clickable: true,
-      // }}
+      // spaceBetween={0}
+      pagination={{
+        clickable: true,
+      }}
       autoplay={{
         delay: 1000,
         disableOnInteraction: false,
@@ -71,11 +71,9 @@ export const SliderOfServices = ({ slug }) => {
         },
       }}
       modules={[Pagination, Autoplay]}
-      className="ServiceSwiper"
+      className={`ServiceSwiper ${styles.serviceList}`}
     >
-      <ul className={styles.serviceList}>
-        {filteredData?.map(
-          ({
+        {filteredData?.map(({
             slug,
             title,
             titleEn,
@@ -87,8 +85,8 @@ export const SliderOfServices = ({ slug }) => {
             priceEn,
           }) => {
             return (
-              <SwiperSlide key={slug} className="slideContentWrapper">
-                <li className={styles.serviceItem}>
+              <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
+                {/* <li className={styles}> */}
                   <div>
                     <Link
                       href={`/services/${slug}`}
@@ -168,12 +166,12 @@ export const SliderOfServices = ({ slug }) => {
                       }}
                     />
                   </div>
-                </li>
+                {/* </li> */}
               </SwiperSlide>
             );
           }
         )}
-      </ul>
+      {/* </div> */}
     </Swiper>
   );
 };
