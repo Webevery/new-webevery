@@ -73,10 +73,7 @@ export const SliderOfServices = ({ slug }) => {
       modules={[Pagination, Autoplay]}
       className={`ServiceSwiper ${styles.serviceList}`}
     >
-      <div className={styles.serviceList}>
-        {filteredData?.map(
-
-          ({
+        {filteredData?.map(({
             slug,
             title,
             titleEn,
