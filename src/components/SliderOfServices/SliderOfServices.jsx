@@ -87,7 +87,6 @@ export const SliderOfServices = ({ slug }) => {
           }) => {
             return (
               <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
-                {/* <li className={styles}> */}
                   <div>
                     <Link
                       href={`/services/${slug}`}
@@ -169,7 +168,6 @@ export const SliderOfServices = ({ slug }) => {
                       }}
                     />
                   </div>
-                {/* </li> */}
               </SwiperSlide>
             );
           }
