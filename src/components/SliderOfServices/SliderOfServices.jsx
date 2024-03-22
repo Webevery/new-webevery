@@ -87,7 +87,6 @@ export const SliderOfServices = ({ slug }) => {
           }) => {
             return (
               <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
-                {/* <li className={styles}> */}
                   <div>
                     <Link
                       href={`/services/${slug}`}
@@ -162,12 +161,13 @@ export const SliderOfServices = ({ slug }) => {
                       id={styles.orderBtn}
                       title={t("Buttons.ServiceCardOrderBtn")}
                       onClick={() => {
-                        setComment(`${titleGradientEn} ${titleEn}`);
+                        if (i18n.language === currentLanguages.EN) {
+                          setComment(`${titleGradientEn} ${titleEn}`);
+                        }else{setComment(`${titleGradient} ${title}`)}
                         openModal();
                       }}
                     />
                   </div>
-                {/* </li> */}
               </SwiperSlide>
             );
           }
