@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "sonner";
-import { YupOrderFormSchema } from "@/yupShemas/orderFormShema";
+import { YupOrderFormSchema } from "@/yupSchemas/orderFormSchema";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useWindowResize } from "@/hooks/useWindowResize";
 import { sendToTelegram } from "@/helpers/sendToTelegram";

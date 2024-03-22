@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { dashboardProjectUpdateSchema } from "@/yupShemas/dashboardProjectUpdateShema";
+import { dashboardProjectUpdateSchema } from "@/yupSchemas/dashboardProjectUpdateSchema";
 // import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 
 import styles from "./DashboardForms.module.scss";

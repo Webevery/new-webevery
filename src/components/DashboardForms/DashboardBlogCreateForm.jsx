@@ -1,51 +1,123 @@
 "use client";
+
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { dashboardBlogCreateSchema } from "@/yupShemas/dashboardBlogCreateSchema";
+import {
+    dashboardBlogMainSchema,
+    dashboardBlogBlockSchema,
+} from "@/yupSchemas/dashboardBlogCreateSchema";
 // import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 
 import styles from "./DashboardForms.module.scss";
 
 const DashboardBlogCreateForm = () => {
-    const initialValues = {
+    //---------------------------- For the main form  -------------------------
+    const mainInitialValues = {
         defaultValues: {
             title: "",
             titleEn: "",
-            images: [],
-            description: "",
-            descriptionEn: "",
-            directions: "",
-            directionsEn: "",
+            heroImage: "",
+            blocks: [],
             slug: "",
         },
-        resolver: yupResolver(dashboardBlogCreateSchema),
+        resolver: yupResolver(dashboardBlogMainSchema),
     };
-    const form = useForm(initialValues);
-    const { register, handleSubmit, formState, reset, getValues, setValue } =
-        form;
-    const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
-    const onSubmit = (data) => {
-        console.log("dashboardBlogCreateFormData:", data);
+    const mainForm = useForm(mainInitialValues);
+    const {
+        register: mainRegister,
+        handleSubmit: mainHandleSubmit,
+        formState: mainFormstate,
+        reset: mainReset,
+        getValues: getMainValues,
+        setValue: setMainValues,
+    } = mainForm;
+
+    const {
+        errors: mainErrors,
+        isSubmitSuccessful: isMainSubmitSuccessful,
+        isErrors: isMainErrors,
+        isSubmitting: isMainSubmitting,
+    } = mainFormstate;
+
+    const onSubmitMain = (data) => {
+        console.log("dashboardBlogCreateFormdata:", data);
     };
 
     useEffect(() => {
-        if (isSubmitSuccessful) {
-            reset();
+        if (isMainSubmitSuccessful) {
+            mainReset();
         }
-    }, [isSubmitSuccessful, reset]);
+    }, [isMainSubmitSuccessful, mainReset]);
+
+    const blockAmount = getMainValues("blocks").length;
+
+    let blockMessage = "";
+
+    if (blockAmount === 0) {
+        blockMessage = "You have not added blocks";
+    } else if (blockAmount === 1) {
+        blockMessage = `You have added ${blockAmount} block`;
+    } else {
+        blockMessage = `You have added ${blockAmount} blocks`;
+    }
+
+    //-------------------------- For the block form-------------------------------
+
+    const blockInitialValues = {
+        defaultValues: {
+            subTitle: "",
+            subTitleEn: "",
+            description: "",
+            descriptionEn: "",
+            image: "",
+        },
+        resolver: yupResolver(dashboardBlogBlockSchema),
+    };
+
+    const blockForm = useForm(blockInitialValues);
+    const {
+        register: blockRegister,
+        handleSubmit: blockHandleSubmit,
+        formState: blockFormstate,
+        reset: blockReset,
+        getValues: getBlockValues,
+        setValue: setBlockValues,
+    } = blockForm;
+
+    const {
+        errors: blockErrors,
+        isSubmitSuccessful: isBlockSubmitSuccessful,
+        isErrors: isBlockErrors,
+        isSubmitting: isBlockSubmitting,
+    } = blockFormstate;
+
+    const onSubmitBlock = (data) => {
+        setMainValues(
+            "blocks",
+            [...getMainValues("blocks"), data]
+            // { shouldValidate: true }
+        );
+        console.log("BlockFormData:", data);
+    };
+
+    useEffect(() => {
+        if (isBlockSubmitSuccessful) {
+            blockReset();
+        }
+    }, [isBlockSubmitSuccessful, blockReset]);
 
     return (
         <div className={styles.container}>
             <form
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={mainHandleSubmit(onSubmitMain)}
                 className={styles.form}
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Did you wrote new article? Let`s download it to site!
+                    Let`s try to create multiple blog !
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
@@ -53,12 +125,12 @@ const DashboardBlogCreateForm = () => {
                         className={styles.formInput}
                         id='slug'
                         placeholder=' '
-                        {...register("slug")}
+                        {...mainRegister("slug")}
                     />
                     <label htmlFor='slug' className={styles.formLabel}>
                         Slug
                     </label>
-                    <p className={styles.error}>{errors.slug?.message}</p>
+                    <p className={styles.error}>{mainErrors.slug?.message}</p>
                 </div>
                 <div className={styles.inputGroup}>
                     <input
@@ -66,12 +138,12 @@ const DashboardBlogCreateForm = () => {
                         className={styles.formInput}
                         id='title'
                         placeholder=' '
-                        {...register("title")}
+                        {...mainRegister("title")}
                     />
                     <label htmlFor='title' className={styles.formLabel}>
                         Title
                     </label>
-                    <p className={styles.error}>{errors.title?.message}</p>
+                    <p className={styles.error}>{mainErrors.title?.message}</p>
                 </div>
                 <div className={styles.inputGroup}>
                     <input
@@ -79,94 +151,147 @@ const DashboardBlogCreateForm = () => {
                         className={styles.formInput}
                         id='titleEn'
                         placeholder=' '
-                        {...register("titleEn")}
+                        {...mainRegister("titleEn")}
                     />
                     <label htmlFor='titleEn' className={styles.formLabel}>
                         TitleEn
                     </label>
-                    <p className={styles.error}>{errors.titleEn?.message}</p>
+                    <p className={styles.error}>
+                        {mainErrors.titleEn?.message}
+                    </p>
                 </div>
                 <div className={styles.inputGroup}>
                     <CldUploadButton
-                        name='images'
+                        name='heroImage'
                         className={styles.uploadBtn}
-                        onUpload={(result) => {
-                            setValue(
-                                "images",
-                                [...getValues("images"), result.info.public_id],
-                                { shouldValidate: true }
-                            );
-                            // update(...result.info.public_id);
+                        onUpload={(result, widget) => {
+                            if (getMainValues("heroImage") !== "") {
+                                // handleDeleteImgFromCloudinary(
+                                //     initialValues.heroImage
+                                // );
+                            }
+                            setMainValues("heroImage", result.info.public_id, {
+                                shouldValidate: true,
+                            });
+                            widget.close();
                         }}
+                        options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
                         Add photo WEBP format
                     </CldUploadButton>
-
-                    <p className={styles.error}>{errors.images?.message}</p>
+                    <p className={styles.error}>
+                        {mainErrors.heroImage?.message}
+                    </p>
                 </div>
+                <p className={styles.blockAmount}>{blockMessage}</p>
+
+                <button
+                    type='submit'
+                    className={styles.formButton}
+                    disabled={isMainErrors || isMainSubmitting}
+                >
+                    Create new blog!
+                </button>
+            </form>
+
+            <form
+                onSubmit={blockHandleSubmit(onSubmitBlock)}
+                className={styles.form}
+                noValidate
+            >
+                <h3 className={styles.formTitle}>Let`s add a new block !</h3>
 
                 <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='subTitle'
+                        placeholder=' '
+                        {...blockRegister("subTitle")}
+                    />
+                    <label htmlFor='subTitle' className={styles.formLabel}>
+                        SubTitle
+                    </label>
+                    <p className={styles.error}>
+                        {blockErrors.subTitle?.message}
+                    </p>
+                </div>
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='subTitleEn'
+                        placeholder=' '
+                        {...blockRegister("subTitleEn")}
+                    />
+                    <label htmlFor='subTitleEn' className={styles.formLabel}>
+                        SubTitleEn
+                    </label>
+                    <p className={styles.error}>
+                        {blockErrors.subTitleEn?.message}
+                    </p>
+                </div>
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
                         id='description'
                         placeholder=' '
-                        {...register("description")}
+                        {...blockRegister("description")}
                     />
                     <label htmlFor='description' className={styles.formLabel}>
                         Description
                     </label>
                     <p className={styles.error}>
-                        {errors.description?.message}
+                        {blockErrors.description?.message}
                     </p>
                 </div>
                 <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                    <input
+                        type='text'
+                        className={styles.formInput}
                         id='descriptionEn'
                         placeholder=' '
-                        {...register("descriptionEn")}
+                        {...blockRegister("descriptionEn")}
                     />
                     <label htmlFor='descriptionEn' className={styles.formLabel}>
                         DescriptionEn
                     </label>
                     <p className={styles.error}>
-                        {errors.descriptionEn?.message}
+                        {blockErrors.descriptionEn?.message}
                     </p>
                 </div>
                 <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.bigTextarea} ${styles.formInput}`}
-                        id='directions'
-                        placeholder=' '
-                        {...register("directions")}
-                    />
-                    <label htmlFor='directions' className={styles.formLabel}>
-                        Directions
-                    </label>
-                    <p className={styles.error}>{errors.directions?.message}</p>
-                </div>
-                <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.bigTextarea} ${styles.formInput}`}
-                        id='directionsEn'
-                        placeholder=' '
-                        {...register("directionsEn")}
-                    />
-                    <label htmlFor='directionsEn' className={styles.formLabel}>
-                        DirectionsEn
-                    </label>
+                    <CldUploadButton
+                        name='image'
+                        className={styles.uploadBtn}
+                        onUpload={(result, widget) => {
+                            if (getBlockValues("image") !== "") {
+                                // handleDeleteImgFromCloudinary(
+                                //     initialValues.heroImage
+                                // );
+                            }
+                            setBlockValues("image", result.info.public_id, {
+                                shouldValidate: true,
+                            });
+                            widget.close();
+                        }}
+                        options={{ multiple: false }}
+                        uploadPreset='unsigned_preset'
+                    >
+                        Add photo WEBP format
+                    </CldUploadButton>
                     <p className={styles.error}>
-                        {errors.directionsEn?.message}
+                        {blockErrors.heroImage?.message}
                     </p>
                 </div>
-
                 <button
                     type='submit'
                     className={styles.formButton}
-                    disabled={isErrors || isSubmitting}
+                    disabled={isBlockErrors || isBlockSubmitting}
                 >
-                    Create new!
+                    Add new block!
                 </button>
             </form>
         </div>
