@@ -1,13 +1,11 @@
 "use client";
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { dashboardUserCreateSchema } from "@/yupShemas/dashboardUserCreateSchema";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { dashboardUserCreateSchema } from "@/yupSchemas/dashboardUserCreateSchema";
 
-
-import { signIn } from 'next-auth/react';
-import styles from './DashboardLoginSection.module.scss';
-
+import { signIn } from "next-auth/react";
+import styles from "./DashboardLoginSection.module.scss";
 
 const DashboardLoginSection = () => {
     const initialValues = {
@@ -41,9 +39,7 @@ const DashboardLoginSection = () => {
                 className={styles.form}
                 noValidate
             >
-                <h3 className={styles.formTitle}>
-                    Let`s login User!
-                </h3>
+                <h3 className={styles.formTitle}>Let`s login User!</h3>
 
                 <div className={styles.inputGroup}>
                     <input
@@ -96,9 +92,9 @@ const DashboardLoginSection = () => {
                 </button>
             </form>
 
-            <button onClick={() => signIn('google')}>Login with Google</button>
+            <button onClick={() => signIn("google")}>Login with Google</button>
         </div>
-    )
-}
+    );
+};
 
-export default DashboardLoginSection
+export default DashboardLoginSection;

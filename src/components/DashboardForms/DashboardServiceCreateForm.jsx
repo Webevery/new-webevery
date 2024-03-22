@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { dashboardServiceCreateSchema } from "@/yupShemas/dashboardServiceCreateShema";
+import { dashboardServiceCreateSchema } from "@/yupSchemas/dashboardServiceCreateSchema";
 import styles from "./DashboardForms.module.scss";
 
 const DashboardServiceCreateForm = () => {
