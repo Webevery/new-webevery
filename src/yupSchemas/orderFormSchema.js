@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 const regexPhone = /^\+\d{12}$/;
 
-export const YupOrderFormSchema = yup.object({
+export const orderFormSchema = yup.object({
     userName: yup
         .string()
         .required("Username is required")

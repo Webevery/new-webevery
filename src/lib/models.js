@@ -156,23 +156,15 @@ const blogSchema = new mongoose.Schema(
     // заголовок українською (text - input)
     title: {
       type: String,
+      required: true,
     },
     // заголовок англійською (text - input)
     titleEn: {
       type: String,
+      required: true,
     },
     // картинки (images - button)
-    images: {
-      type: Array,
-      required: true,
-    },
-    // опис українською (text - textarea)
-    description: {
-      type: String,
-      required: true,
-    },
-    // опис англійською (text - textarea)
-    descriptionEn: {
+    mainImage: {
       type: String,
       required: true,
     },
@@ -184,6 +176,10 @@ const blogSchema = new mongoose.Schema(
     // напрямки англійською (text - input)
     directionEn: {
       type: String,   // after request, before render will be changed to Array 
+      required: true,
+    },
+    blocks: {
+      type: Array,
       required: true,
     },
     // slug (text - input)
