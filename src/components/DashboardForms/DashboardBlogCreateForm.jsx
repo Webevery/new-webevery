@@ -18,6 +18,8 @@ const DashboardBlogCreateForm = () => {
         defaultValues: {
             title: "",
             titleEn: "",
+            direction: "",
+            directionEn: "",
             heroImage: "",
             blocks: [],
             slug: "",
@@ -161,6 +163,36 @@ const DashboardBlogCreateForm = () => {
                     </p>
                 </div>
                 <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='direction'
+                        placeholder=' '
+                        {...mainRegister("direction")}
+                    />
+                    <label htmlFor='direction' className={styles.formLabel}>
+                        Direction
+                    </label>
+                    <p className={styles.error}>
+                        {mainErrors.direction?.message}
+                    </p>
+                </div>
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='directionEn'
+                        placeholder=' '
+                        {...mainRegister("directionEn")}
+                    />
+                    <label htmlFor='descriptionEn' className={styles.formLabel}>
+                        DirectionEn
+                    </label>
+                    <p className={styles.error}>
+                        {mainErrors.directionEn?.message}
+                    </p>
+                </div>
+                <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='heroImage'
                         className={styles.uploadBtn}
@@ -184,7 +216,15 @@ const DashboardBlogCreateForm = () => {
                         {mainErrors.heroImage?.message}
                     </p>
                 </div>
-                <p className={styles.blockAmount}>{blockMessage}</p>
+                <p
+                    className={
+                        blockAmount === 0 && mainErrors.blocks?.message
+                            ? `${styles.blockAmount} ${styles.errorColor}`
+                            : styles.blockAmount
+                    }
+                >
+                    {blockMessage}
+                </p>
 
                 <button
                     type='submit'

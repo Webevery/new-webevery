@@ -8,11 +8,18 @@ export const dashboardBlogMainSchema = yup.object({
     titleEn: yup
         .string()
         .required("Title is required"),
+    direction: yup
+        .string()
+        .required("Direction is required"),
+    directionEn: yup
+        .string()
+        .required("DirectionEn is required"),
     heroImage: yup
         .string()
         .required("HeroImage is required"),
     blocks: yup
-        .array(),
+        .array()
+        .min(1, "At least one block"),
     slug: yup
         .string()
         .required("Slug is required")

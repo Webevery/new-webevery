@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "sonner";
-import { YupOrderFormSchema } from "@/yupSchemas/orderFormSchema";
+import { orderFormSchema } from "@/yupSchemas/orderFormSchema";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useWindowResize } from "@/hooks/useWindowResize";
 import { sendToTelegram } from "@/helpers/sendToTelegram";
@@ -28,7 +28,7 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
             tel: "",
             message: comment,
         },
-        resolver: yupResolver(YupOrderFormSchema),
+        resolver: yupResolver(orderFormSchema),
         mode: "onChange",
     };
 
