@@ -2,21 +2,24 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { dashboardUserCreateSchema } from "@/yupShemas/dashboardUserCreateSchema";
+import { dashboardUserLoginSchema } from "@/yupShemas/dashboardUserLoginSchema";
 
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import styles from './DashboardLoginSection.module.scss';
+import Link from 'next/link';
 
 
 const DashboardLoginSection = () => {
+    const session = useSession();
+    // console.log("session", session)
+
     const initialValues = {
         defaultValues: {
-            name: "",
             email: "",
             password: "",
         },
-        resolver: yupResolver(dashboardUserCreateSchema),
+        resolver: yupResolver(dashboardUserLoginSchema),
     };
 
     const form = useForm(initialValues);
@@ -25,6 +28,8 @@ const DashboardLoginSection = () => {
 
     const onSubmit = (data) => {
         console.log("dashboardLogin:", data);
+        const { email, password } = data;
+        signIn('credentials', { email, password })
     };
 
     useEffect(() => {
@@ -34,70 +39,59 @@ const DashboardLoginSection = () => {
     }, [isSubmitSuccessful, reset]);
 
     return (
-        <div className={styles.container}>
-            <h1>Dashboard Login</h1>
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className={styles.form}
-                noValidate
-            >
-                <h3 className={styles.formTitle}>
-                    Let`s login User!
-                </h3>
-
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='name'
-                        placeholder=' '
-                        {...register("name")}
-                    />
-                    <label htmlFor='name' className={styles.formLabel}>
-                        Name
-                    </label>
-                    <p className={styles.error}>{errors.name?.message}</p>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='email'
-                        placeholder=' '
-                        {...register("email")}
-                    />
-                    <label htmlFor='email' className={styles.formLabel}>
-                        Email
-                    </label>
-                    <p className={styles.error}>{errors.email?.message}</p>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='password'
-                        placeholder=' '
-                        {...register("password")}
-                    />
-                    <label htmlFor='password' className={styles.formLabel}>
-                        Password
-                    </label>
-                    <p className={styles.error}>{errors.password?.message}</p>
-                </div>
-
-                <button
-                    type='submit'
-                    className={styles.formButton}
-                    disabled={isErrors || isSubmitting}
+        <>
+            {session.status === "unauthenticated" && <div className={styles.container}>
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className={styles.form}
+                    noValidate
                 >
-                    Create new!
-                </button>
-            </form>
+                    <h3 className={styles.formTitle}>
+                        Let`s login User!
+                    </h3>
 
-            <button onClick={() => signIn('google')}>Login with Google</button>
-        </div>
+                    <div className={styles.inputGroup}>
+                        <input
+                            type='email'
+                            className={styles.formInput}
+                            id='email'
+                            placeholder=' '
+                            {...register("email")}
+                        />
+                        <label htmlFor='email' className={styles.formLabel}>
+                            Email
+                        </label>
+                        <p className={styles.error}>{errors.email?.message}</p>
+                    </div>
+
+                    <div className={styles.inputGroup}>
+                        <input
+                            type='password'
+                            className={styles.formInput}
+                            id='password'
+                            placeholder=' '
+                            {...register("password")}
+                        />
+                        <label htmlFor='password' className={styles.formLabel}>
+                            Password
+                        </label>
+                        <p className={styles.error}>{errors.password?.message}</p>
+                    </div>
+
+                    <button
+                        type='submit'
+                        className={styles.formButton}
+                        disabled={isErrors || isSubmitting}
+                    >
+                        Login
+                    </button>
+                </form>
+
+                <button onClick={() => signIn('google')}>Login with Google</button>
+
+                <p className={styles.text}>You still do not have an account? <Link className={styles.link} href='/dashboard/register'>Register</Link> </p>
+            </div>}
+        </>
     )
 }
 

@@ -84,6 +84,10 @@ const projectSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    editor: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -147,6 +151,10 @@ const serviceSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    editor: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -156,23 +164,15 @@ const blogSchema = new mongoose.Schema(
     // заголовок українською (text - input)
     title: {
       type: String,
+      required: true,
     },
     // заголовок англійською (text - input)
     titleEn: {
       type: String,
+      required: true,
     },
     // картинки (images - button)
-    images: {
-      type: Array,
-      required: true,
-    },
-    // опис українською (text - textarea)
-    description: {
-      type: String,
-      required: true,
-    },
-    // опис англійською (text - textarea)
-    descriptionEn: {
+    mainImage: {
       type: String,
       required: true,
     },
@@ -186,11 +186,19 @@ const blogSchema = new mongoose.Schema(
       type: String,   // after request, before render will be changed to Array 
       required: true,
     },
+    blocks: {
+      type: Array,
+      required: true,
+    },
     // slug (text - input)
     slug: {
       type: String,
       required: true,
       unique: true,
+    },
+    editor: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
@@ -229,6 +237,10 @@ const coworkerSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    editor: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -254,6 +266,9 @@ const userSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    editor: {
+      type: String,
     },
   },
   { timestamps: true }
