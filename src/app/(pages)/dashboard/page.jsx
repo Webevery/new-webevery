@@ -1,13 +1,9 @@
-import DashboardSection from "@/sections/dashboardSection/DashboardSection"
+import DashboardLoginSection from "@/sections/dashboardLoginSection/DashboardLoginSection"
 
-
-const DashboardPage = () => {
+const LoginPage = () => {
     return (
-        <>
-            <DashboardSection />
-        </>
+        <DashboardLoginSection />
     )
 }
 
-
-export default DashboardPage
+export default LoginPage

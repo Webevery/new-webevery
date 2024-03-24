@@ -54,13 +54,7 @@ const ServiceIdSection = ({ params }) => {
     return (
         <>
             {isLoading && <Loading className={styles.loading} />}
-            {!isLoading && !isPathExist && (
-                <NotFound
-                    title={t("NotFoundPage.NotFoundTitle")}
-                    buttonTitle={t("ServiceIdPage.BackToServicesBtn")}
-                    href='/services'
-                />
-            )}
+
             {!isLoading && isPathExist && (
                 <section className={styles.servicesId}>
                     <div className={`container ${styles.servicesIdContainer}`}>
@@ -116,6 +110,14 @@ const ServiceIdSection = ({ params }) => {
                         </div>
                     </div>
                 </section>
+            )}
+
+            {!isLoading && !isPathExist && (
+                <NotFound
+                    title={t("NotFoundPage.NotFoundTitle")}
+                    buttonTitle={t("ServiceIdPage.BackToServicesBtn")}
+                    href='/services'
+                />
             )}
         </>
     );
