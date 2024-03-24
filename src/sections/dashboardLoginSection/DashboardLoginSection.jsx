@@ -1,16 +1,12 @@
 "use client";
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { dashboardUserLoginSchema } from "@/yupShemas/dashboardUserLoginSchema";
-
-
 import { signIn, useSession } from 'next-auth/react';
-import styles from './DashboardLoginSection.module.scss';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { dashboardUserLoginSchema } from '@/yupSchemas/dashboardUserLoginSchema';
 import Link from 'next/link';
+import styles from './DashboardLoginSection.module.scss';
 
-import { signIn } from "next-auth/react";
-import styles from "./DashboardLoginSection.module.scss";
 
 const DashboardLoginSection = () => {
     const session = useSession();

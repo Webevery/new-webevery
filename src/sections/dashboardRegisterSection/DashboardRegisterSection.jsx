@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { dashboardUserRegisterSchema } from "@/yupShemas/dashboardUserRegisterSchema";
+import { dashboardUserRegisterSchema } from '@/yupSchemas/dashboardUserRegisterSchema';
 import styles from './DashboardRegisterSection.module.scss';
 import { useRouter } from 'next/navigation';
 
