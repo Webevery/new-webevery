@@ -1,9 +1,11 @@
-import React from 'react'
+import DashboardRegisterSection from '@/sections/dashboardRegisterSection/DashboardRegisterSection'
+
 
 const RegisterPage = () => {
     return (
-        <div>Register</div>
+        <DashboardRegisterSection />
     )
 }
+
 
 export default RegisterPage

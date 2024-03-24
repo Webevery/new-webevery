@@ -84,6 +84,10 @@ const projectSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    editor: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -147,6 +151,10 @@ const serviceSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    editor: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -188,6 +196,10 @@ const blogSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    editor: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -225,6 +237,10 @@ const coworkerSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    editor: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -250,6 +266,9 @@ const userSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    editor: {
+      type: String,
     },
   },
   { timestamps: true }
