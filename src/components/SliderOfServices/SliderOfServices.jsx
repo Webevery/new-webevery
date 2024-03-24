@@ -17,7 +17,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 export const SliderOfServices = ({ slug }) => {
   const { data, isLoading } = GetDataFromSection("services");
@@ -45,10 +45,10 @@ export const SliderOfServices = ({ slug }) => {
   return (
     <Swiper
       slidesPerView={1}
-      spaceBetween={0}
-      // pagination={{
-      //   clickable: true,
-      // }}
+      spaceBetween={20}
+      pagination={{
+        clickable: true,
+      }}
       autoplay={{
         delay: 1000,
         disableOnInteraction: false,
@@ -70,12 +70,11 @@ export const SliderOfServices = ({ slug }) => {
           spaceBetween: 10,
         },
       }}
-      modules={[Pagination, Autoplay]}
-      className="ServiceSwiper"
+      navigation={true}
+      modules={[Pagination, Autoplay, Navigation]}
+      className={`ServicesSwiper ${styles.serviceList}`}
     >
-      <ul className={styles.serviceList}>
-        {filteredData?.map(
-          ({
+        {filteredData?.map(({
             slug,
             title,
             titleEn,
@@ -87,8 +86,7 @@ export const SliderOfServices = ({ slug }) => {
             priceEn,
           }) => {
             return (
-              <SwiperSlide key={slug} className="slideContentWrapper">
-                <li className={styles.serviceItem}>
+              <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
                   <div>
                     <Link
                       href={`/services/${slug}`}
@@ -163,17 +161,18 @@ export const SliderOfServices = ({ slug }) => {
                       id={styles.orderBtn}
                       title={t("Buttons.ServiceCardOrderBtn")}
                       onClick={() => {
-                        setComment(`${titleGradientEn} ${titleEn}`);
+                        if (i18n.language === currentLanguages.EN) {
+                          setComment(`${titleGradientEn} ${titleEn}`);
+                        }else{setComment(`${titleGradient} ${title}`)}
                         openModal();
                       }}
                     />
                   </div>
-                </li>
               </SwiperSlide>
             );
           }
         )}
-      </ul>
+      {/* </div> */}
     </Swiper>
   );
 };

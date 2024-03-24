@@ -14,8 +14,12 @@
     padding: 30px 0 30px;
 }
 
+.form:not(:last-child) {
+    margin-bottom: 20px;
+}
+
 .formTitle {
-    width: 400px;
+    max-width: 400px;
     color: gray;
     font-size: 24px;
     font-weight: 700;
@@ -25,7 +29,8 @@
 
 .inputGroup {
     position: relative;
-    width: 340px;
+    width: 90%;
+    min-width: 200px;
 }
 
 .formLabel {
@@ -103,4 +108,12 @@
     right: 10px;
     color: red;
     font-size: 14px;
+}
+
+.blockAmount {
+    color: #4a4535;
+}
+
+.errorColor {
+    color: red;
 }

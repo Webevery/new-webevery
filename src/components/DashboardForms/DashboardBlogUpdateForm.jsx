@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { dashboardBlogUpdateSchema } from "@/yupShemas/dashboadrBlogUpdateShema";
+import { dashboardBlogUpdateSchema } from "@/yupSchemas/dashboadrBlogUpdateSchema";
 // import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 
 import styles from "./DashboardForms.module.scss";
@@ -72,7 +72,10 @@ const DashboardBlogUpdateForm = ({ data }) => {
     }, [isSubmitSuccessful, reset]);
     return (
         <div className={styles.container}>
-            <form
+            <h3 className={styles.formTitle}>
+                It might be here DashboardBlogUpdateForm
+            </h3>
+            {/* <form
                 onSubmit={handleSubmit(onSubmit)}
                 className={styles.form}
                 noValidate
@@ -213,7 +216,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                 >
                     Update new!
                 </button>
-            </form>
+            </form> */}
         </div>
     );
 };

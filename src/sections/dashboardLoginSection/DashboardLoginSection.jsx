@@ -9,6 +9,8 @@ import { signIn, useSession } from 'next-auth/react';
 import styles from './DashboardLoginSection.module.scss';
 import Link from 'next/link';
 
+import { signIn } from "next-auth/react";
+import styles from "./DashboardLoginSection.module.scss";
 
 const DashboardLoginSection = () => {
     const session = useSession();
@@ -95,4 +97,4 @@ const DashboardLoginSection = () => {
     )
 }
 
-export default DashboardLoginSection
+export default DashboardLoginSection;

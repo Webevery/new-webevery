@@ -26,28 +26,34 @@
 .titleWrap {
     width: 260px;
     margin-bottom: 30px;
+    padding-left: 20px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    width: 320px;
+    @media screen and (min-width: $mobile) {
+        padding-left: 8px;
+    }
     @media screen and (min-width: $tablet) {
         margin-left: 0;
         margin-right: 0;
+        padding-left: 0;
     }
 }
 
 .title {
     font-family: var(--font-saira);
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 300;
     line-height: 1.1;
     width: max-content;
     @media screen and (min-width: $mobile) {
-        font-size: 44px;
+        font-size: 38px;
     }
     @media screen and (min-width: $tablet) {
-        font-size: 58px;
+        font-size: 48px;
     }
     @media screen and (min-width: $laptop) {
-        font-size: 86px;
+        font-size: 64px;
     }
 }

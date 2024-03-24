@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { dashboardCoworkerCreateSchema } from "@/yupShemas/dashboardCoworkerCreateShema";
+import { dashboardCoworkerCreateSchema } from "@/yupSchemas/dashboardCoworkerCreateSchema";
 // import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 
 import styles from "./DashboardForms.module.scss";
