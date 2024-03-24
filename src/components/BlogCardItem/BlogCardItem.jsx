@@ -1,3 +1,5 @@
+'use client';
+
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { format } from 'date-fns';
