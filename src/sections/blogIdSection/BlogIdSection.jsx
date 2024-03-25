@@ -12,13 +12,16 @@ import Loading from '@/components/Loading/Loading';
 
 import styles from './BlogIdSection.module.scss';
 import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
-import BlogIdCards from '@/components/BlogIdCards/BlogIdCards';
+import BlogIdSlider from '@/components/BlogIdSlider/BlogIdSlider';
 import { useEffect, useState } from 'react';
 
 const BlogIdSection = ({ params }) => {
   const { slug } = params;
 
   const { data, error, isLoading } = GetIdDataFromSection('blogs', slug);
+
+  console.log(data);
+
   const pathname = usePathname();
   const isPathExist = useCheckPathname(pathname);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -74,27 +77,51 @@ const BlogIdSection = ({ params }) => {
                   by: <span className={styles.publishedDate}>Webevery</span>
                 </p>
               </div>
-              <figure className={styles.firstImgContainer}>
+              <figure className={styles.ImgContainer}>
                 <CldImage
-                  src={data?.images[0]}
+                  src={data?.mainImage}
                   alt="картинка для блогу"
                   fill={true}
                   className={styles.img}
                 />
               </figure>
-              <div className={styles.blogDescContainer}>
-                <p className={styles.blogDesc}>
-                  {i18n.language === currentLanguages.EN
-                    ? data?.descriptionEn
-                    : data?.description}
-                </p>
-              </div>
+              <ul className={styles.blogIdDescContainer}>
+                {data?.blocks.map(
+                  ({ subTitle, subTitleEn, text, textEn, image }, index) => (
+                    <li key={index} className={styles.blogIdDescItem}>
+                      <h3 className={styles.blogIdSubtitle}>
+                        {i18n.language === currentLanguages.EN
+                          ? subTitleEn
+                          : subTitle}
+                      </h3>
+                      <p className={styles.blogIdDesc}>
+                        {i18n.language === currentLanguages.EN ? textEn : text}
+                      </p>
+                      {image && (
+                        <figure className={styles.ImgContainer}>
+                          <CldImage
+                            src={image}
+                            alt="картинка для блогу"
+                            fill={true}
+                            className={styles.img}
+                          />
+                        </figure>
+                      )}
+                    </li>
+                  )
+                )}
+              </ul>
+              <p className={styles.blogIdEpilogue}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.pilogueEn
+                  : data?.epilogue}
+              </p>
               <h3 className={styles.interestingBlogs}>
                 Також вам буде цікаво:
               </h3>
-              {!isSmallScreen && <BlogIdCards slug={data?.slug} />}
+              {!isSmallScreen && <BlogIdSlider slug={data?.slug} />}
             </div>
-            {isSmallScreen && <BlogIdCards slug={data?.slug} />}
+            {isSmallScreen && <BlogIdSlider slug={data?.slug} />}
           </div>
           )
         </section>
