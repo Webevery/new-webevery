@@ -18,9 +18,13 @@ const DashboardBlogCreateForm = () => {
         defaultValues: {
             title: "",
             titleEn: "",
+            mainText: "",
+            mainTextEn: "",
+            mainImage: "",
             direction: "",
             directionEn: "",
-            heroImage: "",
+            epilogue: "",
+            epilogueEn: "",
             blocks: [],
             slug: "",
         },
@@ -166,6 +170,60 @@ const DashboardBlogCreateForm = () => {
                     <input
                         type='text'
                         className={styles.formInput}
+                        id='mainText'
+                        placeholder=' '
+                        {...mainRegister("mainText")}
+                    />
+                    <label htmlFor='mainText' className={styles.formLabel}>
+                        MainText
+                    </label>
+                    <p className={styles.error}>
+                        {mainErrors.mainText?.message}
+                    </p>
+                </div>
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='mainTextEn'
+                        placeholder=' '
+                        {...mainRegister("mainTextEn")}
+                    />
+                    <label htmlFor='mainTextEn' className={styles.formLabel}>
+                        MainTextEn
+                    </label>
+                    <p className={styles.error}>
+                        {mainErrors.mainTextEn?.message}
+                    </p>
+                </div>
+                <div className={styles.inputGroup}>
+                    <CldUploadButton
+                        name='mainImage'
+                        className={styles.uploadBtn}
+                        onUpload={(result, widget) => {
+                            if (getMainValues("mainImage") !== "") {
+                                // handleDeleteImgFromCloudinary(
+                                //     initialValues.mainImage
+                                // );
+                            }
+                            setMainValues("mainImage", result.info.public_id, {
+                                shouldValidate: true,
+                            });
+                            widget.close();
+                        }}
+                        options={{ multiple: false }}
+                        uploadPreset='unsigned_preset'
+                    >
+                        Add photo WEBP format
+                    </CldUploadButton>
+                    <p className={styles.error}>
+                        {mainErrors.mainImage?.message}
+                    </p>
+                </div>
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
                         id='direction'
                         placeholder=' '
                         {...mainRegister("direction")}
@@ -193,29 +251,36 @@ const DashboardBlogCreateForm = () => {
                     </p>
                 </div>
                 <div className={styles.inputGroup}>
-                    <CldUploadButton
-                        name='heroImage'
-                        className={styles.uploadBtn}
-                        onUpload={(result, widget) => {
-                            if (getMainValues("heroImage") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
-                            }
-                            setMainValues("heroImage", result.info.public_id, {
-                                shouldValidate: true,
-                            });
-                            widget.close();
-                        }}
-                        options={{ multiple: false }}
-                        uploadPreset='unsigned_preset'
-                    >
-                        Add photo WEBP format
-                    </CldUploadButton>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='epilogue'
+                        placeholder=' '
+                        {...mainRegister("epilogue")}
+                    />
+                    <label htmlFor='epilogue' className={styles.formLabel}>
+                        MainText
+                    </label>
                     <p className={styles.error}>
-                        {mainErrors.heroImage?.message}
+                        {mainErrors.epilogue?.message}
                     </p>
                 </div>
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='epilogueEn'
+                        placeholder=' '
+                        {...mainRegister("epilogueEn")}
+                    />
+                    <label htmlFor='epilogueEn' className={styles.formLabel}>
+                        MainTextEn
+                    </label>
+                    <p className={styles.error}>
+                        {mainErrors.epilogueEn?.message}
+                    </p>
+                </div>
+
                 <p
                     className={
                         blockAmount === 0 && mainErrors.blocks?.message
@@ -309,7 +374,7 @@ const DashboardBlogCreateForm = () => {
                         onUpload={(result, widget) => {
                             if (getBlockValues("image") !== "") {
                                 // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
+                                //     initialValues.image
                                 // );
                             }
                             setBlockValues("image", result.info.public_id, {
@@ -322,9 +387,7 @@ const DashboardBlogCreateForm = () => {
                     >
                         Add photo WEBP format
                     </CldUploadButton>
-                    <p className={styles.error}>
-                        {blockErrors.heroImage?.message}
-                    </p>
+                    <p className={styles.error}>{blockErrors.image?.message}</p>
                 </div>
                 <button
                     type='submit'

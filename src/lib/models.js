@@ -171,6 +171,14 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    mainText: {
+      type: String,
+      required: true,
+    },
+    mainTextEn: {
+      type: String,
+      required: true,
+    },
     // картинки (images - button)
     mainImage: {
       type: String,
@@ -184,6 +192,15 @@ const blogSchema = new mongoose.Schema(
     // напрямки англійською (text - input)
     directionEn: {
       type: String,   // after request, before render will be changed to Array 
+      required: true,
+    },
+    epilogue: {
+      type: String,
+      required: true,
+    },
+    // напрямки англійською (text - input)
+    epilogueEn: {
+      type: String,
       required: true,
     },
     blocks: {
