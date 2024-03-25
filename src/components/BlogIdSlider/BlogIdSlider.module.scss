@@ -1,22 +1,25 @@
 @import '../../app/variables';
 
-.cartItem {
-  box-shadow: $shadowColor;
-  background-color: $gray900;
-  padding: 16px 8px;
-  position: relative;
+.notFoundTextStyles {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  @media screen and (min-width: $tablet) {
-    padding: 24px 16px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  color: $gray0;
+  @media screen and (min-width: $laptop) {
+    font-size: 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 24px 24px;
+    font-size: 36px;
   }
 }
 
@@ -27,9 +30,6 @@
   margin-bottom: 8px;
   @media screen and (min-width: $tablet) {
     margin-bottom: 16px;
-  }
-  @media screen and (min-width: $desktop) {
-    width: 368px;
   }
 }
 
@@ -85,6 +85,8 @@
   -ms-flex-align: center;
   align-items: center;
   justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
   margin-top: auto;
 }
 

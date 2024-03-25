@@ -241,14 +241,20 @@
   }
 }
 .notFoundTextStyles {
+   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   font-weight: 500;
   font-size: 24px;
   line-height: 1.4;
-  color: #fff;
+  color: $gray0;
   @media screen and (min-width: $laptop) {
     font-size: 32px;
   }

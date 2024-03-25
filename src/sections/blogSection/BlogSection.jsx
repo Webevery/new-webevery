@@ -28,9 +28,9 @@ const BlogSection = () => {
     useContext(SiteContext);
 
   const filterBlogArr = data
-    ?.filter(({ direction, titleEn, descriptionEn, title, description }) => {
+    ?.filter(({ direction, titleEn, mainTextEn, title, mainText }) => {
       const combinedText =
-        `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
+        `${titleEn} ${mainTextEn} ${title} ${mainText}`.toLowerCase();
 
       const directionCondition = filterArr.every((blogFilter) =>
         direction.includes(blogFilter)
@@ -139,21 +139,21 @@ const BlogSection = () => {
             .map(
               ({
                 slug,
-                images,
+                mainImage,
                 titleEn,
                 title,
-                descriptionEn,
-                description,
+                mainTextEn,
+                mainText,
                 updatedAt,
               }) => (
                 <BlogCardItem
                   key={slug}
                   slug={slug}
-                  images={images}
+                  mainImage={mainImage}
                   titleEn={titleEn}
                   title={title}
-                  descriptionEn={descriptionEn}
-                  description={description}
+                  mainTextEn={mainTextEn}
+                  mainText={mainText}
                   updatedAt={updatedAt}
                 />
               )

@@ -1,6 +1,5 @@
 'use client';
 
-// import { fiterBlog } from '@/data/blog';
 import { currentLanguages } from '@/data/languages';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -42,7 +41,6 @@ const BlogFilterItem = ({
     setFilterArr(
       (filterArr) =>
         isChecked ? filterArr.filter((blog) => blog !== title) : [title]
-      // : [...filterArr, title]
     );
   };
 
@@ -62,10 +60,6 @@ const BlogFilterItem = ({
       ? styles.checked + ' ' + styles.checkedOn
       : styles.checked + ' ' + styles.checkedOff;
 
-  // const IconIsChecked = isChecked
-  //   ? styles.checked + ' ' + styles.checkedOn
-  //   : styles.checked + ' ' + styles.checkedOff;
-
   return (
     <div className={styles.blogShowContainer}>
       <input
@@ -74,14 +68,7 @@ const BlogFilterItem = ({
         id={id}
         value={title}
         aria-label={i18n.language === currentLanguages.EN ? titleEn : title}
-        // checked={isChecked}
         checked={id === activeIndex}
-        // onChange={() => {
-        //   setActiveIndex(id),
-        //     isFilterChecked(),
-        //     toggleBlogForFilter(),
-        //     setIsFilterClear(false);
-        // }}
         onChange={() => handleCheckboxChange()}
       />
       <label htmlFor={id} className={styles.blogCheckboxDesc}>
