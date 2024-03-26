@@ -9,6 +9,7 @@ import { currentLanguages } from "@/data";
 import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import { useContext } from "react";
 import { SiteContext } from "@/context/siteContext";
+import ReadMore from "../Buttons/ReadMore/ReadMore";
 import "./SliderOfServices.css";
 
 // Import Swiper styles
@@ -92,7 +93,8 @@ export const SliderOfServices = ({ slug }) => {
                       href={`/services/${slug}`}
                       className={styles.readMore}
                     >
-                      <div className={styles.linkCont}>
+                      <ReadMore/>
+                      {/* <div className={styles.linkCont}>
                         <span className={styles.readMoreTitle}>
                           {t("Buttons.ServicesDetailsBtn")}
                         </span>
@@ -114,7 +116,7 @@ export const SliderOfServices = ({ slug }) => {
                             style={{ fill: "url(#paint0_linear_3004_8704)" }}
                           />
                         </svg>
-                      </div>
+                      </div> */}
                     </Link>
                     <h3 className={styles.cartTitle}>
                       {i18n.language === currentLanguages.EN ? (
