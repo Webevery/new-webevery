@@ -44,13 +44,12 @@ export const dashboardBlogBlockSchema = yup.object({
     subTitleEn: yup
         .string()
         .required("SubTitleEn is required"),
-    description: yup
+    text: yup
         .string()
-        .required("Description is required"),
-    descriptionEn: yup
+        .required("Text is required"),
+    textEn: yup
         .string()
-        .required("DescriptionEn is required"),
+        .required("TextEn is required"),
     image: yup
         .string(),
-
 });
