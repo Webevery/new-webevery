@@ -17,7 +17,7 @@ const ServisecSubMenu = ({
   const { data, isLoading, error } = GetDataFromSection("services");
   const pathName = usePathname();
 
-  const {i18n}=useTranslation();
+  const { i18n } = useTranslation();
 
   let allData = [];
   const allServices = {
@@ -52,13 +52,11 @@ const ServisecSubMenu = ({
           setBurgermenu(false);
           setIsClicked(false);
         }}
-        // className="navLinkHover"
-        // className={
-        //   pathName.includes(sub.slug) ? "navLinkHover active" : "navLinkHover"
-        // }
         className={subClassName()}
       >
-        {i18n.language=== currentLanguages.EN ? `${sub.titleGradientEn} ${sub.titleEn}` : `${sub.titleGradient} ${sub.title}`}
+        {i18n.language === currentLanguages.EN
+          ? `${sub.titleGradientEn} ${sub.titleEn}`
+          : `${sub.titleGradient} ${sub.title}`}
       </Link>
     );
   });
