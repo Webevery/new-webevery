@@ -3,7 +3,6 @@
 import { useRouter, usePathname } from 'next/navigation';
 import { CldImage } from 'next-cloudinary';
 import { useTranslation } from 'react-i18next';
-import { format } from 'date-fns';
 import { GetIdDataFromSection } from '@/fetch/ClientFetch';
 import { useCheckPathname } from '@/hooks/useCheckPathname';
 import { currentLanguages } from '@/data/languages';
@@ -14,13 +13,12 @@ import styles from './BlogIdSection.module.scss';
 import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 import BlogIdSlider from '@/components/BlogIdSlider/BlogIdSlider';
 import { useEffect, useState } from 'react';
+import { formatDate } from '@/utils/dateUtils';
 
 const BlogIdSection = ({ params }) => {
   const { slug } = params;
 
   const { data, error, isLoading } = GetIdDataFromSection('blogs', slug);
-
-  console.log(data);
 
   const pathname = usePathname();
   const isPathExist = useCheckPathname(pathname);
@@ -38,6 +36,8 @@ const BlogIdSection = ({ params }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const formattedDate = formatDate(data?.updatedAt);
 
   return (
     <>
@@ -68,10 +68,7 @@ const BlogIdSection = ({ params }) => {
               <div className={styles.publishedContainer}>
                 <h4 className={styles.publishedTitle}>
                   Published:{' '}
-                  <span className={styles.publishedDate}>
-                    {' '}
-                    {format(new Date(data.updatedAt), 'dd.MM.yyyy')}
-                  </span>
+                  <span className={styles.publishedDate}> {formattedDate}</span>
                 </h4>
                 <p className={styles.publishedAutor}>
                   by: <span className={styles.publishedDate}>Webevery</span>
@@ -82,9 +79,16 @@ const BlogIdSection = ({ params }) => {
                   src={data?.mainImage}
                   alt="картинка для блогу"
                   fill={true}
+                  as="image"
                   className={styles.img}
+                  sizes="(max-width: 768px) 655px, (max-width: 1440px) 777px"
                 />
               </figure>
+              <p className={styles.blogIdMainText + ' ' + styles.blogIdDesc}>
+                {i18n.language === currentLanguages.EN
+                  ? data?.mainTextEn
+                  : data?.mainText}
+              </p>
               <ul className={styles.blogIdDescContainer}>
                 {data?.blocks.map(
                   ({ subTitle, subTitleEn, text, textEn, image }, index) => (
@@ -103,7 +107,9 @@ const BlogIdSection = ({ params }) => {
                             src={image}
                             alt="картинка для блогу"
                             fill={true}
+                            as="image"
                             className={styles.img}
+                            sizes="(max-width: 768px) 655px, (max-width: 1440px) 777px"
                           />
                         </figure>
                       )}
@@ -111,14 +117,14 @@ const BlogIdSection = ({ params }) => {
                   )
                 )}
               </ul>
-              <p className={styles.blogIdEpilogue}>
+              <p className={styles.blogIdEpilogue + ' ' + styles.blogIdDesc}>
                 {i18n.language === currentLanguages.EN
-                  ? data?.pilogueEn
+                  ? data?.epilogueEn
                   : data?.epilogue}
               </p>
-              <h3 className={styles.interestingBlogs}>
+              <h4 className={styles.interestingBlogs}>
                 Також вам буде цікаво:
-              </h3>
+              </h4>
               {!isSmallScreen && <BlogIdSlider slug={data?.slug} />}
             </div>
             {isSmallScreen && <BlogIdSlider slug={data?.slug} />}
