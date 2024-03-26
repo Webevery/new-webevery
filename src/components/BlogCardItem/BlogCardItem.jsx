@@ -1,11 +1,11 @@
 'use client';
 
 import { CldImage } from 'next-cloudinary';
-import { format } from 'date-fns';
 import { currentLanguages, t } from '@/data/languages';
 import { useTranslation } from 'react-i18next';
 import styles from './BlogCardItem.module.scss';
 import ReadMore from '../Buttons/ReadMore/ReadMore';
+import { formatDate } from '@/utils/dateUtils';
 
 const BlogCardItem = ({
   slug,
@@ -17,6 +17,9 @@ const BlogCardItem = ({
   updatedAt,
 }) => {
   const { i18n, t } = useTranslation();
+
+  const formattedDate = formatDate(updatedAt);
+
   return (
     <li className={styles.cartItem}>
       <div className={styles.cartImgContainer}>
@@ -24,9 +27,10 @@ const BlogCardItem = ({
           src={mainImage}
           alt="img blog"
           fill="true"
+          as="image"
           priority={true}
           className={styles.cartImg}
-          sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
+          sizes="(max-width: 768px) 329px, (max-width: 1440px) 320px"
         />
       </div>
 
@@ -37,9 +41,7 @@ const BlogCardItem = ({
         {i18n.language === currentLanguages.EN ? mainTextEn : mainText}
       </p>
       <div className={styles.bottomContainer}>
-        <p className={styles.date}>
-          {format(new Date(updatedAt), 'dd.MM.yyyy')}
-        </p>
+        <p className={styles.date}>{formattedDate}</p>
         <ReadMore href="blog" slug={slug} />
       </div>
     </li>

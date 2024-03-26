@@ -188,12 +188,6 @@
   flex-direction: column;
   row-gap: 16px;
   margin-bottom: 24px;
-  @media screen and (min-width: $tablet) {
-    margin-bottom: 32px;
-  }
-  @media screen and (min-width: $laptop) {
-    margin-bottom: 40px;
-  }
 }
 
 .blogIdDescItem {
@@ -212,6 +206,7 @@
   font-size: 20px;
   line-height: 1.6;
   color: $gray900;
+
   @media screen and (min-width: $laptop) {
     font-size: 24px;
   }
@@ -226,21 +221,22 @@
   @media screen and (min-width: $laptop) {
     font-size: 20px;
   }
+  // &::first-letter {
+  //   margin-left: 1em;
+  // }
+}
+
+.blogIdMainText {
+  margin-bottom: 16px;
 }
 
 .blogIdEpilogue {
-  text-align: justify;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
-  color: $gray900;
   margin-bottom: 24px;
   @media screen and (min-width: $tablet) {
     margin-bottom: 32px;
   }
   @media screen and (min-width: $laptop) {
     margin-bottom: 40px;
-    font-size: 20px;
   }
 }
 

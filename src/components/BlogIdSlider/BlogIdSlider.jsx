@@ -5,7 +5,6 @@ import { GetDataFromSection } from '@/fetch/ClientFetch';
 import { CldImage } from 'next-cloudinary';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { format } from 'date-fns';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -17,8 +16,9 @@ import './BlogIdSlider.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import ReadMore from '../Buttons/ReadMore/ReadMore';
+import { formatDate } from '@/utils/dateUtils';
 
 const BlogIdSlider = ({ slug }) => {
   const { i18n, t } = useTranslation();
@@ -60,33 +60,35 @@ const BlogIdSlider = ({ slug }) => {
           mainTextEn,
           mainText,
           updatedAt,
-        }) => (
-          <SwiperSlide className="cartItem" key={slug}>
-            <div className={styles.cartImgContainer}>
-              <CldImage
-                src={mainImage}
-                alt="img blog"
-                fill="true"
-                priority={true}
-                className={styles.cartImg}
-                sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
-              />
-            </div>
+        }) => {
+          const formattedDate = formatDate(updatedAt);
+          return (
+            <SwiperSlide className="cartItem" key={slug}>
+              <div className={styles.cartImgContainer}>
+                <CldImage
+                  src={mainImage}
+                  alt="img blog"
+                  fill="true"
+                  as="image"
+                  priority={true}
+                  className={styles.cartImg}
+                  sizes="(max-width: 768px) 329px, (max-width: 1440px) 320px"
+                />
+              </div>
 
-            <h3 className={styles.cartTitle}>
-              {i18n.language === currentLanguages.EN ? titleEn : title}
-            </h3>
-            <p className={styles.cartDesc}>
-              {i18n.language === currentLanguages.EN ? mainTextEn : mainText}
-            </p>
-            <div className={styles.bottomContainer}>
-              <p className={styles.date}>
-                {format(new Date(updatedAt), 'dd.MM.yyyy')}
+              <h3 className={styles.cartTitle}>
+                {i18n.language === currentLanguages.EN ? titleEn : title}
+              </h3>
+              <p className={styles.cartDesc}>
+                {i18n.language === currentLanguages.EN ? mainTextEn : mainText}
               </p>
-              <ReadMore href="blog" slug={slug} />
-            </div>
-          </SwiperSlide>
-        )
+              <div className={styles.bottomContainer}>
+                <p className={styles.date}>{formattedDate}</p>
+                <ReadMore href="blog" slug={slug} />
+              </div>
+            </SwiperSlide>
+          );
+        }
       )}
       {!isLoading && blogData?.length <= 0 && (
         <li className={styles.notFoundTextStyles}>
