@@ -1,7 +1,6 @@
 .blogIdCards {
   width: 100%;
   height: 445px;
-  padding-bottom: 36px;
 }
 
 .blogIdCards .swiper-wrapper {
@@ -25,10 +24,16 @@
   .cartItem {
     padding: 24px 16px;
   }
+  .blogIdCards .swiper-wrapper {
+    height: 425px;
+  }
 }
 @media screen and (min-width: 1440px) {
   .cartItem {
     padding: 24px 24px;
+  }
+  .blogIdCards .swiper-wrapper {
+    height: 435px;
   }
 }
 .blogIdCards .swiper-pagination {

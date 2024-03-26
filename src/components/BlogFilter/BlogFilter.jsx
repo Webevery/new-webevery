@@ -20,11 +20,11 @@ const BlogFilter = ({ filter, title, setFilterArr, filterArr }) => {
     <div className={isFilterShown}>
       <h3 className={styles.blogShowTitle}>{title}</h3>
       <ul className={styles.blogShowList}>
-        {filter.map(({ id, title, titleEn }) => (
+        {filter.map(({ id, direction, directionEn }) => (
           <li key={id} className={styles.blogShowItem}>
             <BlogFilterItem
-              title={title}
-              titleEn={titleEn}
+              title={direction}
+              titleEn={directionEn}
               id={id}
               setFilterArr={setFilterArr}
               filterArr={filterArr}

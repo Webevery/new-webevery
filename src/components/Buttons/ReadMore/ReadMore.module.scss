@@ -1,0 +1,41 @@
+@import '../../../app/variables';
+
+.readMore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  &:hover,
+  &:focus {
+    & > .readMoreIcon {
+      animation: readMoreIcon 0.8s ease-in-out forwards;
+    }
+  }
+}
+.readMoreTitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  background: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes readMoreIcon {
+  0% {
+    transform: translatX(0px);
+  }
+  100% {
+    transform: translateX(3px);
+  }
+}
+
+.readMoreIcon {
+  width: 32px;
+  height: 12px;
+  margin-left: 16px;
+}
