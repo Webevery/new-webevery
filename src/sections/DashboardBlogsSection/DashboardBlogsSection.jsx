@@ -9,6 +9,7 @@ import styles from "./DashboardBlogsSection.module.scss";
 
 const DashboardBlogsSection = () => {
     const { data, isLoading } = GetDataFromSection("blogs");
+    console.log("data", data)
 
     return (
         <>
