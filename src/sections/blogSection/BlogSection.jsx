@@ -2,7 +2,10 @@
 
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { fiterBlog } from '@/data/blog';
+import { blogSorter } from '@/data/blog';
+
+import { v4 } from 'uuid';
+
 import { SiteContext } from '@/context/siteContext';
 import BlogFilterButton from '@/components/BlogFilterButton/BlogFilterButton';
 import BlogFilter from '@/components/BlogFilter/BlogFilter';
@@ -16,6 +19,7 @@ const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
   const [showLoading, setShowLoading] = useState(false);
   const [filterArr, setFilterArr] = useState([]);
+  const [directionArr, setDirectionArr] = useState([]);
   const [sorterArr, setSorterArr] = useState('');
 
   const { i18n, t } = useTranslation();
@@ -28,10 +32,9 @@ const BlogSection = () => {
     useContext(SiteContext);
 
   const filterBlogArr = data
-    ?.filter(({ direction, titleEn, descriptionEn, title, description }) => {
+    ?.filter(({ direction, titleEn, mainTextEn, title, mainText }) => {
       const combinedText =
-        `${titleEn} ${descriptionEn} ${title} ${description}`.toLowerCase();
-
+        `${titleEn} ${mainTextEn} ${title} ${mainText}`.toLowerCase();
       const directionCondition = filterArr.every((blogFilter) =>
         direction.includes(blogFilter)
       );
@@ -92,11 +95,25 @@ const BlogSection = () => {
     // eslint-disable-next-line
   }, [data, loadedCount]);
 
+  useEffect(() => {
+    if (data) {
+      const newDirections = data.map((item) => ({
+        directionEn: item.directionEn || '',
+        direction: item.direction || '',
+        id: v4(),
+      }));
+
+      setDirectionArr(newDirections);
+    }
+  }, [data]);
+
   const cartContainerFilter =
     blogFilterShown || blogSorterShown
       ? !isLoading && filterBlogArr?.length <= 0
         ? `${styles.cartContainer} ${styles.cartContainerNotFound}`
-        : `${styles.cartContainer} ${styles.cartContainerOpen}`
+        : blogFilterShown && directionArr.length <= 6
+        ? `${styles.cartContainer} ${styles.cartContainerOpen}`
+        : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
       : !isLoading && filterBlogArr?.length <= 0
       ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
       : `${styles.cartContainer} `;
@@ -119,7 +136,7 @@ const BlogSection = () => {
         <ul ref={containerRef} className={cartContainerFilter}>
           {blogSorterShown && (
             <BlogSorter
-              sorter={fiterBlog.blogSorter}
+              sorter={blogSorter}
               title="Sorter"
               sorterArr={sorterArr}
               setSorterArr={setSorterArr}
@@ -127,7 +144,7 @@ const BlogSection = () => {
           )}
           {blogFilterShown && (
             <BlogFilter
-              filter={fiterBlog.blogFilter}
+              filter={directionArr}
               title="Filter"
               setFilterArr={setFilterArr}
               filterArr={filterArr}
@@ -139,21 +156,21 @@ const BlogSection = () => {
             .map(
               ({
                 slug,
-                images,
+                mainImage,
                 titleEn,
                 title,
-                descriptionEn,
-                description,
+                mainTextEn,
+                mainText,
                 updatedAt,
               }) => (
                 <BlogCardItem
                   key={slug}
                   slug={slug}
-                  images={images}
+                  mainImage={mainImage}
                   titleEn={titleEn}
                   title={title}
-                  descriptionEn={descriptionEn}
-                  description={description}
+                  mainTextEn={mainTextEn}
+                  mainText={mainText}
                   updatedAt={updatedAt}
                 />
               )

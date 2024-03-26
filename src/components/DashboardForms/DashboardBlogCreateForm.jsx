@@ -76,8 +76,8 @@ const DashboardBlogCreateForm = () => {
         defaultValues: {
             subTitle: "",
             subTitleEn: "",
-            description: "",
-            descriptionEn: "",
+            text: "",
+            textEn: "",
             image: "",
         },
         resolver: yupResolver(dashboardBlogBlockSchema),
@@ -243,7 +243,7 @@ const DashboardBlogCreateForm = () => {
                         placeholder=' '
                         {...mainRegister("directionEn")}
                     />
-                    <label htmlFor='descriptionEn' className={styles.formLabel}>
+                    <label htmlFor='directionEn' className={styles.formLabel}>
                         DirectionEn
                     </label>
                     <p className={styles.error}>
@@ -259,7 +259,7 @@ const DashboardBlogCreateForm = () => {
                         {...mainRegister("epilogue")}
                     />
                     <label htmlFor='epilogue' className={styles.formLabel}>
-                        MainText
+                        Epilogue
                     </label>
                     <p className={styles.error}>
                         {mainErrors.epilogue?.message}
@@ -274,7 +274,7 @@ const DashboardBlogCreateForm = () => {
                         {...mainRegister("epilogueEn")}
                     />
                     <label htmlFor='epilogueEn' className={styles.formLabel}>
-                        MainTextEn
+                        EpilogueEn
                     </label>
                     <p className={styles.error}>
                         {mainErrors.epilogueEn?.message}
@@ -341,30 +341,28 @@ const DashboardBlogCreateForm = () => {
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='description'
+                        id='text'
                         placeholder=' '
-                        {...blockRegister("description")}
+                        {...blockRegister("text")}
                     />
-                    <label htmlFor='description' className={styles.formLabel}>
-                        Description
+                    <label htmlFor='text' className={styles.formLabel}>
+                        Text
                     </label>
-                    <p className={styles.error}>
-                        {blockErrors.description?.message}
-                    </p>
+                    <p className={styles.error}>{blockErrors.text?.message}</p>
                 </div>
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='descriptionEn'
+                        id='textEn'
                         placeholder=' '
-                        {...blockRegister("descriptionEn")}
+                        {...blockRegister("textEn")}
                     />
-                    <label htmlFor='descriptionEn' className={styles.formLabel}>
-                        DescriptionEn
+                    <label htmlFor='textEn' className={styles.formLabel}>
+                        TextEn
                     </label>
                     <p className={styles.error}>
-                        {blockErrors.descriptionEn?.message}
+                        {blockErrors.textEn?.message}
                     </p>
                 </div>
                 <div className={styles.inputGroup}>

@@ -13,14 +13,14 @@ import CallBtn from "../Buttons/CallBtn/CallBtn";
 import TranslatorBtnBlock from "../TranslatorBtnBlock/TranslatorBtnBlock";
 
 import styles from "./Header.module.scss";
+import { useWindowResize } from "@/hooks/useWindowResize";
 
 const Header = () => {
   const { burgerMenu, setBurgermenu, isClicked, setIsClicked } =
     useContext(SiteContext);
+  const { isMobile, isDesktop } = useWindowResize();
 
-  const [isXs, setIsXs] = useState(true);
   const [scrolledWindow, setScrolledWindow] = useState(0);
-  const [isTablet, setIsTablet] = useState(true);
   const [isLoad, setIsLoad] = useState(true);
 
   const menuRef = useRef(null);
@@ -37,22 +37,6 @@ const Header = () => {
   useEffect(() => {
     setIsLoad(false);
   }, []);
-
-  const handleResizeXs = useCallback(() => {
-    if (window.innerWidth >= 768) {
-      setIsXs(false);
-    } else {
-      setIsXs(true);
-    }
-  }, [setIsXs]);
-
-  const handleResizeTablet = useCallback(() => {
-    if (window.innerWidth >= 1440) {
-      setIsTablet(false);
-    } else {
-      setIsTablet(true);
-    }
-  }, [setIsTablet]);
 
   const closeBurgerOnWindowClick = useCallback(
     (e) => {
@@ -87,8 +71,6 @@ const Header = () => {
   }, [scrolledWindow, setScrolledWindow, header?.classList]);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResizeXs);
-    window.addEventListener("resize", handleResizeTablet);
     if (burgerMenu || isClicked) {
       window.addEventListener("click", closeBurgerOnWindowClick);
     }
@@ -96,39 +78,27 @@ const Header = () => {
       passive: true,
     });
 
-    handleResizeXs();
-    handleResizeTablet();
-
     return () => {
-      window.removeEventListener("resize", handleResizeXs);
-      window.removeEventListener("resize", handleResizeTablet);
       window.removeEventListener("click", closeBurgerOnWindowClick);
       window.removeEventListener("scroll", headerScrollclassName, {
         passive: true,
       });
     };
-  }, [
-    handleResizeXs,
-    handleResizeTablet,
-    burgerMenu,
-    isClicked,
-    closeBurgerOnWindowClick,
-    headerScrollclassName,
-  ]);
+  }, [burgerMenu, isClicked, closeBurgerOnWindowClick, headerScrollclassName]);
 
   return (
     <>
       {isPathExist || pathname.startsWith("/dashboard") ? (
         <header className={styles.header} ref={headerRef}>
           <div className={`container ${styles.container}`}>
-            {isTablet && <BurgerBtn setIsClicked={setIsClicked} />}
+            {!isDesktop && <BurgerBtn setIsClicked={setIsClicked} />}
             <div
               className={
                 burgerMenu ? styles.navWrapperVisible : styles.navWrapper
               }
               ref={menuRef}
             >
-              {!isTablet && <CallBtn />}
+              {isDesktop && <CallBtn />}
               {!isLoad && (
                 <NavLinks
                   subMenuBtnRef={subMenuBtnRef}
@@ -137,7 +107,7 @@ const Header = () => {
                   subMenuRef={subMenuRef}
                 />
               )}
-              {isXs && (
+              {isMobile && (
                 <TranslatorBtnBlock
                   className={styles.xsLangSwitcher}
                   translatorEn={translatorEn}
@@ -147,7 +117,7 @@ const Header = () => {
             </div>
 
             <div className={styles.logoWrapper}>
-              {!isXs && (
+              {!isMobile && (
                 <TranslatorBtnBlock className={styles.mobileLangSwitcher} />
               )}
               <Link
