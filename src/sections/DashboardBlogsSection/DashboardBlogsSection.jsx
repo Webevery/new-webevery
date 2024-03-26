@@ -17,7 +17,7 @@ const DashboardBlogsSection = () => {
             ) : (
                 <div className={styles.container}>
                     <div className={styles.cardsList}>
-                        {data.map((item, index) => {
+                        {/* {data.map((item, index) => {
                             return (
                                 <DashboardBlogItem
                                     key={index}
@@ -25,7 +25,7 @@ const DashboardBlogsSection = () => {
                                     isLoading={isLoading}
                                 />
                             );
-                        })}
+                        })} */}
                     </div>
                     <DashboardBlogCreateForm />
                 </div>

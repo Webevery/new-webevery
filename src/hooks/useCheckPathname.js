@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { GetSlugArrayFromData } from "@/helpers/slugArraysFromData";
+import { GetValuesArrayFromData } from "@/helpers/valuesArrayFromData";
 
 export function useCheckPathname(path) {
     const [isPathExist, setPathExist] = useState(true);
 
-    const servicesSlugArray = GetSlugArrayFromData("services");
-    const blogSlugArray = GetSlugArrayFromData("blogs");
-    const ourProjectsSlugArray = GetSlugArrayFromData("ourProjects");
+    const servicesSlugArray = GetValuesArrayFromData("services", "slug");
+    const blogSlugArray = GetValuesArrayFromData("blogs", "slug");
+    const ourProjectsSlugArray = GetValuesArrayFromData("ourProjects", "slug");
 
     const existServicesPage = servicesSlugArray?.some(
         (item) => `/services/${item}` === path
