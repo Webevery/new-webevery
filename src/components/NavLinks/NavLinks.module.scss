@@ -4,7 +4,6 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  width: fit-content;
   cursor: pointer;
   width: 100%;
 
@@ -22,11 +21,10 @@
   flex-direction: column;
 
   align-items: flex-start;
-  width: fit-content;
+  width: 100%;
   position: relative;
   transition-duration: $transitionDuration;
   height: fit-content;
-  width: 100%;
   &:hover,
   &:focus {
     height: fit-content;
@@ -34,6 +32,9 @@
       transform: rotate(90deg);
       background-image: $gradient;
     }
+  }
+  @media screen and (min-width: $desktop) {
+    width: auto;
   }
 }
 
@@ -67,7 +68,7 @@
   height: 0px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
   overflow: hidden;
   height: 0;
   z-index: 20;
@@ -90,7 +91,7 @@
   @media screen and (min-width: $laptop) {
     position: absolute;
     top: 0;
-    left: 72%;
+    left: 200px;
     width: 0;
     padding: 32px 0px;
     display: grid;
@@ -137,5 +138,15 @@
   @media screen and (min-width: $desktop) {
     padding: 32px 16px;
     top: 48px;
+  }
+}
+
+.hr {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  &:last-child {
+    border: none;
+  }
+  @media screen and (min-width: $laptop) {
+    display: none;
   }
 }

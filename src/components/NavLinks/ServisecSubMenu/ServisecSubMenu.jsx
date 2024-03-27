@@ -45,19 +45,22 @@ const ServisecSubMenu = ({
     };
 
     return (
-      <Link
-        key={sub.slug}
-        href={`${linkHref}/${sub.slug}`}
-        onClick={() => {
-          setBurgermenu(false);
-          setIsClicked(false);
-        }}
-        className={subClassName()}
-      >
-        {i18n.language === currentLanguages.EN
-          ? `${sub.titleGradientEn} ${sub.titleEn}`
-          : `${sub.titleGradient} ${sub.title}`}
-      </Link>
+      <>
+        <Link
+          key={sub.slug}
+          href={`${linkHref}/${sub.slug}`}
+          onClick={() => {
+            setBurgermenu(false);
+            setIsClicked(false);
+          }}
+          className={subClassName()}
+        >
+          {i18n.language === currentLanguages.EN
+            ? `${sub.titleGradientEn} ${sub.titleEn}`
+            : `${sub.titleGradient} ${sub.title}`}
+        </Link>
+        <hr className={styles.hr} />
+      </>
     );
   });
 
