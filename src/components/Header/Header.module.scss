@@ -61,7 +61,7 @@
   transition-duration: $transitionDuration;
 
   @media screen and (min-width: $mobile) {
-    width: 327px;
+    max-width: 412px;
   }
 
   @media screen and (min-width: $tablet) {
@@ -85,6 +85,7 @@
     padding: 0;
     background-color: transparent;
     box-shadow: none;
+    min-width: fit-content;
   }
 
   & nav {
