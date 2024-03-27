@@ -27,6 +27,15 @@
     }
 }
 
+.signature {
+    display: flex;
+    gap: 12px;
+}
+
+.title {
+    font-weight: 600;
+}
+
 .slug {
     font-size: 24px;
     line-height: 1.4;
@@ -44,10 +53,6 @@
 
 .img {
     object-fit: contain;
-    // @media screen and (min-width:$laptop) {
-    //     margin-left: auto;
-    //     margin-right: auto;
-    // }
 }
 
 .deleteIcon {

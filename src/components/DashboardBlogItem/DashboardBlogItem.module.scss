@@ -25,7 +25,7 @@
 
 .signature {
     display: flex;
-    justify-content: space-evenly;
+    gap: 12px;
 }
 
 .slug {
@@ -61,7 +61,7 @@
 .blockWrapper {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
 }
 
 .contentWrapper {

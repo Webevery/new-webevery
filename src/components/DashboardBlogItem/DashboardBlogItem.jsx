@@ -9,13 +9,12 @@ import styles from "./DashboardBlogItem.module.scss";
 const DashboardBlogItem = ({ data }) => {
     const pathname = usePathname();
     const isList = pathname.endsWith("blogs");
-    console.log('data', data)
 
     return (
         <div className={styles.container}>
             <div className={styles.signature}>
                 <p>{data.editor}</p>
-                <p>{data.updatedAt?.slice(0, 10)}</p>
+                <p className={`${styles.title} ${styles.ukrainian}`}>{data.updatedAt?.slice(0, 10)}</p>
             </div>
 
             <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>

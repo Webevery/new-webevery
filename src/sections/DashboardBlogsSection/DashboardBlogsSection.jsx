@@ -9,7 +9,17 @@ import styles from "./DashboardBlogsSection.module.scss";
 
 const DashboardBlogsSection = () => {
     const { data, isLoading } = GetDataFromSection("blogs");
-    console.log("data", data)
+
+    let sortedByUpdateData = [];
+
+    if (!isLoading) {
+        sortedByUpdateData = [...data];
+
+        sortedByUpdateData.sort((a, b) => {
+            return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
+        });
+    }
+
 
     return (
         <>
@@ -18,7 +28,7 @@ const DashboardBlogsSection = () => {
             ) : (
                 <div className={styles.container}>
                     <div className={styles.cardsList}>
-                         {data.map((item, index) => {
+                        {sortedByUpdateData.map((item, index) => {
                             return (
                                 <DashboardBlogItem
                                     key={index}

@@ -23,6 +23,17 @@ const DashboardServicesSection = () => {
     }
     // console.log('changedData', changedData)
 
+    let sortedByUpdateData = [];
+
+    if (!isLoading) {
+        sortedByUpdateData = [...changedData];
+
+        sortedByUpdateData.sort((a, b) => {
+            return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
+        });
+    }
+    // console.log('sortedByUpdateData', sortedByUpdateData)
+
 
     return (
         <>
@@ -31,7 +42,7 @@ const DashboardServicesSection = () => {
             ) : (
                 <div className={styles.container}>
                     <div className={styles.cardsList}>
-                        {changedData.map((item, index) => {
+                        {sortedByUpdateData.map((item, index) => {
                             // console.log("item", item)
                             return (
                                 <DashboardServiceItem key={index} data={item} />
