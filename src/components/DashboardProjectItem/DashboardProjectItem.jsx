@@ -12,6 +12,11 @@ const DashboardProjectItem = ({ data }) => {
 
     return (
         <div className={styles.container}>
+            <div className={styles.signature}>
+                <p>{data.editor}</p>
+                <p className={`${styles.titleEng} ${styles.ukrainian}`}>{data.updatedAt?.slice(0, 10)}</p>
+            </div>
+
             <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>
             <p className={styles.titleEng}>
                 {data.titleEn}{" "}

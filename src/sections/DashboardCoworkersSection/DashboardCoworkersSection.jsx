@@ -8,6 +8,17 @@ import Loading from "@/components/Loading/Loading";
 const DashboardCoworkersSection = () => {
     const { data, isLoading } = GetDataFromSection("team");
 
+    let sortedByUpdateData = [];
+
+    if (!isLoading) {
+        sortedByUpdateData = [...data];
+
+        sortedByUpdateData.sort((a, b) => {
+            return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
+        });
+    }
+
+
     return (
         <>
             {isLoading ? (
@@ -15,7 +26,7 @@ const DashboardCoworkersSection = () => {
             ) : (
                 <div className={styles.container}>
                     <div className={styles.cardsList}>
-                        {data.map((item, index) => {
+                        {sortedByUpdateData.map((item, index) => {
                             return (
                                 <DashboardCoworkerItem
                                     key={index}
