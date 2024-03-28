@@ -214,7 +214,7 @@ const DashboardBlogCreateForm = () => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add photo WEBP format
+                        Add Main Image WEBP format
                     </CldUploadButton>
                     <p className={styles.error}>
                         {mainErrors.mainImage?.message}
@@ -392,7 +392,7 @@ const DashboardBlogCreateForm = () => {
                     className={styles.formButton}
                     disabled={isBlockErrors || isBlockSubmitting}
                 >
-                    Add new block!
+                    Add the new block!
                 </button>
             </form>
         </div>
