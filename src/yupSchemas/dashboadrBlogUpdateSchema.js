@@ -4,27 +4,58 @@ import * as yup from "yup";
 export const dashboardBlogUpdateSchema = yup.object({
     newTitle: yup
         .string()
-        .required("Title is required"),
+        .required("NewTitle is required"),
     newTitleEn: yup
         .string()
-        .required("Title is required"),
-    newImages: yup
+        .required("NewTitleEn is required"),
+    newMainImage: yup
+        .string()
+        .required("NewMainImage is required"),
+    newMainText: yup
+        .string()
+        .required("NewMainText is required"),
+    newMainTextEn: yup
+        .string()
+        .required("NewMainTextEn is required"),
+    newDirection: yup
+        .string()
+        .required("NewDirections is required"),
+    newDirectionEn: yup
+        .string()
+        .required("NewDirectionsEn is required"),
+    newEpilogue: yup
+        .string()
+        .required("NewEpilogue is required"),
+    newEpilogueEn: yup
+        .string()
+        .required("NewEpilogueEn is required"),
+    newBlocks: yup
         .array()
-        .min(2, "At least two items"),
-    newDescription: yup
-        .string()
-        .required("Description is required"),
-    newDescriptionEn: yup
-        .string()
-        .required("DescriptionEn is required"),
-    newDirections: yup
-        .string()
-        .required("Directions is required"),
-    newDirectionsEn: yup
-        .string()
-        .required("DirectionsEn is required"),
+        .min(1, "At least one NewBlocks"),
     newSlug: yup
         .string()
-        .required("Slug is required")
+        .required("NewSlug is required")
+});
 
+export const dashboardBlogBlockUpdateSchema = yup.object({
+    subTitle: yup
+        .string()
+        .required("SubTitle is required"),
+    subTitleEn: yup
+        .string()
+        .required("SubTitleEn is required"),
+    text: yup
+        .string()
+        .required("Text is required"),
+    textEn: yup
+        .string()
+        .required("TextEn is required"),
+    rangeNumber: yup
+        .number()
+        .typeError('RengeNumber must be a number')
+        .required("RengeNumber is required")
+        .min(0, "Min 0")
+        .max(50, "Max 50"),
+    image: yup
+        .string(),
 });
