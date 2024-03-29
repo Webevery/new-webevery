@@ -10,14 +10,14 @@
 }
 
 .exitIcon {
-    // display: block;
     width: 28px;
     height: 28px;
-    stroke: yellow;
-    fill: transparent;
+    stroke: #0807f3;
+    fill: #5680eb;
+    transition-duration: 250ms;
 }
 
 .exitIcon:hover {
-    // fill: #ff2828;
-    stroke: #ff2828;
+    fill: #ff2828;
+    stroke: #9f2a2a;
 }
