@@ -26,7 +26,7 @@ const OurProjectsSection = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  console.log('data', data);
+
   return (
     <section>
       <div className={`container ${styles.projectContainer}`}>

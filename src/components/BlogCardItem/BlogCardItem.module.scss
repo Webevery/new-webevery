@@ -23,12 +23,19 @@
 .cartImgContainer {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 60vw;
+  // height: 200px;
   margin-bottom: 8px;
   @media screen and (min-width: $tablet) {
+    height: 27vw;
+    // height: 200px;
     margin-bottom: 16px;
   }
+  @media screen and (min-width: $laptop) {
+    height: 20vw;
+  }
   @media screen and (min-width: $desktop) {
+    height: 17vw;
     width: 368px;
   }
 }
