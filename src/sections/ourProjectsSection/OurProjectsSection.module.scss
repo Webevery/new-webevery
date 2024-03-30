@@ -120,18 +120,20 @@
 .ourProjectsImgContainer {
   position: relative;
   min-width: 280px;
-  height: 186px;
+  height: 55vw;
+  // height: 186px;
   box-shadow: $shadowColor;
   margin-bottom: 16px;
 
   @media screen and (min-width: $mobile) {
     min-width: 312px;
-    height: 208px;
   }
 
   @media screen and (min-width: $tablet) {
     min-width: 704px;
-    height: 469px;
+
+    height: 55vw;
+    // height: 469px;
     border-radius: 34px;
     margin-bottom: 20px;
     border: double 1px transparent;
