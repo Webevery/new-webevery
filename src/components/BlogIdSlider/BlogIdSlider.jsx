@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import { currentLanguages } from '@/data';
-import { GetDataFromSection } from '@/fetch/ClientFetch';
-import { CldImage } from 'next-cloudinary';
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { currentLanguages } from "@/data";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
+import { CldImage } from "next-cloudinary";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import styles from './BlogIdSlider.module.scss';
-import './BlogIdSlider.css';
+import styles from "./BlogIdSlider.module.scss";
+import "./BlogIdSlider.css";
 
 // Import Swiper styles
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-coverflow';
-import { Pagination } from 'swiper/modules';
-import ReadMore from '../Buttons/ReadMore/ReadMore';
-import { formatDate } from '@/utils/dateUtils';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
+import { Pagination } from "swiper/modules";
+import ReadMore from "../Buttons/ReadMore/ReadMore";
+import { formatDate } from "@/utils/dateUtils";
 
 const BlogIdSlider = ({ slug }) => {
   const { i18n, t } = useTranslation();
-  const { data, error, isLoading } = GetDataFromSection('blogs');
+  const { data, error, isLoading } = GetDataFromSection("blogs");
 
   const [blogData, setBlogData] = useState([]);
 
@@ -33,7 +33,7 @@ const BlogIdSlider = ({ slug }) => {
       const slicedData = shuffledData.slice(0, 2);
       setBlogData(slicedData);
     }
-  }, [slug]);
+  }, [slug, isLoading, error, data]);
 
   return (
     <Swiper
@@ -92,7 +92,7 @@ const BlogIdSlider = ({ slug }) => {
       )}
       {!isLoading && blogData?.length <= 0 && (
         <li className={styles.notFoundTextStyles}>
-          <p>{t('BlogPage.NoArticles')}</p>
+          <p>{t("BlogPage.NoArticles")}</p>
         </li>
       )}
     </Swiper>

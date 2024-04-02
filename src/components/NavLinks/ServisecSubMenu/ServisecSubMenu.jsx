@@ -45,9 +45,8 @@ const ServisecSubMenu = ({
     };
 
     return (
-      <>
+      <div key={sub.slug} className={styles.underline}>
         <Link
-          key={sub.slug}
           href={`${linkHref}/${sub.slug}`}
           onClick={() => {
             setBurgermenu(false);
@@ -59,8 +58,7 @@ const ServisecSubMenu = ({
             ? `${sub.titleGradientEn} ${sub.titleEn}`
             : `${sub.titleGradient} ${sub.title}`}
         </Link>
-        <hr className={styles.hr} />
-      </>
+      </div>
     );
   });
 
