@@ -10,6 +10,13 @@ export const POST = async (request) => {
     // подключается к БД
     await connectToDB();
 
+    const user = await User.findOne({ email });
+    if (user) {
+        return new NextResponse("User already exists", {
+            status: 401,
+        })
+    }
+
     // шифрует пароль
     const hashedPassword = await bcrypt.hash(password, 5);
 

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { useForm } from 'react-hook-form';
@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 
 const DashboardRegisterSection = () => {
     const router = useRouter();
+    const [errMessage, setErrMessage] = useState(undefined)
 
     const initialValues = {
         defaultValues: {
@@ -43,10 +44,11 @@ const DashboardRegisterSection = () => {
                 }),
             });
 
-            response.status = 201 && router.push("/dashboard?success=Account has been created");
-
+            response.status === 201 && router.push("/dashboard");
+            response.status === 401 && setErrMessage("User already exists !")
+            console.log("response", response)
         } catch (error) {
-            // console.log("error", error);
+            console.log("error", error);
             throw new Error(error)
         }
     };
@@ -118,7 +120,7 @@ const DashboardRegisterSection = () => {
                     Register
                 </button>
             </form>
-
+            {errMessage && <p className={styles.errMessage}>{errMessage}</p>}
             <p className={styles.text}>Do you have an account? <Link className={styles.link} href='/dashboard'>Login</Link> </p>
         </div>
     )
