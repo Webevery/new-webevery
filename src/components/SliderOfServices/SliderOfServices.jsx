@@ -88,13 +88,11 @@ export const SliderOfServices = ({ slug }) => {
       }) => {
         return (
           <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
-            <div>
-              <Link
-                href={`/services/${slug}`}
-                className={styles.readMore}
-              >
-                <ReadMore />
-                {/* <div className={styles.linkCont}>
+            <div >
+              <div className={styles.readMore}>
+                <ReadMore href={`/services/${slug}`} />
+              </div>
+              {/* <div className={styles.linkCont}>
                         <span className={styles.readMoreTitle}>
                           {t("Buttons.ServicesDetailsBtn")}
                         </span>
@@ -117,7 +115,6 @@ export const SliderOfServices = ({ slug }) => {
                           />
                         </svg>
                       </div> */}
-              </Link>
               <h3 className={styles.cartTitle}>
                 {i18n.language === currentLanguages.EN ? (
                   <>
