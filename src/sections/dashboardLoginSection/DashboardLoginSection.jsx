@@ -10,7 +10,7 @@ import styles from './DashboardLoginSection.module.scss';
 
 const DashboardLoginSection = () => {
     const session = useSession();
-    // console.log("session", session)
+    console.log("session", session)
 
 
     const initialValues = {

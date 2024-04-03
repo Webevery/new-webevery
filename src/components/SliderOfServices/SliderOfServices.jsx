@@ -75,26 +75,26 @@ export const SliderOfServices = ({ slug }) => {
       modules={[Pagination, Autoplay, Navigation]}
       className={`ServicesSwiper ${styles.serviceList}`}
     >
-        {filteredData?.map(({
-            slug,
-            title,
-            titleEn,
-            titleGradient,
-            titleGradientEn,
-            directions,
-            directionsEn,
-            price,
-            priceEn,
-          }) => {
-            return (
-              <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
-                  <div>
-                    <Link
-                      href={`/services/${slug}`}
-                      className={styles.readMore}
-                    >
-                      <ReadMore/>
-                      {/* <div className={styles.linkCont}>
+      {filteredData?.map(({
+        slug,
+        title,
+        titleEn,
+        titleGradient,
+        titleGradientEn,
+        directions,
+        directionsEn,
+        price,
+        priceEn,
+      }) => {
+        return (
+          <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
+            <div>
+              <Link
+                href={`/services/${slug}`}
+                className={styles.readMore}
+              >
+                <ReadMore />
+                {/* <div className={styles.linkCont}>
                         <span className={styles.readMoreTitle}>
                           {t("Buttons.ServicesDetailsBtn")}
                         </span>
@@ -117,63 +117,63 @@ export const SliderOfServices = ({ slug }) => {
                           />
                         </svg>
                       </div> */}
-                    </Link>
-                    <h3 className={styles.cartTitle}>
-                      {i18n.language === currentLanguages.EN ? (
-                        <>
-                          {titleGradientEn}
-                          {titleEn}
-                        </>
-                      ) : (
-                        <>
-                          {titleGradient}
-                          {title}
-                        </>
-                      )}
-                    </h3>
-                    <ul>
-                      {i18n.language === currentLanguages.EN ? (
-                        <>
-                          {directionsEn.map((item, index) => {
-                            return (
-                              <li key={index} className={styles.descItem}>
-                                {item}
-                              </li>
-                            );
-                          })}
-                        </>
-                      ) : (
-                        <>
-                          {directions.map((item, index) => {
-                            return (
-                              <li key={index} className={styles.descItem}>
-                                {item}
-                              </li>
-                            );
-                          })}
-                        </>
-                      )}
-                    </ul>
-                  </div>
-                  <div>
-                    <p className={styles.price}>
-                      {i18n.language === currentLanguages.EN ? priceEn : price}
-                    </p>
-                    <OrderBtn
-                      id={styles.orderBtn}
-                      title={t("Buttons.ServiceCardOrderBtn")}
-                      onClick={() => {
-                        if (i18n.language === currentLanguages.EN) {
-                          setComment(`${titleGradientEn} ${titleEn}`);
-                        }else{setComment(`${titleGradient} ${title}`)}
-                        openModal();
-                      }}
-                    />
-                  </div>
-              </SwiperSlide>
-            );
-          }
-        )}
+              </Link>
+              <h3 className={styles.cartTitle}>
+                {i18n.language === currentLanguages.EN ? (
+                  <>
+                    {titleGradientEn}
+                    {titleEn}
+                  </>
+                ) : (
+                  <>
+                    {titleGradient}
+                    {title}
+                  </>
+                )}
+              </h3>
+              <ul>
+                {i18n.language === currentLanguages.EN ? (
+                  <>
+                    {directionsEn.map((item, index) => {
+                      return (
+                        <li key={index} className={styles.descItem}>
+                          {item}
+                        </li>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <>
+                    {directions.map((item, index) => {
+                      return (
+                        <li key={index} className={styles.descItem}>
+                          {item}
+                        </li>
+                      );
+                    })}
+                  </>
+                )}
+              </ul>
+            </div>
+            <div>
+              <p className={styles.price}>
+                {i18n.language === currentLanguages.EN ? priceEn : price}
+              </p>
+              <OrderBtn
+                id={styles.orderBtn}
+                title={t("Buttons.ServiceCardOrderBtn")}
+                onClick={() => {
+                  if (i18n.language === currentLanguages.EN) {
+                    setComment(`${titleGradientEn} ${titleEn}`);
+                  } else { setComment(`${titleGradient} ${title}`) }
+                  openModal();
+                }}
+              />
+            </div>
+          </SwiperSlide>
+        );
+      }
+      )}
       {/* </div> */}
     </Swiper>
   );
