@@ -123,7 +123,7 @@ const BlogIdSection = ({ params }) => {
                   : data?.epilogue}
               </p>
               <h4 className={styles.interestingBlogs}>
-                Також вам буде цікаво:
+                {t('BlogIdPage.SubTitle')}
               </h4>
               {!isSmallScreen && <BlogIdSlider slug={data?.slug} />}
             </div>
