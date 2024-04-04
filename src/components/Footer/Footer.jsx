@@ -18,7 +18,7 @@ const Footer = () => {
     useEffect(() => {
         if (
             (pathname === "/" && isPathExist) ||
-            (pathname === "/services" && isPathExist)
+            (pathname.startsWith("/services") && isPathExist)
         ) {
             setFooterWithForm(false);
             setContactsSection(false);
@@ -30,8 +30,8 @@ const Footer = () => {
         } else if (
             (pathname === "/faq" && isPathExist) ||
             (pathname === "/team" && isPathExist) ||
-            (pathname === "/blog" && isPathExist) ||
-            (pathname === "/ourProjects" && isPathExist)
+            (pathname.startsWith("/blog") && isPathExist) ||
+            (pathname.startsWith("/ourProjects") && isPathExist)
         ) {
             setFooterWithoutForm(false);
             setContactsSection(false);
