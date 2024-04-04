@@ -103,3 +103,9 @@
     color: blue;
     font-style: italic;
 }
+
+.errMessage {
+    font-weight: 700;
+    font-size: 20px;
+    color: $errorColor;
+}

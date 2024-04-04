@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { signIn, useSession } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { dashboardUserLoginSchema } from '@/yupSchemas/dashboardUserLoginSchema';
 import Link from 'next/link';
@@ -10,7 +11,9 @@ import styles from './DashboardLoginSection.module.scss';
 
 const DashboardLoginSection = () => {
     const session = useSession();
-    console.log("session", session)
+    const searchParams = useSearchParams();
+    const error = searchParams.get("error")
+
 
 
     const initialValues = {
@@ -87,6 +90,8 @@ const DashboardLoginSection = () => {
                 </form>
 
                 <button onClick={() => signIn('google')}>Login with Google</button>
+
+                {error && <p className={styles.errMessage}>{error}</p>}
 
                 <p className={styles.text}>You still do not have an account? <Link className={styles.link} href='/dashboard/register'>Register</Link> </p>
             </div>}

@@ -45,10 +45,10 @@ const DashboardRegisterSection = () => {
             });
 
             response.status === 201 && router.push("/dashboard");
-            response.status === 401 && setErrMessage("User already exists !")
-            console.log("response", response)
+            response.status === 401 && setErrMessage("User already exists")
+            // console.log("response", response)
         } catch (error) {
-            console.log("error", error);
+            // console.log("error", error);
             throw new Error(error)
         }
     };
