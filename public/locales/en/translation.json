@@ -53,6 +53,7 @@
     "NoArticles": "No articles found!!"
   },
   "BlogIdPage": {
+    "SubTitle":"You will also be interested in:",
     "NotFound": "Blog not found",
     "NotFoundTitleBtn": "To all blogs",
     "NavBtn": "To page with all articles"
