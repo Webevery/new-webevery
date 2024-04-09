@@ -1,23 +1,18 @@
+import DashboardRegisterForm from "@/components/DashboardRegisterForm/DashboardRegisterForm";
 import styles from "./DashboardRegisterSection.module.scss";
-// import RegisterForm from "@/components/registerForm/registerForm";
 
-import { register } from "@/lib/actions";
 
-const RegisterPage = () => {
+const DashboardRegisterSection = () => {
     return (
         <div className={styles.container}>
-            <form action={register} className={styles.form}>
-                <input type="text" placeholder="name" name="name" />
-                <input type="email" placeholder="email" name="email" />
-                <input type="password" placeholder="password" name="password" />
-                <button>Register</button>
-
-            </form>
+            <div className={styles.wrapper}>
+                <DashboardRegisterForm />
+            </div>
         </div>
     );
 };
 
-export default RegisterPage;
+export default DashboardRegisterSection;
 
 
 

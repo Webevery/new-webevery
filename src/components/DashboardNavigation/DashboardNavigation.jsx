@@ -12,8 +12,8 @@ const DashboardNavigation = ({ handleLogout, session }) => {
     console.log("session", session);
 
     return (
-        //  webforevery @gmail.com
-        session?.user.email === "peltek1985@gmail.com" && <div className={styles.container}>
+        //  session?.user.email === "webforevery @gmail.com"
+        session?.user && <div className={styles.container}>
             {dashboardPages.map((item) => {
                 return (<Link key={item.title} className={pathName === item.path ? `${styles.pageLink} ${styles.active}` : `${styles.pageLink}`} href={item.path}>{item.title}</Link>)
             })}

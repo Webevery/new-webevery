@@ -1,23 +1,23 @@
+"use server"
 import { signIn, signOut } from "./auth";
 import { User } from "./models";
 import { connectToDB } from "./utils";
 import bcrypt from "bcryptjs";
 
 
-export const handleGoogleLogin = async (e) => {
+export const handleGoogleLogin = async () => {
     "use server"
     await signIn('google');
 }
 
 
-export const handleLogout = async (e) => {
+export const handleLogout = async () => {
     "use server"
     await signOut();
 }
 
 
-export const register = async (formData) => {
-    "use server"
+export const register = async (previousState, formData) => {
     const { name, email, password } = Object.fromEntries(formData);
     try {
         await connectToDB();
@@ -34,6 +34,7 @@ export const register = async (formData) => {
         })
         await newUser.save();
         console.log('saved to DB');
+        return { success: true };
     } catch (error) {
         console.log("error", error);
         return { error: "Something went wrong" }
@@ -41,14 +42,16 @@ export const register = async (formData) => {
 }
 
 // используется в loginForm. вызывается signIn из auth.js (передавая credentials). там выполняется алгоритм в части CredentialsProvider
-export const login = async (formData) => {
-    "use server"
+export const login = async (previousState, formData) => {
     const { email, password } = Object.fromEntries(formData);
     try {
         await signIn("credentials", { email, password })
 
     } catch (error) {
         console.log("error", error);
-        return { error: "Something went wrong" }
+        if (error.message.includes("CredentialsSignin")) {
+            return { error: "Invalid username or password" };
+        }
+        throw error;
     }
 }
