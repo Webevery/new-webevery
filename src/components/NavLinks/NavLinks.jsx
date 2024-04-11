@@ -74,6 +74,7 @@ const NavLinks = ({
             subMenuRef={subMenuRef}
             linkHref={link.href}
             className={styles.sublink}
+            setBurgermenu={setBurgermenu}
           />
         </div>
       );

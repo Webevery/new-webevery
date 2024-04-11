@@ -90,7 +90,7 @@ export const SliderOfServices = ({ slug }) => {
           <SwiperSlide key={slug} className={`slideContentWrapper ${styles.serviceItem}`}>
             <div >
               <div className={styles.readMore}>
-                <ReadMore href={`/services/${slug}`} />
+                <ReadMore href="services" slug={slug} />
               </div>
               {/* <div className={styles.linkCont}>
                         <span className={styles.readMoreTitle}>

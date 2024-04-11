@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "../NavLinks.module.scss";
 import { useTranslation } from "react-i18next";
@@ -13,8 +13,9 @@ const ServisecSubMenu = ({
   subMenuRef,
   linkHref,
   className,
+  setBurgermenu,
 }) => {
-  const { data, isLoading, error } = GetDataFromSection("services");
+  const { data } = GetDataFromSection("services");
   const pathName = usePathname();
 
   const { i18n } = useTranslation();
