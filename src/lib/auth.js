@@ -4,6 +4,8 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { connectToDB } from "./utils";
 import { User } from "./models";
 import bcrypt from "bcryptjs"
+import { authConfig } from "./auth.config";
+
 
 // вынесено в отдельную функцию, ! возможно !, потому что нельзя вызывать сторонние библиотеки в Next-Auth
 const login = async (credentials) => {
@@ -29,6 +31,7 @@ const login = async (credentials) => {
 
 // из auth можно взять session и получить данные авторизированного пользователя 
 export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
+    ...authConfig,
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
@@ -48,19 +51,21 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
         }),
     ],
     callbacks: {
-        async signIn({ user, account, profile }) {
-            console.log(user, account, profile);
-            if (account.provider === "google") {
-                await connectToDB();
-                try {
-                    const user = await User.findOne({ email: profile.email });
-                    console.log('USER', user)
-                } catch (error) {
-                    console.log("error", error);
-                    return false;
-                }
-            }
-            return true;
-        }
-    }
+        // async signIn({ user, account, profile }) {
+        //     // console.log(user, account, profile);
+        //     if (account.provider === "google") {
+        //         // console.log('START GOOGLE PROVIDER')
+        //         await connectToDB();
+        //         try {
+        //             const user = await User.findOne({ email: profile.email });
+        //             // console.log('user in callback', user)
+        //         } catch (error) {
+        //             console.log("error", error);
+        //             return false;
+        //         }
+        //     }
+        //     return user;
+        // },
+        ...authConfig.callbacks,
+    },
 })

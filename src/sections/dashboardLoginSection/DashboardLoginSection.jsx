@@ -1,7 +1,6 @@
-import DashboardLoginForm from "@/components/DashboardLoginForm/DashboardLoginForm"
-import { handleGoogleLogin } from "@/lib/actions"
-import styles from './DashboardLoginSection.module.scss'
-
+import DashboardLoginForm from "@/components/DashboardLoginForm/DashboardLoginForm";
+import { handleGoogleLogin } from "@/lib/actions";
+import styles from './DashboardLoginSection.module.scss';
 
 
 const DashboardLoginSection = () => {
@@ -10,9 +9,9 @@ const DashboardLoginSection = () => {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <form action={handleGoogleLogin}>
+                {/* <form action={handleGoogleLogin}>
                     <button className={styles.loginBtn}>Login with Google</button>
-                </form>
+                </form> */}
 
                 <DashboardLoginForm />
             </div>

@@ -5,10 +5,10 @@ import { connectToDB } from "./utils";
 import bcrypt from "bcryptjs";
 
 
-export const handleGoogleLogin = async () => {
-    "use server"
-    await signIn('google');
-}
+// export const handleGoogleLogin = async () => {
+//     "use server"
+//     await signIn('google');
+// }
 
 
 export const handleLogout = async () => {
@@ -33,7 +33,6 @@ export const register = async (previousState, formData) => {
             password: hashedPassword,
         })
         await newUser.save();
-        console.log('saved to DB');
         return { success: true };
     } catch (error) {
         console.log("error", error);
