@@ -4,12 +4,18 @@ import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardCoworkerUpdateSchema } from "@/yupSchemas/dashboardCoworkerUpdateSchema";
-// import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+import { useRouter } from "next/navigation";
+
+
 
 const DashboardCoworkerUpdateForm = ({ data }) => {
+    console.log("data", data)
     const { name, nameEn, photo, position, positionEn, slug } = data;
+    const router = useRouter();
+
 
     const initialValues = {
         defaultValues: {
@@ -29,7 +35,7 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
     // console.log("initialValues:", initialValues);
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         const {
             newName,
             newNameEn,
@@ -47,7 +53,27 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
             positionEn: newPositionEn,
             slug: newSlug,
         };
-        console.log("updatedCoworkerData:", updatedData);
+
+        const session = await getDashboardSession();
+        updatedData.editor = session.user?.email;
+        // console.log('updatedData', updatedData)
+
+        try {
+            await fetch(`/api/team/${slug}`, {
+                method: "PUT",
+                body: JSON.stringify(updatedData),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();
+            // обнуляє форму
+            // actions.resetForm();
+
+            console.log("Information updated to DB");
+            router.push(`/dashboard/coworkers/${updatedData.slug}`);
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -109,9 +135,8 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("newPhoto") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("newPhoto");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("newPhoto", result.info.public_id, {
                                 shouldValidate: true,
@@ -150,7 +175,7 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
                         {...register("newPositionEn")}
                     />
                     <label htmlFor='newPositionEn' className={styles.formLabel}>
-                        New ositionEn
+                        New positionEn
                     </label>
                     <p className={styles.error}>
                         {errors.newPositionEn?.message}

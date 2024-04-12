@@ -11,6 +11,7 @@ const DashboardCoworkerIdSection = ({ params }) => {
     const { slug } = params;
     const { data, isLoading } = GetIdDataFromSection("team", slug);
 
+
     return (
         <>
             {isLoading ? (

@@ -7,7 +7,6 @@ import { auth } from "@/lib/auth";
 export default async function DashboardLayout({ children }) {
     const session = await auth();
 
-
     return <div className={styles.layoutContainer}>
         <DashboardNavigation handleLogout={handleLogout} session={session} />
         {children}

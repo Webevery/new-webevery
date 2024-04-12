@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server"
-import { connectToDB } from "@/lib/utils"
+import { NextResponse } from "next/server";
+import { connectToDB } from "@/utils/connectToDB";
 import { Service } from "@/lib/models";
 
 
@@ -23,7 +23,7 @@ export const POST = async (request) => {
     const newService = new Service(body);
 
     try {
-        await connect();
+        await connectToDB();
         await newService.save();
 
         return new NextResponse('Service has been created.', { status: 201 });

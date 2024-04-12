@@ -1,12 +1,13 @@
 import { Service } from "@/lib/models";
-import { connectToDB } from "@/lib/utils";
+import { connectToDB } from "@/utils/connectToDB";
 import { NextResponse } from "next/server";
+
 
 export const GET = async (request, { params }) => {
     const { slug } = params;
 
     try {
-        connectToDB();
+        await connectToDB();
 
         const data = await Service.findOne({ slug });
         return new NextResponse(JSON.stringify(data), { status: 200 })
@@ -15,11 +16,12 @@ export const GET = async (request, { params }) => {
     }
 }
 
+
 export const DELETE = async (request, { params }) => {
     const { slug } = params;
 
     try {
-        await connect();
+        await connectToDB();
 
         await Service.deleteOne({ slug });
 
@@ -36,7 +38,7 @@ export const PUT = async (request, { params }) => {
     const incomingData = await request.json();
 
     try {
-        await connect();
+        await connectToDB();
 
         const updatedService = await Service.findOneAndUpdate({ slug }, incomingData);
 
@@ -57,7 +59,7 @@ export const PATCH = async (request, { params }) => {
     const incomingData = await request.json();
 
     try {
-        await connect();
+        await connectToDB();
 
         const updatedService = await Service.findOneAndUpdate({ slug }, incomingData);
 

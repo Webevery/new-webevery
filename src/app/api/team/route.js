@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server"
-import { connectToDB } from "@/lib/utils"
+import { NextResponse } from "next/server";
+import { connectToDB } from "@/utils/connectToDB";
 import { Coworker } from "@/lib/models";
 
 
@@ -11,7 +11,6 @@ export const GET = async (request) => {
 
         return new NextResponse(JSON.stringify(data), { status: 200 })
     } catch (error) {
-        console.log('error', error)
         return new NextResponse('Database error', { status: 500 })
     }
 }
@@ -23,7 +22,7 @@ export const POST = async (request) => {
     const newCoworker = new Coworker(body);
 
     try {
-        await connect();
+        await connectToDB();
         await newCoworker.save();
 
         return new NextResponse('Coworker has been created.', { status: 201 });

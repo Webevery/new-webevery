@@ -1,21 +1,14 @@
 "use server"
 import { signIn, signOut } from "./auth";
-import { User } from "./models";
-import { connectToDB } from "./utils";
 import bcrypt from "bcryptjs";
-
-
-// export const handleGoogleLogin = async () => {
-//     "use server"
-//     await signIn('google');
-// }
+import { User } from "./models";
+import { connectToDB } from "@/utils/connectToDB";
 
 
 export const handleLogout = async () => {
     "use server"
     await signOut();
 }
-
 
 export const register = async (previousState, formData) => {
     const { name, email, password } = Object.fromEntries(formData);

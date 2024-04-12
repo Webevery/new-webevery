@@ -33,28 +33,10 @@ const DashboardCoworkerItem = ({ data }) => {
                         alt={`Photo of ${data.name}`}
                     />
                 )}
-                {!isList && (
-                    <svg
-                        className={styles.deleteIcon}
-                        onClick={async () => {
-                            console.log(`Delete photo of ${data.nameEn}`);
-                            // handleDeleteImgFromMongoDB(
-                            //     data,
-                            //     data._id,
-                            //     item,
-                            //     mutate
-                            // );
-
-                            // handleDeleteImgFromCloudinary(item);
-                        }}
-                    >
-                        <use href='/sprite.svg#icon-delete' />
-                    </svg>
-                )}
             </div>
 
             {isList && (
-                <DashboardEditAndDelete slug={data.slug} pathname={pathname} />
+                <DashboardEditAndDelete slug={data.slug} pathname={pathname} publicId={data.photo} />
             )}
         </div>
     );
