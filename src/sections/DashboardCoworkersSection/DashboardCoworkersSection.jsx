@@ -7,7 +7,6 @@ import Loading from "@/components/Loading/Loading";
 
 const DashboardCoworkersSection = () => {
     const { data, isLoading } = GetDataFromSection("team");
-
     let sortedByUpdateData = [];
 
     if (!isLoading) {

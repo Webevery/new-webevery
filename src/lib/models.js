@@ -291,14 +291,15 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+//If the collection does not exist - create a new one.
 export const Project =
-  mongoose.models.Project || mongoose.model('Project', projectSchema);
+  mongoose.models?.Project || mongoose.model('Project', projectSchema);
 
 export const Service =
-  mongoose.models.Service || mongoose.model('Service', serviceSchema);
+  mongoose.models?.Service || mongoose.model('Service', serviceSchema);
 
-export const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
+export const Blog = mongoose.models?.Blog || mongoose.model('Blog', blogSchema);
 
-export const Coworker = mongoose.models.Coworker || mongoose.model('Coworker', coworkerSchema);
+export const Coworker = mongoose.models?.Coworker || mongoose.model('Coworker', coworkerSchema);
 
-export const User = mongoose.models.User || mongoose.model('User', userSchema);
+export const User = mongoose.models?.User || mongoose.model('User', userSchema);

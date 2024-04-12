@@ -1,9 +1,9 @@
-import NextAuth from "next-auth"
-import GoogleProvider from "next-auth/providers/google"
-import CredentialsProvider from "next-auth/providers/credentials"
-import { connectToDB } from "./utils";
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcryptjs";
 import { User } from "./models";
-import bcrypt from "bcryptjs"
+import { connectToDB } from "@/utils/connectToDB";
 import { authConfig } from "./auth.config";
 
 
@@ -40,7 +40,7 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
         CredentialsProvider({
             async authorize(credentials) {
                 try {
-                    // login из этого файла(auth.js)
+                    // login из этого файла(т.е. из auth.js)
                     const user = await login(credentials);
                     return user;
                 } catch (error) {
@@ -51,21 +51,6 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
         }),
     ],
     callbacks: {
-        // async signIn({ user, account, profile }) {
-        //     // console.log(user, account, profile);
-        //     if (account.provider === "google") {
-        //         // console.log('START GOOGLE PROVIDER')
-        //         await connectToDB();
-        //         try {
-        //             const user = await User.findOne({ email: profile.email });
-        //             // console.log('user in callback', user)
-        //         } catch (error) {
-        //             console.log("error", error);
-        //             return false;
-        //         }
-        //     }
-        //     return user;
-        // },
         ...authConfig.callbacks,
     },
 })
