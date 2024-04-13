@@ -2,7 +2,6 @@
 
 .ourProjectContainer {
   position: relative;
-  padding: 112px 20px 79px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,17 +13,18 @@
   -ms-flex-direction: column;
   flex-direction: column;
   justify-content: center;
+  padding: 80px 20px 79px 20px;
   @media screen and (min-width: $mobile) {
-    padding: 110px 20px 80px 20px;
+    padding: 80px 20px 80px 20px;
   }
   @media screen and (min-width: $tablet) {
-    padding: 112px 20px 80px 20px;
+    padding: 120px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 112px 32px 80px 32px;
+    padding: 140px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 142px 72px 80px 72px;
+    padding: 140px 72px 80px 72px;
   }
 }
 
@@ -144,19 +144,13 @@
   position: relative;
   width: 100%;
   height: 55vw;
-  // height: 186px;
   box-shadow: $shadowColor;
   margin-bottom: 40px;
   animation: fadeUp 0.8s ease-in-out forwards;
 
   @media screen and (min-width: $mobile) {
     border-radius: 8px;
-    // height: 208px;
     margin-bottom: 20px;
-  }
-
-  @media screen and (min-width: 400px) {
-    // height: 280px;
   }
 
   @media screen and (min-width: 560px) {
@@ -166,24 +160,15 @@
   @media screen and (min-width: $tablet) {
     border-radius: 30px;
     height: 45vw;
-    // height: 494px;
     border: double 1px transparent;
     background-image: linear-gradient($gray0, $gray0), $gradient;
     background-origin: border-box;
     background-clip: padding-box, border-box;
   }
-  @media screen and (min-width: 900px) {
-    // height: 594px;
-  }
 
   @media screen and (min-width: $laptop) {
     border-radius: 56px;
-    // height: 675px;
     margin-bottom: 32px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    // height: 855px;
   }
 
   @media screen and (min-width: $desktop) {
@@ -223,14 +208,6 @@
 .contentItem {
   position: relative;
   z-index: 1;
-  // @media screen and (min-width: $laptop) {
-  // background-color: $backgroundColor;
-  // &:last-child,
-  // &:nth-last-child(2) {
-  //   box-shadow: $shadowColor;
-  //   background-color: $backgroundColor;
-  // }
-  // }
 }
 
 .contentTitle {
@@ -269,28 +246,18 @@
   border-radius: 8px;
   width: 100%;
   height: 55vw;
-  // height: 186px;
   margin-bottom: 20px;
   & img {
     object-fit: inherit;
     border-radius: 8px;
   }
 
-  @media screen and (min-width: $mobile) {
-    // height: 208px;
-  }
-  @media screen and (min-width: 400px) {
-    // height: 280px;
-  }
-
   @media screen and (min-width: 560px) {
-    // height: 390px;
     height: 50vw;
   }
   @media screen and (min-width: $tablet) {
     border-radius: 30px;
     height: 45vw;
-    // height: 494px;
     border: double 1px transparent;
     background-image: linear-gradient($gray0, $gray0), $gradient;
     background-origin: border-box;
@@ -301,18 +268,11 @@
     }
   }
 
-  @media screen and (min-width: 900px) {
-    // height: 594px;
-  }
   @media screen and (min-width: $laptop) {
     border-radius: 56px;
-    // height: 674px;
     & img {
       border-radius: 56px;
     }
-  }
-  @media screen and (min-width: 1200px) {
-    // height: 855px;
   }
   @media screen and (min-width: $desktop) {
     height: 85vh;
@@ -333,15 +293,11 @@
   @media screen and (min-width: $laptop) {
     margin-right: auto;
     width: 468px;
-    // height: 152px;
-    // box-shadow: $shadowColor;
-    // background: $backgroundColor;
     margin-bottom: 32px;
   }
 
   @media screen and (min-width: $desktop) {
     width: 636px;
-    // height: 184px;
     margin-bottom: 24px;
   }
 }
@@ -370,7 +326,6 @@
   font-size: 16px;
   line-height: 1.6;
   color: $gray0;
-  // margin-bottom: 12px;
   align-items: start;
 }
 

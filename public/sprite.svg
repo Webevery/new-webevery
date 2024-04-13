@@ -116,5 +116,9 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M9.333 22.667l6.667-6.667 6.667 6.667"></path>
 </symbol>
 
+<symbol id="icon-back-arrow" viewBox="0 0 50 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M3.813 16.001h42.667M3.813 16.001l12.19 12.191M3.813 16.001l12.19-12.191"></path>
+</symbol>
+
 </defs>
 </svg>
