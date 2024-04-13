@@ -51,7 +51,6 @@ const BlogIdSection = ({ params }) => {
       )}
       {!isLoading && isPathExist && (
         <section className={styles.blog}>
-          (
           <div className={`container ${styles.blogIdContainer}`}>
             <BreadCrumbs
               onClick={() => router.push('/blog')}

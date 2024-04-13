@@ -2,7 +2,7 @@ import styles from './BreadCrumbs.module.scss';
 
 const BreadCrumbs = ({
   onClick,
-  title,
+  // title,
   classNameContainer,
   classNameIcon,
   id,
@@ -14,9 +14,10 @@ const BreadCrumbs = ({
       id={id}
     >
       <svg className={`${styles.backIcon} ${classNameIcon}`}>
-        <use href="../sprite.svg#icon-arrowReadMore" />
+        <use href="../sprite.svg#icon-back-arrow" />
       </svg>
-      <p>{title}</p>
+      <p>Назад</p>
+      {/* <p>{title}</p> */}
     </div>
   );
 };
