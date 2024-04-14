@@ -5,7 +5,9 @@ import { handleDeleteCardFromDB } from '@/utils/handleDeleteCardFromDB';
 
 
 const DashboardEditAndDelete = ({ slug, pathname, publicId }) => {
-    const url = `/api/team/${slug}`
+    // cut /dashboard/ from pathname
+    const slicedPathname = pathname.slice(11);
+    const url = `/api/${slicedPathname}/${slug}`;
 
 
     return (

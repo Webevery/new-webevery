@@ -1,14 +1,14 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
-
 import styles from "./DashboardCoworkerItem.module.scss";
+
 
 const DashboardCoworkerItem = ({ data }) => {
     const pathname = usePathname();
     const isList = pathname.endsWith("coworkers");
+
 
     return (
         <div className={styles.container}>
