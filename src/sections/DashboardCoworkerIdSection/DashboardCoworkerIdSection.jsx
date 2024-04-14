@@ -1,11 +1,10 @@
 "use client";
-
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import Loading from "@/components/Loading/Loading";
 import DashboardCoworkerItem from "@/components/DashboardCoworkerItem/DashboardCoworkerItem";
 import DashboardCoworkerUpdateForm from "@/components/DashboardForms/DashboardCoworkerUpdateForm";
-import Loading from "@/components/Loading/Loading";
-
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import styles from "./DashboardCoworkerIdSection.module.scss";
+
 
 const DashboardCoworkerIdSection = ({ params }) => {
     const { slug } = params;
