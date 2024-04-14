@@ -4,7 +4,10 @@ import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardServiceCreateSchema } from "@/yupSchemas/dashboardServiceCreateSchema";
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+
 
 const DashboardServiceCreateForm = () => {
     const initialValues = {
@@ -30,8 +33,24 @@ const DashboardServiceCreateForm = () => {
         form;
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
-    const onSubmit = (data) => {
-        console.log("dashboardServiceCreateFormData:", data);
+    const onSubmit = async (data) => {
+        const session = await getDashboardSession();
+        data.editor = session.user?.email;
+
+        try {
+            await fetch("/api/services", {
+                method: "POST",
+                body: JSON.stringify(data),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();
+            // обнуляє форму
+            // actions.resetForm();
+            console.log("Information added to DB");
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -129,9 +148,8 @@ const DashboardServiceCreateForm = () => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("mockup") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("mockup");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("mockup", result.info.public_id, {
                                 shouldValidate: true,

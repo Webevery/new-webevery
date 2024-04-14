@@ -11,7 +11,6 @@ export const GET = async (request) => {
 
         return new NextResponse(JSON.stringify(data), { status: 200 })
     } catch (error) {
-        console.log('error', error)
         return new NextResponse('Database error', { status: 500 })
     }
 }
@@ -25,7 +24,7 @@ export const POST = async (request) => {
     try {
         await connectToDB();
         await newService.save();
-
+        console.log('Service has been created.');
         return new NextResponse('Service has been created.', { status: 201 });
     } catch (err) {
         return new NextResponse(err, { status: 500 });

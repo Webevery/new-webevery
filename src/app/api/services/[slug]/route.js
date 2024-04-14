@@ -25,6 +25,7 @@ export const DELETE = async (request, { params }) => {
 
         await Service.deleteOne({ slug });
 
+        console.log("Service has been deleted.")
         return new NextResponse("Service has been deleted.", { status: 200 })
 
     } catch (error) {
@@ -45,7 +46,7 @@ export const PUT = async (request, { params }) => {
         if (!updatedService) {
             return new NextResponse("Service not found", { status: 404 });
         }
-
+        console.log("Service has been updated");
         return new NextResponse("Service has been updated", { status: 200 });
 
     } catch (error) {
@@ -66,6 +67,7 @@ export const PATCH = async (request, { params }) => {
         if (!updatedService) {
             return new NextResponse("Service not found", { status: 404 });
         }
+        console.log("Service has been updated");
         return new NextResponse("Service has been updated", { status: 200 });
 
     } catch (error) {

@@ -1,21 +1,17 @@
 "use client";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardCoworkerUpdateSchema } from "@/yupSchemas/dashboardCoworkerUpdateSchema";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
-import { useRouter } from "next/navigation";
-
 
 
 const DashboardCoworkerUpdateForm = ({ data }) => {
-    console.log("data", data)
     const { name, nameEn, photo, position, positionEn, slug } = data;
-    const router = useRouter();
-
 
     const initialValues = {
         defaultValues: {
@@ -32,8 +28,10 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
     const form = useForm(initialValues);
     const { register, handleSubmit, formState, reset, getValues, setValue } =
         form;
-    // console.log("initialValues:", initialValues);
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
+
+    const router = useRouter();
+
 
     const onSubmit = async (data) => {
         const {
@@ -56,7 +54,6 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
 
         const session = await getDashboardSession();
         updatedData.editor = session.user?.email;
-        // console.log('updatedData', updatedData)
 
         try {
             await fetch(`/api/team/${slug}`, {
