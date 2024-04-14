@@ -66,7 +66,7 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
             // actions.resetForm();
 
             console.log("Information updated to DB");
-            router.push(`/dashboard/coworkers/${updatedData.slug}`);
+            router.push(`/dashboard/team/${updatedData.slug}`);
 
         } catch (err) {
             console.log(err);

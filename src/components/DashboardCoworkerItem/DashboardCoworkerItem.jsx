@@ -7,7 +7,7 @@ import styles from "./DashboardCoworkerItem.module.scss";
 
 const DashboardCoworkerItem = ({ data }) => {
     const pathname = usePathname();
-    const isList = pathname.endsWith("coworkers");
+    const isList = pathname.endsWith("team");
 
 
     return (
