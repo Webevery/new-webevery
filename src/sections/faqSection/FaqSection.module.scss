@@ -27,6 +27,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .faq__title {
@@ -43,6 +48,7 @@
 
   @media screen and (min-width: $tablet) {
     font-size: 58px;
+    margin-right: auto;
   }
 
   @media screen and (min-width: $laptop) {
@@ -66,6 +72,10 @@
   flex-wrap: wrap;
   @media screen and (min-width: $tablet) {
     align-items: flex-end;
+  }
+
+  & button {
+    outline: none;
   }
 }
 
