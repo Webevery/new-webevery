@@ -2,11 +2,13 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
+import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardServiceUpdateSchema } from "@/yupSchemas/dashboardServiceUpdateSchema";
-// import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+
 
 const DashboardServiceUpdateForm = ({ data }) => {
     const {
@@ -45,10 +47,11 @@ const DashboardServiceUpdateForm = ({ data }) => {
     const form = useForm(initialValues);
     const { register, handleSubmit, formState, reset, getValues, setValue } =
         form;
-    // console.log("initialValues:", initialValues);
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
-    const onSubmit = (data) => {
+    const router = useRouter();
+
+    const onSubmit = async (data) => {
         const {
             newTitle,
             newTitleEn,
@@ -78,7 +81,26 @@ const DashboardServiceUpdateForm = ({ data }) => {
             priceEn: newPriceEn,
             slug: newSlug,
         };
-        console.log("updatedSeviceData:", updatedData);
+
+        const session = await getDashboardSession();
+        updatedData.editor = session.user?.email;
+
+        try {
+            await fetch(`/api/services/${slug}`, {
+                method: "PUT",
+                body: JSON.stringify(updatedData),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();
+            // обнуляє форму
+            // actions.resetForm();
+
+            console.log("Information updated to DB");
+            router.push(`/dashboard/services/${updatedData.slug}`);
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -176,9 +198,8 @@ const DashboardServiceUpdateForm = ({ data }) => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("newMockup") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("newMockup");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("newMockup", result.info.public_id, {
                                 shouldValidate: true,

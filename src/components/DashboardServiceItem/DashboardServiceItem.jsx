@@ -1,10 +1,9 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
-
 import styles from "./DashboardServiceItem.module.scss";
+
 
 const DashboardServiceItem = ({ data }) => {
     const pathname = usePathname();
@@ -50,24 +49,6 @@ const DashboardServiceItem = ({ data }) => {
                     sizes='50vw'
                     alt={`Mockup of ${data.slug}`}
                 />
-                {!isList && (
-                    <svg
-                        className={styles.deleteIcon}
-                        onClick={async () => {
-                            console.log(`Delete photo ${data.mockup}`);
-                            // handleDeleteImgFromMongoDB(
-                            //     data,
-                            //     data._id,
-                            //     item,
-                            //     mutate
-                            // );
-
-                            // handleDeleteImgFromCloudinary(item);
-                        }}
-                    >
-                        <use href='/sprite.svg#icon-delete' />
-                    </svg>
-                )}
             </div>
             <p className={styles.description}>{data.descriptionEn}</p>
             <p className={`${styles.description} ${styles.ukrainian}`}>
@@ -75,7 +56,7 @@ const DashboardServiceItem = ({ data }) => {
             </p>
 
             {isList && (
-                <DashboardEditAndDelete slug={data.slug} pathname={pathname} />
+                <DashboardEditAndDelete data={data} pathname={pathname} />
             )}
         </div>
     );

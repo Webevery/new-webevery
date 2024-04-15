@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardProjectCreateSchema } from "@/yupSchemas/dashboardProjectCreateSchema";
-// import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+
 
 const DashboardProjectCreateForm = () => {
     const initialValues = {
@@ -37,8 +38,24 @@ const DashboardProjectCreateForm = () => {
         form;
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
-    const onSubmit = (data) => {
-        console.log("dashboardProjectCreateFormData:", data);
+    const onSubmit = async (data) => {
+        const session = await getDashboardSession();
+        data.editor = session.user?.email;
+
+        try {
+            await fetch("/api/ourProjects", {
+                method: "POST",
+                body: JSON.stringify(data),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();
+            // обнуляє форму
+            // actions.resetForm();
+            console.log("Information added to DB");
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -55,7 +72,7 @@ const DashboardProjectCreateForm = () => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Congratulate with new progect! Let`s download it to site!
+                    Let`s download a new project to the site!
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
@@ -135,9 +152,8 @@ const DashboardProjectCreateForm = () => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("heroImage") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("heroImage");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("heroImage", result.info.public_id, {
                                 shouldValidate: true,
@@ -230,9 +246,8 @@ const DashboardProjectCreateForm = () => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("screensImage") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("screensImage");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("screensImage", result.info.public_id, {
                                 shouldValidate: true,
@@ -308,7 +323,7 @@ const DashboardProjectCreateForm = () => {
                         {...register("siteLink")}
                     />
                     <label htmlFor='siteLink' className={styles.formLabel}>
-                        Slug
+                        SiteLink
                     </label>
                     <p className={styles.error}>{errors.siteLink?.message}</p>
                 </div>

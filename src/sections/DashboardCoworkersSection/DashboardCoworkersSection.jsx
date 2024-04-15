@@ -1,13 +1,13 @@
 "use client";
+import Loading from "@/components/Loading/Loading";
 import DashboardCoworkerItem from "@/components/DashboardCoworkerItem/DashboardCoworkerItem";
 import DashboardCoworkerCreateForm from "@/components/DashboardForms/DashboardCoworkerCreateForm";
-import styles from "./DashboardCoworkersSection.module.scss";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
-import Loading from "@/components/Loading/Loading";
+import styles from "./DashboardCoworkersSection.module.scss";
+
 
 const DashboardCoworkersSection = () => {
     const { data, isLoading } = GetDataFromSection("team");
-
     let sortedByUpdateData = [];
 
     if (!isLoading) {

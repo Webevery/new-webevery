@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardCoworkerCreateSchema } from "@/yupSchemas/dashboardCoworkerCreateSchema";
-// import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+
 
 const DashboardCoworkerCreateForm = () => {
     const initialValues = {
@@ -26,8 +27,24 @@ const DashboardCoworkerCreateForm = () => {
         form;
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
-    const onSubmit = (data) => {
-        console.log("dashboardCoworkerCreateFormData:", data);
+    const onSubmit = async (data) => {
+        const session = await getDashboardSession();
+        data.editor = session.user?.email;
+
+        try {
+            await fetch("/api/team", {
+                method: "POST",
+                body: JSON.stringify(data),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();
+            // обнуляє форму
+            // actions.resetForm();
+            console.log("Information added to DB");
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -44,7 +61,7 @@ const DashboardCoworkerCreateForm = () => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Let`s adding new coworker to site!
+                    Let`s add new coworker!
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
@@ -91,9 +108,8 @@ const DashboardCoworkerCreateForm = () => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("photo") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("photo");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("photo", result.info.public_id, {
                                 shouldValidate: true,

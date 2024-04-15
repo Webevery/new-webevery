@@ -44,7 +44,6 @@
 .imgWrapper {
     display: flex;
     align-items: center;
-    gap: 30px;
 
     @media screen and (min-width:$laptop) {
         justify-content: center;
@@ -63,18 +62,6 @@
         width: 306px;
         height: 276px;
     }
-}
-
-.deleteIcon {
-    width: 22px;
-    height: 24px;
-    stroke: $gray900;
-    fill: transparent;
-}
-
-.deleteIcon:hover {
-    cursor: pointer;
-    stroke: #ff2828;
 }
 
 .price,

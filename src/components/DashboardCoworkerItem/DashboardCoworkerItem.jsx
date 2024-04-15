@@ -1,14 +1,14 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
-
 import styles from "./DashboardCoworkerItem.module.scss";
+
 
 const DashboardCoworkerItem = ({ data }) => {
     const pathname = usePathname();
-    const isList = pathname.endsWith("coworkers");
+    const isList = pathname.endsWith("team");
+
 
     return (
         <div className={styles.container}>
@@ -33,28 +33,10 @@ const DashboardCoworkerItem = ({ data }) => {
                         alt={`Photo of ${data.name}`}
                     />
                 )}
-                {!isList && (
-                    <svg
-                        className={styles.deleteIcon}
-                        onClick={async () => {
-                            console.log(`Delete photo of ${data.nameEn}`);
-                            // handleDeleteImgFromMongoDB(
-                            //     data,
-                            //     data._id,
-                            //     item,
-                            //     mutate
-                            // );
-
-                            // handleDeleteImgFromCloudinary(item);
-                        }}
-                    >
-                        <use href='/sprite.svg#icon-delete' />
-                    </svg>
-                )}
             </div>
 
             {isList && (
-                <DashboardEditAndDelete slug={data.slug} pathname={pathname} />
+                <DashboardEditAndDelete data={data} pathname={pathname} />
             )}
         </div>
     );

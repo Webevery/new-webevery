@@ -4,16 +4,16 @@ export const dashboardPages = [
         title: "Blogs",
     },
     {
-        path: '/dashboard/coworkers',
-        title: "Coworkers",
-    },
-    {
-        path: '/dashboard/projects',
-        title: "Projects",
+        path: '/dashboard/ourProjects',
+        title: "Our Projects",
     },
     {
         path: '/dashboard/services',
         title: "Services",
+    },
+    {
+        path: '/dashboard/team',
+        title: "Team",
     },
     // {
     //     path: '/dashboard/users',

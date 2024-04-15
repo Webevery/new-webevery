@@ -123,7 +123,7 @@ const DashboardBlogCreateForm = () => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Let`s create the new blog !
+                    Let`s create a new blog!
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
@@ -305,7 +305,7 @@ const DashboardBlogCreateForm = () => {
                 className={styles.form}
                 noValidate
             >
-                <h3 className={styles.formTitle}>Let`s add a new block !</h3>
+                <h3 className={styles.formTitle}>Let`s add a new block!</h3>
 
                 <div className={styles.inputGroup}>
                     <input

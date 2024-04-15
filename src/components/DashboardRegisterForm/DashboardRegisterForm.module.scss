@@ -1,0 +1,42 @@
+@import "../../app/variables";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+}
+
+.form input {
+    padding: 20px;
+    background-color: #0d0c22;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+.form button {
+    padding: 20px;
+    cursor: pointer;
+    background-color: #3673fd;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.text {
+    color: $gray0;
+}
+
+.link {
+    text-decoration: underline;
+    color: blue;
+    font-style: italic;
+}
+
+.errMessage {
+    font-weight: 700;
+    font-size: 20px;
+    color: $errorColor;
+}

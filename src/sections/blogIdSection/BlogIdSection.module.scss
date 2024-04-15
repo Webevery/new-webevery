@@ -18,28 +18,27 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 112px 22px 40px 22px;
+  padding: 92px 22px 40px 22px;
   @media screen and (min-width: $mobile) {
-    padding: 110px 20px 80px 20px;
+    padding: 100px 20px 80px 20px;
   }
   @media screen and (min-width: $tablet) {
-    padding: 184px 20px 80px 20px;
+    padding: 124px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 184px 32px 80px 32px;
+    padding: 140px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 180px 72px 80px 72px;
+    padding: 140px 72px 80px 72px;
   }
 }
 
 .backContainer {
-  background-color: $backgroundColor;
-  color: $gray0;
+  color: $gray900;
 }
 
 .backIcon {
-  fill: $gray0;
+  stroke: $gray900 !important;
 }
 
 @keyframes fadeIn {
@@ -103,23 +102,19 @@
   position: relative;
   width: 100%;
   height: 75vw;
-  // height: 280px;
   margin-bottom: 12px;
   @media screen and (min-width: $mobile) {
     height: 80vw;
-    // height: 312px;
   }
   @media screen and (min-width: 500px) {
     height: 50vw;
   }
   @media screen and (min-width: $tablet) {
-    // height: 340px;
     height: 45vw;
     margin-bottom: 16px;
   }
   @media screen and (min-width: $laptop) {
     height: 40vw;
-    // height: 390px;
     margin-bottom: 20px;
   }
 
@@ -175,7 +170,6 @@
 }
 
 .publishedAutor {
-  // text-transform: uppercase;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.1;
@@ -228,9 +222,6 @@
   @media screen and (min-width: $laptop) {
     font-size: 20px;
   }
-  // &::first-letter {
-  //   margin-left: 1em;
-  // }
 }
 
 .blogIdMainText {

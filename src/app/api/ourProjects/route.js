@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { connectToDB } from "@/lib/utils"
+import { connectToDB } from "@/utils/connectToDB";
 import { Project } from "@/lib/models";
 
 
@@ -23,7 +23,7 @@ export const POST = async (request) => {
     const newProject = new Project(body);
 
     try {
-        await connect();
+        await connectToDB();
         await newProject.save();
 
         return new NextResponse('Project has been created.', { status: 201 });

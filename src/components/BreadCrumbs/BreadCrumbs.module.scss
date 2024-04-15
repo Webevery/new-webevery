@@ -8,7 +8,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  column-gap: 16px;
+  column-gap: 8px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -16,30 +16,28 @@
   font-weight: 500;
   line-height: 1.6;
   text-align: center;
-  // color: $backgroundColor;
   margin-bottom: 24px;
   cursor: pointer;
   font-size: 16px;
-  // background-color: $gray50;
   backdrop-filter: blur(6px);
   margin-right: auto;
   animation: fadeIn 0.8s ease-in-out forwards;
   @media screen and (min-width: $tablet) {
-    font-size: 20px;
     margin-bottom: 32px;
   }
   @media screen and (min-width: $laptop) {
-    column-gap: 16px;
+    font-size: 20px;
+    column-gap: 12px;
     padding: 0 8px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    font-size: 14px;
   }
 }
 
 .backIcon {
-  width: 32px;
-  height: 12px;
-  // fill: $backgroundColor;
+  width: 16px;
+  height: 10px;
+  stroke: $gray50;
+  @media screen and (min-width: $laptop) {
+    width: 22px;
+    height: 14px;
+  }
 }

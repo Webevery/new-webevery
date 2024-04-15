@@ -1,14 +1,15 @@
-import { signOut } from "next-auth/react";
 import styles from "./LogoutBtn.module.scss";
 
 
-const LogoutBtn = () => {
+const LogoutBtn = ({ handleLogout }) => {
     return (
-        <button className={styles.logoutBtn} onClick={signOut}>
-            <svg className={styles.exitIcon}>
-                <use href="/sprite.svg#icon-exit" />
-            </svg>
-        </button>
+        <form action={handleLogout} className={styles.container}>
+            <button className={styles.logoutBtn}>
+                <svg className={styles.exitIcon}>
+                    <use href="/sprite.svg#icon-exit" />
+                </svg>
+            </button>
+        </form>
     );
 };
 
