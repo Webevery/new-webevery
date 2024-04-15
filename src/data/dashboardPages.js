@@ -4,8 +4,8 @@ export const dashboardPages = [
         title: "Blogs",
     },
     {
-        path: '/dashboard/projects',
-        title: "Projects",
+        path: '/dashboard/ourProjects',
+        title: "Our Projects",
     },
     {
         path: '/dashboard/services',

@@ -56,7 +56,7 @@ const DashboardServiceItem = ({ data }) => {
             </p>
 
             {isList && (
-                <DashboardEditAndDelete slug={data.slug} pathname={pathname} publicId={data.mockup} />
+                <DashboardEditAndDelete data={data} pathname={pathname} />
             )}
         </div>
     );

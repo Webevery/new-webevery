@@ -2,19 +2,20 @@ import Link from 'next/link';
 import { handleDeleteImgFromCloudinary } from '@/utils/handleDeleteImgFromCloudinary';
 import styles from './DashboardEditAndDelete.module.scss';
 import { handleDeleteCardFromDB } from '@/utils/handleDeleteCardFromDB';
+import { createImagesArrayForDeletingFromCloudinary } from '@/utils/createImagesArrayForDeletingFromCloudinary';
 
 
-const DashboardEditAndDelete = ({ slug, pathname, publicId }) => {
+const DashboardEditAndDelete = ({ data, pathname }) => {
     // cut /dashboard/ from pathname
     const slicedPathname = pathname.slice(11);
-    const url = `/api/${slicedPathname}/${slug}`;
+    const url = `/api/${slicedPathname}/${data.slug}`;
 
 
     return (
         <div className={styles.btnsWrapper}>
             <Link
                 className={styles.editLink}
-                href={`${pathname}/${slug}`}
+                href={`${pathname}/${data.slug}`}
             >
                 <svg className={styles.editIcon}>
                     <use href="/sprite.svg#icon-edit" />
@@ -24,7 +25,8 @@ const DashboardEditAndDelete = ({ slug, pathname, publicId }) => {
             <svg
                 className={styles.deleteIcon}
                 onClick={() => {
-                    handleDeleteImgFromCloudinary(publicId);
+                    const arrForDeleting = createImagesArrayForDeletingFromCloudinary(data)
+                    arrForDeleting.map(item => handleDeleteImgFromCloudinary(item));
                     handleDeleteCardFromDB(url);
                 }}
             >

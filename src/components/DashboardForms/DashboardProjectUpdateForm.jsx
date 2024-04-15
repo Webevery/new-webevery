@@ -2,12 +2,14 @@
 
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { dashboardProjectUpdateSchema } from "@/yupSchemas/dashboardProjectUpdateSchema";
-// import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+
 
 const DashboardProjectUpdateForm = ({ data }) => {
     const {
@@ -59,7 +61,9 @@ const DashboardProjectUpdateForm = ({ data }) => {
 
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
-    const onSubmit = (data) => {
+    const router = useRouter();
+
+    const onSubmit = async (data) => {
         const {
             newTitle,
             newTitleEn,
@@ -99,7 +103,26 @@ const DashboardProjectUpdateForm = ({ data }) => {
             siteLink: newSiteLink,
             slug: newSlug,
         };
-        console.log("updatedProjectData:", updatedData);
+
+        const session = await getDashboardSession();
+        updatedData.editor = session.user?.email;
+
+        try {
+            await fetch(`/api/ourProjects/${slug}`, {
+                method: "PUT",
+                body: JSON.stringify(updatedData),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();
+            // обнуляє форму
+            // actions.resetForm();
+
+            console.log("Information updated to DB");
+            router.push(`/dashboard/ourProjects/${updatedData.slug}`);
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -115,7 +138,7 @@ const DashboardProjectUpdateForm = ({ data }) => {
                 className={styles.form}
                 noValidate
             >
-                <h3 className={styles.formTitle}>Let`s update the progect!</h3>
+                <h3 className={styles.formTitle}>Let`s update the project!</h3>
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -197,9 +220,8 @@ const DashboardProjectUpdateForm = ({ data }) => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("newHeroImages") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("newHeroImages");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("newHeroImages", result.info.public_id, {
                                 shouldValidate: true,
@@ -296,9 +318,8 @@ const DashboardProjectUpdateForm = ({ data }) => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getValues("newScreensImage") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.heroImage
-                                // );
+                                const publicId = getValues("newScreensImage");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setValue("newScreensImage", result.info.public_id, {
                                 shouldValidate: true,

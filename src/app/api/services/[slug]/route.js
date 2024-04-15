@@ -10,6 +10,7 @@ export const GET = async (request, { params }) => {
         await connectToDB();
 
         const data = await Service.findOne({ slug });
+
         return new NextResponse(JSON.stringify(data), { status: 200 })
     } catch (error) {
         return new NextResponse(error, { status: 500 })
@@ -25,9 +26,7 @@ export const DELETE = async (request, { params }) => {
 
         await Service.deleteOne({ slug });
 
-        console.log("Service has been deleted.")
         return new NextResponse("Service has been deleted.", { status: 200 })
-
     } catch (error) {
         return new NextResponse(error, { status: 500 })
     }
@@ -36,6 +35,7 @@ export const DELETE = async (request, { params }) => {
 
 export const PUT = async (request, { params }) => {
     const { slug } = params;
+
     const incomingData = await request.json();
 
     try {
@@ -46,9 +46,8 @@ export const PUT = async (request, { params }) => {
         if (!updatedService) {
             return new NextResponse("Service not found", { status: 404 });
         }
-        console.log("Service has been updated");
-        return new NextResponse("Service has been updated", { status: 200 });
 
+        return new NextResponse("Service has been updated", { status: 200 });
     } catch (error) {
         return new NextResponse(error, { status: 500 });
     }
@@ -57,6 +56,7 @@ export const PUT = async (request, { params }) => {
 
 export const PATCH = async (request, { params }) => {
     const { slug } = params;
+
     const incomingData = await request.json();
 
     try {
@@ -67,9 +67,8 @@ export const PATCH = async (request, { params }) => {
         if (!updatedService) {
             return new NextResponse("Service not found", { status: 404 });
         }
-        console.log("Service has been updated");
-        return new NextResponse("Service has been updated", { status: 200 });
 
+        return new NextResponse("Service has been updated", { status: 200 });
     } catch (error) {
         return new NextResponse(error, { status: 500 });
     }

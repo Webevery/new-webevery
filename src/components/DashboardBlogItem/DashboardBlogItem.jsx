@@ -89,7 +89,7 @@ const DashboardBlogItem = ({ data }) => {
             <p>{data.directionEn}</p>
             <p className={styles.ukrainian}>{data.direction}</p>
 
-            {isList && (<DashboardEditAndDelete slug={data.slug} pathname={pathname} />)}
+            {isList && (<DashboardEditAndDelete data={data} pathname={pathname} />)}
         </div >
     );
 };

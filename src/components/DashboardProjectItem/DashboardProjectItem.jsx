@@ -1,14 +1,15 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
-
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import styles from "./DashboardProjectItem.module.scss";
+import { handleDeleteImageFromMongoDB } from "@/utils/handleDeleteImageFromMongoDB";
+
 
 const DashboardProjectItem = ({ data }) => {
     const pathname = usePathname();
-    const isList = pathname.endsWith("projects");
+    const isList = pathname.endsWith("ourProjects");
 
     return (
         <div className={styles.container}>
@@ -34,24 +35,6 @@ const DashboardProjectItem = ({ data }) => {
                     sizes='50vw'
                     alt={`Hero photo of ${data.slug}`}
                 />
-                {!isList && (
-                    <svg
-                        className={styles.deleteIcon}
-                        onClick={async () => {
-                            console.log(`Delete photo ${data.heroImage}`);
-                            // handleDeleteImgFromMongoDB(
-                            //     data,
-                            //     data._id,
-                            //     item,
-                            //     mutate
-                            // );
-
-                            // handleDeleteImgFromCloudinary(item);
-                        }}
-                    >
-                        <use href='/sprite.svg#icon-delete' />
-                    </svg>
-                )}
             </div>
             <p>
                 <span className={styles.titlesBold}>Problem</span>
@@ -89,24 +72,6 @@ const DashboardProjectItem = ({ data }) => {
                     sizes='50vw'
                     alt={`Screens of ${data.slug}`}
                 />
-                {!isList && (
-                    <svg
-                        className={styles.deleteIcon}
-                        onClick={async () => {
-                            console.log(`Delete photo ${data.screensImage}`);
-                            // handleDeleteImgFromMongoDB(
-                            //     data,
-                            //     data._id,
-                            //     item,
-                            //     mutate
-                            // );
-
-                            // handleDeleteImgFromCloudinary(item);
-                        }}
-                    >
-                        <use href='/sprite.svg#icon-delete' />
-                    </svg>
-                )}
             </div>
             <p>
                 <span className={styles.titlesBold}>Mobile adaptation</span>
@@ -138,14 +103,8 @@ const DashboardProjectItem = ({ data }) => {
                                     className={styles.deleteIcon}
                                     onClick={async () => {
                                         console.log(`Delete photo ${item}`);
-                                        // handleDeleteImgFromMongoDB(
-                                        //     data,
-                                        //     data._id,
-                                        //     item,
-                                        //     mutate
-                                        // );
-
-                                        // handleDeleteImgFromCloudinary(item);
+                                        handleDeleteImgFromCloudinary(item);
+                                        handleDeleteImageFromMongoDB(data, item);
                                     }}
                                 >
                                     <use href='/sprite.svg#icon-delete' />
@@ -157,7 +116,7 @@ const DashboardProjectItem = ({ data }) => {
             </div>
 
             {isList && (
-                <DashboardEditAndDelete slug={data.slug} pathname={pathname} />
+                <DashboardEditAndDelete data={data} pathname={pathname} />
             )}
         </div>
     );
