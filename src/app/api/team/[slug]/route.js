@@ -11,9 +11,9 @@ export const GET = async (request, { params }) => {
 
         const data = await Coworker.findOne({ slug });
 
-        return new NextResponse(JSON.stringify(data), { status: 200 })
+        return new NextResponse(JSON.stringify(data), { status: 200 });
     } catch (error) {
-        return new NextResponse(error, { status: 500 })
+        return new NextResponse(error, { status: 500 });
     }
 }
 
@@ -25,8 +25,7 @@ export const DELETE = async (request, { params }) => {
 
         await Coworker.deleteOne({ slug });
 
-        return new NextResponse("Coworker has been deleted", { status: 200 })
-
+        return new NextResponse("Coworker has been deleted", { status: 200 });
     } catch (error) {
         return new NextResponse(error, { status: 500 })
     }
@@ -47,7 +46,6 @@ export const PUT = async (request, { params }) => {
         }
 
         return new NextResponse("Coworker has been updated", { status: 200 });
-
     } catch (error) {
         return new NextResponse(error, { status: 500 });
     }
@@ -68,7 +66,6 @@ export const PATCH = async (request, { params }) => {
         }
 
         return new NextResponse("Coworker has been updated", { status: 200 });
-
     } catch (error) {
         return new NextResponse(error, { status: 500 });
     }

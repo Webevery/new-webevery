@@ -86,7 +86,7 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
                 className={styles.form}
                 noValidate
             >
-                <h3 className={styles.formTitle}>Change data</h3>
+                <h3 className={styles.formTitle}>Let`s change coworker`s data</h3>
                 <div className={styles.inputGroup}>
                     <input
                         type='text'

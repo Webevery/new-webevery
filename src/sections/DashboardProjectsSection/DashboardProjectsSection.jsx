@@ -31,7 +31,6 @@ const DashboardProjectsSection = () => {
                                 <DashboardProjectItem
                                     key={index}
                                     data={item}
-                                    isLoading={isLoading}
                                 />
                             );
                         })}

@@ -36,7 +36,7 @@ const DashboardCoworkerItem = ({ data }) => {
             </div>
 
             {isList && (
-                <DashboardEditAndDelete slug={data.slug} pathname={pathname} publicId={data.photo} />
+                <DashboardEditAndDelete data={data} pathname={pathname} />
             )}
         </div>
     );

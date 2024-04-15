@@ -61,7 +61,7 @@ const DashboardCoworkerCreateForm = () => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Let`s adding new coworker to site!
+                    Let`s add new coworker!
                 </h3>
                 <div className={styles.inputGroup}>
                     <input

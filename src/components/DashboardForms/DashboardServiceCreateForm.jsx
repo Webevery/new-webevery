@@ -67,8 +67,7 @@ const DashboardServiceCreateForm = () => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Congratulation to WEBEVERY team with new scill! Let`s adding
-                    new service to site!!
+                    Let`s add a new service to the site!
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
