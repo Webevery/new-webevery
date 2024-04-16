@@ -6,6 +6,7 @@ import Link from "next/link";
 import { SiteContext } from "@/context/siteContext";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+import ReadMore from "@/components/Buttons/ReadMore/ReadMore";
 
 import styles from "./ServicesSection.module.scss";
 
@@ -62,32 +63,7 @@ const ServicesSection = () => {
                 return (
                   <li key={slug} className={styles.cartItem}>
                     <div>
-                      <Link
-                        href={`/services/${slug}`}
-                        className={styles.readMore}
-                      >
-                        <span className={styles.readMoreTitle}>{t('Buttons.ServicesDetailsBtn')}</span>
-                        <svg className={styles.readMoreIcon}>
-                          <linearGradient
-                            id="paint0_linear_3004_8704"
-                            x1="6.97336e-08"
-                            y1="6.28477"
-                            x2="11.302"
-                            y2="-9.00003"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="#FAFF00" />
-                            <stop offset="0.466629" stopColor="#00F0FF" />
-                            <stop offset="1" stopColor="#0400B3" />
-                          </linearGradient>
-                          <use
-                            href="sprite.svg#icon-arrowReadMore"
-                            style={{
-                              fill: "url(#paint0_linear_3004_8704)",
-                            }}
-                          />
-                        </svg>
-                      </Link>
+                    <ReadMore className={styles.readMore} href="services" slug={slug} />
                       <h3 className={styles.cartTitle}>
                         {/* <span> */}
                         {i18n.language === currentLanguages.EN
