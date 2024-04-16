@@ -1,74 +1,74 @@
 @import "../../app/variables";
 
 .container {
-    flex: 1;
-    position: relative;
-    width: 100%;
-    padding: 8px 16px;
-    background-color: $gray300;
-    color: $gray900;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: $gray300;
+  color: $gray900;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    font-family: var(--font-work-sans);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
+  font-family: var(--font-noto-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
 
-    @media screen and (min-width:$desktop) {
-        padding: 8px 24px;
-    }
+  @media screen and (min-width: $desktop) {
+    padding: 8px 24px;
+  }
 }
 
 .signature {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }
 
 .slug {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 1.4;
-    overflow-wrap: anywhere;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .title {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .directionsList {
-    list-style: inside;
+  list-style: inside;
 }
 
 .imgWrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    @media screen and (min-width:$laptop) {
-        justify-content: center;
-    }
+  @media screen and (min-width: $laptop) {
+    justify-content: center;
+  }
 }
 
 .img {
-    object-fit: cover;
+  object-fit: cover;
 
-    @media screen and (min-width:$laptop) {
-        width: 222px;
-        height: 200px;
-    }
+  @media screen and (min-width: $laptop) {
+    width: 222px;
+    height: 200px;
+  }
 
-    @media screen and (min-width:$desktop) {
-        width: 306px;
-        height: 276px;
-    }
+  @media screen and (min-width: $desktop) {
+    width: 306px;
+    height: 276px;
+  }
 }
 
 .price,
 .description {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .ukrainian {
-    color: $lightBlue;
+  color: $lightBlue;
 }

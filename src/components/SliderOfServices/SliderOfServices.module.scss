@@ -1,50 +1,50 @@
 @import "../../app/variables";
 
-.serviceList{
+.serviceList {
   width: 100%;
-    display: flex;
-    // grid-template-columns: repeat(1, 1fr);
-    -webkit-box-pack: space-around;
-    -ms-flex-pack: space-around;
-    justify-content: space-around;
-    -webkit-column-gap: 24px;
-    -moz-column-gap: 24px;
-    column-gap: 24px;
-    row-gap: 24px;
-    animation: fadeUp 0.8s ease-in-out forwards;
-    height: 650px;
+  display: flex;
+  // grid-template-columns: repeat(1, 1fr);
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  -webkit-column-gap: 24px;
+  -moz-column-gap: 24px;
+  column-gap: 24px;
+  row-gap: 24px;
+  animation: fadeUp 0.8s ease-in-out forwards;
+  height: 650px;
 
-    @media screen and (min-width:768px) {
-        height: 653px;
-    }
+  @media screen and (min-width: 768px) {
+    height: 653px;
+  }
 
-    @media screen and (min-width:1024px) {
-        height: 604px;
-    }
+  @media screen and (min-width: 1024px) {
+    height: 604px;
+  }
 
-    @media screen and (min-width:1440px) {
-        height: 828px;
-    }
-    // @media screen and (min-width: $tablet) {
-    //   grid-template-columns: repeat(2, 1fr);
-    // }
-    // @media screen and (min-width: $laptop) {
-    //   grid-template-columns: repeat(3, 1fr);
-    // }
-    }
+  @media screen and (min-width: 1440px) {
+    height: 828px;
+  }
+  // @media screen and (min-width: $tablet) {
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
+  // @media screen and (min-width: $laptop) {
+  //   grid-template-columns: repeat(3, 1fr);
+  // }
+}
 
-.serviceItem{
+.serviceItem {
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
-    flex-direction: column;
-    justify-content: space-between;
-    
-    box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
-  
-    background-color: #0d0d11;
-  
-  font-family: var(--font-work-sans);
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
+
+  background-color: #0d0d11;
+
+  font-family: var(--font-noto-sans);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -55,26 +55,26 @@
   margin-bottom: 4px;
   height: 632px;
   width: 312px;
-  @media screen and (min-width:768px) {
-      height: 629px;
-      padding-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    height: 629px;
+    padding-bottom: 32px;
   }
 
-  @media screen and (min-width:1024px) {
+  @media screen and (min-width: 1024px) {
     margin-bottom: 0;
-      height:556px;
-      padding-bottom: 24px;
+    height: 556px;
+    padding-bottom: 24px;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     padding-top: 16px;
-      height: 772px;
-      padding-bottom: 48px;
+    height: 772px;
+    padding-bottom: 48px;
   }
 }
- 
-.readMore{
-    display: -webkit-box;
+
+.readMore {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
@@ -82,102 +82,101 @@
   align-items: center;
   margin-bottom: 12px;
   justify-content: flex-end;
-  @media screen and (min-width:1024px) {
+  @media screen and (min-width: 1024px) {
     margin-bottom: 16px;
-}
-  @media screen and (min-width:1440px) {
+  }
+  @media screen and (min-width: 1440px) {
     margin-bottom: 24px;
-}
+  }
 }
 
 .readMoreTitle {
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.6;
-    text-align: center;
-    background: $gradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    @media screen and (min-width:1024px) {
-      font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+  background: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @media screen and (min-width: 1024px) {
+    font-size: 14px;
   }
-  }
-
-  .linkCont{
-    display: flex;
-    align-items: center;
-  }
-  
-  .readMoreIcon {
-    width: 32px;
-    height: 12px;
-    transform: rotate(180deg);
-    margin-left: 16px;
-    
-  }
-
-  .cartTitle {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 1.4;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 12px;
-    height: 68px;
-    @media screen and (min-width:768px) {
-      height: auto;
-      margin-bottom: 16px;
-  }
-  @media screen and (min-width:1024px) {
-    margin-bottom: 12px;
 }
-    @media screen and (min-width:1440px) {
-      margin-bottom: 24px;
-  }
-  }
 
-  .descItem {
-    list-style-type: disc;
-    list-style-position: outside;
-    line-height: 1.6;
-    margin-left: 30px;
-    font-size: 16px;
-    @media screen and (min-width:768px) {
-      font-size: 14px;
-  }
-    @media screen and (min-width:1440px) {
-      font-size: 20px;
-  }
-  }
-  
-  .price {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ffffff;
+.linkCont {
+  display: flex;
+  align-items: center;
+}
+
+.readMoreIcon {
+  width: 32px;
+  height: 12px;
+  transform: rotate(180deg);
+  margin-left: 16px;
+}
+
+.cartTitle {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 12px;
+  height: 68px;
+  @media screen and (min-width: 768px) {
+    height: auto;
     margin-bottom: 16px;
-    text-align: right;
-    @media screen and (min-width:768px) {
-      font-size: 24px;
-      margin-bottom: 16px;
   }
-  @media screen and (min-width:1024px) {
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 12px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 24px;
+  }
+}
+
+.descItem {
+  list-style-type: disc;
+  list-style-position: outside;
+  line-height: 1.6;
+  margin-left: 30px;
+  font-size: 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+  }
+}
+
+.price {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-align: right;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: 1024px) {
     margin-bottom: 20px;
     font-size: 20px;
-}
+  }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     margin-bottom: 32px;
     font-size: 26px;
   }
-  }
+}
 
-  #orderBtn{
-    width:100%;
-    @media screen and (min-width:1024px) {
-      font-size: 20px;
+#orderBtn {
+  width: 100%;
+  @media screen and (min-width: 1024px) {
+    font-size: 20px;
   }
-    // padding-top: 10px;
-    // padding-bottom: 10px;
-  }
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+}

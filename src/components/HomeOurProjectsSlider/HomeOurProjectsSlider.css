@@ -79,7 +79,7 @@
 }
 
 .HomeOurProjectsSwiper .swiper-slide .slideTitle {
-    font-family: var(--font-work-sans);
+    font-family: var(--font-noto-sans);
     font-weight: 400;
     font-size: 20px;
     line-height: 1.6;
@@ -90,7 +90,7 @@
     }
 
     @media screen and (min-width:768px) {
-        font-family: var(--font-saira);
+        font-family: var(--font-exo);
         font-size: 38px;
         line-height: 1.1;
 

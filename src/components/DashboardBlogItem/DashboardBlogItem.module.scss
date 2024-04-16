@@ -1,92 +1,92 @@
 @import "../../app/variables";
 
 .container {
-    flex: 1;
-    position: relative;
-    width: 100%;
-    padding: 8px 16px;
-    background-color: $gray300;
-    color: $gray900;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: $gray300;
+  color: $gray900;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    font-family: var(--font-work-sans);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
+  font-family: var(--font-noto-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
 
-    @media screen and (min-width:$desktop) {
-        padding: 8px 24px;
-        gap: 12px;
-    }
+  @media screen and (min-width: $desktop) {
+    padding: 8px 24px;
+    gap: 12px;
+  }
 }
 
 .signature {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }
 
 .slug {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 1.4;
-    overflow-wrap: anywhere;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .title {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .img {
-    display: block;
-    object-fit: cover;
+  display: block;
+  object-fit: cover;
 
-    @media screen and (min-width:$laptop) {
-        width: 222px;
-        height: 222px;
-    }
+  @media screen and (min-width: $laptop) {
+    width: 222px;
+    height: 222px;
+  }
 }
 
 .blocksWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 
-    @media screen and (min-width:$laptop) {
-        align-items: center;
-    }
+  @media screen and (min-width: $laptop) {
+    align-items: center;
+  }
 }
 
 .blockWrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .contentWrapper {
-    flex: 14;
-    padding: 8px;
-    background-color: #f3eded;
+  flex: 14;
+  padding: 8px;
+  background-color: #f3eded;
 }
 
 .blockNumber {
-    color: #fa0000;
+  color: #fa0000;
 }
 
 .deleteIcon {
-    flex: 1;
-    width: 22px;
-    height: 24px;
-    stroke: $gray900;
-    fill: transparent;
+  flex: 1;
+  width: 22px;
+  height: 24px;
+  stroke: $gray900;
+  fill: transparent;
 }
 
 .deleteIcon:hover {
-    cursor: pointer;
-    stroke: #ff2828;
+  cursor: pointer;
+  stroke: #ff2828;
 }
 
 .ukrainian {
-    color: $lightBlue;
+  color: $lightBlue;
 }

@@ -82,7 +82,7 @@
 .phone {
   @media screen and (min-width: $laptop) {
     margin-right: 100px;
-    font-family: var(--font-work-sans);
+    font-family: var(--font-noto-sans);
     font-size: 20px;
     font-weight: 400;
     line-height: 1.6;
@@ -101,7 +101,7 @@
 }
 
 .linkWrapper {
-  font-family: var(--font-work-sans);
+  font-family: var(--font-noto-sans);
   font-size: 20px;
   font-weight: 400;
   line-height: 1.6;
