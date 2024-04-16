@@ -1,4 +1,4 @@
-import { Saira, Work_Sans } from "next/font/google";
+import { Noto_Sans, Exo_2 } from "next/font/google";
 import { Toaster } from "sonner";
 import { SiteProvider } from "@/context/siteContext";
 import TranslateProvider from "@/translator/i18Provider";
@@ -11,18 +11,18 @@ import ToTopBtn from "@/components/Buttons/ToTopBtn/ToTopBtn";
 import BackgroundAnimation from "@/components/BackgroundAnimation/BackgroundAnimation";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
-const saira = Saira({
+const exo = Exo_2({
   subsets: ["latin"],
   style: ["normal"],
   weight: ["300", "400", "500"],
-  variable: "--font-saira",
+  variable: "--font-exo",
 });
 
-const work_sans = Work_Sans({
+const noto_sans = Noto_Sans({
   subsets: ["latin"],
   style: ["normal"],
   weight: ["400", "500"],
-  variable: "--font-work-sans",
+  variable: "--font-noto-sans",
 });
 
 export const metadata = {
@@ -33,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${saira.variable} ${work_sans.variable}`}>
+      <body className={`${exo.variable} ${noto_sans.variable}`}>
         <AuthProvider>
           <BackgroundAnimation />
           <SiteProvider>

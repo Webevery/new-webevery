@@ -1,244 +1,244 @@
 @import "../../app/variables";
 
 .services {
+  display: block;
+  @media screen and (min-width: $laptop) {
     display: block;
-    @media screen and (min-width: $laptop) {
-        display: block;
-    }
+  }
 }
 
 .servicesContainer {
-    padding: 110px 20px 80px 20px;
-    @media screen and (min-width: $tablet) {
-        padding: 112px 20px 80px 20px;
-    }
-    @media screen and (min-width: $laptop) {
-        padding: 112px 32px 80px 32px;
-    }
-    @media screen and (min-width: $desktop) {
-        padding: 112px 72px 80px 72px;
-    }
+  padding: 110px 20px 80px 20px;
+  @media screen and (min-width: $tablet) {
+    padding: 112px 20px 80px 20px;
+  }
+  @media screen and (min-width: $laptop) {
+    padding: 112px 32px 80px 32px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 112px 72px 80px 72px;
+  }
 }
 
 //Fade In анимация
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 //-----------------------------
 
 .titleServicesContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    //align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    row-gap: 16px;
-    margin-bottom: 48px;
-    animation: fadeIn 0.8s ease-in-out forwards;
-    @media screen and (min-width: $desktop) {
-        margin-bottom: 72px;
-    }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  //align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 16px;
+  margin-bottom: 48px;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 72px;
+  }
 }
 
 .titleServices {
-    font-weight: 300;
-    font-size: 48px;
-    & span {
-        background: linear-gradient(
-            91deg,
-            $gradientYellow 0%,
-            $gradientCyan 50%,
-            $gradientBlue 100%
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    @media screen and (min-width: $mobile) {
-        font-weight: 400;
-        font-size: 58px;
-    }
-    @media screen and (min-width: $laptop) {
-        font-size: 64px;
-    }
-    @media screen and (min-width: $desktop) {
-        font-size: 96px;
-    }
+  font-weight: 300;
+  font-size: 48px;
+  & span {
+    background: linear-gradient(
+      91deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @media screen and (min-width: $mobile) {
+    font-weight: 400;
+    font-size: 58px;
+  }
+  @media screen and (min-width: $laptop) {
+    font-size: 64px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 96px;
+  }
 }
 
 .descServices {
-    font-weight: 400;
-    font-size: 28px;
-    //text-align: center;
-    line-height: 1.1;
-    color: #ffffff;
-    & span {
-        background: linear-gradient(
-            91deg,
-            $gradientYellow 0%,
-            $gradientCyan 50%,
-            $gradientBlue 100%
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    @media screen and (min-width: $mobile) {
-        font-size: 32px;
-    }
-    @media screen and (min-width: $laptop) {
-        font-size: 38px;
-    }
-    @media screen and (min-width: $desktop) {
-        font-size: 44px;
-    }
+  font-weight: 400;
+  font-size: 28px;
+  //text-align: center;
+  line-height: 1.1;
+  color: #ffffff;
+  & span {
+    background: linear-gradient(
+      91deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @media screen and (min-width: $mobile) {
+    font-size: 32px;
+  }
+  @media screen and (min-width: $laptop) {
+    font-size: 38px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 44px;
+  }
 }
 
 //Fade Up анимация
 
 @keyframes fadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 //-----------------------------
 
 .cartContainer {
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    -webkit-box-pack: space-around;
-    -ms-flex-pack: space-around;
-    justify-content: space-around;
-    -webkit-column-gap: 24px;
-    -moz-column-gap: 24px;
-    column-gap: 24px;
-    row-gap: 24px;
-    animation: fadeUp 0.8s ease-in-out forwards;
-    @media screen and (min-width: $tablet) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    @media screen and (min-width: $laptop) {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  -webkit-column-gap: 24px;
+  -moz-column-gap: 24px;
+  column-gap: 24px;
+  row-gap: 24px;
+  animation: fadeUp 0.8s ease-in-out forwards;
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: $laptop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .cartItem {
-    box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
-    background-color: #0d0d11;
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-work-sans);
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-top: 16px;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-bottom: 48px;
-    min-height: 772px;
-    & ul {
-        margin-bottom: 54px;
-    }
+  box-shadow: 6px 12px 32px 0 rgba(26, 140, 255, 0.1);
+  background-color: #0d0d11;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-noto-sans);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 48px;
+  min-height: 772px;
+  & ul {
+    margin-bottom: 54px;
+  }
 }
 
 .cartItem:hover {
-    @media screen and (min-width: $laptop) {
-        transform: scale(1.03);
-        transition: transform 0.3s ease-in-out;
-    }
+  @media screen and (min-width: $laptop) {
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+  }
 }
 
 .readMore {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: 24px;
-    justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 24px;
+  justify-content: flex-end;
 }
 
 .readMoreTitle {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: center;
-    background: $gradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  background: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .readMoreIcon {
-    width: 32px;
-    height: 12px;
-    transform: rotate(180deg);
-    margin-left: 16px;
+  width: 32px;
+  height: 12px;
+  transform: rotate(180deg);
+  margin-left: 16px;
 }
 
 .cartTitle {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 1.4;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 24px;
-    & span {
-        background: linear-gradient(
-            91deg,
-            $gradientYellow 0%,
-            $gradientCyan 50%,
-            $gradientBlue 100%
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 24px;
+  & span {
+    background: linear-gradient(
+      91deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .descItem {
-    list-style-type: disc;
-    list-style-position: outside;
-    margin-bottom: 10px;
-    margin-left: 30px;
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 10px;
+  margin-left: 30px;
 }
 
 .cartPrice {
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 1.6;
-    color: #ffffff;
-    margin-bottom: 32px;
-    text-align: right;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 32px;
+  text-align: right;
 }
 
 #serviceOrderBtn {
-    width: 100%;
-    & button {
-        letter-spacing: 1.5px;
-    }
+  width: 100%;
+  & button {
+    letter-spacing: 1.5px;
+  }
 }
