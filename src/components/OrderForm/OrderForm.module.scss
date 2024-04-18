@@ -36,8 +36,8 @@
   }
   @media screen and (min-width: $desktop) {
     width: 856px;
-    height: 562px;
-    padding: 24px;
+    height: 540px;
+    padding: 0px;
   }
   @media screen and (min-width: 1920px) {
     height: 562px;
@@ -245,7 +245,7 @@
     margin-right: auto;
   }
   @media screen and (min-width: $desktop) {
-    height: 80px;
+    height: 68px;
   }
 }
 
