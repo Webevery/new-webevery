@@ -21,10 +21,12 @@
     padding: 120px 20px 80px 20px;
   }
   @media screen and (min-width: $laptop) {
-    padding: 140px 32px 80px 32px;
+    padding: 112px 32px 80px 32px;
+    // padding: 140px 32px 80px 32px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 140px 72px 80px 72px;
+    padding: 112px 72px 80px 72px;
+    // padding: 140px 72px 80px 72px;
   }
 }
 
@@ -75,7 +77,8 @@
   @media screen and (min-width: $desktop) {
     height: 70px;
     font-size: 64px;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
+    // margin-bottom: 48px;
   }
 }
 
