@@ -1,4 +1,4 @@
-@import "../../app/variables";
+@import '../../app/variables';
 
 .container {
   padding: 40px 20px;
@@ -44,7 +44,7 @@
 
   @media screen and (min-width: $desktop) {
     font-weight: 300;
-    font-size: 96px;
+    font-size: 72px;
   }
 }
 
@@ -79,7 +79,6 @@
   }
 
   @media screen and (min-width: $desktop) {
-    font-size: 44px;
     line-height: 1.1;
     margin-bottom: 48px;
   }

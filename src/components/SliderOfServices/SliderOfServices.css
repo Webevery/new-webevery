@@ -1,8 +1,6 @@
-
 .ServicesSwiper {
-    width: 100%; 
+  width: 100%;
 }
-
 
 /* .ServiceSwiper .swiper-wrapper {
     height: 632px;
@@ -25,19 +23,18 @@
     justify-content: center;
 } */
 
-
 /* .ServicesSwiper .slideContentWrapper {
     background-color: #0d0d11;
     height: 632px; */
-    /* box-shadow: 6px 12px 32px 0px #1A8CFF1A; */
+/* box-shadow: 6px 12px 32px 0px #1A8CFF1A; */
 
-    /* @media screen and (min-width:768px) {
+/* @media screen and (min-width:768px) {
         height: 653px;
         padding: 24px;
         width: 340px;
     }; */
 
-    /* @media screen and (min-width:1024px) {
+/* @media screen and (min-width:1024px) {
         padding: 16px 12px;
         width: 304px;
     };
@@ -48,59 +45,54 @@
     } */
 /* } */
 
-
 .ServicesSwiper .swiper-pagination {
-    top:97%;
-    @media screen and (min-width:1024px) {
-        display: none;
-    }
+  top: 97%;
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 }
 
 .ServicesSwiper .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    background: #cbcbcf;
+  width: 8px;
+  height: 8px;
+  background: #cbcbcf;
 }
 
 .ServicesSwiper .swiper-pagination-bullet:hover {
-    opacity: 1;
-    background: linear-gradient(to right, #faff00,
-            #00f0ff,
-            #0400b3);
+  opacity: 1;
+  background: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
 }
 
 .ServicesSwiper .swiper-pagination-bullet-active {
-    background: linear-gradient(to right, #faff00,
-            #00f0ff,
-            #0400b3);
+  background: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
 }
 
 .ServicesSwiper .swiper-button-prev,
 .ServicesSwiper .swiper-button-next {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .ServicesSwiper .swiper-button-prev:after,
 .ServicesSwiper .swiper-button-next:after {
-    font-size: 12px;
-    font-weight: 900;
-    color: #A6A6AA;
+  font-size: 12px;
+  font-weight: 900;
+  color: #a6a6aa;
 }
 
-@media screen and (min-width:1024px) {
-    .ServicesSwiper .swiper-button-prev {
-        visibility: visible;
-        left: 48%;
-        top: 97%;
-        width: 48px;
-        height: 48px;
-    }
+@media screen and (min-width: 1024px) {
+  .ServicesSwiper .swiper-button-prev {
+    visibility: visible;
+    left: 48%;
+    top: 97%;
+    width: 48px;
+    height: 48px;
+  }
 
-    .ServicesSwiper .swiper-button-next {
-        visibility: visible;
-        left: 52%;
-        top: 97%;
-        width: 48px;
-        height: 48px;
-    }
+  .ServicesSwiper .swiper-button-next {
+    visibility: visible;
+    left: 52%;
+    top: 97%;
+    width: 48px;
+    height: 48px;
+  }
 }

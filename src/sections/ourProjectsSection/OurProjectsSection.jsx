@@ -48,7 +48,10 @@ const OurProjectsSection = () => {
                 siteLink,
               }) => (
                 <li key={slug} className={styles.ourProjectsItem}>
-                  <figure className={styles.ourProjectsImgContainer}>
+                  <Link
+                    href={`/ourProjects/${slug}`}
+                    className={styles.ourProjectsImgContainer}
+                  >
                     <CldImage
                       src={heroImage}
                       alt="фото сайту"
@@ -57,7 +60,7 @@ const OurProjectsSection = () => {
                       className={styles.img}
                       sizes="(max-width: 768px) 704px, (max-width: 1440px) 966px"
                     />
-                  </figure>
+                  </Link>
                   <div className={styles.ourProjectsContent}>
                     <h3 className={styles.ourProjectsTitle}>
                       <span className={styles.ourProjectsTitleGradient}>

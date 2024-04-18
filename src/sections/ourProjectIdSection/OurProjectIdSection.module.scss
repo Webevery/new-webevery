@@ -330,6 +330,9 @@
   line-height: 1.6;
   color: $gray0;
   align-items: start;
+  @media screen and (min-width: $laptop) {
+    font-size: 20px;
+  }
 }
 
 .mobileImgContainer {

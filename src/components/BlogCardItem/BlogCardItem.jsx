@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './BlogCardItem.module.scss';
 import ReadMore from '../Buttons/ReadMore/ReadMore';
 import { formatDate } from '@/utils/dateUtils';
+import Link from 'next/link';
 
 const BlogCardItem = ({
   slug,
@@ -22,7 +23,7 @@ const BlogCardItem = ({
 
   return (
     <li className={styles.cartItem}>
-      <div className={styles.cartImgContainer}>
+      <Link href={`/blog/${slug}`} className={styles.cartImgContainer}>
         <CldImage
           src={mainImage}
           alt="img blog"
@@ -32,7 +33,7 @@ const BlogCardItem = ({
           className={styles.cartImg}
           sizes="(max-width: 768px) 329px, (max-width: 1440px) 320px"
         />
-      </div>
+      </Link>
 
       <h3 className={styles.cartTitle}>
         {i18n.language === currentLanguages.EN ? titleEn : title}
