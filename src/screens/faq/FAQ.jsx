@@ -1,6 +1,5 @@
-import React from "react";
-import styles from "./FAQ.module.scss";
 import FaqSection from "@/sections/faqSection/FaqSection";
+
 
 const FAQ = () => {
   return (
@@ -9,5 +8,6 @@ const FAQ = () => {
     </>
   );
 };
+
 
 export default FAQ;

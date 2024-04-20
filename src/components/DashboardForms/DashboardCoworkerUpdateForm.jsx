@@ -62,8 +62,6 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
             });
             // автоматично обновлює строрінку при зміні кількості карточок
             // mutate();
-            // обнуляє форму
-            // actions.resetForm();
 
             console.log("Information updated to DB");
             router.push(`/dashboard/team/${updatedData.slug}`);
@@ -190,5 +188,6 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
         </div>
     );
 };
+
 
 export default DashboardCoworkerUpdateForm;

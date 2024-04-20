@@ -6,7 +6,6 @@ const DashboardServicesPage = () => {
         <>
             <DashboardServicesSection />
         </>
-
     )
 }
 

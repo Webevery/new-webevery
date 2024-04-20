@@ -37,9 +37,7 @@ const DashboardCoworkerCreateForm = () => {
                 body: JSON.stringify(data),
             });
             // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();
-            // обнуляє форму
-            // actions.resetForm();
+            // mutate();          
             console.log("Information added to DB");
 
         } catch (err) {
@@ -162,5 +160,6 @@ const DashboardCoworkerCreateForm = () => {
         </div>
     );
 };
+
 
 export default DashboardCoworkerCreateForm;
