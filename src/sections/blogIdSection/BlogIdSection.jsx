@@ -1,5 +1,4 @@
 'use client';
-
 import { useRouter, usePathname } from 'next/navigation';
 import { CldImage } from 'next-cloudinary';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +13,7 @@ import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 import BlogIdSlider from '@/components/BlogIdSlider/BlogIdSlider';
 import { useEffect, useState } from 'react';
 import { formatDate } from '@/utils/dateUtils';
+
 
 const BlogIdSection = ({ params }) => {
   const { slug } = params;
@@ -38,6 +38,7 @@ const BlogIdSection = ({ params }) => {
   }, []);
 
   const formattedDate = formatDate(data?.updatedAt);
+
 
   return (
     <>
@@ -134,5 +135,6 @@ const BlogIdSection = ({ params }) => {
     </>
   );
 };
+
 
 export default BlogIdSection;

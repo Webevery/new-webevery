@@ -92,8 +92,6 @@ const DashboardServiceUpdateForm = ({ data }) => {
             });
             // автоматично обновлює строрінку при зміні кількості карточок
             // mutate();
-            // обнуляє форму
-            // actions.resetForm();
 
             console.log("Information updated to DB");
             router.push(`/dashboard/services/${updatedData.slug}`);
@@ -108,6 +106,7 @@ const DashboardServiceUpdateForm = ({ data }) => {
             reset();
         }
     }, [isSubmitSuccessful, reset]);
+
 
     return (
         <div className={styles.container}>
@@ -209,7 +208,7 @@ const DashboardServiceUpdateForm = ({ data }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add mockup/photo WEBP format
+                        Add mockup photo WEBP
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.newMockup?.message}</p>
@@ -317,5 +316,6 @@ const DashboardServiceUpdateForm = ({ data }) => {
         </div>
     );
 };
+
 
 export default DashboardServiceUpdateForm;

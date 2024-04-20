@@ -48,9 +48,7 @@ const DashboardProjectCreateForm = () => {
                 body: JSON.stringify(data),
             });
             // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();
-            // обнуляє форму
-            // actions.resetForm();
+            // mutate();          
             console.log("Information added to DB");
 
         } catch (err) {
@@ -63,6 +61,7 @@ const DashboardProjectCreateForm = () => {
             reset();
         }
     }, [isSubmitSuccessful, reset]);
+
 
     return (
         <div className={styles.container}>
@@ -303,11 +302,10 @@ const DashboardProjectCreateForm = () => {
                                 ],
                                 { shouldValidate: true }
                             );
-                            // update(...result.info.public_id);
                         }}
                         uploadPreset='unsigned_preset'
                     >
-                        Download 3 mobile screen WEBP
+                        Download 3 mobile screens WEBP
                     </CldUploadButton>
 
                     <p className={styles.error}>
@@ -338,5 +336,6 @@ const DashboardProjectCreateForm = () => {
         </div>
     );
 };
+
 
 export default DashboardProjectCreateForm;

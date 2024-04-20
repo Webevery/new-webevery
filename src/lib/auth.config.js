@@ -7,7 +7,6 @@ export const authConfig = {
         // создается token, с помощью которого потом обновится session
         async jwt({ token, user }) {
             if (user) {
-                // token.id = user.id;
                 token.isAdmin = user.isAdmin;
             }
             return token;
@@ -15,7 +14,6 @@ export const authConfig = {
         //обновляет session, если есть token
         async session({ session, token }) {
             if (token) {
-                // session.user.id = token.id;
                 session.user.isAdmin = token.isAdmin;
             }
             return session;

@@ -5,6 +5,7 @@ import styles from "./DashboardBlogIdSection.module.scss";
 import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import Loading from "@/components/Loading/Loading";
 
+
 const DashboardBlogIdSection = ({ params }) => {
     const { slug } = params;
     const { data, isLoading } = GetIdDataFromSection("blogs", slug);
@@ -22,5 +23,6 @@ const DashboardBlogIdSection = ({ params }) => {
         </>
     );
 };
+
 
 export default DashboardBlogIdSection;

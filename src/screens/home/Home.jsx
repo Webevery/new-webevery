@@ -6,7 +6,6 @@ import HomeFaqSection from "@/sections/homeFaqSection/HomeFaqSection";
 import HomeWorkingProcessSection from "@/sections/homeWorkingProcessSection/HomeWorkingProcessSection";
 import HomeOrderSection from "@/sections/homeOrderSection/HomeOrderSection";
 
-// import styles from "./Home.module.scss";
 
 const Home = () => {
     return (
@@ -21,5 +20,6 @@ const Home = () => {
         </>
     );
 };
+
 
 export default Home;

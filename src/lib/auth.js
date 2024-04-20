@@ -29,6 +29,7 @@ const login = async (credentials) => {
 
 }
 
+
 // из auth можно взять session и получить данные авторизированного пользователя 
 export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
     ...authConfig,

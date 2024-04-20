@@ -114,8 +114,6 @@ const DashboardProjectUpdateForm = ({ data }) => {
             });
             // автоматично обновлює строрінку при зміні кількості карточок
             // mutate();
-            // обнуляє форму
-            // actions.resetForm();
 
             console.log("Information updated to DB");
             router.push(`/dashboard/ourProjects/${updatedData.slug}`);
@@ -130,6 +128,7 @@ const DashboardProjectUpdateForm = ({ data }) => {
             reset();
         }
     }, [isSubmitSuccessful, reset]);
+
 
     return (
         <div className={styles.container}>
@@ -380,11 +379,10 @@ const DashboardProjectUpdateForm = ({ data }) => {
                                 ],
                                 { shouldValidate: true }
                             );
-                            // update(...result.info.public_id);
                         }}
                         uploadPreset='unsigned_preset'
                     >
-                        Download 3 mobile screen WEBP
+                        Download 3 mobile screens WEBP
                     </CldUploadButton>
 
                     <p className={styles.error}>
@@ -417,5 +415,6 @@ const DashboardProjectUpdateForm = ({ data }) => {
         </div>
     );
 };
+
 
 export default DashboardProjectUpdateForm;

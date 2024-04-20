@@ -1,6 +1,5 @@
-import React from "react";
-// import styles from "./ServiceId.module.scss";
 import ServiceIdSection from "@/sections/serviceIdSection/ServiceIdSection";
+
 
 const ServiceId = ({ params }) => {
   return (
@@ -9,5 +8,6 @@ const ServiceId = ({ params }) => {
     </>
   );
 };
+
 
 export default ServiceId;

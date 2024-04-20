@@ -5,6 +5,7 @@ import styles from "./DashboardProjectsSection.module.scss";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import Loading from "@/components/Loading/Loading";
 
+
 const DashboardProjectsSection = () => {
     const { data, isLoading } = GetDataFromSection("ourProjects");
 
@@ -42,5 +43,6 @@ const DashboardProjectsSection = () => {
         </>
     );
 };
+
 
 export default DashboardProjectsSection;

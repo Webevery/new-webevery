@@ -44,8 +44,6 @@ const DashboardServiceCreateForm = () => {
             });
             // автоматично обновлює строрінку при зміні кількості карточок
             // mutate();
-            // обнуляє форму
-            // actions.resetForm();
             console.log("Information added to DB");
 
         } catch (err) {
@@ -58,6 +56,7 @@ const DashboardServiceCreateForm = () => {
             reset();
         }
     }, [isSubmitSuccessful, reset]);
+
 
     return (
         <div className={styles.container}>
@@ -255,5 +254,6 @@ const DashboardServiceCreateForm = () => {
         </div>
     );
 };
+
 
 export default DashboardServiceCreateForm;

@@ -10,6 +10,7 @@ export const handleLogout = async () => {
     await signOut();
 }
 
+
 export const register = async (previousState, formData) => {
     const { name, email, password } = Object.fromEntries(formData);
     try {

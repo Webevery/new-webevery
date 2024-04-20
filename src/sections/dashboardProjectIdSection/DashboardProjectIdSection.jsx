@@ -1,11 +1,10 @@
 "use client";
-
 import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import DashboardProjectItem from "@/components/DashboardProjectItem/DashboardProjectItem";
 import DashboardProjectUpdateForm from "@/components/DashboardForms/DashboardProjectUpdateForm";
 import Loading from "@/components/Loading/Loading";
-
 import styles from "./DashboardProjectIdSection.module.scss";
+
 
 const DashboardProjectIdSection = ({ params }) => {
     const { slug } = params;
@@ -24,5 +23,6 @@ const DashboardProjectIdSection = ({ params }) => {
         </>
     );
 };
+
 
 export default DashboardProjectIdSection;

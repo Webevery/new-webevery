@@ -1,5 +1,5 @@
 import ContactsSection from "@/sections/contactsSection/ContactsSection";
-// import styles from "./Contacts.module.scss";
+
 
 const Contacts = () => {
     return (
@@ -8,5 +8,6 @@ const Contacts = () => {
         </>
     );
 };
+
 
 export default Contacts;

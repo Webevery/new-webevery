@@ -1,13 +1,13 @@
 "use client";
 import DashboardServiceItem from "@/components/DashboardServiceItem/DashboardServiceItem";
 import DashboardServiceCreateForm from "@/components/DashboardForms/DashboardServiceCreateForm";
-import styles from "./DashboardServicesSection.module.scss";
-import { GetDataFromSection } from "@/fetch/ClientFetch";
 import Loading from "@/components/Loading/Loading";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
+import styles from "./DashboardServicesSection.module.scss";
+
 
 const DashboardServicesSection = () => {
     const { data, isLoading } = GetDataFromSection("services");
-    // console.log('data', data)
     let changedData = [];
 
     if (!isLoading) {
@@ -21,7 +21,6 @@ const DashboardServicesSection = () => {
             }
         })
     }
-    // console.log('changedData', changedData)
 
     let sortedByUpdateData = [];
 
@@ -32,7 +31,6 @@ const DashboardServicesSection = () => {
             return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
         });
     }
-    // console.log('sortedByUpdateData', sortedByUpdateData)
 
 
     return (
@@ -43,7 +41,6 @@ const DashboardServicesSection = () => {
                 <div className={styles.container}>
                     <div className={styles.cardsList}>
                         {sortedByUpdateData.map((item, index) => {
-                            // console.log("item", item)
                             return (
                                 <DashboardServiceItem key={index} data={item} />
                             );
@@ -56,5 +53,6 @@ const DashboardServicesSection = () => {
         </>
     );
 };
+
 
 export default DashboardServicesSection;
