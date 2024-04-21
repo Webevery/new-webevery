@@ -1,3 +1,4 @@
+
 @import "../../app/variables";
 
 .team {
@@ -93,7 +94,7 @@
     font-size: 64px;
   }
   @media screen and (min-width: $desktop) {
-    font-size: 96px;
+    font-size: 72px;
   }
 }
 
@@ -110,7 +111,7 @@
     font-size: 38px;
   }
   @media screen and (min-width: $desktop) {
-    font-size: 44px;
+    font-size: 36px;
   }
 }
 
@@ -189,6 +190,6 @@
   font-size: 20px;
   line-height: 1.6;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
   text-align: center;
 }
