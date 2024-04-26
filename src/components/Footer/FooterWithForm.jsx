@@ -42,7 +42,8 @@ const FooterWithForm = () => {
           );
         } else if (isLaptop || isDesktop) {
           return (
-            <footer className={styles.footerDesktop}>
+            // <footer className={styles.footerDesktop}>
+            <footer className={styles.footer}>
               <div className={`container ${styles.container}`}>
                 <div className={styles.contentDesctopWrap}>
                   <div className={styles.innerWrap}>
@@ -73,6 +74,9 @@ const FooterWithForm = () => {
                   </div>
                 </div>
               </div>
+              <p className={styles.allRights}>
+                © All rights reserved by <a href="/">Webevery.dev </a> 2024
+              </p>
             </footer>
           );
         } else {

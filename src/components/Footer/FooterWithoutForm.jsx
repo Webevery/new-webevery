@@ -59,6 +59,9 @@ const FooterWithoutForm = () => {
           </div>
         )}
       </div>
+      <p className={styles.allRights}>
+        © All rights reserved by <a href="/">Webevery.dev </a> 2024
+      </p>
     </footer>
   );
 };
