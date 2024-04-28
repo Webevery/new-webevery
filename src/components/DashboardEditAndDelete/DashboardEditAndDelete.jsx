@@ -10,7 +10,6 @@ const DashboardEditAndDelete = ({ data, pathname }) => {
     const slicedPathname = pathname.slice(11);
     const url = `/api/${slicedPathname}/${data.slug}`;
 
-
     return (
         <div className={styles.btnsWrapper}>
             <Link
@@ -25,7 +24,7 @@ const DashboardEditAndDelete = ({ data, pathname }) => {
             <svg
                 className={styles.deleteIcon}
                 onClick={() => {
-                    const arrForDeleting = createImagesArrayForDeletingFromCloudinary(data)
+                    const arrForDeleting = createImagesArrayForDeletingFromCloudinary(data);
                     arrForDeleting.map(item => handleDeleteImgFromCloudinary(item));
                     handleDeleteCardFromDB(url);
                 }}

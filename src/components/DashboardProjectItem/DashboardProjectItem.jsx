@@ -3,8 +3,8 @@ import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-import styles from "./DashboardProjectItem.module.scss";
 import { handleDeleteImageFromMongoDB } from "@/utils/handleDeleteImageFromMongoDB";
+import styles from "./DashboardProjectItem.module.scss";
 
 
 const DashboardProjectItem = ({ data }) => {

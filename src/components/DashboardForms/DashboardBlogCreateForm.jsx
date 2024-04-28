@@ -1,16 +1,13 @@
 "use client";
-
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-    dashboardBlogMainSchema,
-    dashboardBlogBlockSchema,
-} from "@/yupSchemas/dashboardBlogCreateSchema";
-// import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-
+import { dashboardBlogMainSchema, dashboardBlogBlockSchema } from "@/yupSchemas/dashboardBlogCreateSchema";
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+
 
 const DashboardBlogCreateForm = () => {
     //---------------------------- For the main form  -------------------------
@@ -48,8 +45,22 @@ const DashboardBlogCreateForm = () => {
         isSubmitting: isMainSubmitting,
     } = mainFormstate;
 
-    const onSubmitMain = (data) => {
-        console.log("dashboardBlogCreateFormdata:", data);
+    const onSubmitMain = async (data) => {
+        const session = await getDashboardSession();
+        data.editor = session.user?.email;
+
+        try {
+            await fetch("/api/blog", {
+                method: "POST",
+                body: JSON.stringify(data),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();          
+            console.log("Information added to DB");
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -202,9 +213,8 @@ const DashboardBlogCreateForm = () => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getMainValues("mainImage") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.mainImage
-                                // );
+                                const publicId = getMainValues("mainImage");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setMainValues("mainImage", result.info.public_id, {
                                 shouldValidate: true,
@@ -371,9 +381,8 @@ const DashboardBlogCreateForm = () => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getBlockValues("image") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.image
-                                // );
+                                const publicId = getBlockValues("image");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setBlockValues("image", result.info.public_id, {
                                 shouldValidate: true,
@@ -398,5 +407,6 @@ const DashboardBlogCreateForm = () => {
         </div>
     );
 };
+
 
 export default DashboardBlogCreateForm;

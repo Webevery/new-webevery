@@ -1,14 +1,15 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
-
+import { handleDeleteBlockOfBlogFromDB } from "@/utils/handleDeleteBlockOfBlogFromDB";
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import styles from "./DashboardBlogItem.module.scss";
+
 
 const DashboardBlogItem = ({ data }) => {
     const pathname = usePathname();
-    const isList = pathname.endsWith("blogs");
+    const isList = pathname.endsWith("blog");
 
     return (
         <div className={styles.container}>
@@ -65,14 +66,8 @@ const DashboardBlogItem = ({ data }) => {
                                     className={styles.deleteIcon}
                                     onClick={async () => {
                                         console.log(`Delete block ${index}`);
-                                        // handleDeleteImgFromMongoDB(
-                                        //     data,
-                                        //     data._id,
-                                        //     item,
-                                        //     mutate
-                                        // );
-
-                                        // handleDeleteImgFromCloudinary(item);
+                                        handleDeleteImgFromCloudinary(item.image);
+                                        handleDeleteBlockOfBlogFromDB(data, index);
                                     }}
                                 >
                                     <use href='/sprite.svg#icon-delete' />

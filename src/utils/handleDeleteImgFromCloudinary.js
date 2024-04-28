@@ -1,4 +1,3 @@
-// удаляет фото из Cloudinary
 // publicId - автоматически сгенерированный by Cloudinary адрес фото
 import crypto from "crypto";
 

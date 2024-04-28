@@ -1,7 +1,7 @@
 export const dashboardPages = [
     {
-        path: '/dashboard/blogs',
-        title: "Blogs",
+        path: '/dashboard/blog',
+        title: "Blog",
     },
     {
         path: '/dashboard/ourProjects',

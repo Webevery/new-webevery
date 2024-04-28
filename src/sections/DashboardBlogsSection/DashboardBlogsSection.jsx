@@ -7,7 +7,7 @@ import styles from "./DashboardBlogsSection.module.scss";
 
 
 const DashboardBlogsSection = () => {
-    const { data, isLoading } = GetDataFromSection("blogs");
+    const { data, isLoading } = GetDataFromSection("blog");
 
     let sortedByUpdateData = [];
 
