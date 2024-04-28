@@ -48,6 +48,7 @@
   box-shadow: none;
   width: 340px;
   height: 310px;
+  height: 100%;
   padding: 0;
   background-color: #000000;
 }
@@ -236,10 +237,9 @@
 
 #submitId {
   width: 100%;
+
   @media screen and (min-width: $laptop) {
     width: 416px;
-  }
-  @media screen and (min-width: $laptop) {
     height: 60px;
     margin-left: auto;
     margin-right: auto;
@@ -251,9 +251,15 @@
 
 #submitFooterId {
   width: 340px;
-  height: 46px;
+  height: 50px;
   & button {
     font-size: 16px;
+  }
+  @media screen and (min-width: $tablet) {
+    height: 46px;
+  }
+  @media screen and (min-width: $laptop) {
+    height: 56px;
   }
 }
 
