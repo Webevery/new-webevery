@@ -2,15 +2,17 @@
 
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
     dashboardBlogUpdateSchema,
     dashboardBlogBlockUpdateSchema,
 } from "@/yupSchemas/dashboadrBlogUpdateSchema";
-// import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
-
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+
 
 const DashboardBlogUpdateForm = ({ data }) => {
     //---------------------------- For the main form  -------------------------
@@ -62,7 +64,9 @@ const DashboardBlogUpdateForm = ({ data }) => {
         isSubmitting: isMainSubmitting,
     } = mainFormstate;
 
-    const onSubmitMain = (data) => {
+    const router = useRouter();
+
+    const onSubmitMain = async (data) => {
         const {
             newTitle,
             newTitleEn,
@@ -90,7 +94,24 @@ const DashboardBlogUpdateForm = ({ data }) => {
             blocks: newBlocks,
             slug: newSlug,
         };
-        console.log("updatedBlogMainData:", updatedData);
+
+        const session = await getDashboardSession();
+        updatedData.editor = session.user?.email;
+
+        try {
+            await fetch(`/api/blog/${slug}`, {
+                method: "PUT",
+                body: JSON.stringify(updatedData),
+            });
+            // автоматично обновлює строрінку при зміні кількості карточок
+            // mutate();
+
+            console.log("Information updated to DB");
+            router.push(`/dashboard/blog/${updatedData.slug}`);
+
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
@@ -259,9 +280,8 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getMainValues("newMainImage") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.mainImage
-                                // );
+                                const publicId = getMainValues("newMainImage");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setMainValues(
                                 "newMainImage",
@@ -275,7 +295,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Replace Main Image WEBP format
+                        Change Main Image (WEBP)
                     </CldUploadButton>
                     <p className={styles.error}>
                         {mainErrors.newMainImage?.message}
@@ -360,7 +380,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                     className={styles.formButton}
                     disabled={isMainErrors || isMainSubmitting}
                 >
-                    Create update blog!
+                    Update blog!
                 </button>
             </form>
 
@@ -435,7 +455,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         className={styles.formInput}
                         id='rangeNumber'
                         placeholder=' '
-                        maxlength='3'
+                        maxLength='3'
                         {...blockRegister("rangeNumber")}
                     />
                     <label htmlFor='rangeNumber' className={styles.formLabel}>
@@ -451,9 +471,8 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         className={styles.uploadBtn}
                         onUpload={(result, widget) => {
                             if (getBlockValues("image") !== "") {
-                                // handleDeleteImgFromCloudinary(
-                                //     initialValues.image
-                                // );
+                                const publicId = getBlockValues("image");
+                                handleDeleteImgFromCloudinary(publicId);
                             }
                             setBlockValues("image", result.info.public_id, {
                                 shouldValidate: true,
@@ -463,7 +482,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add photo WEBP format
+                        Add photo (WEBP)
                     </CldUploadButton>
                     <p className={styles.error}>{blockErrors.image?.message}</p>
                 </div>

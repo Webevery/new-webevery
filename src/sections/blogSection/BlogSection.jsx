@@ -24,7 +24,7 @@ const BlogSection = () => {
 
   const { i18n, t } = useTranslation();
 
-  const { data, error, isLoading } = GetDataFromSection('blogs');
+  const { data, error, isLoading } = GetDataFromSection('blog');
 
   const containerRef = useRef();
 
@@ -112,11 +112,11 @@ const BlogSection = () => {
       ? !isLoading && filterBlogArr?.length <= 0
         ? `${styles.cartContainer} ${styles.cartContainerNotFound}`
         : blogFilterShown && directionArr.length <= 6
-        ? `${styles.cartContainer} ${styles.cartContainerOpen}`
-        : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
+          ? `${styles.cartContainer} ${styles.cartContainerOpen}`
+          : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
       : !isLoading && filterBlogArr?.length <= 0
-      ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
-      : `${styles.cartContainer} `;
+        ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
+        : `${styles.cartContainer} `;
 
   return (
     <section className={styles.blog}>

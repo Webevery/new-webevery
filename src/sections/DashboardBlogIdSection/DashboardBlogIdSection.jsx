@@ -8,7 +8,7 @@ import Loading from "@/components/Loading/Loading";
 
 const DashboardBlogIdSection = ({ params }) => {
     const { slug } = params;
-    const { data, isLoading } = GetIdDataFromSection("blogs", slug);
+    const { data, isLoading } = GetIdDataFromSection("blog", slug);
 
     return (
         <>

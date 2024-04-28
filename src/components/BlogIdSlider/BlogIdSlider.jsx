@@ -22,7 +22,7 @@ import { formatDate } from "@/utils/dateUtils";
 
 const BlogIdSlider = ({ slug }) => {
   const { i18n, t } = useTranslation();
-  const { data, error, isLoading } = GetDataFromSection("blogs");
+  const { data, error, isLoading } = GetDataFromSection("blog");
 
   const [blogData, setBlogData] = useState([]);
 

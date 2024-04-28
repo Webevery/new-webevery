@@ -5,7 +5,7 @@ export function useCheckPathname(path) {
     const [isPathExist, setPathExist] = useState(true);
 
     const servicesSlugArray = GetValuesArrayFromData("services", "slug");
-    const blogSlugArray = GetValuesArrayFromData("blogs", "slug");
+    const blogSlugArray = GetValuesArrayFromData("blog", "slug");
     const ourProjectsSlugArray = GetValuesArrayFromData("ourProjects", "slug");
 
     const existServicesPage = servicesSlugArray?.some(
