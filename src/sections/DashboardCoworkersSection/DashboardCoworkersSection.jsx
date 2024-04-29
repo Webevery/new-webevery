@@ -7,7 +7,7 @@ import styles from "./DashboardCoworkersSection.module.scss";
 
 
 const DashboardCoworkersSection = () => {
-    const { data, isLoading } = GetDataFromSection("team");
+    const { data, isLoading, mutate } = GetDataFromSection("team");
     let sortedByUpdateData = [];
 
     if (!isLoading) {
@@ -37,7 +37,7 @@ const DashboardCoworkersSection = () => {
                         })}
                     </div>
 
-                    <DashboardCoworkerCreateForm />
+                    <DashboardCoworkerCreateForm mutate={mutate} />
                 </div>
             )}
         </>

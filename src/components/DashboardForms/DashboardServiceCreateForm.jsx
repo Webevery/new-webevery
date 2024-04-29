@@ -9,7 +9,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardServiceCreateForm = () => {
+const DashboardServiceCreateForm = ({ mutate }) => {
     const initialValues = {
         defaultValues: {
             title: "",
@@ -43,7 +43,7 @@ const DashboardServiceCreateForm = () => {
                 body: JSON.stringify(data),
             });
             // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();
+            mutate();
             console.log("Information added to DB");
 
         } catch (err) {
@@ -157,7 +157,7 @@ const DashboardServiceCreateForm = () => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add mockup/photo WEBP format
+                        Add mockup photo (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.mockup?.message}</p>

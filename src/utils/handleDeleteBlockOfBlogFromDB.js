@@ -1,10 +1,8 @@
 // удаляет один блок из массива blocks в блоге
 // data - вся информация по item-у
-// data.slug - динамический параметр страницы
-// item - значение выбранной 
+// index - индекс удаляемого блока в массиве data.blocks
 
 
-// (для удаления фото из массива мобильных фотографий проекта)
 export const handleDeleteBlockOfBlogFromDB = async (data, index) => {
     const deletedBlock = data.blocks.splice(index, 1);
     console.log('deletedBlock', deletedBlock)

@@ -57,9 +57,10 @@ const DashboardBlogItem = ({ data }) => {
                                         height={200}
                                         src={item.image}
                                         sizes='25vw'
-                                        alt={`Photo of ${item.subTitleEn}`}
+                                        alt={item.imageDescription}
                                     />
                                 )}
+                                {item.image && <p>{item.imageDescription}</p>}
                             </div>
                             {!isList && (
                                 <svg

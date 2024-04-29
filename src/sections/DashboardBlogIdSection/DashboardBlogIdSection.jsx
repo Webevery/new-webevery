@@ -8,7 +8,7 @@ import Loading from "@/components/Loading/Loading";
 
 const DashboardBlogIdSection = ({ params }) => {
     const { slug } = params;
-    const { data, isLoading } = GetIdDataFromSection("blog", slug);
+    const { data, isLoading, mutate } = GetIdDataFromSection("blog", slug);
 
     return (
         <>
@@ -17,7 +17,7 @@ const DashboardBlogIdSection = ({ params }) => {
             ) : (
                 <div className={styles.container}>
                     <DashboardBlogItem data={data} />
-                    <DashboardBlogUpdateForm data={data} />
+                    <DashboardBlogUpdateForm data={data} mutate={mutate} />
                 </div>
             )}
         </>

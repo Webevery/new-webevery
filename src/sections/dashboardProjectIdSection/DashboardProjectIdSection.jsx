@@ -8,7 +8,7 @@ import styles from "./DashboardProjectIdSection.module.scss";
 
 const DashboardProjectIdSection = ({ params }) => {
     const { slug } = params;
-    const { data, isLoading } = GetIdDataFromSection("ourProjects", slug);
+    const { data, isLoading, mutate } = GetIdDataFromSection("ourProjects", slug);
 
     return (
         <>
@@ -17,7 +17,7 @@ const DashboardProjectIdSection = ({ params }) => {
             ) : (
                 <div className={styles.container}>
                     <DashboardProjectItem data={data} />
-                    <DashboardProjectUpdateForm data={data} />
+                    <DashboardProjectUpdateForm data={data} mutate={mutate} />
                 </div>
             )}
         </>

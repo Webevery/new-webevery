@@ -7,7 +7,7 @@ import Loading from "@/components/Loading/Loading";
 
 
 const DashboardProjectsSection = () => {
-    const { data, isLoading } = GetDataFromSection("ourProjects");
+    const { data, isLoading, mutate } = GetDataFromSection("ourProjects");
 
     let sortedByUpdateData = [];
 
@@ -37,7 +37,7 @@ const DashboardProjectsSection = () => {
                         })}
                     </div>
 
-                    <DashboardProjectCreateForm />
+                    <DashboardProjectCreateForm mutate={mutate} />
                 </div>
             )}
         </>
