@@ -9,7 +9,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardProjectCreateForm = () => {
+const DashboardProjectCreateForm = ({ mutate }) => {
     const initialValues = {
         defaultValues: {
             title: "",
@@ -48,7 +48,7 @@ const DashboardProjectCreateForm = () => {
                 body: JSON.stringify(data),
             });
             // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();          
+            mutate();
             console.log("Information added to DB");
 
         } catch (err) {
@@ -162,7 +162,7 @@ const DashboardProjectCreateForm = () => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add desktop hero screen WEBP format
+                        Add desktop hero screen (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.heroImage?.message}</p>
@@ -256,7 +256,7 @@ const DashboardProjectCreateForm = () => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add desktop mockup WEBP format
+                        Add desktop mockup (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>
@@ -305,7 +305,7 @@ const DashboardProjectCreateForm = () => {
                         }}
                         uploadPreset='unsigned_preset'
                     >
-                        Download 3 mobile screens WEBP
+                        Download 3 mobile screens (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>

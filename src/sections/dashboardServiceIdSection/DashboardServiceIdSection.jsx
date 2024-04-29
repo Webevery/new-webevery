@@ -8,7 +8,7 @@ import styles from "./DashboardServiceIdSection.module.scss";
 
 const DashboardServiceIdSection = ({ params }) => {
     const { slug } = params;
-    const { data, isLoading } = GetIdDataFromSection("services", slug);
+    const { data, isLoading, mutate } = GetIdDataFromSection("services", slug);
 
     let changedData;
 
@@ -48,7 +48,7 @@ const DashboardServiceIdSection = ({ params }) => {
             ) : (
                 <div className={styles.container}>
                     <DashboardServiceItem data={changedData} />
-                    <DashboardServiceUpdateForm data={data} />
+                    <DashboardServiceUpdateForm data={data} mutate={mutate} />
                 </div>
             )}
         </>

@@ -9,7 +9,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardCoworkerCreateForm = () => {
+const DashboardCoworkerCreateForm = ({ mutate }) => {
     const initialValues = {
         defaultValues: {
             name: "",
@@ -37,7 +37,7 @@ const DashboardCoworkerCreateForm = () => {
                 body: JSON.stringify(data),
             });
             // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();          
+            mutate();
             console.log("Information added to DB");
 
         } catch (err) {
@@ -117,7 +117,7 @@ const DashboardCoworkerCreateForm = () => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add photo WEBP format
+                        Add photo (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.photo?.message}</p>

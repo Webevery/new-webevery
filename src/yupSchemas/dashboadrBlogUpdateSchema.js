@@ -50,12 +50,14 @@ export const dashboardBlogBlockUpdateSchema = yup.object({
     textEn: yup
         .string()
         .required("TextEn is required"),
+    image: yup
+        .string(),
+    imageDescription: yup
+        .string(),
     rangeNumber: yup
         .number()
         .typeError('RengeNumber must be a number')
-        .required("RengeNumber is required")
+        .required("RangeNumber is required")
         .min(0, "Min 0")
         .max(50, "Max 50"),
-    image: yup
-        .string(),
 });

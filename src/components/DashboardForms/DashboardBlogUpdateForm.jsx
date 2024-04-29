@@ -14,7 +14,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardBlogUpdateForm = ({ data }) => {
+const DashboardBlogUpdateForm = ({ data, mutate }) => {
     //---------------------------- For the main form  -------------------------
     const {
         title,
@@ -103,12 +103,11 @@ const DashboardBlogUpdateForm = ({ data }) => {
                 method: "PUT",
                 body: JSON.stringify(updatedData),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();
 
             console.log("Information updated to DB");
-            router.push(`/dashboard/blog/${updatedData.slug}`);
 
+            // по умові виконується або переход на іншу сторінку, або оновлення існуючої
+            (slug !== updatedData.slug) ? router.push(`/dashboard/blog/${updatedData.slug}`) : mutate();
         } catch (err) {
             console.log(err);
         }
@@ -136,12 +135,13 @@ const DashboardBlogUpdateForm = ({ data }) => {
 
     const blockInitialValues = {
         defaultValues: {
+            rangeNumber: null,
             subTitle: "",
             subTitleEn: "",
             text: "",
             textEn: "",
-            rangeNumber: null,
             image: "",
+            imageDescription: "",
         },
         resolver: yupResolver(dashboardBlogBlockUpdateSchema),
     };
@@ -164,7 +164,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
     } = blockFormstate;
 
     const onSubmitBlock = (data) => {
-        const { subTitle, subTitleEn, text, textEn, rangeNumber, image } = data;
+        const { subTitle, subTitleEn, text, textEn, image, imageDescription, rangeNumber } = data;
         const currentBlocks = [...getMainValues("newBlocks")];
         currentBlocks.splice(rangeNumber, 0, {
             subTitle,
@@ -172,15 +172,13 @@ const DashboardBlogUpdateForm = ({ data }) => {
             text,
             textEn,
             image,
+            imageDescription,
         });
 
         setMainValues(
             "newBlocks",
             [...currentBlocks]
-            // { shouldValidate: true }
         );
-
-        console.log("currentBlocks:", currentBlocks);
     };
 
     useEffect(() => {
@@ -406,6 +404,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         {blockErrors.subTitle?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -421,6 +420,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         {blockErrors.subTitleEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -434,6 +434,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                     </label>
                     <p className={styles.error}>{blockErrors.text?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -449,22 +450,7 @@ const DashboardBlogUpdateForm = ({ data }) => {
                         {blockErrors.textEn?.message}
                     </p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='rangeNumber'
-                        placeholder=' '
-                        maxLength='3'
-                        {...blockRegister("rangeNumber")}
-                    />
-                    <label htmlFor='rangeNumber' className={styles.formLabel}>
-                        RangeNumber
-                    </label>
-                    <p className={styles.error}>
-                        {blockErrors.rangeNumber?.message}
-                    </p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='image'
@@ -486,16 +472,51 @@ const DashboardBlogUpdateForm = ({ data }) => {
                     </CldUploadButton>
                     <p className={styles.error}>{blockErrors.image?.message}</p>
                 </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='imageDescription'
+                        placeholder=' '
+                        {...blockRegister("imageDescription")}
+                    />
+                    <label htmlFor='imageDescription' className={styles.formLabel}>
+                        Image Description
+                    </label>
+                    <p className={styles.error}>
+                        {blockErrors.imageDescription?.message}
+                    </p>
+                </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='rangeNumber'
+                        placeholder=' '
+                        maxLength='3'
+                        {...blockRegister("rangeNumber")}
+                    />
+                    <label htmlFor='rangeNumber' className={styles.formLabel}>
+                        Range Number
+                    </label>
+                    <p className={styles.error}>
+                        {blockErrors.rangeNumber?.message}
+                    </p>
+                </div>
+
                 <button
                     type='submit'
                     className={styles.formButton}
                     disabled={isBlockErrors || isBlockSubmitting}
                 >
-                    Add the new block!
+                    Add the new block to the Range Number place!
                 </button>
             </form>
         </div>
     );
 };
+
 
 export default DashboardBlogUpdateForm;

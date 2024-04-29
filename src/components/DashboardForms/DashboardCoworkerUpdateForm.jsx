@@ -10,7 +10,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardCoworkerUpdateForm = ({ data }) => {
+const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
     const { name, nameEn, photo, position, positionEn, slug } = data;
 
     const initialValues = {
@@ -60,12 +60,11 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
                 method: "PUT",
                 body: JSON.stringify(updatedData),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();
 
             console.log("Information updated to DB");
-            router.push(`/dashboard/team/${updatedData.slug}`);
 
+            // по умові виконується або переход на іншу сторінку, або оновлення існуючої
+            (slug !== updatedData.slug) ? router.push(`/dashboard/team/${updatedData.slug}`) : mutate();
         } catch (err) {
             console.log(err);
         }
@@ -141,7 +140,7 @@ const DashboardCoworkerUpdateForm = ({ data }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Update photo WEBP format
+                        Update photo (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.photo?.message}</p>

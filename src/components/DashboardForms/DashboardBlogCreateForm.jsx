@@ -9,7 +9,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardBlogCreateForm = () => {
+const DashboardBlogCreateForm = ({ mutate }) => {
     //---------------------------- For the main form  -------------------------
     const mainInitialValues = {
         defaultValues: {
@@ -55,7 +55,7 @@ const DashboardBlogCreateForm = () => {
                 body: JSON.stringify(data),
             });
             // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();          
+            mutate();
             console.log("Information added to DB");
 
         } catch (err) {
@@ -90,6 +90,7 @@ const DashboardBlogCreateForm = () => {
             text: "",
             textEn: "",
             image: "",
+            imageDescription: "",
         },
         resolver: yupResolver(dashboardBlogBlockSchema),
     };
@@ -115,9 +116,7 @@ const DashboardBlogCreateForm = () => {
         setMainValues(
             "blocks",
             [...getMainValues("blocks"), data]
-            // { shouldValidate: true }
         );
-        console.log("BlockFormData:", data);
     };
 
     useEffect(() => {
@@ -136,6 +135,7 @@ const DashboardBlogCreateForm = () => {
                 <h3 className={styles.formTitle}>
                     Let`s create a new blog!
                 </h3>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -149,6 +149,7 @@ const DashboardBlogCreateForm = () => {
                     </label>
                     <p className={styles.error}>{mainErrors.slug?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -162,6 +163,7 @@ const DashboardBlogCreateForm = () => {
                     </label>
                     <p className={styles.error}>{mainErrors.title?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -177,6 +179,7 @@ const DashboardBlogCreateForm = () => {
                         {mainErrors.titleEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -192,6 +195,7 @@ const DashboardBlogCreateForm = () => {
                         {mainErrors.mainText?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -207,6 +211,7 @@ const DashboardBlogCreateForm = () => {
                         {mainErrors.mainTextEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='mainImage'
@@ -224,12 +229,13 @@ const DashboardBlogCreateForm = () => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add Main Image WEBP format
+                        Add Main Image (WEBP)
                     </CldUploadButton>
                     <p className={styles.error}>
                         {mainErrors.mainImage?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -245,6 +251,7 @@ const DashboardBlogCreateForm = () => {
                         {mainErrors.direction?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -260,6 +267,7 @@ const DashboardBlogCreateForm = () => {
                         {mainErrors.directionEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -275,6 +283,7 @@ const DashboardBlogCreateForm = () => {
                         {mainErrors.epilogue?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -310,6 +319,7 @@ const DashboardBlogCreateForm = () => {
                 </button>
             </form>
 
+
             <form
                 onSubmit={blockHandleSubmit(onSubmitBlock)}
                 className={styles.form}
@@ -332,6 +342,7 @@ const DashboardBlogCreateForm = () => {
                         {blockErrors.subTitle?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -347,6 +358,7 @@ const DashboardBlogCreateForm = () => {
                         {blockErrors.subTitleEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -360,6 +372,7 @@ const DashboardBlogCreateForm = () => {
                     </label>
                     <p className={styles.error}>{blockErrors.text?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -375,6 +388,7 @@ const DashboardBlogCreateForm = () => {
                         {blockErrors.textEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='image'
@@ -392,10 +406,27 @@ const DashboardBlogCreateForm = () => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add photo WEBP format
+                        Add photo (WEBP)
                     </CldUploadButton>
                     <p className={styles.error}>{blockErrors.image?.message}</p>
                 </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='imageDescription'
+                        placeholder=' '
+                        {...blockRegister("imageDescription")}
+                    />
+                    <label htmlFor='imageDescription' className={styles.formLabel}>
+                        Image Description
+                    </label>
+                    <p className={styles.error}>
+                        {blockErrors.imageDescription?.message}
+                    </p>
+                </div>
+
                 <button
                     type='submit'
                     className={styles.formButton}

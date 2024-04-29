@@ -10,7 +10,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardServiceUpdateForm = ({ data }) => {
+const DashboardServiceUpdateForm = ({ data, mutate }) => {
     const {
         title,
         titleEn,
@@ -90,12 +90,11 @@ const DashboardServiceUpdateForm = ({ data }) => {
                 method: "PUT",
                 body: JSON.stringify(updatedData),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();
 
             console.log("Information updated to DB");
-            router.push(`/dashboard/services/${updatedData.slug}`);
 
+            // по умові виконується або переход на іншу сторінку, або оновлення існуючої
+            (slug !== updatedData.slug) ? router.push(`/dashboard/services/${updatedData.slug}`) : mutate();
         } catch (err) {
             console.log(err);
         }
@@ -208,7 +207,7 @@ const DashboardServiceUpdateForm = ({ data }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add mockup photo WEBP
+                        Add mockup photo (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.newMockup?.message}</p>

@@ -7,7 +7,7 @@ import styles from "./DashboardServicesSection.module.scss";
 
 
 const DashboardServicesSection = () => {
-    const { data, isLoading } = GetDataFromSection("services");
+    const { data, isLoading, mutate } = GetDataFromSection("services");
     let changedData = [];
 
     if (!isLoading) {
@@ -47,7 +47,7 @@ const DashboardServicesSection = () => {
                         })}
                     </div>
 
-                    <DashboardServiceCreateForm />
+                    <DashboardServiceCreateForm mutate={mutate} />
                 </div>
             )}
         </>

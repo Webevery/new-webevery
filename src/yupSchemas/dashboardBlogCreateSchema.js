@@ -52,4 +52,6 @@ export const dashboardBlogBlockSchema = yup.object({
         .required("TextEn is required"),
     image: yup
         .string(),
+    imageDescription: yup
+        .string(),
 });

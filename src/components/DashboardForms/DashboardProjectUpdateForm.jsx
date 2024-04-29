@@ -11,7 +11,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardProjectUpdateForm = ({ data }) => {
+const DashboardProjectUpdateForm = ({ data, mutate }) => {
     const {
         title,
         titleEn,
@@ -112,12 +112,11 @@ const DashboardProjectUpdateForm = ({ data }) => {
                 method: "PUT",
                 body: JSON.stringify(updatedData),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
-            // mutate();
 
             console.log("Information updated to DB");
-            router.push(`/dashboard/ourProjects/${updatedData.slug}`);
 
+            // по умові виконується або переход на іншу сторінку, або оновлення існуючої
+            (slug !== updatedData.slug) ? router.push(`/dashboard/ourProjects/${updatedData.slug}`) : mutate();
         } catch (err) {
             console.log(err);
         }
@@ -230,7 +229,7 @@ const DashboardProjectUpdateForm = ({ data }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add desktop hero screen WEBP format
+                        Add desktop hero screen (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.heroImage?.message}</p>
@@ -328,7 +327,7 @@ const DashboardProjectUpdateForm = ({ data }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add desktop mockup WEBP format
+                        Add desktop mockup (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>
@@ -382,7 +381,7 @@ const DashboardProjectUpdateForm = ({ data }) => {
                         }}
                         uploadPreset='unsigned_preset'
                     >
-                        Download 3 mobile screens WEBP
+                        Download 3 mobile screens (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>
