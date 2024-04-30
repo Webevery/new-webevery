@@ -14,7 +14,6 @@ import BlogIdSlider from '@/components/BlogIdSlider/BlogIdSlider';
 import { useEffect, useState } from 'react';
 import { formatDate } from '@/utils/dateUtils';
 
-
 const BlogIdSection = ({ params }) => {
   const { slug } = params;
 
@@ -38,7 +37,6 @@ const BlogIdSection = ({ params }) => {
   }, []);
 
   const formattedDate = formatDate(data?.updatedAt);
-
 
   return (
     <>
@@ -77,7 +75,7 @@ const BlogIdSection = ({ params }) => {
               <figure className={styles.ImgContainer}>
                 <CldImage
                   src={data?.mainImage}
-                  alt="картинка для блогу"
+                  alt={data?.title}
                   fill={true}
                   as="image"
                   className={styles.img}
@@ -91,7 +89,17 @@ const BlogIdSection = ({ params }) => {
               </p>
               <ul className={styles.blogIdDescContainer}>
                 {data?.blocks.map(
-                  ({ subTitle, subTitleEn, text, textEn, image }, index) => (
+                  (
+                    {
+                      subTitle,
+                      subTitleEn,
+                      text,
+                      textEn,
+                      image,
+                      imageDescription,
+                    },
+                    index
+                  ) => (
                     <li key={index} className={styles.blogIdDescItem}>
                       <h3 className={styles.blogIdSubtitle}>
                         {i18n.language === currentLanguages.EN
@@ -105,7 +113,7 @@ const BlogIdSection = ({ params }) => {
                         <figure className={styles.ImgContainer}>
                           <CldImage
                             src={image}
-                            alt="картинка для блогу"
+                            alt={imageDescription}
                             fill={true}
                             as="image"
                             className={styles.img}
@@ -135,6 +143,5 @@ const BlogIdSection = ({ params }) => {
     </>
   );
 };
-
 
 export default BlogIdSection;

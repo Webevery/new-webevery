@@ -120,6 +120,7 @@
   grid-template-columns: repeat(1, 1fr);
   row-gap: 20px;
   animation: fadeUp 0.8s ease-in-out forwards;
+  margin-bottom: 20px;
   @media screen and (min-width: $mobile) {
     row-gap: 16px;
   }
@@ -132,15 +133,18 @@
     -webkit-column-gap: 24px;
     -moz-column-gap: 24px;
     column-gap: 24px;
+    margin-bottom: 27px;
   }
   @media screen and (min-width: $laptop) {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 24px;
+    margin-bottom: 42px;
   }
   @media screen and (min-width: $desktop) {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    // margin-bottom: 34px;
   }
 }
 
