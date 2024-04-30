@@ -1,4 +1,4 @@
-@import "../../app/variables";
+@import '../../app/variables';
 
 .faq {
   padding: 40px 20px;
@@ -58,7 +58,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    font-size: 96px;
+    font-size: 72px;
     font-weight: 300;
   }
 }
@@ -163,7 +163,7 @@
   @media screen and (min-width: $desktop) {
     display: block;
     width: 870px;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 500;
     letter-spacing: 0.01em;
   }
@@ -186,14 +186,14 @@
 
   @media screen and (min-width: $laptop) {
     width: 720px;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 140%;
+    // line-height: 140%;
   }
 
   @media screen and (min-width: $desktop) {
     width: 965px;
-    font-size: 36px;
+    // font-size: 32px;
     font-weight: 400;
     letter-spacing: 0.01em;
   }

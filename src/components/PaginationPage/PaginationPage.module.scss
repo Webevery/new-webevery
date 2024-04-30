@@ -1,0 +1,147 @@
+@import '../../app/variables';
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  @media screen and (min-width: $tablet) {
+    -webkit-column-gap: 16px;
+    -moz-column-gap: 16px;
+    column-gap: 16px;
+  }
+}
+
+.pageItem {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.dotList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-column-gap: 8px;
+  -moz-column-gap: 8px;
+  column-gap: 8px;
+  @media screen and (min-width: $tablet) {
+    -webkit-column-gap: 16px;
+    -moz-column-gap: 16px;
+    column-gap: 16px;
+  }
+}
+
+.pageLinkDot {
+  min-width: 8px;
+  height: 8px;
+  background-color: #c7c7c7;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  @media screen and (min-width: $tablet) {
+    min-width: 12px;
+    height: 12px;
+  }
+}
+
+.active {
+  min-width: 12px;
+  height: 12px;
+  background: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
+  // background-color: #7d7d7d;
+  @media screen and (min-width: $tablet) {
+    min-width: 14px;
+    height: 14px;
+  }
+}
+
+.pageLinkItem {
+  outline: none;
+  max-width: 6px;
+  height: 6px;
+  @media screen and (min-width: $tablet) {
+    max-width: 10px;
+    height: 10px;
+  }
+}
+
+.pageDot {
+  visibility: hidden;
+}
+
+.pageLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 15px;
+  outline: none;
+}
+
+.svgArrow {
+  height: 1px;
+}
+
+.arrowLeft {
+  margin-right: 20px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0;
+    border: solid #ffffff;
+    border-width: 1px 0 0 1px;
+    display: block;
+    padding: 3px;
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  // @media screen and (min-width: $tablet) {
+  //   margin-right: 32px;
+  // }
+  // @media screen and (min-width: $desktop) {
+  //   margin-right: 40px;
+  // }
+}
+
+.arrowRight {
+  margin-left: 20px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 0;
+    border: solid #ffffff;
+    border-width: 1px 0 0 1px;
+    display: block;
+    padding: 3px;
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+  // @media screen and (min-width: $tablet) {
+  //   margin-right: 12px;
+  // }
+  // @media screen and (min-width: $desktop) {
+  //   margin-right: 20px;
+  // }
+}
