@@ -14,6 +14,8 @@ import BlogSorter from '@/components/BlogSorter/BlogSorter';
 
 import styles from './BlogSection.module.scss';
 import BlogCardItem from '@/components/BlogCardItem/BlogCardItem';
+import { PaginationContext } from '@/context/PaginationContext';
+import PaginationPage from '@/components/PaginationPage/PaginationPage';
 
 const BlogSection = () => {
   const [loadedCount, setLoadedCount] = useState(9);
@@ -25,6 +27,8 @@ const BlogSection = () => {
   const { i18n, t } = useTranslation();
 
   const { data, error, isLoading } = GetDataFromSection('blog');
+
+  console.log(data);
 
   const containerRef = useRef();
 
@@ -107,16 +111,25 @@ const BlogSection = () => {
     }
   }, [data]);
 
+  const { firstIndex, lastIndex, recordsPerPage } =
+    useContext(PaginationContext);
+
+  const records = filterBlogArr?.slice(firstIndex, lastIndex);
+  const npage = filterBlogArr
+    ? Math.ceil(filterBlogArr?.length / recordsPerPage)
+    : 0;
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+
   const cartContainerFilter =
     blogFilterShown || blogSorterShown
       ? !isLoading && filterBlogArr?.length <= 0
         ? `${styles.cartContainer} ${styles.cartContainerNotFound}`
         : blogFilterShown && directionArr.length <= 6
-          ? `${styles.cartContainer} ${styles.cartContainerOpen}`
-          : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
+        ? `${styles.cartContainer} ${styles.cartContainerOpen}`
+        : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
       : !isLoading && filterBlogArr?.length <= 0
-        ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
-        : `${styles.cartContainer} `;
+      ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
+      : `${styles.cartContainer} `;
 
   return (
     <section className={styles.blog}>
@@ -151,7 +164,7 @@ const BlogSection = () => {
             />
           )}
 
-          {filterBlogArr
+          {records
             ?.slice(0, loadedCount)
             .map(
               ({
@@ -181,6 +194,9 @@ const BlogSection = () => {
             </li>
           )}
         </ul>
+        {records?.length > 0 && (
+          <PaginationPage numbers={numbers} npage={npage} />
+        )}
 
         {showLoading && (
           <div className={styles.loading}>

@@ -114,7 +114,7 @@
 }
 
 .HomeOurProjectsSwiper .swiper-pagination {
-  bottom: -6px;
+  bottom: 0px;
 
   @media screen and (min-width: 1024px) {
     display: none;

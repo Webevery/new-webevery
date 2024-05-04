@@ -26,7 +26,7 @@ const BlogCardItem = ({
       <Link href={`/blog/${slug}`} className={styles.cartImgContainer}>
         <CldImage
           src={mainImage}
-          alt="img blog"
+          alt={title}
           fill="true"
           as="image"
           priority={true}
