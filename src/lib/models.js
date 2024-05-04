@@ -227,6 +227,10 @@ const coworkerSchema = new mongoose.Schema(
 
 const userSchema = new mongoose.Schema(
   {
+    slug: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -243,9 +247,6 @@ const userSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
-    },
-    editor: {
-      type: String,
     },
   },
   { timestamps: true }
