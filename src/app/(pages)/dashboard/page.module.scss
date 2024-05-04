@@ -1,11 +1,12 @@
 @import "../../variables";
 
 .layoutContainer {
-    width: 100%;
-    max-width: 1440px;
-    padding-top: 60px;
+    display: none;
 
     @media screen and (min-width:$tablet) {
+        display: block;
+        width: 100%;
+        max-width: 1440px;
         padding-top: 100px;
     }
 }

@@ -19,9 +19,11 @@ export const register = async (previousState, formData) => {
         if (user) {
             return { error: "User already exists" }
         }
+        const slug = name.replaceAll(' ', '')
         const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt)
+        const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = new User({
+            slug,
             name,
             email,
             password: hashedPassword,

@@ -1,0 +1,72 @@
+@import "../../app/variables";
+
+.container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: $gray300;
+  color: $gray900;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  font-family: var(--font-noto-sans);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+
+  @media screen and (min-width: $desktop) {
+    padding: 16px 24px;
+    gap: 12px;
+  }
+}
+
+.signature {
+  display: flex;
+  gap: 12px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.slug {
+  font-size: 24px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+
+  @media screen and (min-width: $laptop) {
+    margin-right: auto;
+  }
+}
+
+.imgWrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.img {
+  object-fit: contain;
+}
+
+.ukrainian {
+  color: $lightBlue;
+}
+
+.accessForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accessInput {
+  margin-left: 10px;
+  width: fit-content;
+}
+
+.saveBtn {
+  width: fit-content;
+  padding: 5px 10px;
+}
