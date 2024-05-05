@@ -42,7 +42,8 @@ const DashboardServicesSection = () => {
                     <div className={styles.cardsList}>
                         {sortedByUpdateData.map((item, index) => {
                             return (
-                                <DashboardServiceItem key={index} data={item} />
+                                <DashboardServiceItem key={index} data={item}
+                                    mutate={mutate} />
                             );
                         })}
                     </div>

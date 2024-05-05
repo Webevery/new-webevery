@@ -7,6 +7,7 @@ import styles from "./DashboardUsersSection.module.scss";
 
 const DashboardUsersSection = () => {
     const { data, isLoading, mutate } = GetDataFromSection("users");
+    console.log('data', data)
     let sortedByUpdateData = [];
 
     if (!isLoading) {
@@ -16,8 +17,11 @@ const DashboardUsersSection = () => {
             return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
         });
     }
+    console.log('sortedByUpdateData', sortedByUpdateData)
 
     const dataWithoutOwner = sortedByUpdateData.filter(item => item.email !== process.env.NEXT_PUBLIC_OWNER)
+
+    console.log('dataWithoutOwner', dataWithoutOwner)
 
 
     return (

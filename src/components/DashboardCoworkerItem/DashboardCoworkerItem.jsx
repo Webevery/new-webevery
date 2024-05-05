@@ -5,7 +5,7 @@ import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDe
 import styles from "./DashboardCoworkerItem.module.scss";
 
 
-const DashboardCoworkerItem = ({ data }) => {
+const DashboardCoworkerItem = ({ data, mutate }) => {
     const pathname = usePathname();
     const isList = pathname.endsWith("team");
 
@@ -36,7 +36,7 @@ const DashboardCoworkerItem = ({ data }) => {
             </div>
 
             {isList && (
-                <DashboardEditAndDelete data={data} pathname={pathname} />
+                <DashboardEditAndDelete data={data} pathname={pathname} mutate={mutate} />
             )}
         </div>
     );

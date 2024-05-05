@@ -31,8 +31,7 @@ const DashboardCoworkersSection = () => {
                                 <DashboardCoworkerItem
                                     key={index}
                                     data={item}
-                                    isLoading={isLoading}
-                                />
+                                    mutate={mutate} />
                             );
                         })}
                     </div>

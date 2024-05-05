@@ -32,6 +32,7 @@ const DashboardProjectsSection = () => {
                                 <DashboardProjectItem
                                     key={index}
                                     data={item}
+                                    mutate={mutate}
                                 />
                             );
                         })}

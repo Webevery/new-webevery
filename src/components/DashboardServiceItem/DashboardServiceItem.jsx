@@ -5,7 +5,7 @@ import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDe
 import styles from "./DashboardServiceItem.module.scss";
 
 
-const DashboardServiceItem = ({ data }) => {
+const DashboardServiceItem = ({ data, mutate }) => {
     const pathname = usePathname();
     const isList = pathname.endsWith("services");
 
@@ -56,7 +56,7 @@ const DashboardServiceItem = ({ data }) => {
             </p>
 
             {isList && (
-                <DashboardEditAndDelete data={data} pathname={pathname} />
+                <DashboardEditAndDelete data={data} pathname={pathname} mutate={mutate} />
             )}
         </div>
     );

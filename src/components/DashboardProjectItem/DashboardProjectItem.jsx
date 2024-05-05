@@ -7,7 +7,7 @@ import { handleDeleteImageFromMongoDB } from "@/utils/handleDeleteImageFromMongo
 import styles from "./DashboardProjectItem.module.scss";
 
 
-const DashboardProjectItem = ({ data }) => {
+const DashboardProjectItem = ({ data, mutate }) => {
     const pathname = usePathname();
     const isList = pathname.endsWith("ourProjects");
 
@@ -116,7 +116,7 @@ const DashboardProjectItem = ({ data }) => {
             </div>
 
             {isList && (
-                <DashboardEditAndDelete data={data} pathname={pathname} />
+                <DashboardEditAndDelete data={data} pathname={pathname} mutate={mutate} />
             )}
         </div>
     );
