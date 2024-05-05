@@ -7,14 +7,12 @@ import styles from "./DashboardUserItem.module.scss";
 
 const DashboardUserItem = ({ data, mutate }) => {
     const pathname = usePathname();
-    const isList = pathname.endsWith("users");
     const [isAdminRules, setIsAdminRules] = useState(data.isAdmin)
 
     const onSubmit = async () => {
         const updatedData = {
             isAdmin: isAdminRules,
         };
-
         try {
             await fetch(`/api/users/${data.slug}`, {
                 method: "PATCH",
@@ -30,6 +28,7 @@ const DashboardUserItem = ({ data, mutate }) => {
         }
     };
 
+
     return (
         <div className={styles.container}>
             <p>{data.name}</p>
@@ -39,7 +38,8 @@ const DashboardUserItem = ({ data, mutate }) => {
                     <input className={styles.accessInput}
                         id="accessInput"
                         type="checkbox"
-                        checked={isAdminRules} onChange={() => {
+                        checked={isAdminRules}
+                        onChange={() => {
                             if (isAdminRules === true) {
                                 setIsAdminRules(false);
                             } else {
@@ -51,9 +51,8 @@ const DashboardUserItem = ({ data, mutate }) => {
             </form>
             <p>Admin: {isAdminRules ? "true" : "false"}</p>
 
-            {isList && (
-                <DashboardEditAndDelete data={data} pathname={pathname} mutate={mutate} />
-            )}
+            <DashboardEditAndDelete data={data} pathname={pathname} mutate={mutate} />
+
         </div>
     );
 };

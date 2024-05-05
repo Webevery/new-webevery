@@ -32,7 +32,7 @@ const DashboardBlogsSection = () => {
                                 <DashboardBlogItem
                                     key={index}
                                     data={item}
-                                    isLoading={isLoading}
+                                    mutate={mutate}
                                 />
                             );
                         })}

@@ -7,7 +7,7 @@ import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudi
 import styles from "./DashboardBlogItem.module.scss";
 
 
-const DashboardBlogItem = ({ data }) => {
+const DashboardBlogItem = ({ data, mutate }) => {
     const pathname = usePathname();
     const isList = pathname.endsWith("blog");
 
@@ -85,7 +85,7 @@ const DashboardBlogItem = ({ data }) => {
             <p>{data.directionEn}</p>
             <p className={styles.ukrainian}>{data.direction}</p>
 
-            {isList && (<DashboardEditAndDelete data={data} pathname={pathname} />)}
+            {isList && (<DashboardEditAndDelete data={data} pathname={pathname} mutate={mutate} />)}
         </div >
     );
 };
