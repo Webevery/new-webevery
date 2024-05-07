@@ -34,9 +34,8 @@ const DashboardUserItem = ({ data, mutate }) => {
             <p>{data.name}</p>
             <p className={`${styles.slug} ${styles.ukrainian}`}>{data.email}</p>
             <form className={styles.accessForm} onSubmit={onSubmit}>
-                <label htmlFor="accessInput">Is Admin:
+                <label>Is Admin:
                     <input className={styles.accessInput}
-                        id="accessInput"
                         type="checkbox"
                         checked={isAdminRules}
                         onChange={() => {
