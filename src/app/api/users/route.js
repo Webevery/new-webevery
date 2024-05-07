@@ -3,6 +3,9 @@ import { connectToDB } from "@/utils/connectToDB";
 import { User } from "@/lib/models";
 
 
+export const revalidate = 0;
+
+
 export const GET = async (request) => {
     try {
         await connectToDB();

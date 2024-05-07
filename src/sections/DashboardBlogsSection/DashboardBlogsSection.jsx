@@ -1,8 +1,8 @@
 "use client";
 import DashboardBlogCreateForm from "@/components/DashboardForms/DashboardBlogCreateForm";
 import DashboardBlogItem from "@/components/DashboardBlogItem/DashboardBlogItem";
-import { GetDataFromSection } from "@/fetch/ClientFetch";
 import Loading from "@/components/Loading/Loading";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "./DashboardBlogsSection.module.scss";
 
 

@@ -3,7 +3,9 @@ import DashboardUsersSection from "@/sections/DashboardUsersSection/DashboardUse
 
 const DashboardUsersPage = () => {
     return (
-        <DashboardUsersSection />
+        <>
+            <DashboardUsersSection />
+        </>
     )
 }
 

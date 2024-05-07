@@ -4,9 +4,6 @@ import useSWR from 'swr';
 
 // universal
 export const GetDataFromSection = (path) => {
-  const dateInMs = Date.now()
-  const date = new Date(dateInMs)
-  console.log(path, "date:", date)
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   return useSWR(`/api/${path}`, fetcher);
 };

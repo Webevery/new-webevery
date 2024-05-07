@@ -3,6 +3,9 @@ import { connectToDB } from "@/utils/connectToDB";
 import { User } from "@/lib/models";
 
 
+export const revalidate = 0;
+
+
 export const DELETE = async (request, { params }) => {
     const { slug } = params;
 
