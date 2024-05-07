@@ -42,7 +42,7 @@ const FooterWithoutForm = () => {
                   inbox.webevery@gmail.com
                 </a>
               </div>
-              <FooterLinks className={isLaptop && styles.navigation} />
+              <FooterLinks className={isLaptop && styles.foterSocList} />
             </div>
 
             <div className={styles.logoWrapper}>
