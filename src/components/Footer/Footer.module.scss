@@ -65,6 +65,9 @@
     display: flex;
     gap: 6vw;
     gap: clamp(64px, 6vw, 128px);
+    & .foterSocList {
+      justify-content: flex-start;
+    }
   }
   @media screen and (min-width: $desktop) {
     gap: 128px;
