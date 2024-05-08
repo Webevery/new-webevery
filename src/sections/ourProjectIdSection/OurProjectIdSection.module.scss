@@ -14,16 +14,20 @@
   flex-direction: column;
   justify-content: center;
   padding: 80px 20px 79px 20px;
+
   @media screen and (min-width: $mobile) {
     padding: 80px 20px 80px 20px;
   }
+
   @media screen and (min-width: $tablet) {
     padding: 120px 20px 80px 20px;
   }
+
   @media screen and (min-width: $laptop) {
     padding: 112px 32px 80px 32px;
     // padding: 140px 32px 80px 32px;
   }
+
   @media screen and (min-width: $desktop) {
     padding: 112px 72px 80px 72px;
     // padding: 140px 72px 80px 72px;
@@ -42,13 +46,14 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
 
 .ourProjectsTitle {
-  height: 79px;
+  // height: 79px;
   font-weight: 400;
   font-size: 28px;
   line-height: 1.4;
@@ -56,26 +61,27 @@
   color: $gray0;
   margin-bottom: 12px;
   animation: fadeIn 0.8s ease-in-out forwards;
+
   @media screen and (min-width: $mobile) {
-    height: 70px;
+    // height: 70px;
     font-size: 32px;
     line-height: 1.1;
     margin-bottom: 24px;
   }
 
   @media screen and (min-width: $tablet) {
-    height: 53px;
+    // height: 53px;
     font-size: 48px;
   }
 
   @media screen and (min-width: $laptop) {
-    height: 49px;
+    // height: 49px;
     font-size: 44px;
     margin-bottom: 32px;
   }
 
   @media screen and (min-width: $desktop) {
-    height: 70px;
+    // height: 70px;
     font-size: 64px;
     margin-bottom: 24px;
     // margin-bottom: 48px;
@@ -97,17 +103,20 @@
   padding: 3px;
   box-shadow: $shadowColor;
   margin-bottom: 24px;
+
   @media screen and (min-width: $mobile) {
     width: 312px;
     height: 46px;
     margin-bottom: 20px;
   }
+
   @media screen and (min-width: $tablet) {
     width: 340px;
     height: 50px;
     margin-bottom: 32px;
     padding: 2px;
   }
+
   @media screen and (min-width: $laptop) {
     display: none;
   }
@@ -124,9 +133,11 @@
   background-color: #000000;
   width: 100%;
   height: 100%;
+
   @media screen and (min-width: $tablet) {
     border-radius: 30px;
   }
+
   @media screen and (min-width: $laptop) {
     border-radius: 56px;
   }
@@ -137,6 +148,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -177,11 +189,14 @@
   @media screen and (min-width: $desktop) {
     height: 85vh;
   }
+
   & img {
     object-fit: inherit;
+
     @media screen and (min-width: $tablet) {
       border-radius: 30px;
     }
+
     @media screen and (min-width: $laptop) {
       border-radius: 56px;
     }
@@ -195,13 +210,16 @@
   grid-template-columns: repeat(1, 1fr);
   row-gap: 16px;
   margin-bottom: 20px;
+
   @media screen and (min-width: $tablet) {
     margin-bottom: 32px;
   }
+
   @media screen and (min-width: $laptop) {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+
   @media screen and (min-width: $desktop) {
     row-gap: 40px;
     margin-bottom: 48px;
@@ -221,14 +239,17 @@
   margin-bottom: 12px;
   width: 100%;
   text-align: start;
+
   @media screen and (min-width: $mobile) {
     margin-bottom: 8px;
   }
+
   @media screen and (min-width: $tablet) {
     font-weight: 500;
     font-size: 38px;
     line-height: 1.1;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 44px;
   }
@@ -239,10 +260,12 @@
   font-size: 16px;
   line-height: 1.6;
   color: $gray0;
+
   @media screen and (min-width: $laptop) {
     font-size: 20px;
   }
 }
+
 .imgScreensContainer {
   position: relative;
   box-shadow: $shadowColor;
@@ -250,6 +273,7 @@
   width: 100%;
   height: 55vw;
   margin-bottom: 20px;
+
   & img {
     object-fit: inherit;
     border-radius: 8px;
@@ -258,6 +282,7 @@
   @media screen and (min-width: 560px) {
     height: 50vw;
   }
+
   @media screen and (min-width: $tablet) {
     border-radius: 30px;
     height: 45vw;
@@ -266,6 +291,7 @@
     background-origin: border-box;
     background-clip: padding-box, border-box;
     margin-bottom: 32px;
+
     & img {
       border-radius: 30px;
     }
@@ -273,10 +299,12 @@
 
   @media screen and (min-width: $laptop) {
     border-radius: 56px;
+
     & img {
       border-radius: 56px;
     }
   }
+
   @media screen and (min-width: $desktop) {
     height: 85vh;
     margin-bottom: 48px;
@@ -287,12 +315,15 @@
   position: relative;
   z-index: 1;
   margin-bottom: 12px;
+
   @media screen and (min-width: $mobile) {
     margin-bottom: 8px;
   }
+
   @media screen and (min-width: $tablet) {
     margin-bottom: 20px;
   }
+
   @media screen and (min-width: $laptop) {
     margin-right: auto;
     width: 468px;
@@ -311,14 +342,17 @@
   line-height: 1.4;
   color: $gray0;
   margin-bottom: 12px;
+
   @media screen and (min-width: $mobile) {
     margin-bottom: 8px;
   }
+
   @media screen and (min-width: $tablet) {
     font-weight: 500;
     font-size: 38px;
     line-height: 1.1;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 44px;
   }
@@ -330,6 +364,7 @@
   line-height: 1.6;
   color: $gray0;
   align-items: start;
+
   @media screen and (min-width: $laptop) {
     font-size: 20px;
   }
@@ -349,23 +384,28 @@
 .mobileItem {
   &:last-child {
     margin-left: 16px;
+
     @media screen and (min-width: $laptop) {
       margin-left: 24px;
     }
   }
+
   &:first-child {
     @media screen and (min-width: $laptop) {
       margin-right: 24px;
     }
   }
+
   &:nth-last-child(2) {
     position: absolute;
     bottom: -40px;
     left: 27%;
     z-index: 5;
+
     @media screen and (min-width: $tablet) {
       bottom: -98px;
     }
+
     @media screen and (min-width: $laptop) {
       position: static;
     }
@@ -380,6 +420,7 @@
   box-shadow: $shadowColor;
   background-color: #000000;
   border: 4px solid #0d0d11;
+
   & img {
     object-fit: inherit;
     border-radius: 8px;
@@ -389,15 +430,18 @@
     width: 148px;
     height: 248px;
   }
+
   @media screen and (min-width: $tablet) {
     border: 8px solid #0d0d11;
     border-radius: 56px;
     width: 340px;
     height: 640px;
+
     & img {
       border-radius: 44px;
     }
   }
+
   @media screen and (min-width: $laptop) {
     border: 12px solid #0d0d11;
     width: 304px;

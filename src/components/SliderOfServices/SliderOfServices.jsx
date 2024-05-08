@@ -124,13 +124,11 @@ export const SliderOfServices = ({ slug }) => {
                 <h3 className={styles.cartTitle}>
                   {i18n.language === currentLanguages.EN ? (
                     <>
-                      {titleGradientEn}
-                      {titleEn}
+                      {titleGradientEn}&nbsp;{titleEn}
                     </>
                   ) : (
                     <>
-                      {titleGradient}
-                      {title}
+                      {titleGradient}&nbsp;{title}
                     </>
                   )}
                 </h3>
