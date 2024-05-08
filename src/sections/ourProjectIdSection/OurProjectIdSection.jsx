@@ -87,7 +87,7 @@ const OurProjectIdSection = ({ params }) => {
                   aria-label={dataId?.titleGradientEn}
                   className={stylescBtn.btn + ' ' + styles.openSite}
                 >
-                  Open site
+                  {t('Buttons.ProjectOpenSiteBtn')}
                 </a>
               </div>
             )}

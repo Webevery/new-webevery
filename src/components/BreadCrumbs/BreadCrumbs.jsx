@@ -2,11 +2,12 @@ import styles from './BreadCrumbs.module.scss';
 
 const BreadCrumbs = ({
   onClick,
-  // title,
+  title,
   classNameContainer,
   classNameIcon,
   id,
 }) => {
+
   return (
     <div
       className={`${styles.backContainer} ${classNameContainer}`}
@@ -16,8 +17,7 @@ const BreadCrumbs = ({
       <svg className={`${styles.backIcon} ${classNameIcon}`}>
         <use href="../sprite.svg#icon-back-arrow" />
       </svg>
-      <p>Назад</p>
-      {/* <p>{title}</p> */}
+      <p>{title}</p>
     </div>
   );
 };

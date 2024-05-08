@@ -55,7 +55,7 @@ const ServiceIdSection = ({ params }) => {
             changedData.directionsEn = directionsEnArray;
         }
     }
-
+    console.log("changedData", changedData)
     return (
         <>
             {isLoading && <Loading className={styles.loading} />}
@@ -65,7 +65,7 @@ const ServiceIdSection = ({ params }) => {
                     <div className={`container ${styles.servicesIdContainer}`}>
                         <BreadCrumbs
                             onClick={() => router.push("/services")}
-                            //   title={t("OurProjectsPage.NavLinkText")}
+                            title={t("OurProjectsPage.NavLinkText")}
                             classNameContainer={styles.backContainer}
                             classNameIcon={styles.backIcon}
                         />

@@ -60,6 +60,7 @@ const ServicesSection = () => {
                                 directions,
                                 directionsEn,
                                 price,
+                                priceEn
                             }) => {
                                 const dir =
                                     i18n.language === currentLanguages.EN
@@ -76,13 +77,13 @@ const ServicesSection = () => {
                                             <h3 className={styles.cartTitle}>
                                                 {/* <span> */}
                                                 {i18n.language ===
-                                                currentLanguages.EN
+                                                    currentLanguages.EN
                                                     ? titleGradientEn
                                                     : titleGradient}
                                                 {/* </span>
-                      &nbsp; */}
+                      &nbsp; */}&nbsp;
                                                 {i18n.language ===
-                                                currentLanguages.EN
+                                                    currentLanguages.EN
                                                     ? titleEn
                                                     : title}
                                             </h3>
@@ -103,7 +104,9 @@ const ServicesSection = () => {
                                         </div>
                                         <div>
                                             <p className={styles.cartPrice}>
-                                                {price}
+                                                {i18n.language === currentLanguages.EN
+                                                    ? priceEn
+                                                    : price}
                                             </p>
                                             <OrderBtn
                                                 id={styles.serviceOrderBtn}
