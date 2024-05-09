@@ -63,14 +63,13 @@ const OurProjectsSection = () => {
                   </Link>
                   <div className={styles.ourProjectsContent}>
                     <h3 className={styles.ourProjectsTitle}>
-                      <span className={styles.ourProjectsTitleGradient}>
+                      {i18n.language === currentLanguages.EN ? titleEn : title}
+                      <span className={!isSmallScreen ? 'titleGradient' : ''}>
+                        {' '}
                         {i18n.language === currentLanguages.EN
-                          ? titleEn
-                          : title}
-                      </span>{' '}
-                      {i18n.language === currentLanguages.EN
-                        ? titleGradientEn
-                        : titleGradient}
+                          ? titleGradientEn
+                          : titleGradient}
+                      </span>
                     </h3>
                     <p className={styles.ourProjectsDesc}>
                       {i18n.language === currentLanguages.EN
