@@ -1,8 +1,8 @@
-
 @import "../../app/variables";
 
 .team {
   display: block;
+
   @media screen and (min-width: $laptop) {
     display: block;
   }
@@ -10,12 +10,15 @@
 
 .teamContainer {
   padding: 110px 20px 80px 20px;
+
   @media screen and (min-width: $tablet) {
     padding: 112px 20px 80px 20px;
   }
+
   @media screen and (min-width: $laptop) {
     padding: 112px 32px 80px 32px;
   }
+
   @media screen and (min-width: $desktop) {
     padding: 112px 72px 80px 72px;
   }
@@ -27,6 +30,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -48,6 +52,7 @@
   row-gap: 16px;
   margin-bottom: 48px;
   animation: fadeIn 0.8s ease-in-out forwards;
+
   @media screen and (min-width: $desktop) {
     margin-bottom: 72px;
   }
@@ -75,24 +80,26 @@
 .titleTeam {
   font-weight: 300;
   font-size: 48px;
+
   & span {
-    background: linear-gradient(
-      91deg,
-      $gradientYellow 0%,
-      $gradientCyan 50%,
-      $gradientBlue 100%
-    );
+    background: linear-gradient(91deg,
+        $gradientYellow 0%,
+        $gradientCyan 50%,
+        $gradientBlue 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
   @media screen and (min-width: $mobile) {
     font-weight: 400;
     font-size: 58px;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 64px;
   }
+
   @media screen and (min-width: $desktop) {
     font-size: 72px;
   }
@@ -104,14 +111,17 @@
   text-align: center;
   line-height: 1.1;
   color: #ffffff;
+
   @media screen and (min-width: $mobile) {
     font-size: 32px;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 38px;
   }
+
   @media screen and (min-width: $desktop) {
-    font-size: 36px;
+    font-size: 44px;
   }
 }
 
@@ -122,6 +132,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -142,9 +153,11 @@
   column-gap: 24px;
   row-gap: 24px;
   animation: fadeUp 0.8s ease-in-out forwards;
+
   @media screen and (min-width: $tablet) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media screen and (min-width: $laptop) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -168,8 +181,8 @@
   width: 100%;
   height: 450px;
   margin-bottom: 16px;
-  @media screen and (min-width: $laptop) {
-  }
+
+  @media screen and (min-width: $laptop) {}
 }
 
 .cartImg {

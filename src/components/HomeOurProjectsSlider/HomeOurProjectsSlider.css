@@ -105,7 +105,7 @@
 
 .HomeOurProjectsSwiper .swiper-slide .gradient {
   @media screen and (min-width: 768px) {
-    background-image: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
+    background-image: linear-gradient(to right, #faff00, #00f0ff, #0600ff);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -127,7 +127,7 @@
 }
 
 .HomeOurProjectsSwiper .swiper-pagination-bullet-active {
-  background: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
+  background: linear-gradient(to right, #faff00, #00f0ff, #0600ff);
 }
 
 .HomeOurProjectsSwiper .swiper-button-prev,

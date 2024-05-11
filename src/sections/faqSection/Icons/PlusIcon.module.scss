@@ -6,10 +6,10 @@
   stroke: url(#gradient_1);
   transition-duration: 500ms;
 
-  @media screen and (min-width: $tablet) {
-    width: 16px;
-    height: 16px;
-  }
+  // @media screen and (min-width: $tablet) {
+  //   width: 16px;
+  //   height: 16px;
+  // }
 }
 
 .svgOpen {
@@ -19,32 +19,26 @@
   transform: rotate(-45deg);
   transition-duration: 500ms;
 
-  @media screen and (min-width: $tablet) {
-    width: 16px;
-    height: 16px;
-  }
+  // @media screen and (min-width: $tablet) {
+  //   width: 16px;
+  //   height: 16px;
+  // }
 }
 
 .use {
-  fill: conic-gradient(
-    $gradientCyan,
-    $gradientBlue,
-    $gradientCyan,
-    $gradientYellow,
-    $gradientCyan
-  );
-  stroke: conic-gradient(
-    $gradientCyan,
-    $gradientBlue,
-    $gradientCyan,
-    $gradientYellow,
-    $gradientCyan
-  );
-  color: conic-gradient(
-    $gradientCyan,
-    $gradientBlue,
-    $gradientCyan,
-    $gradientYellow,
-    $gradientCyan
-  );
+  fill: conic-gradient($gradientCyan,
+      $gradientBlue,
+      $gradientCyan,
+      $gradientYellow,
+      $gradientCyan );
+  stroke: conic-gradient($gradientCyan,
+      $gradientBlue,
+      $gradientCyan,
+      $gradientYellow,
+      $gradientCyan );
+  color: conic-gradient($gradientCyan,
+      $gradientBlue,
+      $gradientCyan,
+      $gradientYellow,
+      $gradientCyan );
 }

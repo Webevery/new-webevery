@@ -2,6 +2,7 @@
 
 .section {
   padding: 40px 0 35px;
+
   @media screen and (min-width: $tablet) {
     padding: 40px 0 52px;
   }
@@ -13,11 +14,13 @@
   @media screen and (min-width: $mobile) {
     width: 360px;
   }
+
   @media screen and (min-width: $tablet) {
     width: 704px;
     margin-left: 60px;
     margin-right: auto;
   }
+
   @media screen and (min-width: $laptop) {
     width: 860px;
   }
@@ -31,9 +34,11 @@
   margin-right: auto;
   width: 100%;
   width: 320px;
+
   @media screen and (min-width: $mobile) {
     padding-left: 8px;
   }
+
   @media screen and (min-width: $tablet) {
     margin-left: 0;
     margin-right: 0;
@@ -45,14 +50,17 @@
   font-family: var(--font-exo);
   font-size: 36px;
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.3;
   width: max-content;
+
   @media screen and (min-width: $mobile) {
     font-size: 38px;
   }
+
   @media screen and (min-width: $tablet) {
     font-size: 48px;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 64px;
   }

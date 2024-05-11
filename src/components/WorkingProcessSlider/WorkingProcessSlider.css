@@ -68,7 +68,6 @@
 }
 
 .WorkingProcessSwiper .swiper-slide .slideTitle {
-  display: inline-block;
   font-family: var(--font-noto-sans);
   font-weight: 500;
   font-size: 16px;
@@ -106,5 +105,5 @@
 }
 
 .WorkingProcessSwiper .swiper-pagination-bullet-active {
-  background: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
+  background: linear-gradient(to right, #faff00, #00f0ff, #0600ff);
 }

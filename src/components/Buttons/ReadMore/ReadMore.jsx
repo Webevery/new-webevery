@@ -33,7 +33,7 @@ const ReadMore = ({ href, slug, className, classNameIcon }) => {
           >
             <stop stopColor="#FAFF00" />
             <stop offset="0.466629" stopColor="#00F0FF" />
-            <stop offset="1" stopColor="#0400B3" />
+            <stop offset="1" stopColor="#0600ff" />
           </linearGradient>
         </defs>
       </svg>
