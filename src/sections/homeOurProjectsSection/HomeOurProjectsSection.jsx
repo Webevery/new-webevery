@@ -14,7 +14,7 @@ const HomeOurProjectsSection = () => {
 
   return <section className={styles.container}>
     <div className="container">
-      {!isLoading && <h2 className={styles.title}>{t("MainPage.OurProjectsTitle")}<span className="titleGradient"> {t("MainPage.OurProjectsSubTitle")}</span>
+      {!isLoading && <h2 className={styles.title}>{t("MainPage.OurProjectsTitle")} <span className="titleGradient">{t("MainPage.OurProjectsSubTitle")}</span>
       </h2>}
       <div className={styles.contentWrapper}>
         <HomeOurProjectsSlider data={data} />

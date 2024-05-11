@@ -2,6 +2,7 @@
 
 .servicesId {
   display: block;
+
   @media screen and (min-width: $laptop) {
     display: block;
   }
@@ -9,12 +10,15 @@
 
 .servicesIdContainer {
   padding: 110px 20px 80px 20px;
+
   @media screen and (min-width: $tablet) {
     padding: 112px 20px 80px 20px;
   }
+
   @media screen and (min-width: $laptop) {
     padding: 112px 32px 80px 32px;
   }
+
   @media screen and (min-width: $desktop) {
     padding: 112px 72px 80px 72px;
   }
@@ -49,28 +53,32 @@
 .servicesIdTitle {
   text-align: center;
   font-weight: 400;
-  font-size: 40px;
+  // font-size: 40px;
+  font-size: 32px;
+  margin-bottom: 27px;
+
   & span {
-    background: linear-gradient(
-      91deg,
-      $gradientYellow,
-      $gradientCyan,
-      $gradientBlue
-    );
+    background: linear-gradient(91deg,
+        $gradientYellow,
+        $gradientCyan,
+        $gradientBlue );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
   @media screen and (min-width: $mobile) {
     font-size: 40px;
     line-height: 44px;
     margin-bottom: 20px;
   }
+
   @media screen and (min-width: $tablet) {
     font-size: 48px;
     line-height: 52.8px;
     margin-bottom: 24px;
   }
+
   @media screen and (min-width: $desktop) {
     font-size: 64px;
     line-height: 70.4px;
@@ -81,12 +89,14 @@
 .servicesIdImgContainer {
   position: relative;
   display: none;
+
   @media screen and (min-width: $tablet) {
     display: block;
     min-width: 100%;
     aspect-ratio: 4/3;
     margin-bottom: 24px;
   }
+
   @media screen and (min-width: $laptop) {
     min-width: 58%;
   }
@@ -137,12 +147,10 @@
   margin-bottom: 32px;
 
   & span {
-    background: linear-gradient(
-      91deg,
-      $gradientYellow,
-      $gradientCyan,
-      $gradientBlue
-    );
+    background: linear-gradient(91deg,
+        $gradientYellow,
+        $gradientCyan,
+        $gradientBlue );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

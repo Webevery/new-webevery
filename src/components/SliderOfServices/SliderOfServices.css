@@ -47,6 +47,7 @@
 
 .ServicesSwiper .swiper-pagination {
   top: 97%;
+
   @media screen and (min-width: 1024px) {
     display: none;
   }
@@ -60,11 +61,11 @@
 
 .ServicesSwiper .swiper-pagination-bullet:hover {
   opacity: 1;
-  background: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
+  background: linear-gradient(to right, #faff00, #00f0ff, #0600ff);
 }
 
 .ServicesSwiper .swiper-pagination-bullet-active {
-  background: linear-gradient(to right, #faff00, #00f0ff, #0400b3);
+  background: linear-gradient(to right, #faff00, #00f0ff, #0600ff);
 }
 
 .ServicesSwiper .swiper-button-prev,

@@ -12,15 +12,19 @@
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 100px 20px 40px 20px;
+
   @media screen and (min-width: $mobile) {
     padding: 100px 20px 80px 20px;
   }
+
   @media screen and (min-width: $tablet) {
     padding: 140px 20px 80px 20px;
   }
+
   @media screen and (min-width: $laptop) {
     padding: 112px 32px 80px 32px;
   }
+
   @media screen and (min-width: $desktop) {
     padding: 112px 72px 80px 72px;
   }
@@ -30,6 +34,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -49,18 +54,22 @@
   -webkit-text-fill-color: transparent;
   margin-bottom: 53px;
   animation: fadeIn 0.8s ease-in-out forwards;
+
   @media screen and (min-width: $mobile) {
     font-size: 48px;
     margin-bottom: 20px;
   }
+
   @media screen and (min-width: $tablet) {
     font-size: 58px;
     margin-bottom: 20px;
   }
+
   @media screen and (min-width: $laptop) {
     font-size: 64px;
     margin-bottom: 20px;
   }
+
   @media screen and (min-width: $desktop) {
     font-size: 72px;
     margin-bottom: 24px;
@@ -72,6 +81,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -89,9 +99,11 @@
   flex-direction: column;
   row-gap: 24px;
   animation: fadeUp 0.8s ease-in-out forwards;
+
   @media screen and (min-width: $tablet) {
     row-gap: 70px;
   }
+
   @media screen and (min-width: $laptop) {
     row-gap: 124px;
   }
@@ -146,6 +158,7 @@
     border-radius: 56px;
     margin-bottom: 0px;
   }
+
   @media screen and (min-width: 1280px) {
     min-width: 732px;
   }
@@ -208,6 +221,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 1.4;
+  margin-bottom: 12px;
 
   @media screen and (min-width: $mobile) {
     margin-bottom: 8px;
