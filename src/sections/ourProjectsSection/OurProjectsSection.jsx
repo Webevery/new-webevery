@@ -18,7 +18,7 @@ const OurProjectsSection = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 768);
+      setIsSmallScreen(window.innerWidth < 768);
     };
     handleResize();
     window.addEventListener('resize', handleResize);

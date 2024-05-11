@@ -64,9 +64,7 @@
 .active {
   min-width: 12px;
   height: 12px;
-  background: linear-gradient(to right, #faff00, #00f0ff, #0600ff);
-
-  // background-color: #7d7d7d;
+  background: $gradient;
   @media screen and (min-width: $tablet) {
     min-width: 14px;
     height: 14px;
@@ -111,7 +109,7 @@
     position: absolute;
     top: 3px;
     left: 0;
-    border: solid #ffffff;
+    border: solid $gray0;
     border-width: 1px 0 0 1px;
     display: block;
     padding: 3px;
@@ -119,13 +117,6 @@
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
-
-  // @media screen and (min-width: $tablet) {
-  //   margin-right: 32px;
-  // }
-  // @media screen and (min-width: $desktop) {
-  //   margin-right: 40px;
-  // }
 }
 
 .arrowRight {
@@ -136,7 +127,7 @@
     position: absolute;
     top: 3px;
     right: 0;
-    border: solid #ffffff;
+    border: solid $gray0;
     border-width: 1px 0 0 1px;
     display: block;
     padding: 3px;
@@ -144,11 +135,4 @@
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
   }
-
-  // @media screen and (min-width: $tablet) {
-  //   margin-right: 12px;
-  // }
-  // @media screen and (min-width: $desktop) {
-  //   margin-right: 20px;
-  // }
 }
