@@ -28,9 +28,9 @@ const BlogSection = () => {
 
   const { data, error, isLoading } = GetDataFromSection('blog');
 
-  console.log(data);
-
   const containerRef = useRef();
+
+  /// fiter ///
 
   const { blogFilterShown, blogSorterShown, searchTerm, searchBlog } =
     useContext(SiteContext);
@@ -51,6 +51,8 @@ const BlogSection = () => {
     })
     .slice();
 
+  /// sort ///
+
   if (sorterArr === 'AZ') {
     filterBlogArr.sort((a, b) => a.titleEn.localeCompare(b.titleEn));
   }
@@ -70,6 +72,8 @@ const BlogSection = () => {
       return Date.parse(a.updatedAt) - Date.parse(b.updatedAt);
     });
   }
+
+  ///
 
   const handleScroll = () => {
     const container = containerRef.current;
@@ -99,17 +103,31 @@ const BlogSection = () => {
     // eslint-disable-next-line
   }, [data, loadedCount]);
 
+  /// uniqueDirections ///
+
   useEffect(() => {
     if (data) {
-      const newDirections = data.map((item) => ({
-        directionEn: item.directionEn || '',
-        direction: item.direction || '',
-        id: v4(),
-      }));
+      const uniqueDirections = [...new Set(data.map((item) => item.direction))];
 
+      const newDirections = uniqueDirections.map((direction) => {
+        const correspondingObject = data.find(
+          (item) => item.direction === direction
+        );
+        const directionEn = correspondingObject
+          ? correspondingObject.directionEn
+          : '';
+
+        return {
+          directionEn: directionEn,
+          direction: direction,
+          id: v4(),
+        };
+      });
       setDirectionArr(newDirections);
     }
   }, [data]);
+
+  /// pagination ///
 
   const { firstIndex, lastIndex, recordsPerPage } =
     useContext(PaginationContext);
@@ -119,6 +137,19 @@ const BlogSection = () => {
     ? Math.ceil(filterBlogArr?.length / recordsPerPage)
     : 0;
   const numbers = [...Array(npage + 1).keys()].slice(1);
+
+  /// Sortfrom new to old ///
+
+  const sortBlogsByDateDescending = (blogs) => {
+    if (!blogs) return [];
+    return blogs.slice().sort((a, b) => {
+      return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
+    });
+  };
+
+  const sortedBlogs = sortBlogsByDateDescending(records);
+
+  /// animation shown filter/sort ///
 
   const cartContainerFilter =
     blogFilterShown || blogSorterShown
@@ -164,7 +195,7 @@ const BlogSection = () => {
             />
           )}
 
-          {records
+          {sortedBlogs
             ?.slice(0, loadedCount)
             .map(
               ({
@@ -194,7 +225,7 @@ const BlogSection = () => {
             </li>
           )}
         </ul>
-        {records?.length > 0 && (
+        {filterBlogArr && filterBlogArr.length > recordsPerPage && (
           <PaginationPage numbers={numbers} npage={npage} />
         )}
 

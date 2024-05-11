@@ -231,11 +231,6 @@
     font-size: 38px;
     line-height: 1.1;
     margin-bottom: 16px;
-    background: $gradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
   }
 
   @media screen and (min-width: $laptop) {
@@ -247,15 +242,6 @@
   @media screen and (min-width: $desktop) {
     font-size: 44px;
     line-height: 1.1;
-  }
-}
-
-.ourProjectsTitleGradient {
-  @media screen and (min-width: $tablet) {
-    background: linear-gradient($gray0, $gray0);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 }
 

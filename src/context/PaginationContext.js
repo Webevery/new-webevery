@@ -7,7 +7,7 @@ export const PaginationContext = createContext();
 export const PaginationProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const recordsPerPage = 3;
+  const recordsPerPage = 6;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
 
