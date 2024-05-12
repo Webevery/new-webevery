@@ -67,17 +67,6 @@ const OurProjectIdSection = ({ params }) => {
                   : data?.titleGradient}
               </span>
             </h1>
-            {/* <h1 className={styles.ourProjectsTitle}>
-              <span className={styles.ourProjectsTitleGradient}>
-                {i18n.language === currentLanguages.EN
-                  ? data?.titleEn
-                  : data?.title}
-              </span>{' '}
-              {i18n.language === currentLanguages.EN
-                ? data?.titleGradientEn
-                : data?.titleGradient}
-            </h1> */}
-
             {!isSmallScreen && (
               <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>
                 <a
