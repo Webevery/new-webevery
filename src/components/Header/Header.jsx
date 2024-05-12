@@ -131,6 +131,7 @@ const Header = () => {
                   fill
                   alt="Webevery logo"
                   sizes="50vw"
+                  priority={true}
                 />
               </Link>
             </div>
