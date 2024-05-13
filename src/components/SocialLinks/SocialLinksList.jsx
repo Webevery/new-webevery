@@ -4,7 +4,7 @@ import styles from "./SocialLinks.module.scss";
 
 const SocialLinksList = ({ list, className }) => {
     return (
-        <ul className={`${className} ${styles.socialList}`}>
+        <ul className={`${styles.socialList} ${className} `}>
             {list.map(({ name, path, svg }) => {
                 return (
                     <SocialLinkItem

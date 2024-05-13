@@ -13,11 +13,11 @@
 }
 
 .itemSocialLink {
-    width: 8px;
-    height: 8px;
+    // width: 8px;
+    // height: 8px;
 
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 
     border-radius: 50%;
     display: flex;
@@ -37,25 +37,27 @@
     }
 
     @media screen and (min-width: $laptop) {
-        width: 36px;
-        height: 36px;
-        width: 40px;
-        height: 40px;
+        // width: 36px;
+        // height: 36px;
+        // width: 40px;
+        // height: 40px;
+        width: 32px;
+        height: 32px;
     }
 }
 
 .iconSocialLink {
     display: block;
-    width: 24px;
-    height: 24px;
+    // width: 24px;
+    // height: 24px;
     width: 20px;
     height: 20px;
 
     fill: #fff;
 
     @media screen and (min-width: $laptop) {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
     }
 }
 

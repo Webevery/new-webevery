@@ -137,7 +137,6 @@ const BlogIdSection = ({ params }) => {
             </div>
             {isSmallScreen && <BlogIdSlider slug={data?.slug} />}
           </div>
-          )
         </section>
       )}
     </>

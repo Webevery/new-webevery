@@ -20,7 +20,9 @@ const FooterWithForm = () => {
             <footer className={styles.footer}>
               <div className={`container ${styles.container}`}>
                 <div className={styles.contentWrap}>
-                  <SocialLinksList list={socialLinksAndMail} />
+                  <SocialLinksList
+                    list={socialLinksAndMail}
+                    className={styles.foterSocList} />
                   <CallBtn className={styles.callBtn} />
                 </div>
               </div>
@@ -33,7 +35,9 @@ const FooterWithForm = () => {
                 <div className={styles.contentLaptopWrap}>
                   <OrderForm isFooterForm={true} />
                   <div>
-                    <SocialLinksList list={socialLinksAndMail} />
+                    <SocialLinksList
+                      list={socialLinksAndMail}
+                      className={styles.foterSocList} />
                     <CallBtn className={styles.callBtn} />
                   </div>
                 </div>
