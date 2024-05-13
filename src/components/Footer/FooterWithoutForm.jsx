@@ -18,7 +18,10 @@ const FooterWithoutForm = () => {
       <div className={`container ${styles.container}`}>
         {isMobile || isTablet ? (
           <div className={styles.contentWrap}>
-            <SocialLinksList list={socialLinksAndMail} />
+            <SocialLinksList
+              list={socialLinksAndMail}
+              className={styles.foterSocList}
+            />
             <CallBtn className={styles.callBtn} />
           </div>
         ) : (
