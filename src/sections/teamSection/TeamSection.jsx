@@ -20,14 +20,14 @@ const TeamSection = () => {
 
   return (
     <section className={styles.team}>
-      <div className={`container ${styles.teamContainer}`}>
+      <div className="container">
         <div className={styles.titleTeamContainer}>
           {!isLoading && <><h1 className={styles.titleTeam}>
             <span>{t('TeamPage.Title')}</span>
           </h1>
-          <h2 className={styles.descTeam}>
-          {t('TeamPage.SubTitle')}
-          </h2></>}
+            <h2 className={styles.descTeam}>
+              {t('TeamPage.SubTitle')}
+            </h2></>}
         </div>
         <ul className={styles.cartContainer}>
           {newData?.map((item) => (
@@ -43,15 +43,15 @@ const TeamSection = () => {
               </div>
 
               <h3 className={styles.cartName}>
-                      {i18n.language === currentLanguages.EN
-                        ? item.nameEn
-                        : item.name}
-                    </h3>
-                    <p className={styles.cartJobTitle}>
-                      {i18n.language === currentLanguages.EN
-                        ? item.positionEn
-                        : item.position}
-                    </p>
+                {i18n.language === currentLanguages.EN
+                  ? item.nameEn
+                  : item.name}
+              </h3>
+              <p className={styles.cartJobTitle}>
+                {i18n.language === currentLanguages.EN
+                  ? item.positionEn
+                  : item.position}
+              </p>
             </li>
           ))}
         </ul>

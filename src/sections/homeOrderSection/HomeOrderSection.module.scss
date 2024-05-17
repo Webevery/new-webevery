@@ -1,10 +1,19 @@
 @import "../../app/variables";
 
 .section {
-  padding: 40px 0 35px;
+  padding: 40px 0px;
 
   @media screen and (min-width: $tablet) {
-    padding: 40px 0 52px;
+    padding: 40px 32px;
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: $laptop) {
+    padding: 80px 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 80px 72px;
   }
 }
 
@@ -17,8 +26,8 @@
 
   @media screen and (min-width: $tablet) {
     width: 704px;
-    margin-left: 60px;
-    margin-right: auto;
+    // margin-left: 60px;
+    // margin-right: auto;
   }
 
   @media screen and (min-width: $laptop) {
@@ -29,20 +38,21 @@
 .titleWrap {
   width: 260px;
   margin-bottom: 30px;
-  padding-left: 20px;
+  padding: 0px 20px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   width: 320px;
 
   @media screen and (min-width: $mobile) {
-    padding-left: 8px;
+    padding: 0px 24px;
+    // padding-left: 8px;
   }
 
   @media screen and (min-width: $tablet) {
     margin-left: 0;
     margin-right: 0;
-    padding-left: 0;
+    padding: 0;
   }
 }
 

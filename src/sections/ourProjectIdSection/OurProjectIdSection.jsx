@@ -49,7 +49,7 @@ const OurProjectIdSection = ({ params }) => {
         />
       )}
       {!isLoading && isPathExist && (
-        <section>
+        <section className={styles.project}>
           <div className={`container ${styles.ourProjectContainer}`}>
             <BreadCrumbs
               onClick={() => router.push('/ourProjects')}

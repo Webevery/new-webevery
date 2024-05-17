@@ -156,15 +156,15 @@ const BlogSection = () => {
       ? !isLoading && filterBlogArr?.length <= 0
         ? `${styles.cartContainer} ${styles.cartContainerNotFound}`
         : blogFilterShown && directionArr.length <= 6
-        ? `${styles.cartContainer} ${styles.cartContainerOpen}`
-        : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
+          ? `${styles.cartContainer} ${styles.cartContainerOpen}`
+          : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
       : !isLoading && filterBlogArr?.length <= 0
-      ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
-      : `${styles.cartContainer} `;
+        ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
+        : `${styles.cartContainer} `;
 
   return (
-    <section className={styles.blog}>
-      <div className={`container ${styles.blogContainer}`}>
+    <section className={styles.blogs}>
+      <div className="container">
         <div className={styles.titleBlogContainer}>
           <h1 className={styles.titleBlog}>
             <span>Webevery</span> {!isLoading && t('BlogPage.GenSubTitle')}

@@ -33,112 +33,112 @@ const ServicesSection = () => {
     }
 
     return (
-        <section>
-            <section className={styles.services}>
-                <div className={`container ${styles.servicesContainer}`}>
-                    {!isLoading && (
-                        <div className={styles.titleServicesContainer}>
-                            <h1 className={styles.titleServices}>
-                                <span>{t("ServicesPage.Title")}</span>
-                            </h1>
-                            <h2 className={styles.descServices}>
-                                {t("ServicesPage.SubTitle1")}{" "}
-                                <span>{t("ServicesPage.SubTitle2")}</span>{" "}
-                                {t("ServicesPage.SubTitle3")}
-                            </h2>
-                        </div>
-                    )}
+        <section className={styles.services}>
+            {/* <div className={`container ${styles.servicesContainer}`}> */}
+            <div className="container">
+                {!isLoading && (
+                    <div className={styles.titleServicesContainer}>
+                        <h1 className={styles.titleServices}>
+                            <span>{t("ServicesPage.Title")}</span>
+                        </h1>
+                        <h2 className={styles.descServices}>
+                            {t("ServicesPage.SubTitle1")}{" "}
+                            <span>{t("ServicesPage.SubTitle2")}</span>{" "}
+                            {t("ServicesPage.SubTitle3")}
+                        </h2>
+                    </div>
+                )}
 
-                    <ul className={styles.cartContainer}>
-                        {changedData?.map(
-                            ({
-                                slug,
-                                title,
-                                titleEn,
-                                titleGradient,
-                                titleGradientEn,
-                                directions,
-                                directionsEn,
-                                price,
-                                priceEn
-                            }) => {
-                                const dir =
-                                    i18n.language === currentLanguages.EN
-                                        ? directionsEn
-                                        : directions;
-                                return (
-                                    <li key={slug} className={styles.cartItem}>
-                                        <div>
-                                            <ReadMore
-                                                className={styles.readMore}
-                                                href='services'
-                                                slug={slug}
-                                            />
-                                            <h3 className={styles.cartTitle}>
-                                                {/* <span> */}
-                                                {i18n.language ===
-                                                    currentLanguages.EN
-                                                    ? titleGradientEn
-                                                    : titleGradient}
-                                                {/* </span>
+                <ul className={styles.cartContainer}>
+                    {changedData?.map(
+                        ({
+                            slug,
+                            title,
+                            titleEn,
+                            titleGradient,
+                            titleGradientEn,
+                            directions,
+                            directionsEn,
+                            price,
+                            priceEn
+                        }) => {
+                            const dir =
+                                i18n.language === currentLanguages.EN
+                                    ? directionsEn
+                                    : directions;
+                            return (
+                                <li key={slug} className={styles.cartItem}>
+                                    <div>
+                                        <ReadMore
+                                            className={styles.readMore}
+                                            href='services'
+                                            slug={slug}
+                                        />
+                                        <h3 className={styles.cartTitle}>
+                                            {/* <span> */}
+                                            {i18n.language ===
+                                                currentLanguages.EN
+                                                ? titleGradientEn
+                                                : titleGradient}
+                                            {/* </span>
                       &nbsp; */}&nbsp;
-                                                {i18n.language ===
+                                            {i18n.language ===
+                                                currentLanguages.EN
+                                                ? titleEn
+                                                : title}
+                                        </h3>
+                                        <ul>
+                                            {dir.map((item, index) => {
+                                                return (
+                                                    <li
+                                                        key={index}
+                                                        className={
+                                                            styles.descItem
+                                                        }
+                                                    >
+                                                        {item}
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p className={styles.cartPrice}>
+                                            {i18n.language === currentLanguages.EN
+                                                ? priceEn
+                                                : price}
+                                        </p>
+                                        <OrderBtn
+                                            id={styles.serviceOrderBtn}
+                                            title={t(
+                                                "Buttons.ServiceCardOrderBtn"
+                                            )}
+                                            onClick={() => {
+                                                if (
+                                                    i18n.language ===
                                                     currentLanguages.EN
-                                                    ? titleEn
-                                                    : title}
-                                            </h3>
-                                            <ul>
-                                                {dir.map((item, index) => {
-                                                    return (
-                                                        <li
-                                                            key={index}
-                                                            className={
-                                                                styles.descItem
-                                                            }
-                                                        >
-                                                            {item}
-                                                        </li>
+                                                ) {
+                                                    setComment(
+                                                        `${titleGradientEn} ${titleEn}`
                                                     );
-                                                })}
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <p className={styles.cartPrice}>
-                                                {i18n.language === currentLanguages.EN
-                                                    ? priceEn
-                                                    : price}
-                                            </p>
-                                            <OrderBtn
-                                                id={styles.serviceOrderBtn}
-                                                title={t(
-                                                    "Buttons.ServiceCardOrderBtn"
-                                                )}
-                                                onClick={() => {
-                                                    if (
-                                                        i18n.language ===
-                                                        currentLanguages.EN
-                                                    ) {
-                                                        setComment(
-                                                            `${titleGradientEn} ${titleEn}`
-                                                        );
-                                                    } else {
-                                                        setComment(
-                                                            `${titleGradient} ${title}`
-                                                        );
-                                                    }
-                                                    openModal();
-                                                }}
-                                            />
-                                        </div>
-                                    </li>
-                                );
-                            }
-                        )}
-                    </ul>
-                </div>
-            </section>
+                                                } else {
+                                                    setComment(
+                                                        `${titleGradient} ${title}`
+                                                    );
+                                                }
+                                                openModal();
+                                            }}
+                                        />
+                                    </div>
+                                </li>
+                            );
+                        }
+                    )}
+                </ul>
+            </div>
         </section>
     );
 };
+
 
 export default ServicesSection;
