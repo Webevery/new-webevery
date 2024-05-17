@@ -55,14 +55,14 @@ const ServiceIdSection = ({ params }) => {
             changedData.directionsEn = directionsEnArray;
         }
     }
-    console.log("changedData", changedData)
+    // console.log("changedData", changedData)
     return (
         <>
             {isLoading && <Loading className={styles.loading} />}
 
             {!isLoading && isPathExist && (
                 <section className={styles.servicesId}>
-                    <div className={`container ${styles.servicesIdContainer}`}>
+                    <div className="container">
                         <BreadCrumbs
                             onClick={() => router.push("/services")}
                             title={t("OurProjectsPage.NavLinkText")}
@@ -125,9 +125,8 @@ const ServiceIdSection = ({ params }) => {
                             </div>
                         </div>
 
-                        <div
-                            className={`container ${styles.servicesIdSliderContainer}`}
-                        >
+                        {/* <div className={`container ${styles.servicesIdSliderContainer}`} > */}
+                        <div className="container" >
                             <h3 className={styles.servicesIdSliderTitle}>
                                 {t("ServiceIdPage.SubTitle1")}{" "}
                                 <span>{t("ServiceIdPage.SubTitle2")}</span>{" "}

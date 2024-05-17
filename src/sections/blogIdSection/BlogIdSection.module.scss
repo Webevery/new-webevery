@@ -5,30 +5,17 @@
   background-color: $gray0;
   flex: 1;
   z-index: 1;
-}
-
-.blogIdContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   // padding: 92px 22px 40px 22px;
-  padding: 92px 20px 40px 20px;
+  padding: 72px 20px 40px 20px;
 
   @media screen and (min-width: $mobile) {
     // padding: 100px 20px 80px 20px;
-    padding: 100px 24px 40px 24px;
+    padding: 72px 24px 40px 24px;
   }
 
   @media screen and (min-width: $tablet) {
     // padding: 124px 20px 80px 20px;
-    padding: 124px 32px 40px 32px;
+    padding: 112px 32px 40px 32px;
   }
 
   @media screen and (min-width: $laptop) {
@@ -42,8 +29,49 @@
   }
 }
 
+.blogIdContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  // // padding: 92px 22px 40px 22px;
+  // padding: 92px 20px 40px 20px;
+
+  // @media screen and (min-width: $mobile) {
+  //   // padding: 100px 20px 80px 20px;
+  //   padding: 100px 24px 40px 24px;
+  // }
+
+  // @media screen and (min-width: $tablet) {
+  //   // padding: 124px 20px 80px 20px;
+  //   padding: 124px 32px 40px 32px;
+  // }
+
+  // @media screen and (min-width: $laptop) {
+  //   padding: 112px 32px 80px 32px;
+  //   // padding: 140px 32px 80px 32px;
+  // }
+
+  // @media screen and (min-width: $desktop) {
+  //   padding: 112px 72px 80px 72px;
+  //   // padding: 140px 72px 80px 72px;
+  // }
+}
+
 .backContainer {
+  margin-bottom: 12px;
   color: $gray900;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+  }
+
 }
 
 .backIcon {

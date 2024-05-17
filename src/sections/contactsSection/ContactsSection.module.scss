@@ -200,7 +200,7 @@
 @import "../../app/variables";
 
 .section {
-  padding: 100px 0px 40px;
+  padding: 72px 0px 40px;
   // margin-top:60px;
   // min-height: calc(100vh - 60px - 228px);
 
@@ -212,6 +212,7 @@
 
   @media screen and (min-width: $laptop) {
     // padding: 112px 32px 140px;
+    // padding: 112px 32px 80px;
     // min-height: calc(100vh - 100px - 511px);
   }
 
@@ -274,9 +275,9 @@
     font-size: 64px;
   }
 
-    @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $desktop) {
     font-size: 72px;
-   }
+  }
 }
 
 .titleSlice {

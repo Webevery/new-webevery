@@ -1,16 +1,16 @@
 @import '../../app/variables';
 
-.blogContainer {
-  padding: 100px 20px 40px 20px;
+.blogs {
+  padding: 72px 20px 40px 20px;
 
   @media screen and (min-width: $mobile) {
     // padding: 100px 20px 80px 20px;
-    padding: 100px 24px 40px 24px;
+    padding: 72px 24px 40px 24px;
   }
 
   @media screen and (min-width: $tablet) {
     // padding: 140px 20px 80px 20px;
-    padding: 140px 32px 40px 32px;
+    padding: 112px 32px 40px 32px;
   }
 
   @media screen and (min-width: $laptop) {

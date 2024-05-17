@@ -1,28 +1,17 @@
 @import '../../app/variables';
 
-.ourProjectContainer {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 20px 79px 20px;
+
+.project {
+  padding: 72px 20px 80px 20px;
 
   @media screen and (min-width: $mobile) {
     // padding: 80px 20px 80px 20px;
-    padding: 80px 24px 80px 24px;
+    padding: 72px 24px 80px 24px;
   }
 
   @media screen and (min-width: $tablet) {
     // padding: 120px 20px 80px 20px;
-    padding: 120px 32px 140px 32px;
+    padding: 112px 32px 140px 32px;
   }
 
   @media screen and (min-width: $laptop) {
@@ -36,8 +25,49 @@
   }
 }
 
+.ourProjectContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  // padding: 80px 20px 79px 20px;
+
+  // @media screen and (min-width: $mobile) {
+  //   // padding: 80px 20px 80px 20px;
+  //   padding: 80px 24px 80px 24px;
+  // }
+
+  // @media screen and (min-width: $tablet) {
+  //   // padding: 120px 20px 80px 20px;
+  //   padding: 120px 32px 140px 32px;
+  // }
+
+  // @media screen and (min-width: $laptop) {
+  //   padding: 112px 32px 80px 32px;
+  //   // padding: 140px 32px 80px 32px;
+  // }
+
+  // @media screen and (min-width: $desktop) {
+  //   padding: 112px 72px 80px 72px;
+  //   // padding: 140px 72px 80px 72px;
+  // }
+}
+
 .backContainer {
+  margin-bottom: 12px;
   color: $gray50;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+  }
 }
 
 .backIcon {

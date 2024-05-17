@@ -28,7 +28,7 @@ const OurProjectsSection = () => {
   }, []);
 
   return (
-    <section>
+    <section className={styles.projects}>
       <div className={`container ${styles.projectContainer}`}>
         {!isLoading && (
           <h1 className={styles.title}>{t('OurProjectsPage.Title')}</h1>
