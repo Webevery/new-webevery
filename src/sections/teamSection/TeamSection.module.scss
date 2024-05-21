@@ -2,43 +2,7 @@
 
 .team {
   display: block;
-  padding: 72px 20px 40px 20px;
-
-  @media screen and (min-width: $mobile) {
-    padding: 72px 24px 40px 24px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    padding: 112px 32px 40px 32px;
-  }
-
-  // @media screen and (min-width: $laptop) {
-  //   display: block;
-  // }
-  @media screen and (min-width: $laptop) {
-    padding: 112px 32px 80px 32px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    padding: 112px 72px 80px 72px;
-  }
 }
-
-// .teamContainer {
-//   padding: 110px 20px 80px 20px;
-
-//   @media screen and (min-width: $tablet) {
-//     padding: 112px 20px 80px 20px;
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     padding: 112px 32px 80px 32px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     padding: 112px 72px 80px 72px;
-//   }
-// }
 
 //Fade In анимация
 

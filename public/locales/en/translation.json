@@ -20,7 +20,6 @@
   },
   "OurProjectsPage": {
     "Title": "Our Projects",
-    "NavLinkText": "To the page with all projects",
     "TitleProblem": "Problem",
     "TitleSolutions": "Solutions",
     "TitleHelpBussines": "How does it help business",
@@ -53,10 +52,9 @@
     "NoArticles": "No articles found!!"
   },
   "BlogIdPage": {
-    "SubTitle":"You will also be interested in:",
+    "SubTitle": "You will also be interested in:",
     "NotFound": "Blog not found",
-    "NotFoundTitleBtn": "To all blogs",
-    "NavBtn": "To page with all articles"
+    "NotFoundTitleBtn": "To all blogs"
   },
   "NotFoundPage": {
     "NotFoundTitle": "Page not found",
@@ -80,7 +78,8 @@
     "OpenFilterBtn": "Filter",
     "CloseFilterBtn": "Close",
     "LogOutBtn": "LogOut",
-    "Submit": "Submit"
+    "Submit": "Submit",
+    "BackPageBtn": "Back"
   },
   "Form": {
     "Title": "Fill out the form and we call you very soon",

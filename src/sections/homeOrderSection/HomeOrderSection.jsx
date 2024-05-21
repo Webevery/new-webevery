@@ -15,38 +15,37 @@ const HomeOrderSection = () => {
     useEffect(() => setIsLoad(false), []);
 
     return (
-        // <div className='container'>
-        <section className={`container ${styles.section}`}>
-            {/* <section className={styles.section}> */}
-            <div className={styles.contentWrap}>
-                {!isLoad && (
-                    <>
-                        {isMobile ? (
-                            <div className={styles.titleWrap}>
-                                <h2 className={styles.title}>
-                                    {t("MainPage.OrderSectionTitleMob")}
-                                </h2>
-                                <h2 className={`titleGradient ${styles.title}`}>
-                                    {t("MainPage.OrderSectionSubTitle")}
-                                </h2>
-                            </div>
-                        ) : (
-                            <div className={styles.titleWrap}>
-                                <h2 className={styles.title}>
-                                    {t("MainPage.OrderSectionTitleTab")}
-                                </h2>
-                                <h2 className={`titleGradient ${styles.title}`}>
-                                    {t("MainPage.OrderSectionSubTitle")}
-                                </h2>
-                            </div>
-                        )}
+        <section className={styles.section}>
+            <div className={`container ${styles.container}`}>
+                <div className={styles.contentWrap}>
+                    {!isLoad && (
+                        <>
+                            {isMobile ? (
+                                <div className={styles.titleWrap}>
+                                    <h2 className={styles.title}>
+                                        {t("MainPage.OrderSectionTitleMob")}
+                                    </h2>
+                                    <h2 className={`titleGradient ${styles.title}`}>
+                                        {t("MainPage.OrderSectionSubTitle")}
+                                    </h2>
+                                </div>
+                            ) : (
+                                <div className={styles.titleWrap}>
+                                    <h2 className={styles.title}>
+                                        {t("MainPage.OrderSectionTitleTab")}
+                                    </h2>
+                                    <h2 className={`titleGradient ${styles.title}`}>
+                                        {t("MainPage.OrderSectionSubTitle")}
+                                    </h2>
+                                </div>
+                            )}
 
-                        <OrderForm />
-                    </>
-                )}
+                            <OrderForm />
+                        </>
+                    )}
+                </div>
             </div>
         </section>
-        // </div>
     );
 };
 

@@ -3,7 +3,16 @@
 .footer {
   // height: 130px;
   margin-top: auto;
-  padding: 20px 32px 20px;
+  // padding: 20px 32px 20px;
+  padding: 20px;
+
+  @media screen and (min-width: $mobile) {
+    padding: 20px 24px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 20px 32px 36px;
+  }
 
   @media screen and (min-width: $laptop) {
     // height: 464px;
@@ -28,6 +37,7 @@
 // }
 
 .container {
+  margin: 0 auto;
   height: 100%;
   display: flex;
   justify-content: flex-end;

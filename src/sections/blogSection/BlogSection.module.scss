@@ -1,29 +1,5 @@
 @import '../../app/variables';
 
-.blogs {
-  padding: 72px 20px 40px 20px;
-
-  @media screen and (min-width: $mobile) {
-    // padding: 100px 20px 80px 20px;
-    padding: 72px 24px 40px 24px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    // padding: 140px 20px 80px 20px;
-    padding: 112px 32px 40px 32px;
-  }
-
-  @media screen and (min-width: $laptop) {
-    padding: 112px 32px 80px 32px;
-    // padding: 180px 32px 80px 32px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    padding: 112px 72px 80px 72px;
-    // padding: 180px 72px 80px 72px;
-  }
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;

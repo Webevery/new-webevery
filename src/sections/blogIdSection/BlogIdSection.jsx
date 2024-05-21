@@ -53,7 +53,7 @@ const BlogIdSection = ({ params }) => {
           <div className={`container ${styles.blogIdContainer}`}>
             <BreadCrumbs
               onClick={() => router.push('/blog')}
-              title={t('BlogIdPage.NavBtn')}
+              title={t("Buttons.BackPageBtn")}
               classNameContainer={styles.backContainer}
               classNameIcon={styles.backIcon}
             />
