@@ -209,7 +209,7 @@ const HomeFaqSection = () => {
 
   return (
     <section className={styles.faqSection}>
-      <div className={`container ${styles.container}`}>
+      <div className="container">
         <h2 className={`titleGradient ${styles.faqSection__title}`}>FAQ</h2>
         {!isLoad && (
           <>

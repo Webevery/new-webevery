@@ -20,7 +20,8 @@
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 20px 72px 20px 72px;
+    // padding: 20px 72px 20px 72px;
+    padding: 80px 72px 20px;
   }
 }
 
@@ -178,4 +179,9 @@
   text-align: center;
   margin-top: 72px;
   // font-size: 20px;
+  font-size: 14px;
+
+  @media screen and (min-width: $laptop) {
+    font-size: 16px;
+  }
 }

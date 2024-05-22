@@ -16,7 +16,7 @@ const HomeOrderSection = () => {
 
     return (
         <section className={styles.section}>
-            <div className={`container ${styles.container}`}>
+            <div className="container">
                 <div className={styles.contentWrap}>
                     {!isLoad && (
                         <>

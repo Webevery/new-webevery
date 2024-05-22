@@ -33,7 +33,7 @@ const ServicesSection = () => {
     }
 
     return (
-        <section className={styles.services}>
+        <section>
             <div className="container">
                 {!isLoading && (
                     <div className={styles.titleServicesContainer}>

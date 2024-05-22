@@ -61,7 +61,7 @@ const ServiceIdSection = ({ params }) => {
             {isLoading && <Loading className={styles.loading} />}
 
             {!isLoading && isPathExist && (
-                <section className={styles.servicesId}>
+                <section>
                     <div className="container">
                         <BreadCrumbs
                             onClick={() => router.push("/services")}

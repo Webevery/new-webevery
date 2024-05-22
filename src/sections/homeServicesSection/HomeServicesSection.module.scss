@@ -1,29 +1,37 @@
 @import '../../app/variables';
 
 
-.container {
+.section {
   padding-top: 40px;
-  // display: block;
-  // height: 955px;
-  // height: 955px;
-  // height: 1356px;
-  // min-width: 360px;
-  // height: 462px;
-  // background-color: $backgroundColor;
-
-  // @media screen and (min-width: $tablet) {
-  //   // height: 923px;
-  // }
 
   @media screen and (min-width: $laptop) {
-    // height: 1066px;
     padding-top: 80px;
   }
-
-  // @media screen and (min-width: $desktop) {
-  //   // height: 1356px;
-  // }
 }
+
+// .container {
+//   // padding-top: 40px;
+//   // display: block;
+//   // height: 955px;
+//   // height: 955px;
+//   // height: 1356px;
+//   // min-width: 360px;
+//   // height: 462px;
+//   // background-color: $backgroundColor;
+
+//   // @media screen and (min-width: $tablet) {
+//   //   // height: 923px;
+//   // }
+
+//   // @media screen and (min-width: $laptop) {
+//   //   // height: 1066px;
+//   //   // padding-top: 80px;
+//   // }
+
+//   // @media screen and (min-width: $desktop) {
+//   //   // height: 1356px;
+//   // }
+// }
 
 // .con {
 //   // height:1000px;
