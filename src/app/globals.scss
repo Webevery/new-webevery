@@ -8,6 +8,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  // outline: solid 1px red;
   // -webkit-transition-duration: 250ms;
   // -o-transition-duration: 250ms;
   // transition-duration: 250ms;
@@ -32,7 +33,6 @@ footer {
 
 body,
 main,
-.screen,
 section,
 article {
   width: 100%;
@@ -46,6 +46,26 @@ article {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+section {
+  padding: 72px 20px 40px 20px;
+
+  @media screen and (min-width: $mobile) {
+    padding: 72px 24px 40px 24px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 112px 32px 40px 32px;
+  }
+
+  @media screen and (min-width: $laptop) {
+    padding: 112px 32px 80px 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 112px 72px 80px 72px;
+  }
 }
 
 // scrollbar
@@ -84,18 +104,6 @@ main {
   flex: 1;
 }
 
-.screen {
-  height: 100%;
-}
-
-article,
-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 ul,
 ol {
   list-style: none;
@@ -115,9 +123,9 @@ button {
 /* it is temporarily dimensions */
 .container {
   width: 100%;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1296px;
+  // margin-left: auto;
+  // margin-right: auto;
 }
 
 .titleGradient {

@@ -19,7 +19,7 @@ const TeamSection = () => {
   newData = shuffleArray(newData);
 
   return (
-    <section className={styles.team}>
+    <section>
       <div className="container">
         <div className={styles.titleTeamContainer}>
           {!isLoading && <><h1 className={styles.titleTeam}>

@@ -1,42 +1,43 @@
 @import '../../app/variables';
 
 
-.container {
-  padding: 40px 20px;
-  // display: block;
-  width: 100%;
-  // height: 955px;
-  // height: 955px;
-  // height: 1356px;
-  // min-width: 360px;
-  // height: 462px;
-  background-color: $backgroundColor;
-
-  @media screen and (min-width: $mobile) {
-    padding: 40px 24px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    height: 923px;
-    padding: 40px 32px;
-  }
+.section {
+  padding-top: 40px;
 
   @media screen and (min-width: $laptop) {
-    height: 1066px;
-    padding: 80px 32px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    height: 1356px;
-    padding: 80px 72px;
+    padding-top: 80px;
   }
 }
 
-.con {
-  // height:1000px;
-  margin-bottom: 10px;
-  // display: block;
-}
+// .container {
+//   // padding-top: 40px;
+//   // display: block;
+//   // height: 955px;
+//   // height: 955px;
+//   // height: 1356px;
+//   // min-width: 360px;
+//   // height: 462px;
+//   // background-color: $backgroundColor;
+
+//   // @media screen and (min-width: $tablet) {
+//   //   // height: 923px;
+//   // }
+
+//   // @media screen and (min-width: $laptop) {
+//   //   // height: 1066px;
+//   //   // padding-top: 80px;
+//   // }
+
+//   // @media screen and (min-width: $desktop) {
+//   //   // height: 1356px;
+//   // }
+// }
+
+// .con {
+//   // height:1000px;
+//   // margin-bottom: 10px;
+//   // display: block;
+// }
 
 .title {
   font-weight: 300;

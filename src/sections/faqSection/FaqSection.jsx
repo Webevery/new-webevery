@@ -149,9 +149,9 @@ const FaqSection = () => {
   };
 
   return (
-    <section className={styles.faq}>
+    <section>
       <div className={`container ${styles.faq__container}`}>
-        <h2 className={styles.faq__title}><span className="titleGradient">FAQ</span>s</h2>
+        <h2 className={`titleGradient ${styles.faq__title}`}>FAQ</h2>
         <Accordion
           selectionMode="multiple"
           showDivider={false}

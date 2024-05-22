@@ -8,26 +8,26 @@ import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices
 
 const HomeServicesSection = () => {
 
-  const {t}=useTranslation();
+  const { t } = useTranslation();
 
-  const [isLoad,setIsLoad]=useState(true);
+  const [isLoad, setIsLoad] = useState(true);
 
-  useEffect(()=> setIsLoad(false),[]);
+  useEffect(() => setIsLoad(false), []);
 
-  return <section
-   className={styles.container}
-   >
-    <div className={`container ${styles.con}`}>
-      {!isLoad && <><h2 className={styles.title}>{t("MainPage.OurServicesTitle")}</h2> 
-      <p className={`titleGradient ${styles.subTitleLaptop}`}>{t("MainPage.OurServicesSubTitle")}</p></>}
+  return <section className={styles.section}>
+    {/* <div className={`container ${styles.con}`}> */}
+    {/* <div className={`container ${styles.container}`}> */}
+    <div className="container">
+      {!isLoad && <><h2 className={styles.title}>{t("MainPage.OurServicesTitle")}</h2>
+        <p className={`titleGradient ${styles.subTitleLaptop}`}>{t("MainPage.OurServicesSubTitle")}</p></>}
       <div className={styles.btnNavContainer}>
-      {!isLoad && <NavigationBtn
-      id={styles.btnNav}
-      title={t("Buttons.ServicesDetailsBtn")}
-      href="/services"/>}</div>
-      <SliderOfServices/>
+        {!isLoad && <NavigationBtn
+          id={styles.btnNav}
+          title={t("Buttons.ServicesDetailsBtn")}
+          href="/services" />}</div>
+      <SliderOfServices />
     </div>
-  </section>;
+  </section >;
 };
 
 

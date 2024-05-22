@@ -12,7 +12,7 @@ const HomeOurProjectsSection = () => {
 
   const { t } = useTranslation();
 
-  return <section className={styles.container}>
+  return <section className={styles.section} >
     <div className="container">
       {!isLoading && <h2 className={styles.title}>{t("MainPage.OurProjectsTitle")} <span className="titleGradient">{t("MainPage.OurProjectsSubTitle")}</span>
       </h2>}

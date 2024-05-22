@@ -245,24 +245,15 @@
 @import '../../app/variables';
 
 .faqSection {
-  padding: 40px 20px;
-  display: flex;
+  padding-top: 40px;
   align-items: flex-start;
 
-  @media screen and (min-width: $mobile) {
-    padding: 40px 24px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    padding: 40px 32px;
-  }
-
   @media screen and (min-width: $laptop) {
-    padding: 80px 32px;
+    padding-top: 80px;
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 80px 72px;
+    align-items: center;
   }
 }
 

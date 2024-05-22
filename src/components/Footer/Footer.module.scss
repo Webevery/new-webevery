@@ -3,7 +3,16 @@
 .footer {
   // height: 130px;
   margin-top: auto;
-  padding: 20px 32px 20px;
+  // padding: 20px 32px 20px;
+  padding: 20px;
+
+  @media screen and (min-width: $mobile) {
+    padding: 20px 24px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 20px 32px 36px;
+  }
 
   @media screen and (min-width: $laptop) {
     // height: 464px;
@@ -11,7 +20,8 @@
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 20px 72px 20px 72px;
+    // padding: 20px 72px 20px 72px;
+    padding: 80px 72px 20px;
   }
 }
 
@@ -28,6 +38,7 @@
 // }
 
 .container {
+  margin: 0 auto;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -168,4 +179,9 @@
   text-align: center;
   margin-top: 72px;
   // font-size: 20px;
+  font-size: 14px;
+
+  @media screen and (min-width: $laptop) {
+    font-size: 16px;
+  }
 }

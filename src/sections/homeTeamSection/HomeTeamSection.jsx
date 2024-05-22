@@ -3,16 +3,16 @@ import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 import styles from "./HomeTeamSection.module.scss";
 import { SliderOfTeam } from "@/components/SliderOfTeam/SliderOfTeam";
 import { useTranslation } from 'react-i18next';
-import { useState,UseEffect, useEffect } from "react";
+import { useState, UseEffect, useEffect } from "react";
 const HomeTeamSection = () => {
 
-  const[isLoad,setIsLoad]=useState(true);
+  const [isLoad, setIsLoad] = useState(true);
 
   const { t } = useTranslation();
 
-  useEffect(()=>setIsLoad(false),[])
+  useEffect(() => setIsLoad(false), [])
   return (
-    <section className={styles.container}>
+    <section className={styles.section}>
       <div className="container">
         {!isLoad && <h3 className={styles.subTitle}>
           <span>{t('MainPage.TeamTitle')}</span> {t('MainPage.TeamSubTitle')}

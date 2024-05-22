@@ -14,7 +14,7 @@ const HomeWorkingProcessSection = () => {
     useEffect(() => setIsLoad(false), [])
 
     return (
-        <section className={styles.container}>
+        <section className={styles.section}>
             <div className="container">
                 {!isLoad && <><h3 className={`titleGradient ${styles.title}`}>{t('MainPage.WorkingProcessTitle')}</h3>
                     <h4 className={styles.subTitleMobile}>{t('MainPage.WorkingProcessSubTitleMob')}</h4>

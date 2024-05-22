@@ -33,8 +33,7 @@ const ServicesSection = () => {
     }
 
     return (
-        <section className={styles.services}>
-            {/* <div className={`container ${styles.servicesContainer}`}> */}
+        <section>
             <div className="container">
                 {!isLoading && (
                     <div className={styles.titleServicesContainer}>
@@ -75,13 +74,11 @@ const ServicesSection = () => {
                                             slug={slug}
                                         />
                                         <h3 className={styles.cartTitle}>
-                                            {/* <span> */}
                                             {i18n.language ===
                                                 currentLanguages.EN
                                                 ? titleGradientEn
                                                 : titleGradient}
-                                            {/* </span>
-                      &nbsp; */}&nbsp;
+                                            &nbsp;
                                             {i18n.language ===
                                                 currentLanguages.EN
                                                 ? titleEn

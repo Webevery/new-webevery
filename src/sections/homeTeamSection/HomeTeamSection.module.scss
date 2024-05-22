@@ -1,24 +1,10 @@
 @import "../../app/variables";
 
-.container {
-  width: 100%;
-  padding: 40px 20px;
-  background-color: $backgroundColor;
-
-  @media screen and (min-width: $mobile) {
-    padding: 40px 24px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    padding: 40px 32px;
-  }
+.section {
+  padding-top: 40px;
 
   @media screen and (min-width: $laptop) {
-    padding: 80px 32px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    padding: 80px 72px;
+    padding-top: 80px;
   }
 }
 

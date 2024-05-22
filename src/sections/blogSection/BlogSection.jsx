@@ -163,7 +163,7 @@ const BlogSection = () => {
         : `${styles.cartContainer} `;
 
   return (
-    <section className={styles.blogs}>
+    <section>
       <div className="container">
         <div className={styles.titleBlogContainer}>
           <h1 className={styles.titleBlog}>

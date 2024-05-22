@@ -55,17 +55,17 @@ const ServiceIdSection = ({ params }) => {
             changedData.directionsEn = directionsEnArray;
         }
     }
-    // console.log("changedData", changedData)
+
     return (
         <>
             {isLoading && <Loading className={styles.loading} />}
 
             {!isLoading && isPathExist && (
-                <section className={styles.servicesId}>
+                <section>
                     <div className="container">
                         <BreadCrumbs
                             onClick={() => router.push("/services")}
-                            title={t("OurProjectsPage.NavLinkText")}
+                            title={t("Buttons.BackPageBtn")}
                             classNameContainer={styles.backContainer}
                             classNameIcon={styles.backIcon}
                         />
@@ -125,15 +125,12 @@ const ServiceIdSection = ({ params }) => {
                             </div>
                         </div>
 
-                        {/* <div className={`container ${styles.servicesIdSliderContainer}`} > */}
-                        <div className="container" >
-                            <h3 className={styles.servicesIdSliderTitle}>
-                                {t("ServiceIdPage.SubTitle1")}{" "}
-                                <span>{t("ServiceIdPage.SubTitle2")}</span>{" "}
-                                {t("ServiceIdPage.SubTitle3")}
-                            </h3>
-                            <SliderOfServices slug={slug} />
-                        </div>
+                        <h3 className={styles.servicesIdSliderTitle}>
+                            {t("ServiceIdPage.SubTitle1")}{" "}
+                            <span>{t("ServiceIdPage.SubTitle2")}</span>{" "}
+                            {t("ServiceIdPage.SubTitle3")}
+                        </h3>
+                        <SliderOfServices slug={slug} />
                     </div>
                 </section>
             )}
