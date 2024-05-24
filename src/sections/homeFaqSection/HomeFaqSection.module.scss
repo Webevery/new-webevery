@@ -351,15 +351,20 @@
 .base {
   width: 100%;
 
-  &:not(:last-child) {
-    margin-bottom: 12px;
+  & section {
+    padding: 0;
   }
 
-  @media screen and (min-width: $mobile) {
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
+  &:not(:last-child) {
+    // margin-bottom: 12px;
+    margin-bottom: 3px;
   }
+
+  // @media screen and (min-width: $mobile) {
+  //   &:not(:last-child) {
+  //     margin-bottom: 8px;
+  //   }
+  // }
 
   @media screen and (min-width: $tablet) {
     &:not(:last-child) {
@@ -367,11 +372,11 @@
     }
   }
 
-  @media screen and (min-width: $laptop) {
-    &:not(:last-child) {
-      margin-bottom: 34px;
-    }
-  }
+  // @media screen and (min-width: $laptop) {
+  //   &:not(:last-child) {
+  //     margin-bottom: 34px;
+  //   }
+  // }
 
   @media screen and (min-width: $desktop) {
     &:not(:last-child) {
@@ -403,7 +408,6 @@
   }
 
   @media screen and (min-width: $laptop) {
-    padding: 42px 24px;
     gap: 24px;
   }
 }

@@ -79,7 +79,8 @@
     "CloseFilterBtn": "Close",
     "LogOutBtn": "LogOut",
     "Submit": "Submit",
-    "BackPageBtn": "Back"
+    "BackPageBtn": "Back",
+    "SuccessContentBtn": "Great!"
   },
   "Form": {
     "Title": "Fill out the form and we call you very soon",
