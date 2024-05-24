@@ -8,7 +8,7 @@
     },
     "MainPage": {
         "TeamTitle": "Наша команда",
-        "TeamSubTitle": "втілить ваші ідеї в життя",
+        "TeamSubTitle": "втілить Ваші ідеї в життя",
         "WorkingProcessTitle": "Робочий процес",
         "WorkingProcessSubTitleMob": "Додаткові деталі розробки обговорюються індивідуально",
         "WorkingProcessSubTitleLaptop": "Додаткові деталі розробки обговорюються в індивідуальному порядку",
@@ -16,7 +16,7 @@
         "OurProjectsSubTitle": "Роботи",
         "OurServicesTitle": "Послуги",
         "OurServicesSubTitle": "Від малого до великого сайту",
-        "FaqSubTitle": "Ви можете знайти своє питання тут",
+        "FaqSubTitle": "Знайдіть своє питання тут",
         "OrderSectionTitleMob": "Поговоримо про",
         "OrderSectionTitleTab": "Поговоримо про",
         "OrderSectionSubTitle": "Ваш новий сайт!"
@@ -58,7 +58,7 @@
         "NoArticles": "Статей не знайдено!"
     },
     "BlogIdPage": {
-        "SubTitle": "Також вам буде цікаво:",
+        "SubTitle": "Також Вам буде цікаво:",
         "NotFound": "Блог не знайдено",
         "NotFoundTitleBtn": "До усіх блогів"
     },
@@ -84,11 +84,12 @@
         "OpenFilterBtn": "Фільтр",
         "CloseFilterBtn": "Сховати",
         "Submit": "Пiдтвердити",
-        "BackPageBtn": "Назад"
+        "BackPageBtn": "Назад",
+        "SuccessContentBtn": "Чудово!"
     },
     "Form": {
-        "Title": "Заповніть форму і ми зателефонуємо Вам",
-        "TitleMob": "Ми зателефонуємо Вам",
+        "Title": "Заповніть форму і ми Вам зателефонуємо",
+        "TitleMob": "Ми Вам зателефонуємо",
         "Name": "Ім’я",
         "Phone": "Номер телефону",
         "TextArea": "Коротко опишіть Ваше побажання",

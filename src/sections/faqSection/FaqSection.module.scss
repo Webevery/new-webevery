@@ -278,15 +278,20 @@
 .base {
   width: 100%;
 
-  &:not(:last-child) {
-    margin-bottom: 12px;
+  & section {
+    padding: 0;
   }
 
-  @media screen and (min-width: $mobile) {
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
+  &:not(:last-child) {
+    // margin-bottom: 12px;
+    margin-bottom: 3px;
   }
+
+  // @media screen and (min-width: $mobile) {
+  //   &:not(:last-child) {
+  //     margin-bottom: 8px;
+  //   }
+  // }
 
   @media screen and (min-width: $tablet) {
     &:not(:last-child) {
@@ -314,6 +319,7 @@
   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.1);
 
   @media screen and (min-width: $mobile) {
+    padding: 24px;
     gap: 24px;
   }
 
@@ -363,7 +369,7 @@
   }
 
   @media screen and (min-width: $laptop) {
-    padding: 24px;
+    // padding: 24px;
     font-size: 20px;
     font-weight: 400;
   }

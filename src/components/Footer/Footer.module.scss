@@ -176,8 +176,10 @@
 }
 
 .allRights {
+  width: 100%;
+  max-width: 1296px;
   text-align: center;
-  margin-top: 72px;
+  margin: 72px auto 0px;
   // font-size: 20px;
   font-size: 14px;
 
