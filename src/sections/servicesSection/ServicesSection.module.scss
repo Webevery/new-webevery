@@ -281,7 +281,8 @@
   }
 
   @media screen and (min-width: $desktop) {
-    margin-bottom: 72px;
+    // margin-bottom: 72px;
+    margin-bottom: 48px;
   }
 }
 
@@ -382,7 +383,8 @@
   }
 
   @media screen and (min-width: $desktop) {
-    font-size: 36px;
+    // font-size: 36px;
+    font-size: 44px;
   }
 }
 
@@ -460,6 +462,10 @@
   @media screen and (min-width: $laptop) {
     padding: 8px 12px 24px;
   }
+
+  @media screen and (min-width: $desktop) {
+    padding: 16px 24px 48px;
+  }
 }
 
 .cartItem:hover {
@@ -487,6 +493,10 @@
 
   @media screen and (min-width: $laptop) {
     margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 24px;
   }
 }
 
@@ -534,6 +544,10 @@
   @media screen and (min-width: $laptop) {
     margin-bottom: 28px;
   }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 24px;
+  }
 }
 
 .directions {
@@ -547,12 +561,20 @@
   @media screen and (min-width: $laptop) {
     min-height: 440px;
   }
+
+  @media screen and (min-width: $desktop) {
+    min-height: 490px;
+  }
 }
 
 .descItem {
   list-style-type: disc;
   list-style-position: outside;
   margin-left: 30px;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+  }
 }
 
 .descItem:not(:last-child) {
@@ -582,6 +604,11 @@
   @media screen and (min-width: $laptop) {
     margin-bottom: 20px;
     font-size: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 32px;
+    font-size: 26px;
   }
 }
 
