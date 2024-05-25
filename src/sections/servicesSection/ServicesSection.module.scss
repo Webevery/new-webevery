@@ -275,6 +275,11 @@
     margin-bottom: 24px;
   }
 
+  @media screen and (min-width: $laptop) {
+    margin-bottom: 32px;
+    row-gap: 24px;
+  }
+
   @media screen and (min-width: $desktop) {
     margin-bottom: 72px;
   }
@@ -372,6 +377,7 @@
   }
 
   @media screen and (min-width: $laptop) {
+    // font-size: 44px;
     font-size: 38px;
   }
 
@@ -450,6 +456,10 @@
   @media screen and (min-width: $tablet) {
     padding: 24px 24px 32px;
   }
+
+  @media screen and (min-width: $laptop) {
+    padding: 8px 12px 24px;
+  }
 }
 
 .cartItem:hover {
@@ -474,6 +484,10 @@
   // margin-bottom: 24px;
   margin-bottom: 12px;
   justify-content: flex-end;
+
+  @media screen and (min-width: $laptop) {
+    margin-bottom: 8px;
+  }
 }
 
 .readMoreTitle {
@@ -517,6 +531,9 @@
     margin-bottom: 16px;
   }
 
+  @media screen and (min-width: $laptop) {
+    margin-bottom: 28px;
+  }
 }
 
 .directions {
@@ -525,6 +542,10 @@
 
   @media screen and (min-width: $tablet) {
     min-height: 420px;
+  }
+
+  @media screen and (min-width: $laptop) {
+    min-height: 440px;
   }
 }
 
@@ -556,6 +577,11 @@
   @media screen and (min-width: $tablet) {
     font-size: 24px;
     font-weight: 400;
+  }
+
+  @media screen and (min-width: $laptop) {
+    margin-bottom: 20px;
+    font-size: 20px;
   }
 }
 
