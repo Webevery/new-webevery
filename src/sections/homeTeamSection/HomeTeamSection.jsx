@@ -14,9 +14,9 @@ const HomeTeamSection = () => {
   return (
     <section className={styles.section}>
       <div className="container">
-        {!isLoad && <h3 className={styles.subTitle}>
+        {!isLoad && <h2 className={styles.subTitle}>
           <span>{t('MainPage.TeamTitle')}</span> {t('MainPage.TeamSubTitle')}
-        </h3>}
+        </h2>}
         <SliderOfTeam />
         {!isLoad && <NavigationBtn
           id={styles.teamSliderBtn}
