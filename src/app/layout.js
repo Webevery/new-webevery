@@ -75,6 +75,9 @@ export const metadata = {
     ],
     locale: "uk-UA",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC,
+  },
 };
 
 export default function RootLayout({ children }) {
