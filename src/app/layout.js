@@ -43,6 +43,7 @@ export const metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_MAIN_URL,
   },
+  // themeColor: "#000000",
   openGraph: {
     title: "Створення сайту — Webevery. Розробка програмного продукту.",
     url: process.env.NEXT_PUBLIC_MAIN_URL,
