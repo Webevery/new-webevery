@@ -86,16 +86,13 @@ export default function RootLayout({ children }) {
     "@type": "Organization",
     name: "Webevery",
     url: process.env.NEXT_PUBLIC_MAIN_URL,
-    contactPoint: [
-      {
+    contactPoint: {
         "@type": "ContactPoint",
         telephone: "+380966058605",
         email: "inbox.webevery@gmail.com",
         contactType: "customer service",
       },
-    ],
-    logo: [
-      {
+    logo: {
         "@type": "ImageObject",
         url: "/seo_images/twitter-image-800x600.png",
         contentUrl:
@@ -104,13 +101,16 @@ export default function RootLayout({ children }) {
         caption: "Webevery",
         inLanguage: "uk-UA",
       },
-    ],
     keywords:
       "Розробка сайту. Створити сайт під ключ. Розробка програмного продукту. Розробка сайту — Webevery. Веб-студія Webevery",
   };
   return (
     <html lang="uk-UA">
       <body className={`${exo.variable} ${noto_sans.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <AuthProvider>
           <BackgroundAnimation />
           <SiteProvider>
