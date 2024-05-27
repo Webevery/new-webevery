@@ -233,11 +233,11 @@
 
   @media screen and (min-width: $laptop) {
     font-size: 64px;
+        margin-bottom: 32px;
   }
 
   @media screen and (min-width: $desktop) {
     font-size: 72px;
-    margin-bottom: 32px;
   }
 }
 
@@ -345,7 +345,7 @@
   }
 
   @media screen and (min-width: $mobile) {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
 
   @media screen and (min-width: $tablet) {

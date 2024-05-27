@@ -240,7 +240,6 @@ const ServiceIdSection = ({ params }) => {
                                     alt={changedData.title}
                                     fill='true'
                                     className={styles.cartImg}
-                                    // sizes='30vw'
                                     sizes="(max-width: 1023px) 100vw, 50vw"
                                 />
                             </div>

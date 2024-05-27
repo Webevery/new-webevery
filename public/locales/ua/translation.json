@@ -1,11 +1,4 @@
 {
-    "Header": {
-        "headerSale": "Погодинно 1-3 год 400 грн, кожна наступна година + 100 грн",
-        "linkApartments": "Апартаменти",
-        "linkDocuments": "Документи",
-        "linkRules": "Правила",
-        "linkContacts": "Контакти"
-    },
     "MainPage": {
         "TeamTitle": "Наша команда",
         "TeamSubTitle": "втілить Ваші ідеї в життя",
@@ -93,21 +86,7 @@
         "Name": "Ім’я",
         "Phone": "Номер телефону",
         "TextArea": "Коротко опишіть Ваше побажання",
-        "FormSubmitedMsg": "Вітаємо! Ваше повідомлення відправлено менеджеру.",
-        "fieldRequiredMsg": "Заповніть це поле",
-        "errorShortName": "Ім’я має бути довшим",
-        "errorLongName": "Ім’я має бути коротшим",
-        "errorNumberOfObject": "Такого номеру немає",
-        "errorNumberOfObject2": "Тільки додатні числа",
-        "errorNumberOfObject3": "Тільки цифри",
-        "errorTooManySpases": "Забагато пробілів"
-    },
-    "formErrors": {
-        "name": "Невірно введене ім’я",
-        "phone": "Номер телефону",
-        "dateOfEntry": "Оберіть дату",
-        "departureDate": "Оберіть дату",
-        "numberObject": "Вкажіть номер об’єкту"
+        "FormSubmitedMsg": "Вітаємо! Ваше повідомлення відправлено менеджеру."
     },
     "LoadStatus": {
         "Load": "Завантаження..."
