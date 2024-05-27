@@ -30,7 +30,7 @@ export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_MAIN_URL),
   title: "Розробка сайту — Webevery",
   description:
-    "&#11088; Webevery &#11088; — Розробка сайту &#9989; Ваш надійний партнер у розробці веб-сайту &#9989; Створити сайт під ключ&#10071; Розробка програмного продукту&#9996;",
+    "Webevery &#11088; — Розробка сайту &#9989; Ваш надійний партнер у розробці веб-сайту &#9989; Створити сайт під ключ&#10071; Розробка програмного продукту&#9996;",
   keywords: [
     "Розробка сайту",
     "Веб-сайти",
@@ -43,8 +43,6 @@ export const metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_MAIN_URL,
   },
-  // themeColor: "#000000",
-  // themeColor: "#000000",
   openGraph: {
     title: "Створення сайту — Webevery. Розробка програмного продукту.",
     url: process.env.NEXT_PUBLIC_MAIN_URL,
@@ -58,7 +56,7 @@ export const metadata = {
         type: "image/png",
         width: 400,
         height: 300,
-        alt: "м",
+        alt: "Webevery",
       },
       {
         url: "/seo_images/twitter-image-800x600.png",
@@ -83,6 +81,33 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Webevery",
+    url: process.env.NEXT_PUBLIC_MAIN_URL,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+380966058605",
+        email: "inbox.webevery@gmail.com",
+        contactType: "customer service",
+      },
+    ],
+    logo: [
+      {
+        "@type": "ImageObject",
+        url: "/seo_images/twitter-image-800x600.png",
+        contentUrl:
+          "/seo_images/twitter-image-800x600.png",
+        size: "800x600",
+        caption: "Webevery",
+        inLanguage: "uk-UA",
+      },
+    ],
+    keywords:
+      "Розробка сайту. Створити сайт під ключ. Розробка програмного продукту. Розробка сайту — Webevery. Веб-студія Webevery",
+  };
   return (
     <html lang="uk-UA">
       <body className={`${exo.variable} ${noto_sans.variable}`}>
