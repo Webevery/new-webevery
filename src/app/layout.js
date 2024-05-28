@@ -27,14 +27,90 @@ const noto_sans = Noto_Sans({
 });
 
 export const metadata = {
-  title: 'Webevery',
-  description: 'Webevery description',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_MAIN_URL),
+  title: "Розробка сайту — Webevery",
+  description:
+    "Webevery &#11088; — Розробка сайту &#9989; Ваш надійний партнер у розробці веб-сайту &#9989; Створити сайт під ключ&#10071; Розробка програмного продукту&#9996;",
+  keywords: [
+    "Розробка сайту",
+    "Веб-сайти",
+    "Розробка програмного продукту",
+    "Створити сайт під ключ",
+    "Розробка сайту — Webevery",
+    "Webevery",
+    "Веб-студія Webevery",
+  ],
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_MAIN_URL,
+  },
+  openGraph: {
+    title: "Створення сайту — Webevery. Розробка програмного продукту.",
+    url: process.env.NEXT_PUBLIC_MAIN_URL,
+    description:
+      "Розробка сайту - Webevery &#11088; Розробка програмного продукту &#9996; Створити сайт під ключ&#10071;",
+    type: "website",
+    siteName: "Webevery",
+    images: [
+      {
+        url: "/seo_images/opengraph-image-400x300.png",
+        type: "image/png",
+        width: 400,
+        height: 300,
+        alt: "Webevery",
+      },
+      {
+        url: "/seo_images/twitter-image-800x600.png",
+        type: "image/png",
+        width: 800,
+        height: 600,
+        alt: "Webevery",
+      },
+      {
+        url: "/seo_images/opengraph-image-1200-630.png",
+        type: "image/png",
+        width: 1200,
+        height: 630,
+        alt: "Webevery",
+      },
+    ],
+    locale: "uk-UA",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC,
+  },
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Webevery",
+    url: process.env.NEXT_PUBLIC_MAIN_URL,
+    contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+380966058605",
+        email: "inbox.webevery@gmail.com",
+        contactType: "customer service",
+      },
+    logo: {
+        "@type": "ImageObject",
+        url: "/seo_images/twitter-image-800x600.png",
+        contentUrl:
+          "/seo_images/twitter-image-800x600.png",
+        size: "800x600",
+        caption: "Webevery",
+        inLanguage: "uk-UA",
+      },
+    keywords:
+      "Розробка сайту. Створити сайт під ключ. Розробка програмного продукту. Розробка сайту — Webevery. Веб-студія Webevery",
+  };
   return (
-    <html lang="en">
+    <html lang="uk-UA">
       <body className={`${exo.variable} ${noto_sans.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <AuthProvider>
           <BackgroundAnimation />
           <SiteProvider>
