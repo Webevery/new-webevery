@@ -7,7 +7,8 @@ import Footer from '@/components/Footer/Footer';
 import ModalR from '@/components/Modal/Modal';
 
 import './globals.scss';
-import ToTopBtn from '@/components/Buttons/ToTopBtn/ToTopBtn';
+import dynamic from 'next/dynamic';
+// import ToTopBtn from '@/components/Buttons/ToTopBtn/ToTopBtn';
 import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
 import AuthProvider from '@/components/AuthProvider/AuthProvider';
 import { PaginationProvider } from '@/context/PaginationContext';
@@ -25,6 +26,10 @@ const noto_sans = Noto_Sans({
   weight: ['400', '500'],
   variable: '--font-noto-sans',
 });
+
+const DynamicToTopBtn = dynamic(() =>
+  import("@/components/Buttons/ToTopBtn/ToTopBtn")
+);
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_MAIN_URL),
@@ -48,8 +53,8 @@ export const metadata = {
     url: process.env.NEXT_PUBLIC_MAIN_URL,
     description:
       "Розробка сайту - Webevery &#11088; Розробка програмного продукту &#9996; Створити сайт під ключ&#10071;",
-    type: "website",
     siteName: "Webevery",
+    type: "website",
     images: [
       {
         url: "/seo_images/opengraph-image-400x300.png",
@@ -78,6 +83,11 @@ export const metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GSC,
   },
+  applicationName: "Webevery",
+};
+
+export const viewport = {
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }) {
@@ -124,7 +134,7 @@ export default function RootLayout({ children }) {
               </TranslateProvider>
             </PaginationProvider>
           </SiteProvider>
-          <ToTopBtn />
+          <DynamicToTopBtn />
         </AuthProvider>
       </body>
     </html>
