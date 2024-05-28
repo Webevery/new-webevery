@@ -293,6 +293,16 @@
   font-weight: 400;
   text-align: center;
 
+  & span {
+    background: linear-gradient(90deg,
+        $gradientYellow 0%,
+        $gradientCyan 50%,
+        $gradientBlue 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   @media screen and (min-width: $mobile) {
     // font-weight: 400;
     // font-size: 58px;
@@ -302,16 +312,6 @@
   @media screen and (min-width: $tablet) {
     font-size: 58px;
     text-align: start;
-
-    & span {
-      background: linear-gradient(90deg,
-          $gradientYellow 0%,
-          $gradientCyan 50%,
-          $gradientBlue 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   }
 
   @media screen and (min-width: $laptop) {

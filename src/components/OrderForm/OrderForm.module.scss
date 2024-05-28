@@ -572,6 +572,16 @@
 
 .inputHolderFooter {
   width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $laptop) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .inputWrap {
