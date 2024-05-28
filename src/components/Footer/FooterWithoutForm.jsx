@@ -20,7 +20,7 @@ const FooterWithoutForm = () => {
           <div className={styles.contentWrap}>
             <SocialLinksList
               list={socialLinksAndMail}
-              className={styles.foterSocList}
+              className={styles.footerSocList}
             />
             <CallBtn className={styles.callBtn} />
           </div>
@@ -29,7 +29,7 @@ const FooterWithoutForm = () => {
             <div className={styles.innerWrap}>
               <SocialLinksList
                 list={socialLinks}
-                className={styles.foterSocList}
+                className={styles.footerSocList}
               />
               <div className={styles.contactsBox}>
                 <a
@@ -45,7 +45,7 @@ const FooterWithoutForm = () => {
                   inbox.webevery@gmail.com
                 </a>
               </div>
-              <FooterLinks className={isLaptop && styles.foterSocList} />
+              <FooterLinks className={isLaptop && styles.footerSocList} />
             </div>
 
             <div className={styles.logoWrapper}>
@@ -61,10 +61,10 @@ const FooterWithoutForm = () => {
             </div>
           </div>
         )}
+        <p className={styles.allRights}>
+          © All rights reserved by <a href="/">Webevery.dev </a> 2024
+        </p>
       </div>
-      <p className={styles.allRights}>
-        © All rights reserved by <a href="/">Webevery.dev </a> 2024
-      </p>
     </footer>
   );
 };

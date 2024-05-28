@@ -150,6 +150,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-bottom: 16px;
 }
 
 .cartImgContainer {
@@ -176,9 +177,13 @@
 
 .cartJobTitle {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.6;
   color: #ffffff;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   text-align: center;
+
+  @media screen and (min-width: $mobile) {
+    font-size: 20px;
+  }
 }

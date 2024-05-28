@@ -11,7 +11,7 @@
     "OurServicesSubTitle": "from landing to large site",
     "FaqSubTitle": "Find your question here",
     "OrderSectionTitleMob": "To talk about",
-    "OrderSectionTitleTab": "Let`s talk about",
+    "OrderSectionTitleTab": "Let's talk about",
     "OrderSectionSubTitle": "your new site!"
   },
   "TeamPage": {
@@ -48,7 +48,7 @@
   },
   "BlogPage": {
     "GenSubTitle": "Blog",
-    "SubTitle": "here is you can read useful articles",
+    "SubTitle": "here you can read useful articles",
     "NoArticles": "No articles found!!"
   },
   "BlogIdPage": {
@@ -77,33 +77,17 @@
     "FilterClear": "Clear",
     "OpenFilterBtn": "Filter",
     "CloseFilterBtn": "Close",
-    "LogOutBtn": "LogOut",
     "Submit": "Submit",
     "BackPageBtn": "Back",
     "SuccessContentBtn": "Great!"
   },
   "Form": {
-    "Title": "Fill out the form and we call you very soon",
-    "TitleMob": "We call you very soon",
+    "Title": "Fill out the form and we will call you",
+    "TitleMob": "We will call you",
     "Name": "Name",
     "Phone": "Phone",
     "TextArea": "Briefly describe your wish",
-    "FormSubmitedMsg": "Congratulations! Your message has been sent to the manager.",
-    "formSubmitedMsg2": "Our manager will contact you shortly.",
-    "fieldRequiredMsg": "Fill in this field",
-    "errorShortName": "The name should be longer",
-    "errorLongName": "The name should be shorter",
-    "errorNumberOfObject": "There's no such number",
-    "errorNumberOfObject2": "Only positive numbers",
-    "errorNumberOfObject3": "Only numbers",
-    "errorTooManySpases": "Too many spases"
-  },
-  "formErrors": {
-    "name": "Incorrect name entered",
-    "phone": "Phone number",
-    "dateOfEntry": "Choose a date",
-    "departureDate": "Choose a date",
-    "numberObject": "Enter the object number"
+    "FormSubmitedMsg": "Congratulations! Your message has been sent to the manager."
   },
   "LoadStatus": {
     "Load": "Loading..."

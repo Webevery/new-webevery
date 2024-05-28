@@ -16,44 +16,57 @@ const FooterWithForm = () => {
     <>
       {(() => {
         if (isMobile) {
+          console.log("isMobile")
+
           return (
             <footer className={styles.footer}>
               <div className={`container ${styles.container}`}>
                 <div className={styles.contentWrap}>
                   <SocialLinksList
                     list={socialLinksAndMail}
-                    className={styles.foterSocList} />
+                    className={styles.footerSocList} />
                   <CallBtn className={styles.callBtn} />
                 </div>
+                <p className={styles.allRights}>
+                  © All rights reserved by <a href="/">Webevery.dev </a> 2024
+                </p>
               </div>
             </footer>
           );
         } else if (isTablet) {
+          console.log("isTablet")
+
           return (
-            <footer className={styles.footerLaptop}>
+            // <footer className={styles.footerLaptop}>
+            <footer className={styles.footer}>
               <div className={`container ${styles.container}`}>
-                <div className={styles.contentLaptopWrap}>
+                <div className={styles.contentTabletWrap}>
                   <OrderForm isFooterForm={true} />
                   <div>
                     <SocialLinksList
                       list={socialLinksAndMail}
-                      className={styles.foterSocList} />
+                      className={styles.footerSocList} />
                     <CallBtn className={styles.callBtn} />
                   </div>
                 </div>
+                <p className={styles.allRights}>
+                  © All rights reserved by <a href="/">Webevery.dev </a> 2024
+                </p>
               </div>
             </footer>
           );
         } else if (isLaptop || isDesktop) {
+          console.log("isLaptop || isDesktop")
+
           return (
             // <footer className={styles.footerDesktop}>
             <footer className={styles.footer}>
               <div className={`container ${styles.container}`}>
-                <div className={styles.contentDesctopWrap}>
+                <div className={styles.contentFromLaptopWrap}>
                   <div className={styles.innerWrap}>
                     <SocialLinksList
                       list={socialLinks}
-                      className={styles.foterSocList}
+                      className={styles.footerSocList}
                     />
                     <div className={styles.contactsBox}>
                       <a
@@ -77,10 +90,10 @@ const FooterWithForm = () => {
                     <OrderForm isFooterForm={true} />
                   </div>
                 </div>
+                <p className={styles.allRights}>
+                  © All rights reserved by <a href="/">Webevery.dev </a> 2024
+                </p>
               </div>
-              <p className={styles.allRights}>
-                © All rights reserved by <a href="/">Webevery.dev </a> 2024
-              </p>
             </footer>
           );
         } else {
