@@ -45,16 +45,12 @@ const Footer = () => {
 
     return (() => {
         if (isFooterWithForm) {
-            console.log("isFooterWithForm")
             return <FooterWithForm />;
         } else if (isFooterWithoutForm) {
-            console.log("isFooterWithoutForm")
             return <FooterWithoutForm />;
         } else if (isContactsSection) {
-            console.log("isContactsSection")
             return <FooterContactsSection />;
         } else {
-            console.log("<footer></footer>")
             return <footer></footer>;
         }
     })();
