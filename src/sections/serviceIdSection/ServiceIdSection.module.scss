@@ -192,13 +192,14 @@
 
   @media screen and (min-width: $laptop) {
     flex-direction: row;
-    margin-bottom: 64px;
+    // margin-bottom: 64px;
+    margin-bottom: 56px;
     gap: 24px;
   }
 
-  @media screen and (min-width: $desktop) {
-    margin-bottom: 68px;
-  }
+  // @media screen and (min-width: $desktop) {
+  //   margin-bottom: 68px;
+  // }
 }
 
 .servicesIdTitle {
@@ -233,7 +234,7 @@
 
   @media screen and (min-width: $laptop) {
     font-size: 64px;
-        margin-bottom: 32px;
+    margin-bottom: 32px;
   }
 
   @media screen and (min-width: $desktop) {
@@ -260,6 +261,10 @@
   @media screen and (min-width: $desktop) {
     box-shadow: 6px 12px 32px 0px #1A8CFF1A;
   }
+}
+
+.cartImg {
+  object-fit: cover;
 }
 
 .servicesIdDescContainer {

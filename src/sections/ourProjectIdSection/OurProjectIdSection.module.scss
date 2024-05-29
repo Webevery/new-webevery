@@ -96,7 +96,8 @@
 
   @media screen and (min-width: $mobile) {
     // height: 70px;
-    font-size: 32px;
+    // font-size: 32px;
+    font-size: 30px;
     line-height: 1.1;
     margin-bottom: 24px;
   }
@@ -218,9 +219,9 @@
     margin-bottom: 32px;
   }
 
-  @media screen and (min-width: $desktop) {
-    height: 85vh;
-  }
+  // @media screen and (min-width: $desktop) {
+  //   height: 85vh;
+  // }
 
   & img {
     object-fit: inherit;
