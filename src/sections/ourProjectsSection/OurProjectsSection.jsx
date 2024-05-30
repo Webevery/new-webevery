@@ -12,6 +12,17 @@ import ReadMore from '@/components/Buttons/ReadMore/ReadMore';
 
 const OurProjectsSection = () => {
   const { data, error, isLoading } = GetDataFromSection('ourProjects');
+
+  let sortedByUpdateData = [];
+
+  if (!isLoading) {
+    sortedByUpdateData = [...data];
+
+    sortedByUpdateData.sort((a, b) => {
+      return Date.parse(b.createdAt) - Date.parse(a.createdAt);
+    });
+  }
+
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const { i18n, t } = useTranslation();
@@ -35,7 +46,7 @@ const OurProjectsSection = () => {
         )}
         <ul className={styles.ourProjectsList}>
           {!isLoading &&
-            data?.map(
+            sortedByUpdateData?.map(
               ({
                 slug,
                 titleEn,
