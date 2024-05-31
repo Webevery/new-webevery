@@ -83,7 +83,7 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
                 className={styles.form}
                 noValidate
             >
-                <h3 className={styles.formTitle}>Let`s change coworker`s data</h3>
+                <h3 className={styles.formTitle}>Update coworker</h3>
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -96,6 +96,20 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
                         New Slug
                     </label>
                     <p className={styles.error}>{errors.newSlug?.message}</p>
+                </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='newNameEn'
+                        placeholder=' '
+                        {...register("newNameEn")}
+                    />
+                    <label htmlFor='newNameEn' className={styles.formLabel}>
+                        New NameEn
+                    </label>
+                    <p className={styles.error}>{errors.newNameEn?.message}</p>
                 </div>
                 <div className={styles.inputGroup}>
                     <input
@@ -110,19 +124,7 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.newName?.message}</p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='newNameEn'
-                        placeholder=' '
-                        {...register("newNameEn")}
-                    />
-                    <label htmlFor='newNameEn' className={styles.formLabel}>
-                        New NameEn
-                    </label>
-                    <p className={styles.error}>{errors.newNameEn?.message}</p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='newPhoto'
@@ -145,21 +147,7 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
 
                     <p className={styles.error}>{errors.photo?.message}</p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='newPosition'
-                        placeholder=' '
-                        {...register("newPosition")}
-                    />
-                    <label htmlFor='newPosition' className={styles.formLabel}>
-                        New Position
-                    </label>
-                    <p className={styles.error}>
-                        {errors.newPosition?.message}
-                    </p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -176,13 +164,27 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
                     </p>
                 </div>
 
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='newPosition'
+                        placeholder=' '
+                        {...register("newPosition")}
+                    />
+                    <label htmlFor='newPosition' className={styles.formLabel}>
+                        New Position
+                    </label>
+                    <p className={styles.error}>
+                        {errors.newPosition?.message}
+                    </p>
+                </div>
+
                 <button
                     type='submit'
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
-                >
-                    Add Changes
-                </button>
+                >Update</button>
             </form>
         </div>
     );

@@ -114,7 +114,7 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                 className={styles.form}
                 noValidate
             >
-                <h3 className={styles.formTitle}>Let`s update the service!</h3>
+                <h3 className={styles.formTitle}>Update service</h3>
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -128,19 +128,7 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.newSlug?.message}</p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='newTitle'
-                        placeholder=' '
-                        {...register("newTitle")}
-                    />
-                    <label htmlFor='newTitle' className={styles.formLabel}>
-                        New Title
-                    </label>
-                    <p className={styles.error}>{errors.newTitle?.message}</p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -154,24 +142,21 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.newTitleEn?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='newTitleGradient'
+                        id='newTitle'
                         placeholder=' '
-                        {...register("newTitleGradient")}
+                        {...register("newTitle")}
                     />
-                    <label
-                        htmlFor='newTitleGradient'
-                        className={styles.formLabel}
-                    >
-                        New Title Gradient
+                    <label htmlFor='newTitle' className={styles.formLabel}>
+                        New Title
                     </label>
-                    <p className={styles.error}>
-                        {errors.newTitleGradient?.message}
-                    </p>
+                    <p className={styles.error}>{errors.newTitle?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -190,6 +175,26 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                         {errors.newTitleGradientEn?.message}
                     </p>
                 </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='newTitleGradient'
+                        placeholder=' '
+                        {...register("newTitleGradient")}
+                    />
+                    <label
+                        htmlFor='newTitleGradient'
+                        className={styles.formLabel}
+                    >
+                        New Title Gradient
+                    </label>
+                    <p className={styles.error}>
+                        {errors.newTitleGradient?.message}
+                    </p>
+                </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='newMockup'
@@ -207,31 +212,15 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add mockup photo (WEBP)
+                        Update photo (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.newMockup?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='newDescription'
-                        placeholder=' '
-                        {...register("newDescription")}
-                    />
-                    <label
-                        htmlFor='newDescription'
-                        className={styles.formLabel}
-                    >
-                        New Description
-                    </label>
-                    <p className={styles.error}>
-                        {errors.newDescription?.message}
-                    </p>
-                </div>
-                <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='newDescriptionEn'
                         placeholder=' '
                         {...register("newDescriptionEn")}
@@ -246,19 +235,25 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                         {errors.newDescriptionEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='newPrice'
+                    <textarea
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='newDescription'
                         placeholder=' '
-                        {...register("newPrice")}
+                        {...register("newDescription")}
                     />
-                    <label htmlFor='newPrice' className={styles.formLabel}>
-                        New Price
+                    <label
+                        htmlFor='newDescription'
+                        className={styles.formLabel}
+                    >
+                        New Description
                     </label>
-                    <p className={styles.error}>{errors.newPrice?.message}</p>
+                    <p className={styles.error}>
+                        {errors.newDescription?.message}
+                    </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -272,23 +267,24 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.newPriceEn?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='newDirections'
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='newPrice'
                         placeholder=' '
-                        {...register("newDirections")}
+                        {...register("newPrice")}
                     />
-                    <label htmlFor='newDirections' className={styles.formLabel}>
-                        New Directions
+                    <label htmlFor='newPrice' className={styles.formLabel}>
+                        New Price
                     </label>
-                    <p className={styles.error}>
-                        {errors.newDirections?.message}
-                    </p>
+                    <p className={styles.error}>{errors.newPrice?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='newDirectionsEn'
                         placeholder=' '
                         {...register("newDirectionsEn")}
@@ -304,12 +300,27 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                     </p>
                 </div>
 
+                <div className={styles.inputGroup}>
+                    <textarea
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='newDirections'
+                        placeholder=' '
+                        {...register("newDirections")}
+                    />
+                    <label htmlFor='newDirections' className={styles.formLabel}>
+                        New Directions
+                    </label>
+                    <p className={styles.error}>
+                        {errors.newDirections?.message}
+                    </p>
+                </div>
+
                 <button
                     type='submit'
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
                 >
-                    Update new!
+                    Update
                 </button>
             </form>
         </div>
