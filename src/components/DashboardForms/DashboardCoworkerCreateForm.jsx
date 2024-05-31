@@ -59,7 +59,7 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Let`s add new coworker!
+                    Create new coworker
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
@@ -74,19 +74,7 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.slug?.message}</p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='name'
-                        placeholder=' '
-                        {...register("name")}
-                    />
-                    <label htmlFor='name' className={styles.formLabel}>
-                        Name
-                    </label>
-                    <p className={styles.error}>{errors.name?.message}</p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -100,6 +88,21 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.nameEn?.message}</p>
                 </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='name'
+                        placeholder=' '
+                        {...register("name")}
+                    />
+                    <label htmlFor='name' className={styles.formLabel}>
+                        Name
+                    </label>
+                    <p className={styles.error}>{errors.name?.message}</p>
+                </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='photo'
@@ -122,19 +125,7 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
 
                     <p className={styles.error}>{errors.photo?.message}</p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='position'
-                        placeholder=' '
-                        {...register("position")}
-                    />
-                    <label htmlFor='position' className={styles.formLabel}>
-                        Position
-                    </label>
-                    <p className={styles.error}>{errors.position?.message}</p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -149,12 +140,26 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
                     <p className={styles.error}>{errors.positionEn?.message}</p>
                 </div>
 
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='position'
+                        placeholder=' '
+                        {...register("position")}
+                    />
+                    <label htmlFor='position' className={styles.formLabel}>
+                        Position
+                    </label>
+                    <p className={styles.error}>{errors.position?.message}</p>
+                </div>
+
                 <button
                     type='submit'
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
                 >
-                    Create new!
+                    Create
                 </button>
             </form>
         </div>
