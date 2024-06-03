@@ -1,9 +1,9 @@
 import Services from "@/screens/services/Services";
 
 export const metadata = {
-  title: "Розробка сайту — Webevery",
+  title: "Розробка сайту — Webevery | Послуги &#127942;",
   description:
-    "Webevery &#11088; — Розробка сайту &#9989; Ваш надійний партнер у розробці веб-сайту &#9989; Розробка програмного продукту&#9996; Створити сайт під ключ&#10071;",
+    "Webevery &#9757; — Розробка сайту &#9989; Ваш надійний партнер у розробці веб-сайту &#9996; Замовити сайт&#128190; Створити сайт під ключ&#128273;",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}services`,
   },
