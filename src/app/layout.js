@@ -8,7 +8,6 @@ import ModalR from '@/components/Modal/Modal';
 
 import './globals.scss';
 import dynamic from 'next/dynamic';
-// import ToTopBtn from '@/components/Buttons/ToTopBtn/ToTopBtn';
 import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
 import AuthProvider from '@/components/AuthProvider/AuthProvider';
 import { PaginationProvider } from '@/context/PaginationContext';
@@ -99,20 +98,20 @@ export default function RootLayout({ children }) {
     name: "Webevery",
     url: process.env.NEXT_PUBLIC_MAIN_URL,
     contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+380966058605",
-        email: "inbox.webevery@gmail.com",
-        contactType: "customer service",
-      },
+      "@type": "ContactPoint",
+      telephone: "+380966058605",
+      email: "inbox.webevery@gmail.com",
+      contactType: "customer service",
+    },
     logo: {
-        "@type": "ImageObject",
-        url: "/seo_images/twitter-image-800x600.png",
-        contentUrl:
-          "/seo_images/twitter-image-800x600.png",
-        size: "800x600",
-        caption: "Webevery",
-        inLanguage: "uk-UA",
-      },
+      "@type": "ImageObject",
+      url: "/seo_images/twitter-image-800x600.png",
+      contentUrl:
+        "/seo_images/twitter-image-800x600.png",
+      size: "800x600",
+      caption: "Webevery",
+      inLanguage: "uk-UA",
+    },
     keywords:
       "Розробка сайту. Створити сайт під ключ. Розробка програмного продукту. Розробка сайту — Webevery. Веб-студія Webevery",
   };

@@ -11,7 +11,7 @@ const HomeOurProjectsSection = () => {
   const { data, error, isLoading } = GetDataFromSection('ourProjects')
 
   const { t } = useTranslation();
-  console.log("data", data)
+  // console.log("data", data)
   let sortedByUpdateData = [];
 
   if (!isLoading) {
