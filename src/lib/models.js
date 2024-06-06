@@ -254,11 +254,9 @@ const userSchema = new mongoose.Schema(
 
 
 // If the collection does not exist - create a new one.
-export const Project =
-  mongoose.models?.Project || mongoose.model('Project', projectSchema);
+export const Project = mongoose.models?.Project || mongoose.model('Project', projectSchema);
 
-export const Service =
-  mongoose.models?.Service || mongoose.model('Service', serviceSchema);
+export const Service = mongoose.models?.Service || mongoose.model('Service', serviceSchema);
 
 export const Blog = mongoose.models?.Blog || mongoose.model('Blog', blogSchema);
 

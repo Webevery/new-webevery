@@ -26,7 +26,7 @@ const BlogSection = () => {
 
   const { i18n, t } = useTranslation();
 
-  const { data, error, isLoading } = GetDataFromSection('blog');
+  const { data, isLoading } = GetDataFromSection('blog');
 
   const containerRef = useRef();
 

@@ -2,49 +2,6 @@
   width: 100%;
 }
 
-/* .ServiceSwiper .swiper-wrapper {
-    height: 632px;
-    @media screen and (min-width:768px) {
-        height: 629px;
-    }
-
-    @media screen and (min-width:1024px) {
-        height:556px;
-    }
-
-    @media screen and (min-width:1440px) {
-        height: 764px;
-    }
-} */
-
-/* 
-.ServicesSwiper .swiper-slide {
-    display: flex;
-    justify-content: center;
-} */
-
-/* .ServicesSwiper .slideContentWrapper {
-    background-color: #0d0d11;
-    height: 632px; */
-/* box-shadow: 6px 12px 32px 0px #1A8CFF1A; */
-
-/* @media screen and (min-width:768px) {
-        height: 653px;
-        padding: 24px;
-        width: 340px;
-    }; */
-
-/* @media screen and (min-width:1024px) {
-        padding: 16px 12px;
-        width: 304px;
-    };
-
-    @media screen and (min-width:1440px) {
-        padding: 32px 16px;
-        width: 416px;
-    } */
-/* } */
-
 .ServicesSwiper .swiper-pagination {
   top: 97%;
 

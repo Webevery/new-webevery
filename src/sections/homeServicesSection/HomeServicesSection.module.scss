@@ -9,36 +9,6 @@
   }
 }
 
-// .container {
-//   // padding-top: 40px;
-//   // display: block;
-//   // height: 955px;
-//   // height: 955px;
-//   // height: 1356px;
-//   // min-width: 360px;
-//   // height: 462px;
-//   // background-color: $backgroundColor;
-
-//   // @media screen and (min-width: $tablet) {
-//   //   // height: 923px;
-//   // }
-
-//   // @media screen and (min-width: $laptop) {
-//   //   // height: 1066px;
-//   //   // padding-top: 80px;
-//   // }
-
-//   // @media screen and (min-width: $desktop) {
-//   //   // height: 1356px;
-//   // }
-// }
-
-// .con {
-//   // height:1000px;
-//   // margin-bottom: 10px;
-//   // display: block;
-// }
-
 .title {
   font-weight: 300;
   font-size: 48px;
@@ -70,14 +40,10 @@
   @media screen and (min-width: $tablet) {
     width: fit-content;
     font-weight: 300;
-    // font-size: 48px;
-    // line-height: 1.1;
     margin-bottom: 16px;
   }
 
   @media screen and (min-width: $laptop) {
-    // display: block;
-    // width: 50%;
     font-weight: 400;
     font-size: 36px;
     line-height: 1.4;
@@ -86,7 +52,6 @@
   }
 
   @media screen and (min-width: $desktop) {
-    // line-height: 1.1;
     margin-bottom: 48px;
   }
 }

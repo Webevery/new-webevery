@@ -47,7 +47,7 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                 method: "POST",
                 body: JSON.stringify(data),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
+            // автоматично оновлює сторінку при зміні кількості карток
             mutate();
             console.log("Information added to DB");
 

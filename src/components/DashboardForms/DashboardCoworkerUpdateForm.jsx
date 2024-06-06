@@ -63,7 +63,7 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
 
             console.log("Information updated to DB");
 
-            // по умові виконується або переход на іншу сторінку, або оновлення існуючої
+            // по умові виконується або перехід на іншу сторінку, або оновлення існуючої
             (slug !== updatedData.slug) ? router.push(`/dashboard/team/${updatedData.slug}`) : mutate();
         } catch (err) {
             console.log(err);

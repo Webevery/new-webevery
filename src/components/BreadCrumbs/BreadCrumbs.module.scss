@@ -16,20 +16,15 @@
   font-weight: 500;
   line-height: 1.6;
   text-align: center;
-  // margin-bottom: 24px;
   cursor: pointer;
   font-size: 16px;
   backdrop-filter: blur(6px);
   margin-right: auto;
   animation: fadeIn 0.8s ease-in-out forwards;
 
-  // @media screen and (min-width: $tablet) {
-  //   // margin-bottom: 32px;
-  // }
   @media screen and (min-width: $laptop) {
     font-size: 20px;
     column-gap: 12px;
-    // padding: 0 8px;
   }
 }
 

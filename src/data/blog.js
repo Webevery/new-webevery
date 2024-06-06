@@ -20,9 +20,4 @@ export const blogSorter = [
     titleEn: 'Sort from old to new',
     title: 'Від старих до нових',
   },
-  // {
-  //   id: v4(),
-  //   titleEn: 'Sort by popularity',
-  //   title: 'За популярністю',
-  // },
 ];

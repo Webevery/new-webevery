@@ -6,7 +6,6 @@ export const SiteContext = createContext();
 export const SiteProvider = ({ children }) => {
   const [burgerMenu, setBurgermenu] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-  // console.log(burgerMenu);
   const [isModalOpen, setModalOpen] = useState(false);
   const [comment, setComment] = useState("");
   const [blogFilterShown, setBlogFilterShown] = useState(false);
@@ -17,7 +16,6 @@ export const SiteProvider = ({ children }) => {
   const [searchBlog, setSearchBlog] = useState(false);
 
   const openModal = () => {
-    // setComment(comment);
     setModalOpen(true);
   };
 
