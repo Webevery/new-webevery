@@ -5,23 +5,19 @@
   padding: 72px 20px 80px 20px;
 
   @media screen and (min-width: $mobile) {
-    // padding: 80px 20px 80px 20px;
     padding: 72px 24px 80px 24px;
   }
 
   @media screen and (min-width: $tablet) {
-    // padding: 120px 20px 80px 20px;
     padding: 112px 32px 140px 32px;
   }
 
   @media screen and (min-width: $laptop) {
     padding: 112px 32px 80px 32px;
-    // padding: 140px 32px 80px 32px;
   }
 
   @media screen and (min-width: $desktop) {
     padding: 112px 72px 80px 72px;
-    // padding: 140px 72px 80px 72px;
   }
 }
 
@@ -38,36 +34,11 @@
   -ms-flex-direction: column;
   flex-direction: column;
   justify-content: center;
-  // padding: 80px 20px 79px 20px;
-
-  // @media screen and (min-width: $mobile) {
-  //   // padding: 80px 20px 80px 20px;
-  //   padding: 80px 24px 80px 24px;
-  // }
-
-  // @media screen and (min-width: $tablet) {
-  //   // padding: 120px 20px 80px 20px;
-  //   padding: 120px 32px 140px 32px;
-  // }
-
-  // @media screen and (min-width: $laptop) {
-  //   padding: 112px 32px 80px 32px;
-  //   // padding: 140px 32px 80px 32px;
-  // }
-
-  // @media screen and (min-width: $desktop) {
-  //   padding: 112px 72px 80px 72px;
-  //   // padding: 140px 72px 80px 72px;
-  // }
 }
 
 .backContainer {
   margin-bottom: 12px;
   color: $gray50;
-
-  // @media screen and (min-width: $tablet) {
-  //   margin-bottom: 24px;
-  // }
 }
 
 .backIcon {
@@ -85,7 +56,6 @@
 }
 
 .ourProjectsTitle {
-  // height: 79px;
   font-weight: 400;
   font-size: 28px;
   line-height: 1.4;
@@ -95,29 +65,23 @@
   animation: fadeIn 0.8s ease-in-out forwards;
 
   @media screen and (min-width: $mobile) {
-    // height: 70px;
-    // font-size: 32px;
     font-size: 30px;
     line-height: 1.1;
     margin-bottom: 24px;
   }
 
   @media screen and (min-width: $tablet) {
-    // height: 53px;
     font-size: 48px;
   }
 
   @media screen and (min-width: $laptop) {
-    // height: 49px;
     font-size: 44px;
     margin-bottom: 32px;
   }
 
   @media screen and (min-width: $desktop) {
-    // height: 70px;
     font-size: 64px;
     margin-bottom: 24px;
-    // margin-bottom: 48px;
   }
 }
 
@@ -218,10 +182,6 @@
     border-radius: 56px;
     margin-bottom: 32px;
   }
-
-  // @media screen and (min-width: $desktop) {
-  //   height: 85vh;
-  // }
 
   & img {
     object-fit: inherit;

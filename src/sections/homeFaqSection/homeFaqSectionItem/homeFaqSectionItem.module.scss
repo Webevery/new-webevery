@@ -1,14 +1,13 @@
 @import "../../../app/variables";
 
-@mixin answerHeight(
-  $minMobileHeight,
+@mixin answerHeight($minMobileHeight,
   $maxMobileHeight,
   $tabletHeight,
-  $desktopHeight
-) {
+  $desktopHeight) {
   @media (min-width: $mobile) and (max-width: 479px) {
     height: $minMobileHeight;
   }
+
   @media (min-width: 480px) and (max-width: 767px) {
     height: $maxMobileHeight;
   }
@@ -30,9 +29,11 @@
 .first {
   @include answerHeight(152px, 114px, 76px, 57px);
 }
+
 .second {
   @include answerHeight(342px, 247px, 171px, 133px);
 }
+
 .third {
   @include answerHeight(228px, 152px, 114px, 95px);
 }
@@ -76,37 +77,27 @@
 .thirteenth {
   @include answerHeight(152px, 95px, 76px, 57px);
 }
+
 .faqItem {
-  //   display: flex;
   padding: 24px;
 }
+
 .faqItem__questionContainer {
   display: flex;
   transition: 0.4s;
 }
+
 .faqItem__question {
   max-width: 216px;
 }
-// .btnWrapper {
-//   @media screen and (min-width: $laptop) {
-//     border-radius: 100px;
-//     width: 58px;
-//     height: 58px;
-//     &:first-child {
-//       margin-right: 24px;
-//     }
-//   }
-//   @media screen and (min-width: $desktop) {
-//     width: 86px;
-//     height: 58px;
-//   }
-// }
+
 .faqItem__buttonPlus {
   background: none;
   border: none;
   outline: none;
   margin-left: auto;
 }
+
 .faqItem__icon {
   width: 19px;
   height: 14px;
@@ -123,14 +114,13 @@
 
   @include fontParameters(700, 13px, 19px, 0.05em);
 
-  // color: var(--main_text_color_our_team);
-
   transition: height 0.5s linear, opacity 0.5s linear;
 
   opacity: 0;
   height: 0;
   overflow: hidden;
   border: 0;
+
   @media screen and (min-width: $tablet) {
     font-size: 16px;
   }
@@ -158,6 +148,7 @@
   display: block;
   overflow: hidden;
 }
+
 .w {
   display: none;
 }

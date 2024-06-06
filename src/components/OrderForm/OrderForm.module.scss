@@ -1,382 +1,3 @@
-// @import "../../app/variables";
-
-// .container {
-//   position: relative;
-//   display: -webkit-box;
-//   display: -ms-flexbox;
-//   display: flex;
-//   -webkit-box-orient: vertical;
-//   -webkit-box-direction: normal;
-//   -ms-flex-direction: column;
-//   flex-direction: column;
-//   -webkit-box-align: center;
-//   -ms-flex-align: center;
-//   align-items: center;
-//   justify-content: center;
-//   height: 500px;
-//   width: 320px;
-//   height: 524px;
-//   text-align: center;
-//   padding: 20px;
-//   background-color: $gray900;
-//   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.5);
-
-//   @media screen and (min-width: $mobile) {
-//     width: 360px;
-//     height: 532px;
-//     padding: 24px;
-//   }
-
-//   @media screen and (min-width: $tablet) {
-//     width: 522px;
-//     height: 528px;
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     width: 632px;
-//     height: 432px;
-//     padding: 16px 32px 16px 32px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     width: 856px;
-//     height: 540px;
-//     padding: 0px;
-//   }
-
-//   @media screen and (min-width: 1920px) {
-//     height: 562px;
-//   }
-// }
-
-// .containerFooter {
-//   box-shadow: none;
-//   width: 340px;
-//   height: 310px;
-//   height: 100%;
-//   padding: 0;
-//   background-color: #000000;
-// }
-
-// .closeBtn {
-//   position: absolute;
-//   top: 32px;
-//   right: 32px;
-//   border: none;
-//   cursor: pointer;
-
-//   @media screen and (min-width: $laptop) {
-//     top: 32px;
-//     right: 32px;
-//   }
-// }
-
-// .iconBtnClose {
-//   position: absolute;
-//   bottom: -2px;
-//   width: 24px;
-//   height: 24px;
-//   fill: $gray600;
-
-//   @media screen and (min-width: $desktop) {
-//     left: -22px;
-//     bottom: -22px;
-//   }
-// }
-
-// .titleWrap {
-//   display: flex;
-//   padding-left: 24px;
-//   width: 320px;
-//   margin-top: 0;
-//   margin-bottom: 28px;
-
-//   @media screen and (min-width: $mobile) {
-//     width: 360px;
-//   }
-
-//   @media screen and (min-width: $tablet) {
-//     justify-content: center;
-//     width: 570px;
-//     margin-top: 35px;
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     padding-left: 0;
-//     margin-top: 0;
-//     margin-bottom: 32px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     width: 636px;
-//     margin-top: 15px;
-//     margin-bottom: 50px;
-//   }
-// }
-
-// .title {
-//   font-family: var(--font-noto-sans);
-//   font-size: 22px;
-//   font-weight: 500;
-//   line-height: 1.4;
-
-//   @media screen and (min-width: $mobile) {
-//     font-size: 24px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     font-size: 26px;
-//   }
-// }
-
-// .form {
-//   width: 280px;
-//   display: -webkit-box;
-//   display: -ms-flexbox;
-//   display: flex;
-//   -webkit-box-align: center;
-//   -ms-flex-align: center;
-//   align-items: center;
-//   -webkit-box-orient: vertical;
-//   -webkit-box-direction: normal;
-//   -ms-flex-direction: column;
-//   flex-direction: column;
-
-//   @media screen and (min-width: $mobile) {
-//     width: 312px;
-//   }
-
-//   @media screen and (min-width: $tablet) {
-//     width: 474px;
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     width: 568px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     width: 636px;
-//   }
-// }
-
-// .formFooter {
-//   width: 340px;
-// }
-
-// .inputHolder {
-//   width: 100%;
-
-//   @media screen and (min-width: $laptop) {
-//     display: flex;
-//     column-gap: 20px;
-//   }
-// }
-
-// .inputHolderFooter {
-//   width: 100%;
-// }
-
-// .inputWrap {
-//   width: 100%;
-//   margin-bottom: 20px;
-//   position: relative;
-
-//   @media screen and (min-width: $laptop) {
-//     margin-bottom: 32px;
-//   }
-// }
-
-// .input {
-//   width: 100%;
-//   height: 60px;
-//   background-color: $gray0;
-//   outline: none;
-//   padding: 12px 20px;
-//   border-radius: 16px;
-//   font-family: var(--font-noto-sans);
-//   font-weight: 400;
-//   font-size: 16px;
-//   line-height: 1.6;
-//   color: $gray700;
-//   border: double 1px transparent;
-//   background-image: linear-gradient(white, white), $gradient;
-//   background-origin: border-box;
-//   background-clip: padding-box, border-box;
-// }
-
-// .input::placeholder,
-// .textarea::placeholder {
-//   font-family: var(--font-noto-sans);
-//   font-weight: 400;
-//   font-size: 16px;
-//   line-height: 1.6;
-//   color: $gray700;
-// }
-
-// .inputError {
-//   border: 1px solid rgba(213, 0, 0, 1);
-//   color: rgba(213, 0, 0, 1);
-// }
-
-// .inputSuccess {
-//   border: 1px solid rgba(5, 255, 0, 1);
-// }
-
-// .textarea {
-//   height: 180px;
-//   resize: none;
-
-//   @media screen and (min-width: $tablet) {
-//     height: 132px;
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     height: 120px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     width: 100%;
-//     height: 180px;
-//   }
-// }
-
-// .textareaFooter {
-//   height: 80px;
-// }
-
-// .submitButton {
-//   & button {
-//     letter-spacing: 1.5px;
-//   }
-// }
-
-// #submitId {
-//   width: 100%;
-
-//   @media screen and (min-width: $laptop) {
-//     width: 416px;
-//     height: 60px;
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     height: 68px;
-//   }
-// }
-
-// #submitFooterId {
-//   width: 340px;
-//   height: 50px;
-
-//   & button {
-//     font-size: 16px;
-//   }
-
-//   @media screen and (min-width: $tablet) {
-//     height: 46px;
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     height: 56px;
-//   }
-// }
-
-// .error {
-//   position: absolute;
-//   top: 60px;
-//   right: 10px;
-//   color: rgba(213, 0, 0, 1);
-//   font-family: var(--font-noto-sans);
-//   font-size: 13px;
-//   font-weight: 600;
-
-//   @media screen and (min-width: $laptop) {
-//     top: 60px;
-//     font-size: 14px;
-//   }
-// }
-
-// .icon {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   width: 12px;
-//   height: 12px;
-// }
-
-// // styles for SuccessContent component
-
-// .containerSuccess {
-//   padding: 0;
-//   // background-size: contain;
-// }
-
-// .bgWrap {
-//   // border: 1px solid;
-
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   padding: 20px;
-//   width: 100%;
-//   height: 100%;
-//   background-position: center;
-//   background-size: cover;
-
-//   background-image: url("../../../public/SuccessFonWebp/fon320.webp");
-
-//   @media screen and (min-width: $mobile) {
-//     background-image: url("../../../public/SuccessFonWebp/fon360.webp");
-//   }
-
-//   @media screen and (min-width: $tablet) {
-//     background-image: url("../../../public/SuccessFonWebp/fon768.webp");
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     background-image: url("../../../public/SuccessFonWebp/fon1024.webp");
-//     // background-size: 632px 432px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     background-image: url("../../../public/SuccessFonWebp/fon1440.webp");
-//   }
-// }
-
-// .successTitle {
-//   font-family: var(--font-noto-sans);
-//   font-size: 16px;
-//   font-weight: 500;
-//   line-height: 1.6;
-//   width: 242px;
-//   margin-top: 20px;
-
-//   @media screen and (min-width: $mobile) {
-//     // width: 312px;
-//   }
-
-//   @media screen and (min-width: $tablet) {
-//     // font-size: 20px;
-//   }
-
-//   @media screen and (min-width: $laptop) {
-//     font-size: 20px;
-//     width: 307px;
-//     margin-top: 60px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     font-size: 26px;
-//     width: 407px;
-//   }
-// }
-
-
-
-
-
-
 @import "../../app/variables";
 
 .container {
@@ -392,7 +13,6 @@
   -ms-flex-align: center;
   align-items: center;
   justify-content: center;
-  // height: 500px;
   width: 320px;
   height: 524px;
   text-align: center;
@@ -466,55 +86,31 @@
 
 .titleWrap {
   display: flex;
-  // padding-left: 24px;
-  // width: 320px;
-  // margin-top: 0;
-  // margin-right: auto;
   margin-bottom: 28px;
-
-  @media screen and (min-width: $mobile) {
-    // width: 360px;
-  }
 
   @media screen and (min-width: $tablet) {
     justify-content: center;
-    // margin-right: 0;
-    // width: 570px;
     margin-bottom: 32px;
   }
 
   @media screen and (min-width: $laptop) {
-    // padding-left: 0;
-    // margin-top: 0;
     margin-bottom: 40px;
   }
-
-  // @media screen and (min-width: $desktop) {
-  //   // width: 636px;
-  //   // margin-top: 15px;
-  //   margin-bottom: 70px;
-  // }
 }
 
 .title {
   font-family: var(--font-noto-sans);
-  // font-size: 24px;
   font-size: 22px;
   font-weight: 500;
   line-height: 1.4;
 
   @media screen and (min-width: $mobile) {
     font-size: 24px;
-    // font-weight: 400;
   }
 
   @media screen and (min-width: $laptop) {
     font-size: 26px;
   }
-
-  // @media screen and (min-width: $desktop) {
-  //   font-size: 26px;
-  // }
 }
 
 .form {
@@ -586,12 +182,7 @@
 
 .inputWrap {
   width: 100%;
-  // margin-bottom: 20px;
   position: relative;
-
-  // @media screen and (min-width: $laptop) {
-  //   margin-bottom: 32px;
-  // }
 }
 
 .inputWrap:not(:last-child) {
@@ -614,10 +205,6 @@
   @media screen and (min-width: $mobile) {
     margin-bottom: 32px;
   }
-
-  // @media screen and (min-width: $laptop) {
-  //   margin-bottom: 32px;
-  // }
 }
 
 .input {
@@ -743,12 +330,9 @@
 
 .containerSuccess {
   padding: 0;
-  // background-size: contain;
 }
 
 .bgWrap {
-  // border: 1px solid;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -772,7 +356,6 @@
   @media screen and (min-width: $laptop) {
     padding: 80px 32px 16px;
     background-image: url("../../../public/SuccessFonWebp/fon1024.webp");
-    // background-size: 632px 432px;
   }
 
   @media screen and (min-width: $desktop) {
@@ -789,18 +372,9 @@
   text-align: left;
   width: 240px;
 
-  @media screen and (min-width: $mobile) {
-    // width: 312px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    // font-size: 20px;
-  }
-
   @media screen and (min-width: $laptop) {
     font-size: 20px;
     width: 307px;
-    // margin-top: 60px;
   }
 
   @media screen and (min-width: $desktop) {

@@ -4,7 +4,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // margin-bottom: 16px;
 
     @media screen and (min-width: $laptop) {
         row-gap: 12px;
@@ -13,12 +12,8 @@
 }
 
 .itemSocialLink {
-    // width: 8px;
-    // height: 8px;
-
     width: 24px;
     height: 24px;
-
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -37,10 +32,6 @@
     }
 
     @media screen and (min-width: $laptop) {
-        // width: 36px;
-        // height: 36px;
-        // width: 40px;
-        // height: 40px;
         width: 32px;
         height: 32px;
     }
@@ -48,8 +39,6 @@
 
 .iconSocialLink {
     display: block;
-    // width: 24px;
-    // height: 24px;
     width: 20px;
     height: 20px;
 

@@ -3,7 +3,6 @@
 .serviceList {
   width: 100%;
   display: flex;
-  // grid-template-columns: repeat(1, 1fr);
   -webkit-box-pack: space-around;
   -ms-flex-pack: space-around;
   justify-content: space-around;
@@ -25,12 +24,6 @@
   @media screen and (min-width: 1440px) {
     height: 828px;
   }
-  // @media screen and (min-width: $tablet) {
-  //   grid-template-columns: repeat(2, 1fr);
-  // }
-  // @media screen and (min-width: $laptop) {
-  //   grid-template-columns: repeat(3, 1fr);
-  // }
 }
 
 .serviceItem {
@@ -55,6 +48,7 @@
   margin-bottom: 4px;
   height: 632px;
   width: 312px;
+
   @media screen and (min-width: 768px) {
     height: 629px;
     padding-bottom: 32px;
@@ -82,9 +76,11 @@
   align-items: center;
   margin-bottom: 12px;
   justify-content: flex-end;
+
   @media screen and (min-width: 1024px) {
     margin-bottom: 16px;
   }
+
   @media screen and (min-width: 1440px) {
     margin-bottom: 24px;
   }
@@ -99,6 +95,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   @media screen and (min-width: 1024px) {
     font-size: 14px;
   }
@@ -124,13 +121,16 @@
   text-align: center;
   margin-bottom: 12px;
   height: 68px;
+
   @media screen and (min-width: 768px) {
     height: auto;
     margin-bottom: 16px;
   }
+
   @media screen and (min-width: 1024px) {
     margin-bottom: 12px;
   }
+
   @media screen and (min-width: 1440px) {
     margin-bottom: 24px;
   }
@@ -142,9 +142,11 @@
   line-height: 1.6;
   margin-left: 30px;
   font-size: 16px;
+
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
+
   @media screen and (min-width: 1440px) {
     font-size: 20px;
   }
@@ -157,10 +159,12 @@
   color: #ffffff;
   margin-bottom: 16px;
   text-align: right;
+
   @media screen and (min-width: 768px) {
     font-size: 24px;
     margin-bottom: 16px;
   }
+
   @media screen and (min-width: 1024px) {
     margin-bottom: 20px;
     font-size: 20px;
@@ -174,9 +178,8 @@
 
 #orderBtn {
   width: 100%;
+
   @media screen and (min-width: 1024px) {
     font-size: 20px;
   }
-  // padding-top: 10px;
-  // padding-bottom: 10px;
 }

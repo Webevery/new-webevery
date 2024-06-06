@@ -25,7 +25,7 @@ import { useTranslation } from "react-i18next";
 import { currentLanguages } from "@/data/languages";
 
 export const SliderOfTeam = () => {
-  const { data, isLoading, error } = GetDataFromSection("team");
+  const { data, isLoading } = GetDataFromSection("team");
   const { i18n } = useTranslation();
 
   let newData = [];

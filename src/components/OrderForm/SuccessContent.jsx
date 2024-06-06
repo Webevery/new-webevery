@@ -29,11 +29,9 @@ const SuccessContent = ({ isSubmited, closeModal }) => {
                 {!isLoad && (
                     <OrderBtn
                         type='button'
-                        // title='Great!'
                         title={t('Buttons.SuccessContentBtn')}
                         onClick={closeModal}
                         className={styles.submitButton}
-                        // id={isFooterForm ? styles.submitFooterId : styles.submitId}
                         id={styles.submitId}
                     />
                 )}

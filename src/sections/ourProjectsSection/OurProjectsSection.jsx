@@ -11,7 +11,7 @@ import stylescBtn from '../../components/Buttons/Btns.module.scss';
 import ReadMore from '@/components/Buttons/ReadMore/ReadMore';
 
 const OurProjectsSection = () => {
-  const { data, error, isLoading } = GetDataFromSection('ourProjects');
+  const { data, isLoading } = GetDataFromSection('ourProjects');
 
   let sortedByUpdateData = [];
 

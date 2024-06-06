@@ -7,7 +7,7 @@ import { connectToDB } from "@/utils/connectToDB";
 import { authConfig } from "./auth.config";
 
 
-// вынесено в отдельную функцию, ! возможно !, потому что нельзя вызывать сторонние библиотеки в Next-Auth
+// вынесено в отдельную функцию, ! возможно !, потому что нельзя вызывать сторонние библиотеки (в данном случае bcrypt) в Next-Auth
 const login = async (credentials) => {
     try {
         await connectToDB();
