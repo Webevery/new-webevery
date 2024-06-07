@@ -6,6 +6,7 @@ import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import { useTranslation } from "react-i18next";
 import PlusIcon from "./Icons/PlusIcon";
 import { currentLanguages } from "@/data";
+import Link from "next/link";
 
 
 const FaqSection = () => {
@@ -77,12 +78,12 @@ const FaqSection = () => {
                 isOpen ? <PlusIcon svgOpen={true} /> : <PlusIcon />
               }
             >
-              {item.answer}
+              {item.answer} {item.link && <Link className="titleGradient" href={item.href}>{item.link}</Link>}.
             </AccordionItem>
           ))}
         </Accordion>
       </div>
-    </section>
+    </section >
   );
 };
 
