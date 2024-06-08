@@ -8,6 +8,7 @@ import PlusIcon from "./Icons/PlusIcon";
 import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
 import { currentLanguages } from "@/data";
 import { useWindowResize } from "@/hooks/useWindowResize";
+import Link from "next/link";
 
 
 const HomeFaqSection = () => {
@@ -98,7 +99,7 @@ const HomeFaqSection = () => {
                     isOpen ? <PlusIcon svgOpen={true} /> : <PlusIcon />
                   }
                 >
-                  {item.answer}
+                  {item.answer} {item.link && <Link className="titleGradient" href={item.href}>{item.link}</Link>}.
                 </AccordionItem>
               ))}
             </Accordion>
