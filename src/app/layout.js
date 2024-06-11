@@ -32,9 +32,9 @@ const DynamicToTopBtn = dynamic(() =>
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_MAIN_URL),
-  title: "Створення сайту — Webevery &#127757;",
+  title: "Створення сайту — Webevery &#127757; | Веб студія",
   description:
-    "Webevery &#9757; — новий сайт &#9989; Лендінг&#128187; Ваш надійний партнер у розробці веб-сайту &#9996; Замовити сайт&#128190; Створити сайт під ключ&#128273; Графічний дизайн&#10024;",
+    "Webevery &#9757; — новий сайт &#9989; Лендінг&#128187; Ваш надійний партнер у розробці веб-сайту &#9996; Замовити сайт&#128190; Створити сайт під ключ&#128273;",
   keywords: [
     "Створення сайту",
     "Веб-сайти",
@@ -44,6 +44,9 @@ export const metadata = {
     "Webevery",
     "Веб-студія Webevery",
     "Графічний дизайн",
+    "Замовити",
+    "Подзвонити",
+    "Веб студія",
   ],
   alternates: {
     canonical: process.env.NEXT_PUBLIC_MAIN_URL,
