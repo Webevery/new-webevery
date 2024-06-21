@@ -136,7 +136,8 @@ export const SliderOfServices = ({ slug }) => {
                 <p className={styles.price}>
                   {i18n.language === currentLanguages.EN ? priceEn : price}
                 </p>
-                <OrderBtn
+                {/* розкоментувати після появи політики конфіденційності*/}
+                {/* <OrderBtn
                   id={styles.orderBtn}
                   title={t('Buttons.ServiceCardOrderBtn')}
                   onClick={() => {
@@ -147,7 +148,7 @@ export const SliderOfServices = ({ slug }) => {
                     }
                     openModal();
                   }}
-                />
+                /> */}
               </div>
             </SwiperSlide>
           );
