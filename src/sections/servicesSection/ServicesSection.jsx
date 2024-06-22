@@ -105,7 +105,8 @@ const ServicesSection = () => {
                                                 ? priceEn
                                                 : price}
                                         </p>
-                                        <OrderBtn
+                                        {/* розкоментувати після появи політики конфіденційності*/}
+                                        {/* <OrderBtn
                                             id={styles.serviceOrderBtn}
                                             title={t(
                                                 "Buttons.ServiceCardOrderBtn"
@@ -125,7 +126,7 @@ const ServicesSection = () => {
                                                 }
                                                 openModal();
                                             }}
-                                        />
+                                        /> */}
                                     </div>
                                 </li>
                             );

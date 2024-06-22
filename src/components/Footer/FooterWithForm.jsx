@@ -81,10 +81,10 @@ const FooterWithForm = () => {
 
                                         <FooterLinks />
                                     </div>
-
-                                    <div className={styles.formWrapper}>
+                                    {/* розкоментувати після появи політики конфіденційності*/}
+                                    {/* <div className={styles.formWrapper}>
                                         <OrderForm isFooterForm={true} />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <p className={styles.allRights}>
                                     © All rights reserved by{" "}

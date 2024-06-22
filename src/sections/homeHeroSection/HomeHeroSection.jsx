@@ -22,13 +22,14 @@ const HomeHeroSection = () => {
           <p className={styles.text}>
             with team <span className={styles.textItem}>Webevery</span>
           </p>
-          {!isLoad && (
+          {/* розкоментувати після появи політики конфіденційності*/}
+          {/* {!isLoad && (
             <OrderBtn
               onClick={openModal}
               type="submit"
               title={t("Buttons.OrderBtn")}
             />
-          )}
+          )} */}
         </div>
       </div>
     </section>

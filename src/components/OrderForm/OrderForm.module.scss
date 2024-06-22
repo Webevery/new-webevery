@@ -1,53 +1,58 @@
 @import "../../app/variables";
 
 .container {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 320px;
-  height: 524px;
-  text-align: center;
-  padding: 24px 20px 10px;
-  background-color: $gray900;
-  box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.5);
-
-  @media screen and (min-width: $mobile) {
-    width: 360px;
-    height: 532px;
-    padding: 16px 24px 32px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    width: 522px;
-    height: 528px;
-    padding: 48px 24px 32px;
-  }
-
-  @media screen and (min-width: $laptop) {
-    width: 632px;
-    height: 432px;
-    padding: 16px 32px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    width: 856px;
-    height: 540px;
-    padding: 32px 110px;
-  }
-
-  @media screen and (min-width: 1920px) {
-    height: 562px;
-  }
+  display: none;
 }
+
+// раскомментировать после появления политики конфиденциальности
+// .container {
+//   position: relative;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-orient: vertical;
+//   -webkit-box-direction: normal;
+//   -ms-flex-direction: column;
+//   flex-direction: column;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+//   justify-content: center;
+//   width: 320px;
+//   height: 524px;
+//   text-align: center;
+//   padding: 24px 20px 10px;
+//   background-color: $gray900;
+//   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.5);
+
+//   @media screen and (min-width: $mobile) {
+//     width: 360px;
+//     height: 532px;
+//     padding: 16px 24px 32px;
+//   }
+
+//   @media screen and (min-width: $tablet) {
+//     width: 522px;
+//     height: 528px;
+//     padding: 48px 24px 32px;
+//   }
+
+//   @media screen and (min-width: $laptop) {
+//     width: 632px;
+//     height: 432px;
+//     padding: 16px 32px;
+//   }
+
+//   @media screen and (min-width: $desktop) {
+//     width: 856px;
+//     height: 540px;
+//     padding: 32px 110px;
+//   }
+
+//   @media screen and (min-width: 1920px) {
+//     height: 562px;
+//   }
+// }
 
 .containerFooter {
   box-shadow: none;

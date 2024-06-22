@@ -101,7 +101,8 @@ const ServiceIdSection = ({ params }) => {
                                         ? changedData.priceEn
                                         : changedData.price}
                                 </p>
-                                <OrderBtn
+                                {/* розкоментувати після появи політики конфіденційності*/}
+                                {/* <OrderBtn
                                     className={styles.orderBtn}
                                     id={styles.serviceOrderBtn}
                                     title={t("Buttons.OrderBtn")}
@@ -120,7 +121,7 @@ const ServiceIdSection = ({ params }) => {
                                         }
                                         openModal();
                                     }}
-                                />
+                                /> */}
                             </div>
                         </div>
 
