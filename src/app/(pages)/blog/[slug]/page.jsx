@@ -11,7 +11,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const previousImages = (await parent).openGraph?.images || [];
   
   return {
-    title: `${product?.direction} | Webevery&#127757;. Створити сайт.`,
+    title: `${product?.direction} | Webevery. Створити сайт.`,
     description: `${product?.direction} | Webevery&#9757;. Замовити&#9989; Створити сайт під ключ&#128273; Обирайте найкращу пропозицію для Вашого бізнесу&#127942;`,
     openGraph: {
       images: [parent?.images, ...previousImages],
