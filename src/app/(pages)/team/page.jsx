@@ -5,7 +5,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: "Давайте познайомимося Webevery&#127757; | Веб студія",
+    title: "Давайте познайомимося Webevery | Веб студія",
   description:
     "Команда Webevery працює для Вас та Вашого бізнесу&#127942; Розробка сайту &#9989; Ваш надійний партнер у розробці веб-сайту &#129309; Замовити дзвінок&#128241;",
     openGraph: {
