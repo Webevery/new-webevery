@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { CldUploadButton } from "next-cloudinary";
@@ -56,10 +55,10 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
     };
 
     const form = useForm(initialValues);
-    const { register, handleSubmit, formState, reset, getValues, setValue } =
+    const { register, handleSubmit, formState, getValues, setValue } =
         form;
 
-    const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
+    const { errors, isErrors, isSubmitting } = formState;
 
     const router = useRouter();
 
@@ -121,12 +120,6 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
             console.log(err);
         }
     };
-
-    useEffect(() => {
-        if (isSubmitSuccessful) {
-            reset();
-        }
-    }, [isSubmitSuccessful, reset]);
 
 
     return (
