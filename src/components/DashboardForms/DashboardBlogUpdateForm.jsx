@@ -52,14 +52,12 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
         register: mainRegister,
         handleSubmit: mainHandleSubmit,
         formState: mainFormstate,
-        reset: mainReset,
         getValues: getMainValues,
         setValue: setMainValues,
     } = mainForm;
 
     const {
         errors: mainErrors,
-        isSubmitSuccessful: isMainSubmitSuccessful,
         isErrors: isMainErrors,
         isSubmitting: isMainSubmitting,
     } = mainFormstate;
@@ -113,11 +111,6 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
         }
     };
 
-    useEffect(() => {
-        if (isMainSubmitSuccessful) {
-            mainReset();
-        }
-    }, [isMainSubmitSuccessful, mainReset]);
 
     const blockAmount = getMainValues("newBlocks").length;
 
