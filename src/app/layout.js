@@ -123,6 +123,10 @@ export default function RootLayout({ children }) {
     <html lang="uk-UA">
       <GoogleTagManager gtmId="GTM-T389MD5P" />
       <body className={`${exo.variable} ${noto_sans.variable}`}>
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T389MD5P"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
