@@ -8,6 +8,7 @@ const BurgerBtn = ({ setIsClicked }) => {
   const { burgerMenu, setBurgermenu } = useContext(SiteContext);
   return (
     <button
+      aria-label="Burger menu"
       className={styles.burgerBtn}
       onClick={(e) => {
         e.stopPropagation(); // Stop event propagation
