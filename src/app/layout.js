@@ -1,4 +1,5 @@
 import { Noto_Sans, Exo_2 } from 'next/font/google';
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Toaster } from 'sonner';
 import { SiteProvider } from '@/context/siteContext';
 import TranslateProvider from '@/translator/i18Provider';
@@ -120,6 +121,7 @@ export default function RootLayout({ children }) {
   };
   return (
     <html lang="uk-UA">
+      <GoogleTagManager gtmId="GTM-T389MD5P" />
       <body className={`${exo.variable} ${noto_sans.variable}`}>
         <script
           type="application/ld+json"
