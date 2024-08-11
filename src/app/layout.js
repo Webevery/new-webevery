@@ -96,6 +96,8 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -121,11 +123,15 @@ export default function RootLayout({ children }) {
   };
   return (
     <html lang="uk-UA">
-      <GoogleTagManager gtmId="GTM-T389MD5P" />
+      <GoogleTagManager gtmId={`${GTM_ID}`} />
       <body className={`${exo.variable} ${noto_sans.variable}`}>
         <noscript>
-          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T389MD5P"
-        height="0" width="0" style={{ display:"none", visibility:"hidden" }}></iframe>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
         </noscript>
         <script
           type="application/ld+json"
