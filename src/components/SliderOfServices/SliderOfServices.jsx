@@ -1,26 +1,26 @@
-'use client';
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { GetDataFromSection } from '@/fetch/ClientFetch';
-import styles from './SliderOfServices.module.scss';
-import { useTranslation } from 'react-i18next';
-import { currentLanguages } from '@/data';
-import OrderBtn from '../Buttons/OrderBtn/OrderBtn';
-import { useContext } from 'react';
-import { SiteContext } from '@/context/siteContext';
-import ReadMore from '../Buttons/ReadMore/ReadMore';
-import './SliderOfServices.css';
+"use client";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
+import styles from "./SliderOfServices.module.scss";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data";
+import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
+import { useContext } from "react";
+import { SiteContext } from "@/context/siteContext";
+import ReadMore from "../Buttons/ReadMore/ReadMore";
+import "./SliderOfServices.css";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
-export const SliderOfServices = ({ slug }) => {
-  const { data, isLoading } = GetDataFromSection('services');
+export const SliderOfServices = ({ slug, id, idSlide }) => {
+  const { data, isLoading } = GetDataFromSection("services");
   const { openModal, setComment } = useContext(SiteContext);
   const { i18n, t } = useTranslation();
 
@@ -30,11 +30,11 @@ export const SliderOfServices = ({ slug }) => {
     changedData = [...data];
     changedData.map((item) => {
       if (
-        typeof item.directions === 'string' &&
-        typeof item.directionsEn === 'string'
+        typeof item.directions === "string" &&
+        typeof item.directionsEn === "string"
       ) {
-        const directionsArray = item.directions.split(' | ');
-        const directionsEnArray = item.directionsEn.split(' | ');
+        const directionsArray = item.directions.split(" | ");
+        const directionsEnArray = item.directionsEn.split(" | ");
         item.directions = directionsArray;
         item.directionsEn = directionsEnArray;
       }
@@ -63,10 +63,6 @@ export const SliderOfServices = ({ slug }) => {
           slidesPerView: 2,
           spaceBetween: 24,
         },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 24,
-        },
         1440: {
           slidesPerView: 3,
           spaceBetween: 24,
@@ -74,7 +70,9 @@ export const SliderOfServices = ({ slug }) => {
       }}
       navigation={true}
       modules={[Pagination, Autoplay, Navigation]}
-      className={`ServicesSwiper ${styles.serviceList}`}
+      // className={`ServicesSwiper ${styles.serviceList}`}
+      className={`ServicesSwiper`}
+      id={id}
     >
       {filteredData?.map(
         ({
@@ -85,14 +83,20 @@ export const SliderOfServices = ({ slug }) => {
           titleGradientEn,
           directions,
           directionsEn,
+          description,
+          descriptionEn,
           price,
           priceEn,
         }) => {
           return (
             <SwiperSlide
               key={slug}
-              className={`slideContentWrapper ${styles.serviceItem}`}
+              // className={`SlideContentWrapper ${styles.serviceItem}`}
+              // className={`slideContentWrapper`}
+
+              // id={idSlide}
             >
+              {/* <div className={styles.slideContent}> */}
               <div>
                 <div className={styles.readMore}>
                   <ReadMore href="services" slug={slug} />
@@ -108,7 +112,12 @@ export const SliderOfServices = ({ slug }) => {
                     </>
                   )}
                 </h3>
-                <ul>
+                <p className={styles.description}>
+                  {i18n.language === currentLanguages.EN
+                    ? descriptionEn
+                    : description}
+                </p>
+                {/* <ul>
                   {i18n.language === currentLanguages.EN ? (
                     <>
                       {directionsEn.map((item, index) => {
@@ -130,7 +139,7 @@ export const SliderOfServices = ({ slug }) => {
                       })}
                     </>
                   )}
-                </ul>
+                </ul> */}
               </div>
               <div>
                 <p className={styles.price}>
@@ -139,7 +148,7 @@ export const SliderOfServices = ({ slug }) => {
                 {/* розкоментувати після появи політики конфіденційності*/}
                 {/* <OrderBtn
                   id={styles.orderBtn}
-                  title={t('Buttons.ServiceCardOrderBtn')}
+                  title={t("Buttons.ServiceCardOrderBtn")}
                   onClick={() => {
                     if (i18n.language === currentLanguages.EN) {
                       setComment(`${titleGradientEn} ${titleEn}`);
@@ -150,6 +159,7 @@ export const SliderOfServices = ({ slug }) => {
                   }}
                 /> */}
               </div>
+              {/* </div> */}
             </SwiperSlide>
           );
         }
