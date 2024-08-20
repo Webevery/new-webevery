@@ -15,7 +15,6 @@ const ServicesSection = () => {
   const { data, isLoading } = GetDataFromSection("services");
   const { openModal, setComment } = useContext(SiteContext);
   const { i18n, t } = useTranslation();
-  console.log(data?.[0].description);
 
   let changedData = [];
   if (!isLoading) {
