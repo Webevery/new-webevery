@@ -39,10 +39,12 @@
   font-size: 48px;
 
   & span {
-    background: linear-gradient(90deg,
-        $gradientYellow 0%,
-        $gradientCyan 50%,
-        $gradientBlue 100%);
+    background: linear-gradient(
+      90deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -70,10 +72,12 @@
   color: #ffffff;
 
   & span {
-    background: linear-gradient(90deg,
-        $gradientYellow 0%,
-        $gradientCyan 50%,
-        $gradientBlue 100%);
+    background: linear-gradient(
+      90deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -147,15 +151,15 @@
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 48px;
-  min-height: 772px;
+  // min-height: 772px;
+  gap: 20px;
 
-  & ul {
-    margin-bottom: 54px;
-  }
+  // & ul {
+  //   margin-bottom: 54px;
+  // }
 }
 
 .cartItem:hover {
-
   @media screen and (min-width: $laptop) {
     transform: scale(1.03);
     transition: transform 0.3s ease-in-out;
@@ -200,10 +204,12 @@
   margin-bottom: 24px;
 
   & span {
-    background: linear-gradient(90deg,
-        $gradientYellow 0%,
-        $gradientCyan 50%,
-        $gradientBlue 100%);
+    background: linear-gradient(
+      90deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -215,6 +221,11 @@
   list-style-position: outside;
   margin-bottom: 10px;
   margin-left: 30px;
+}
+
+.description {
+  font-size: clamp(14px, 2vw, 20px);
+  line-height: 1.2;
 }
 
 .cartPrice {
