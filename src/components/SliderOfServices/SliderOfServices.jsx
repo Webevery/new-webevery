@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "./SliderOfServices.module.scss";
@@ -102,29 +101,6 @@ export const SliderOfServices = ({ slug, id, idSlide }) => {
                 <div className={styles.readMore}>
                   <ReadMore href="services" slug={slug} />
                 </div>
-                {/* <div className={styles.linkCont}>
-                  <span className={styles.readMoreTitle}>
-                    {t("Buttons.ServicesDetailsBtn")}
-                  </span>
-                  <svg className={styles.readMoreIcon}>
-                    <linearGradient
-                      id="paint0_linear_3004_8704"
-                      x1="6.97336e-08"
-                      y1="6.28477"
-                      x2="11.302"
-                      y2="-9.00003"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#FAFF00" />
-                      <stop offset="0.466629" stopColor="#00F0FF" />
-                      <stop offset="1" stopColor="#0600ff" />
-                    </linearGradient>
-                    <use
-                      href="/sprite.svg#icon-arrowReadMore"
-                      style={{ fill: "url(#paint0_linear_3004_8704)" }}
-                    />
-                  </svg>
-                </div> */}
                 <h3 className={styles.cartTitle}>
                   {i18n.language === currentLanguages.EN ? (
                     <>
@@ -169,7 +145,8 @@ export const SliderOfServices = ({ slug, id, idSlide }) => {
                 <p className={styles.price}>
                   {i18n.language === currentLanguages.EN ? priceEn : price}
                 </p>
-                <OrderBtn
+                {/* розкоментувати після появи політики конфіденційності*/}
+                {/* <OrderBtn
                   id={styles.orderBtn}
                   title={t("Buttons.ServiceCardOrderBtn")}
                   onClick={() => {
@@ -180,14 +157,13 @@ export const SliderOfServices = ({ slug, id, idSlide }) => {
                     }
                     openModal();
                   }}
-                />
+                /> */}
               </div>
               {/* </div> */}
             </SwiperSlide>
           );
         }
       )}
-      {/* </div> */}
     </Swiper>
   );
 };

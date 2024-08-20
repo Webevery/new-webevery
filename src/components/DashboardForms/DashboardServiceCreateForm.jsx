@@ -42,7 +42,7 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                 method: "POST",
                 body: JSON.stringify(data),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
+            // автоматично оновлює сторінку при зміні кількості карток
             mutate();
             console.log("Information added to DB");
 
@@ -66,7 +66,7 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Let`s add a new service to the site!
+                    Creating new service
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
@@ -81,19 +81,7 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.slug?.message}</p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='title'
-                        placeholder=' '
-                        {...register("title")}
-                    />
-                    <label htmlFor='title' className={styles.formLabel}>
-                        Title
-                    </label>
-                    <p className={styles.error}>{errors.title?.message}</p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -107,21 +95,21 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.titleEn?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='titleGradient'
+                        id='title'
                         placeholder=' '
-                        {...register("titleGradient")}
+                        {...register("title")}
                     />
-                    <label htmlFor='titleGradient' className={styles.formLabel}>
-                        Title Gradient
+                    <label htmlFor='title' className={styles.formLabel}>
+                        Title
                     </label>
-                    <p className={styles.error}>
-                        {errors.titleGradient?.message}
-                    </p>
+                    <p className={styles.error}>{errors.title?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -138,6 +126,22 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>
                         {errors.titleGradientEn?.message}
+                    </p>
+                </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='titleGradient'
+                        placeholder=' '
+                        {...register("titleGradient")}
+                    />
+                    <label htmlFor='titleGradient' className={styles.formLabel}>
+                        Title Gradient
+                    </label>
+                    <p className={styles.error}>
+                        {errors.titleGradient?.message}
                     </p>
                 </div>
                 <div className={styles.inputGroup}>
@@ -157,28 +161,15 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add mockup photo (WEBP)
+                        Add photo (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>{errors.mockup?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='description'
-                        placeholder=' '
-                        {...register("description")}
-                    />
-                    <label htmlFor='description' className={styles.formLabel}>
-                        Description
-                    </label>
-                    <p className={styles.error}>
-                        {errors.description?.message}
-                    </p>
-                </div>
-                <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='descriptionEn'
                         placeholder=' '
                         {...register("descriptionEn")}
@@ -190,19 +181,22 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                         {errors.descriptionEn?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='price'
+                    <textarea
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='description'
                         placeholder=' '
-                        {...register("price")}
+                        {...register("description")}
                     />
-                    <label htmlFor='price' className={styles.formLabel}>
-                        Price
+                    <label htmlFor='description' className={styles.formLabel}>
+                        Description
                     </label>
-                    <p className={styles.error}>{errors.price?.message}</p>
+                    <p className={styles.error}>
+                        {errors.description?.message}
+                    </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -216,21 +210,24 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.priceEn?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='directions'
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='price'
                         placeholder=' '
-                        {...register("directions")}
+                        {...register("price")}
                     />
-                    <label htmlFor='directions' className={styles.formLabel}>
-                        Directions
+                    <label htmlFor='price' className={styles.formLabel}>
+                        Price
                     </label>
-                    <p className={styles.error}>{errors.directions?.message}</p>
+                    <p className={styles.error}>{errors.price?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='directionsEn'
                         placeholder=' '
                         {...register("directionsEn")}
@@ -243,12 +240,25 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                     </p>
                 </div>
 
+                <div className={styles.inputGroup}>
+                    <textarea
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='directions'
+                        placeholder=' '
+                        {...register("directions")}
+                    />
+                    <label htmlFor='directions' className={styles.formLabel}>
+                        Directions
+                    </label>
+                    <p className={styles.error}>{errors.directions?.message}</p>
+                </div>
+
                 <button
                     type='submit'
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
                 >
-                    Create new!
+                    Create
                 </button>
             </form>
         </div>

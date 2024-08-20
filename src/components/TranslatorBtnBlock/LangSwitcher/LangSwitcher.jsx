@@ -7,13 +7,6 @@ const LangSwitcher = ({
   translatorEn,
   translatorUk,
 }) => {
-  // const[lang, setLang]=useState(()=>{
-  //   currentLanguage || !currentLanguage === "ua" ? "ua" : "en"
-  // })
-
-  // useEffect(()=>{
-  //   currentLanguage === "ua" ? setLang ("ua") : setLang("en")
-  // },[currentLanguage])
 
   const onHandleSetUa = () => {
     const languageUser = "ua";
@@ -24,6 +17,7 @@ const LangSwitcher = ({
     const languageUser = "en";
     changeLanguage(languageUser);
   };
+
   return (
     <ul className={styles.langsWrapper}>
       <li

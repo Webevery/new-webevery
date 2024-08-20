@@ -3,10 +3,6 @@
 .backContainer {
   margin-bottom: 12px;
   color: $gray50;
-
-  // @media screen and (min-width: $tablet) {
-  //   margin-bottom: 24px;
-  // }
 }
 
 .backIcon {
@@ -37,8 +33,8 @@
 .servicesIdTitle {
   text-align: center;
   font-weight: 400;
-  // font-size: 40px;
   font-size: 32px;
+  line-height: 1.1;
   margin-bottom: 27px;
 
   & span {
@@ -55,20 +51,21 @@
 
   @media screen and (min-width: $mobile) {
     font-size: 40px;
-    line-height: 44px;
     margin-bottom: 20px;
   }
 
   @media screen and (min-width: $tablet) {
     font-size: 48px;
-    line-height: 52.8px;
     margin-bottom: 24px;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $laptop) {
     font-size: 64px;
-    line-height: 70.4px;
     margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 72px;
   }
 }
 
@@ -99,6 +96,14 @@
   @media screen and (min-width: $desktop) {
     box-shadow: 6px 12px 32px 0px #1a8cff1a;
   }
+}
+
+.cartImg {
+  object-fit: cover;
+}
+
+.cartImg {
+  object-fit: cover;
 }
 
 .servicesIdDescContainer {
@@ -137,6 +142,20 @@
 //   font-family: var(--font-noto-sans);
 //   font-weight: 400;
 //   font-size: 16px;
+//   line-height: 1.6;
+//   margin-bottom: 8px;
+
+//   @media screen and (min-width: $desktop) {
+//     font-size: 20px;
+//     line-height: 32px;
+//     margin-bottom: 16px;
+//   }
+// }
+
+// .servicesIdDesc {
+//   font-family: var(--font-noto-sans);
+//   font-weight: 400;
+//   font-size: 16px;
 //   line-height: 25.6px;
 //   margin-bottom: 8px;
 
@@ -149,14 +168,20 @@
 
 .servicesIdPrice {
   font-family: var(--font-noto-sans);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
-  line-height: 25.6px;
-  margin-bottom: 24px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $laptop) {
+    font-size: 20px;
+  }
 
   @media screen and (min-width: $desktop) {
-    font-size: 20px;
-    line-height: 32px;
     margin-bottom: 32px;
   }
 }
@@ -169,8 +194,8 @@
   font-family: var(--font-noto-sans);
   font-weight: 500;
   font-size: 16px;
-  line-height: 25.6px;
-  margin-bottom: 32px;
+  line-height: 1.6;
+  margin-bottom: 12px;
 
   & span {
     background: linear-gradient(
@@ -184,16 +209,19 @@
     -webkit-text-fill-color: transparent;
   }
 
+  @media screen and (min-width: $mobile) {
+    margin-bottom: 16px;
+  }
+
   @media screen and (min-width: $tablet) {
     font-weight: 400;
     font-size: 32px;
-    line-height: 44.8px;
+    line-height: 1.4;
     margin-bottom: 24px;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $laptop) {
     font-size: 36px;
-    line-height: 50.4px;
     margin-bottom: 32px;
   }
 }

@@ -25,8 +25,8 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  row-gap: 16px;
-  margin-bottom: 48px;
+  row-gap: 20px;
+  margin-bottom: 16px;
   animation: fadeIn 0.8s ease-in-out forwards;
 
   @media screen and (min-width: $desktop) {
@@ -69,7 +69,6 @@
 
   @media screen and (min-width: $mobile) {
     font-weight: 400;
-    font-size: 58px;
   }
 
   @media screen and (min-width: $laptop) {
@@ -83,13 +82,12 @@
 
 .descTeam {
   font-weight: 400;
-  font-size: 28px;
-  text-align: center;
+  font-size: 16px;
   line-height: 1.1;
   color: #ffffff;
 
-  @media screen and (min-width: $mobile) {
-    font-size: 32px;
+  @media screen and (min-width: $tablet) {
+    font-size: 26px;
   }
 
   @media screen and (min-width: $laptop) {
@@ -150,6 +148,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-bottom: 16px;
 }
 
 .cartImgContainer {
@@ -176,9 +175,12 @@
 
 .cartJobTitle {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.6;
   color: #ffffff;
-  margin-bottom: 16px;
   text-align: center;
+
+  @media screen and (min-width: $mobile) {
+    font-size: 20px;
+  }
 }

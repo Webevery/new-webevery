@@ -1,53 +1,58 @@
 @import "../../app/variables";
 
 .container {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  width: 320px;
-  height: 524px;
-  text-align: center;
-  padding: 20px;
-  background-color: $gray900;
-  box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.5);
-
-  @media screen and (min-width: $mobile) {
-    width: 360px;
-    height: 532px;
-    padding: 24px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    width: 522px;
-    height: 528px;
-  }
-
-  @media screen and (min-width: $laptop) {
-    width: 632px;
-    height: 432px;
-    padding: 16px 32px 16px 32px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    width: 856px;
-    height: 540px;
-    padding: 0px;
-  }
-
-  @media screen and (min-width: 1920px) {
-    height: 562px;
-  }
+  display: none;
 }
+
+// раскомментировать после появления политики конфиденциальности
+// .container {
+//   position: relative;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-orient: vertical;
+//   -webkit-box-direction: normal;
+//   -ms-flex-direction: column;
+//   flex-direction: column;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+//   justify-content: center;
+//   width: 320px;
+//   height: 524px;
+//   text-align: center;
+//   padding: 24px 20px 10px;
+//   background-color: $gray900;
+//   box-shadow: 6px 12px 32px 0px rgba(26, 140, 255, 0.5);
+
+//   @media screen and (min-width: $mobile) {
+//     width: 360px;
+//     height: 532px;
+//     padding: 16px 24px 32px;
+//   }
+
+//   @media screen and (min-width: $tablet) {
+//     width: 522px;
+//     height: 528px;
+//     padding: 48px 24px 32px;
+//   }
+
+//   @media screen and (min-width: $laptop) {
+//     width: 632px;
+//     height: 432px;
+//     padding: 16px 32px;
+//   }
+
+//   @media screen and (min-width: $desktop) {
+//     width: 856px;
+//     height: 540px;
+//     padding: 32px 110px;
+//   }
+
+//   @media screen and (min-width: 1920px) {
+//     height: 562px;
+//   }
+// }
 
 .containerFooter {
   box-shadow: none;
@@ -86,31 +91,15 @@
 
 .titleWrap {
   display: flex;
-  padding-left: 24px;
-  width: 320px;
-  margin-top: 0;
   margin-bottom: 28px;
-
-  @media screen and (min-width: $mobile) {
-    width: 360px;
-  }
 
   @media screen and (min-width: $tablet) {
     justify-content: center;
-    width: 570px;
-    margin-top: 35px;
-  }
-
-  @media screen and (min-width: $laptop) {
-    padding-left: 0;
-    margin-top: 0;
     margin-bottom: 32px;
   }
 
-  @media screen and (min-width: $desktop) {
-    width: 636px;
-    margin-top: 15px;
-    margin-bottom: 50px;
+  @media screen and (min-width: $laptop) {
+    margin-bottom: 40px;
   }
 }
 
@@ -124,7 +113,7 @@
     font-size: 24px;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $laptop) {
     font-size: 26px;
   }
 }
@@ -165,23 +154,60 @@
 
 .inputHolder {
   width: 100%;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+  }
 
   @media screen and (min-width: $laptop) {
+    margin-bottom: 32px;
     display: flex;
     column-gap: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    column-gap: 24px;
   }
 }
 
 .inputHolderFooter {
   width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $laptop) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .inputWrap {
   width: 100%;
-  margin-bottom: 20px;
   position: relative;
+}
+
+.inputWrap:not(:last-child) {
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+  }
 
   @media screen and (min-width: $laptop) {
+    margin-bottom: 0;
+  }
+}
+
+.textareaWrap {
+  width: 100%;
+  margin-bottom: 24px;
+  position: relative;
+
+  @media screen and (min-width: $mobile) {
     margin-bottom: 32px;
   }
 }
@@ -309,37 +335,36 @@
 
 .containerSuccess {
   padding: 0;
-  // background-size: contain;
 }
 
 .bgWrap {
-  // border: 1px solid;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 20px 10px;
   width: 100%;
   height: 100%;
   background-position: center;
   background-size: cover;
-
   background-image: url("../../../public/SuccessFonWebp/fon320.webp");
 
   @media screen and (min-width: $mobile) {
+    padding: 40px 20px 32px;
     background-image: url("../../../public/SuccessFonWebp/fon360.webp");
   }
 
   @media screen and (min-width: $tablet) {
+    padding: 40px 24px 32px;
     background-image: url("../../../public/SuccessFonWebp/fon768.webp");
   }
 
   @media screen and (min-width: $laptop) {
+    padding: 80px 32px 16px;
     background-image: url("../../../public/SuccessFonWebp/fon1024.webp");
-    // background-size: 632px 432px;
   }
 
   @media screen and (min-width: $desktop) {
+    padding: 80px 56px 32px;
     background-image: url("../../../public/SuccessFonWebp/fon1440.webp");
   }
 }
@@ -349,21 +374,12 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.6;
-  width: 242px;
-  margin-top: 20px;
-
-  @media screen and (min-width: $mobile) {
-    // width: 312px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    // font-size: 20px;
-  }
+  text-align: left;
+  width: 240px;
 
   @media screen and (min-width: $laptop) {
     font-size: 20px;
     width: 307px;
-    margin-top: 60px;
   }
 
   @media screen and (min-width: $desktop) {

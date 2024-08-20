@@ -15,8 +15,6 @@ const HomeServicesSection = () => {
   useEffect(() => setIsLoad(false), []);
 
   return <section className={styles.section}>
-    {/* <div className={`container ${styles.con}`}> */}
-    {/* <div className={`container ${styles.container}`}> */}
     <div className="container">
       {!isLoad && <><h2 className={styles.title}>{t("MainPage.OurServicesTitle")}</h2>
         <p className={`titleGradient ${styles.subTitleLaptop}`}>{t("MainPage.OurServicesSubTitle")}</p></>}

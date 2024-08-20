@@ -47,7 +47,7 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                 method: "POST",
                 body: JSON.stringify(data),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
+            // автоматично оновлює сторінку при зміні кількості карток
             mutate();
             console.log("Information added to DB");
 
@@ -71,7 +71,7 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Let`s download a new project to the site!
+                    Adding new project
                 </h3>
                 <div className={styles.inputGroup}>
                     <input
@@ -86,19 +86,7 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.slug?.message}</p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='title'
-                        placeholder=' '
-                        {...register("title")}
-                    />
-                    <label htmlFor='title' className={styles.formLabel}>
-                        Title
-                    </label>
-                    <p className={styles.error}>{errors.title?.message}</p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -112,21 +100,21 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.titleEn?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='titleGradient'
+                        id='title'
                         placeholder=' '
-                        {...register("titleGradient")}
+                        {...register("title")}
                     />
-                    <label htmlFor='titleGradient' className={styles.formLabel}>
-                        Title Gradient
+                    <label htmlFor='title' className={styles.formLabel}>
+                        Title
                     </label>
-                    <p className={styles.error}>
-                        {errors.titleGradient?.message}
-                    </p>
+                    <p className={styles.error}>{errors.title?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -145,6 +133,23 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                         {errors.titleGradientEn?.message}
                     </p>
                 </div>
+
+                <div className={styles.inputGroup}>
+                    <input
+                        type='text'
+                        className={styles.formInput}
+                        id='titleGradient'
+                        placeholder=' '
+                        {...register("titleGradient")}
+                    />
+                    <label htmlFor='titleGradient' className={styles.formLabel}>
+                        Title Gradient
+                    </label>
+                    <p className={styles.error}>
+                        {errors.titleGradient?.message}
+                    </p>
+                </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='heroImage'
@@ -167,21 +172,10 @@ const DashboardProjectCreateForm = ({ mutate }) => {
 
                     <p className={styles.error}>{errors.heroImage?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='problem'
-                        placeholder=' '
-                        {...register("problem")}
-                    />
-                    <label htmlFor='problem' className={styles.formLabel}>
-                        Problem
-                    </label>
-                    <p className={styles.error}>{errors.problem?.message}</p>
-                </div>
-                <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='problemEn'
                         placeholder=' '
                         {...register("problemEn")}
@@ -191,21 +185,23 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.problemEn?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='solution'
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='problem'
                         placeholder=' '
-                        {...register("solution")}
+                        {...register("problem")}
                     />
-                    <label htmlFor='solution' className={styles.formLabel}>
-                        Solution
+                    <label htmlFor='problem' className={styles.formLabel}>
+                        Problem
                     </label>
-                    <p className={styles.error}>{errors.solution?.message}</p>
+                    <p className={styles.error}>{errors.problem?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='solutionEn'
                         placeholder=' '
                         {...register("solutionEn")}
@@ -217,19 +213,20 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                 </div>
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='help'
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='solution'
                         placeholder=' '
-                        {...register("help")}
+                        {...register("solution")}
                     />
-                    <label htmlFor='help' className={styles.formLabel}>
-                        Help
+                    <label htmlFor='solution' className={styles.formLabel}>
+                        Solution
                     </label>
-                    <p className={styles.error}>{errors.help?.message}</p>
+                    <p className={styles.error}>{errors.solution?.message}</p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='helpEn'
                         placeholder=' '
                         {...register("helpEn")}
@@ -239,6 +236,20 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.helpEn?.message}</p>
                 </div>
+
+                <div className={styles.inputGroup}>
+                    <textarea
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='help'
+                        placeholder=' '
+                        {...register("help")}
+                    />
+                    <label htmlFor='help' className={styles.formLabel}>
+                        Help
+                    </label>
+                    <p className={styles.error}>{errors.help?.message}</p>
+                </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='screensImage'
@@ -256,25 +267,14 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
                     >
-                        Add desktop mockup (WEBP)
+                        Add screens mockup (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>
                         {errors.screensImage?.message}
                     </p>
                 </div>
-                <div className={styles.inputGroup}>
-                    <textarea
-                        className={`${styles.textarea} ${styles.formInput}`}
-                        id='adaptation'
-                        placeholder=' '
-                        {...register("adaptation")}
-                    />
-                    <label htmlFor='adaptation' className={styles.formLabel}>
-                        Adaptation
-                    </label>
-                    <p className={styles.error}>{errors.adaptation?.message}</p>
-                </div>
+
                 <div className={styles.inputGroup}>
                     <textarea
                         className={`${styles.textarea} ${styles.formInput}`}
@@ -289,6 +289,19 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                         {errors.adaptationEn?.message}
                     </p>
                 </div>
+                <div className={styles.inputGroup}>
+                    <textarea
+                        className={`${styles.textarea} ${styles.formInput}`}
+                        id='adaptation'
+                        placeholder=' '
+                        {...register("adaptation")}
+                    />
+                    <label htmlFor='adaptation' className={styles.formLabel}>
+                        Adaptation
+                    </label>
+                    <p className={styles.error}>{errors.adaptation?.message}</p>
+                </div>
+
                 <div className={styles.inputGroup}>
                     <CldUploadButton
                         name='mobileImages'
@@ -305,13 +318,14 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                         }}
                         uploadPreset='unsigned_preset'
                     >
-                        Download 3 mobile screens (WEBP)
+                        Add 3 mobile screens (WEBP)
                     </CldUploadButton>
 
                     <p className={styles.error}>
                         {errors.mobileImages?.message}
                     </p>
                 </div>
+
                 <div className={styles.inputGroup}>
                     <input
                         type='text'
@@ -325,12 +339,13 @@ const DashboardProjectCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>{errors.siteLink?.message}</p>
                 </div>
+
                 <button
                     type='submit'
                     className={styles.formButton}
                     disabled={isErrors || isSubmitting}
                 >
-                    Create new!
+                    Create
                 </button>
             </form>
         </div>

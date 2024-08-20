@@ -17,7 +17,7 @@ import { formatDate } from '@/utils/dateUtils';
 const BlogIdSection = ({ params }) => {
   const { slug } = params;
 
-  const { data, error, isLoading } = GetIdDataFromSection('blog', slug);
+  const { data, isLoading } = GetIdDataFromSection('blog', slug);
 
   const pathname = usePathname();
   const isPathExist = useCheckPathname(pathname);

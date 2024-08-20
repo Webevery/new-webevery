@@ -206,7 +206,7 @@ const OrderForm = ({ isFooterForm = false, comment = "" }) => {
                                 </p>
                             </div>
                         </div>
-                        <div className={styles.inputWrap}>
+                        <div className={styles.textareaWrap}>
                             <textarea
                                 className={
                                     isFooterForm

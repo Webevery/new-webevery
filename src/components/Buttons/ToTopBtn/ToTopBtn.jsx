@@ -31,10 +31,6 @@ const ToTopBtn = () => {
       title="Кнопка до верху сторінки"
       aria-label="Кнопка до гори"
     >
-      {/* <svg className={styles.toTopSvg}>
-        <use href="/sprite.svg#icon-totop"></use>
-      </svg> */}
-
       <Image
         src="/arrow-up.svg"
         fill
