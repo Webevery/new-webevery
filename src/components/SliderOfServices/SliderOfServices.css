@@ -1,5 +1,26 @@
 .ServicesSwiper {
   width: 100%;
+  /* height: 548px; */
+  height: calc(740px - 36vw);
+  min-height: 464px;
+  /* background-color: aquamarine; */
+  padding-bottom: 40px !important;
+
+  @media screen and (min-width: 768px) {
+    height: calc(1064px - 24vw);
+    padding-bottom: 56px !important;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 900px;
+    padding-bottom: 64px !important;
+  }
+}
+.ServicesSwiper .swiper-slide {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* .ServiceSwiper .swiper-wrapper {
@@ -17,11 +38,12 @@
     }
 } */
 
-/* 
-.ServicesSwiper .swiper-slide {
-    display: flex;
-    justify-content: center;
-} */
+/* .ServicesSwiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  height: auto;
+}  */
 
 /* .ServicesSwiper .slideContentWrapper {
     background-color: #0d0d11;
@@ -47,6 +69,8 @@
 
 .ServicesSwiper .swiper-pagination {
   top: 97%;
+  top: auto;
+  bottom: 0;
 
   @media screen and (min-width: 1024px) {
     display: none;

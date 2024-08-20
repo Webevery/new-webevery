@@ -22,7 +22,6 @@ const ServiceIdSection = ({ params }) => {
   const router = useRouter();
   const { data, isLoading } = GetIdDataFromSection("services", slug);
   const isPathExist = useCheckPathname(pathname);
-  console.log("data", data?.directions);
   const { openModal, setComment } = useContext(SiteContext);
   const { i18n, t } = useTranslation();
 
@@ -47,8 +46,6 @@ const ServiceIdSection = ({ params }) => {
       slug: data?.slug,
     };
 
-    console.log("changedData", changedData?.directions);
-
     if (
       changedData &&
       typeof changedData.directions === "string" &&
@@ -60,9 +57,6 @@ const ServiceIdSection = ({ params }) => {
       changedData.directionsEn = directionsEnArray;
     }
   }
-
-  console.log("changedData.directions", changedData?.directions);
-  console.log("changedData.directionsEn", changedData?.directionsEn);
 
   const dir =
     i18n.language === currentLanguages.EN
@@ -102,6 +96,7 @@ const ServiceIdSection = ({ params }) => {
                   fill="true"
                   className={styles.cartImg}
                   sizes="30vw"
+                  priority={true}
                 />
               </div>
 
@@ -113,7 +108,6 @@ const ServiceIdSection = ({ params }) => {
                 </p> */}
                 <ul className={styles.directionsList}>
                   {dir.map((el, i) => {
-                    console.log("el", el);
                     return <li key={el[i]}>{el}</li>;
                   })}
                 </ul>
@@ -147,7 +141,7 @@ const ServiceIdSection = ({ params }) => {
               <span>{t("ServiceIdPage.SubTitle2")}</span>{" "}
               {t("ServiceIdPage.SubTitle3")}
             </h3>
-            <SliderOfServices slug={slug} />
+            <SliderOfServices slug={slug} idSlide={styles.slide} />
           </div>
         </section>
       )}
