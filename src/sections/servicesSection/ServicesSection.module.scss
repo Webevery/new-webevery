@@ -2,15 +2,15 @@
 
 //Fade In анимация
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
 
-  100% {
-    opacity: 1;
-  }
-}
+//   100% {
+//     opacity: 1;
+//   }
+// }
 
 //-----------------------------
 
@@ -87,44 +87,45 @@
     line-height: 1.1;
     color: #ffffff;
 
-  & span {
-    background: linear-gradient(
-      90deg,
-      $gradientYellow 0%,
-      $gradientCyan 50%,
-      $gradientBlue 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    & span {
+      background: linear-gradient(
+        90deg,
+        $gradientYellow 0%,
+        $gradientCyan 50%,
+        $gradientBlue 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  @media screen and (min-width: $mobile) {
-    font-size: 32px;
-  }
+    @media screen and (min-width: $mobile) {
+      font-size: 32px;
+    }
 
-  @media screen and (min-width: $laptop) {
-    font-size: 38px;
-  }
+    @media screen and (min-width: $laptop) {
+      font-size: 38px;
+    }
 
-  @media screen and (min-width: $desktop) {
-    font-size: 44px;
+    @media screen and (min-width: $desktop) {
+      font-size: 44px;
+    }
   }
 }
 
 //Fade Up анимация
 
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
+// @keyframes fadeUp {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(30px);
+//   }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
 //-----------------------------
 
@@ -168,12 +169,7 @@
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 48px;
-  // min-height: 772px;
   gap: 20px;
-
-  // & ul {
-  //   margin-bottom: 54px;
-  // }
 }
 
 .cartItem:hover {

@@ -51,11 +51,11 @@ export const SliderOfServices = ({ slug, id, idSlide }) => {
       pagination={{
         clickable: true,
       }}
-      // autoplay={{
-      //   delay: 1000,
-      //   disableOnInteraction: false,
-      //   pauseOnMouseEnter: true,
-      // }}
+      autoplay={{
+        delay: 1000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      }}
       speed={1500}
       loop={true}
       breakpoints={{
