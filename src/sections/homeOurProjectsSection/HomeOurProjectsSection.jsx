@@ -11,13 +11,22 @@ const HomeOurProjectsSection = () => {
   const { data, error, isLoading } = GetDataFromSection('ourProjects')
 
   const { t } = useTranslation();
+  let sortedByUpdateData = [];
+
+  if (!isLoading) {
+    sortedByUpdateData = [...data];
+
+    sortedByUpdateData.sort((a, b) => {
+      return Date.parse(b.createdAt) - Date.parse(a.createdAt);
+    });
+  }
 
   return <section className={styles.section} >
     <div className="container">
       {!isLoading && <h2 className={styles.title}>{t("MainPage.OurProjectsTitle")} <span className="titleGradient">{t("MainPage.OurProjectsSubTitle")}</span>
       </h2>}
       <div className={styles.contentWrapper}>
-        <HomeOurProjectsSlider data={data} />
+        <HomeOurProjectsSlider data={sortedByUpdateData} />
 
         {!isLoading && <NavigationBtn title={t("Buttons.HomeProjectsBtn")} href={"/ourProjects"} className={styles.toPortfolioBtn} />}
       </div>

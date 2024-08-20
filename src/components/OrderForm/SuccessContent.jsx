@@ -1,14 +1,19 @@
 "use client";
 
-import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
+import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
 import styles from "./OrderForm.module.scss";
+
 
 const SuccessContent = ({ isSubmited, closeModal }) => {
 
-    const {t}=useTranslation();
-    
+    const { t } = useTranslation();
+
+    const [isLoad, setIsLoad] = useState(true);
+
+    useEffect(() => setIsLoad(false), []);
+
     return (
         <div
             className={
@@ -21,14 +26,15 @@ const SuccessContent = ({ isSubmited, closeModal }) => {
                 <h2 className={styles.successTitle}>
                     {t('Form.FormSubmitedMsg')}
                 </h2>
-                <OrderBtn
-                    type='button'
-                    title='Great!'
-                    onClick={closeModal}
-                    className={styles.submitButton}
-                    // id={isFooterForm ? styles.submitFooterId : styles.submitId}
-                    id={styles.submitId}
-                />
+                {!isLoad && (
+                    <OrderBtn
+                        type='button'
+                        title={t('Buttons.SuccessContentBtn')}
+                        onClick={closeModal}
+                        className={styles.submitButton}
+                        id={styles.submitId}
+                    />
+                )}
             </div>
         </div>
     );

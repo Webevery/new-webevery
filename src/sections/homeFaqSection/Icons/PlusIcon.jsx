@@ -8,7 +8,6 @@ const PlusIcon = (props) => {
     <svg
       className={iconStyles}
       viewBox="0 0 32 32"
-      // fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -32,7 +31,6 @@ const PlusIcon = (props) => {
         strokeMiterlimit="4"
         strokeWidth="3.5556"
         d="M16 1.778v28.444M1.778 16h28.444"
-      //   fill="url(#gradient_1)"
       />
     </svg>
   );

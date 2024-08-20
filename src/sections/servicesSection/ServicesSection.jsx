@@ -48,6 +48,7 @@ const ServicesSection = () => {
           </div>
         )}
 
+
         <ul className={styles.cartContainer}>
           {changedData?.map(
             ({
@@ -109,6 +110,7 @@ const ServicesSection = () => {
                           setComment(`${titleGradientEn} ${titleEn}`);
                         } else {
                           setComment(`${titleGradient} ${title}`);
+
                         }
                         openModal();
                       }}

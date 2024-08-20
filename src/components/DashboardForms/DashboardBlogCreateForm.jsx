@@ -54,7 +54,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                 method: "POST",
                 body: JSON.stringify(data),
             });
-            // автоматично обновлює строрінку при зміні кількості карточок
+            // автоматично оновлює сторінку при зміні кількості карток
             mutate();
             console.log("Information added to DB");
 
@@ -133,7 +133,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                 noValidate
             >
                 <h3 className={styles.formTitle}>
-                    Let`s create a new blog!
+                    Creating new blog
                 </h3>
 
                 <div className={styles.inputGroup}>
@@ -148,20 +148,6 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                         Slug
                     </label>
                     <p className={styles.error}>{mainErrors.slug?.message}</p>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='title'
-                        placeholder=' '
-                        {...mainRegister("title")}
-                    />
-                    <label htmlFor='title' className={styles.formLabel}>
-                        Title
-                    </label>
-                    <p className={styles.error}>{mainErrors.title?.message}</p>
                 </div>
 
                 <div className={styles.inputGroup}>
@@ -184,22 +170,20 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='mainText'
+                        id='title'
                         placeholder=' '
-                        {...mainRegister("mainText")}
+                        {...mainRegister("title")}
                     />
-                    <label htmlFor='mainText' className={styles.formLabel}>
-                        MainText
+                    <label htmlFor='title' className={styles.formLabel}>
+                        Title
                     </label>
-                    <p className={styles.error}>
-                        {mainErrors.mainText?.message}
-                    </p>
+                    <p className={styles.error}>{mainErrors.title?.message}</p>
                 </div>
 
                 <div className={styles.inputGroup}>
-                    <input
+                    <textarea
                         type='text'
-                        className={styles.formInput}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='mainTextEn'
                         placeholder=' '
                         {...mainRegister("mainTextEn")}
@@ -209,6 +193,22 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>
                         {mainErrors.mainTextEn?.message}
+                    </p>
+                </div>
+
+                <div className={styles.inputGroup}>
+                    <textarea
+                        type='text'
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='mainText'
+                        placeholder=' '
+                        {...mainRegister("mainText")}
+                    />
+                    <label htmlFor='mainText' className={styles.formLabel}>
+                        MainText
+                    </label>
+                    <p className={styles.error}>
+                        {mainErrors.mainText?.message}
                     </p>
                 </div>
 
@@ -240,22 +240,6 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='direction'
-                        placeholder=' '
-                        {...mainRegister("direction")}
-                    />
-                    <label htmlFor='direction' className={styles.formLabel}>
-                        Direction
-                    </label>
-                    <p className={styles.error}>
-                        {mainErrors.direction?.message}
-                    </p>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
                         id='directionEn'
                         placeholder=' '
                         {...mainRegister("directionEn")}
@@ -272,22 +256,22 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='epilogue'
+                        id='direction'
                         placeholder=' '
-                        {...mainRegister("epilogue")}
+                        {...mainRegister("direction")}
                     />
-                    <label htmlFor='epilogue' className={styles.formLabel}>
-                        Epilogue
+                    <label htmlFor='direction' className={styles.formLabel}>
+                        Direction
                     </label>
                     <p className={styles.error}>
-                        {mainErrors.epilogue?.message}
+                        {mainErrors.direction?.message}
                     </p>
                 </div>
 
                 <div className={styles.inputGroup}>
-                    <input
+                    <textarea
                         type='text'
-                        className={styles.formInput}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='epilogueEn'
                         placeholder=' '
                         {...mainRegister("epilogueEn")}
@@ -297,6 +281,22 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     </label>
                     <p className={styles.error}>
                         {mainErrors.epilogueEn?.message}
+                    </p>
+                </div>
+
+                <div className={styles.inputGroup}>
+                    <textarea
+                        type='text'
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='epilogue'
+                        placeholder=' '
+                        {...mainRegister("epilogue")}
+                    />
+                    <label htmlFor='epilogue' className={styles.formLabel}>
+                        Epilogue
+                    </label>
+                    <p className={styles.error}>
+                        {mainErrors.epilogue?.message}
                     </p>
                 </div>
 
@@ -315,7 +315,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     className={styles.formButton}
                     disabled={isMainErrors || isMainSubmitting}
                 >
-                    Create new blog!
+                    Create blog
                 </button>
             </form>
 
@@ -325,23 +325,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                 className={styles.form}
                 noValidate
             >
-                <h3 className={styles.formTitle}>Let`s add a new block!</h3>
-
-                <div className={styles.inputGroup}>
-                    <input
-                        type='text'
-                        className={styles.formInput}
-                        id='subTitle'
-                        placeholder=' '
-                        {...blockRegister("subTitle")}
-                    />
-                    <label htmlFor='subTitle' className={styles.formLabel}>
-                        SubTitle
-                    </label>
-                    <p className={styles.error}>
-                        {blockErrors.subTitle?.message}
-                    </p>
-                </div>
+                <h3 className={styles.formTitle}>Adding new block</h3>
 
                 <div className={styles.inputGroup}>
                     <input
@@ -363,20 +347,22 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     <input
                         type='text'
                         className={styles.formInput}
-                        id='text'
+                        id='subTitle'
                         placeholder=' '
-                        {...blockRegister("text")}
+                        {...blockRegister("subTitle")}
                     />
-                    <label htmlFor='text' className={styles.formLabel}>
-                        Text
+                    <label htmlFor='subTitle' className={styles.formLabel}>
+                        SubTitle
                     </label>
-                    <p className={styles.error}>{blockErrors.text?.message}</p>
+                    <p className={styles.error}>
+                        {blockErrors.subTitle?.message}
+                    </p>
                 </div>
 
                 <div className={styles.inputGroup}>
-                    <input
+                    <textarea
                         type='text'
-                        className={styles.formInput}
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
                         id='textEn'
                         placeholder=' '
                         {...blockRegister("textEn")}
@@ -387,6 +373,20 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     <p className={styles.error}>
                         {blockErrors.textEn?.message}
                     </p>
+                </div>
+
+                <div className={styles.inputGroup}>
+                    <textarea
+                        type='text'
+                        className={`${styles.bigTextarea} ${styles.formInput}`}
+                        id='text'
+                        placeholder=' '
+                        {...blockRegister("text")}
+                    />
+                    <label htmlFor='text' className={styles.formLabel}>
+                        Text
+                    </label>
+                    <p className={styles.error}>{blockErrors.text?.message}</p>
                 </div>
 
                 <div className={styles.inputGroup}>
@@ -432,7 +432,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                     className={styles.formButton}
                     disabled={isBlockErrors || isBlockSubmitting}
                 >
-                    Add the new block!
+                    Add block
                 </button>
             </form>
         </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { GetValuesArrayFromData } from "@/helpers/valuesArrayFromData";
 
 export function useCheckPathname(path) {
-    const [isPathExist, setPathExist] = useState(true);
+    const [isPathExist, setPathExist] = useState(false);
 
     const servicesSlugArray = GetValuesArrayFromData("services", "slug");
     const blogSlugArray = GetValuesArrayFromData("blog", "slug");
@@ -29,9 +29,9 @@ export function useCheckPathname(path) {
             path === "/contacts" ||
             path === "/services" ||
             path === "/ourProjects" ||
-            existBlogPage ||
-            existOurProjectsPage ||
-            existServicesPage
+            (existBlogPage || existBlogPage === undefined) ||
+            (existServicesPage || existServicesPage === undefined) ||
+            (existOurProjectsPage || existOurProjectsPage === undefined)
         ) {
             setPathExist(true)
         } else {

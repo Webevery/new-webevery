@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { currentLanguages } from "@/data/languages";
 
 const TeamSection = () => {
-  const { data, isLoading, error } = GetDataFromSection("team");
+  const { data, isLoading } = GetDataFromSection("team");
   const { i18n, t } = useTranslation();
 
   let newData = [];

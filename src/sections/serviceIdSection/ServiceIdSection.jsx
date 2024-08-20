@@ -100,6 +100,44 @@ const ServiceIdSection = ({ params }) => {
                 />
               </div>
 
+                       
+
+                            <div className={styles.servicesIdDescContainer}>
+                                <p className={styles.servicesIdDesc}>
+                                    {i18n.language === currentLanguages.EN
+                                        ? changedData.descriptionEn
+                                        : changedData.description}
+                                </p>
+                                <p className={styles.servicesIdPrice}>
+                                    {i18n.language === currentLanguages.EN
+                                        ? changedData.priceEn
+                                        : changedData.price}
+                                </p>
+                                {/* розкоментувати після появи політики конфіденційності*/}
+                                {/* <OrderBtn
+                                    className={styles.orderBtn}
+                                    id={styles.serviceOrderBtn}
+                                    title={t("Buttons.OrderBtn")}
+                                    onClick={() => {
+                                        if (
+                                            i18n.language ===
+                                            currentLanguages.EN
+                                        ) {
+                                            setComment(
+                                                `${changedData.titleGradientEn} ${changedData.titleEn}`
+                                            );
+                                        } else {
+                                            setComment(
+                                                `${changedData.titleGradient} ${changedData.title}`
+                                            );
+                                        }
+                                        openModal();
+                                    }}
+                                /> */}
+                            </div>
+                        </div>
+
+
               <div className={styles.servicesIdDescContainer}>
                 {/* <p className={styles.servicesIdDesc}>
                   {i18n.language === currentLanguages.EN
@@ -158,3 +196,4 @@ const ServiceIdSection = ({ params }) => {
 };
 
 export default ServiceIdSection;
+

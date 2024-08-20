@@ -15,18 +15,3 @@ const NavigationBtn = ({ className, title, href, id }) => {
 };
 
 export default NavigationBtn;
-
-// Example:
-//  @/sections/HomeTeamSection.jsx
-
-// import NavigationBtn from "@/components/Buttons/NavigationBtn/NavigationBtn";
-
-// const HomeTeamSection = () => {
-//     return (
-//       <section>
-//         <NavigationBtn title="About Team"  href={"/team"}/>
-//       </section>
-//     );
-//   };
-
-//   export default HomeTeamSection;

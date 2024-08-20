@@ -7,17 +7,19 @@ import { connectToDB } from "@/utils/connectToDB";
 import { authConfig } from "./auth.config";
 
 
-// вынесено в отдельную функцию, ! возможно !, потому что нельзя вызывать сторонние библиотеки в Next-Auth
+// вынесено в отдельную функцию, ! возможно !, потому что нельзя вызывать сторонние библиотеки (в данном случае bcrypt) в Next-Auth
 const login = async (credentials) => {
     try {
         await connectToDB();
         const user = await User.findOne({ email: credentials.email });
+
         if (!user) {
             throw new Error("Wrong credentials")
         }
 
-        const passwordIsCorrect = await bcrypt.compare(credentials.password, user.password);
-        if (!passwordIsCorrect) {
+        const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
+
+        if (!isPasswordCorrect) {
             throw new Error("Wrong credentials")
         }
 

@@ -1,11 +1,12 @@
 "use client";
-import React, { useContext } from "react";
+import React from "react";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "../NavLinks.module.scss";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { currentLanguages } from "@/data";
+
 
 const ServisecSubMenu = ({
   isClicked,

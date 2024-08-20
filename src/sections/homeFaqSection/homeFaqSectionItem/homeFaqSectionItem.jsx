@@ -25,11 +25,8 @@ const HomeFaqSectionItem = ({
     // eslint-disable-next-line
   }, [activeIndex]);
 
-  // const answerStyles = isClicked
-  //   ? `${styles.faqItem__answerVisible} ${answerHeight}`
-  //   : styles.faqItem__answer;
+
   const answerStyles = isClicked ? styles.q : styles.w;
-  //   const iconStyles = isClicked ? styles.FAQIcon__rotate : styles.FAQIcon;
 
   const ariaExpanded = isClicked ? true : false;
 

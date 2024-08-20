@@ -63,7 +63,7 @@
 
     &:focus+.formLabel,
     &:not(:placeholder-shown)+.formLabel {
-        transform: translateY(-110%) scale(0.9);
+        transform: translateY(-150%) scale(0.9);
         transition-duration: 250ms;
         padding-inline: 4px;
         color: #4a4535ad;
@@ -76,7 +76,7 @@
 }
 
 .bigTextarea {
-    height: 120px;
+    height: 150px;
     resize: none;
 }
 

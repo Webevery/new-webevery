@@ -60,8 +60,7 @@ const OurProjectIdSection = ({ params }) => {
             <h1 className={styles.ourProjectsTitle}>
               {i18n.language === currentLanguages.EN
                 ? data?.titleEn
-                : data?.title}{' '}
-              <span className={styles.ourProjectsTitleGradient}>
+                : data?.title} <span className={styles.ourProjectsTitleGradient}>
                 {i18n.language === currentLanguages.EN
                   ? data?.titleGradientEn
                   : data?.titleGradient}
