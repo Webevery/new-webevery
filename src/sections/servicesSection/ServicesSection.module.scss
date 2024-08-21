@@ -2,15 +2,15 @@
 
 //Fade In анимация
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
 
-  100% {
-    opacity: 1;
-  }
-}
+//   100% {
+//     opacity: 1;
+//   }
+// }
 
 //-----------------------------
 
@@ -48,10 +48,12 @@
   text-align: center;
 
   & span {
-    background: linear-gradient(90deg,
-        $gradientYellow 0%,
-        $gradientCyan 50%,
-        $gradientBlue 100%);
+    background: linear-gradient(
+      90deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -86,34 +88,44 @@
     color: #ffffff;
 
     & span {
-      background: linear-gradient(90deg,
-          $gradientYellow 0%,
-          $gradientCyan 50%,
-          $gradientBlue 100%);
+      background: linear-gradient(
+        90deg,
+        $gradientYellow 0%,
+        $gradientCyan 50%,
+        $gradientBlue 100%
+      );
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-  }
 
-  @media screen and (min-width: $desktop) {
-    font-size: 44px;
+    @media screen and (min-width: $mobile) {
+      font-size: 32px;
+    }
+
+    @media screen and (min-width: $laptop) {
+      font-size: 38px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 44px;
+    }
   }
 }
 
 //Fade Up анимация
 
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
+// @keyframes fadeUp {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(30px);
+//   }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
 //-----------------------------
 
@@ -153,27 +165,14 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 8px;
-
-  @media screen and (min-width: $mobile) {
-    padding: 12px 24px 24px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    padding: 24px 24px 32px;
-  }
-
-  @media screen and (min-width: $laptop) {
-    padding: 8px 12px 24px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    padding: 16px 24px 48px;
-  }
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 48px;
+  gap: 20px;
 }
 
 .cartItem:hover {
-
   @media screen and (min-width: $laptop) {
     transform: scale(1.03);
     transition: transform 0.3s ease-in-out;
@@ -230,10 +229,12 @@
   margin-bottom: 34px;
 
   & span {
-    background: linear-gradient(90deg,
-        $gradientYellow 0%,
-        $gradientCyan 50%,
-        $gradientBlue 100%);
+    background: linear-gradient(
+      90deg,
+      $gradientYellow 0%,
+      $gradientCyan 50%,
+      $gradientBlue 100%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -280,6 +281,11 @@
 
 .descItem:not(:last-child) {
   margin-bottom: 10px;
+}
+
+.description {
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 300;
 }
 
 .cartPrice {

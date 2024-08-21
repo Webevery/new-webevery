@@ -1,30 +1,30 @@
-import { Noto_Sans, Exo_2 } from 'next/font/google';
+import { Noto_Sans, Exo_2 } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Toaster } from 'sonner';
-import { SiteProvider } from '@/context/siteContext';
-import TranslateProvider from '@/translator/i18Provider';
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
-import ModalR from '@/components/Modal/Modal';
+import { Toaster } from "sonner";
+import { SiteProvider } from "@/context/siteContext";
+import TranslateProvider from "@/translator/i18Provider";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+import ModalR from "@/components/Modal/Modal";
 
-import './globals.scss';
-import dynamic from 'next/dynamic';
-import BackgroundAnimation from '@/components/BackgroundAnimation/BackgroundAnimation';
-import AuthProvider from '@/components/AuthProvider/AuthProvider';
-import { PaginationProvider } from '@/context/PaginationContext';
+import "./globals.scss";
+import dynamic from "next/dynamic";
+import BackgroundAnimation from "@/components/BackgroundAnimation/BackgroundAnimation";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import { PaginationProvider } from "@/context/PaginationContext";
 
 const exo = Exo_2({
-  subsets: ['latin'],
-  style: ['normal'],
-  weight: ['300', '400', '500'],
-  variable: '--font-exo',
+  subsets: ["latin"],
+  style: ["normal"],
+  weight: ["300", "400", "500"],
+  variable: "--font-exo",
 });
 
 const noto_sans = Noto_Sans({
-  subsets: ['latin'],
-  style: ['normal'],
-  weight: ['400', '500'],
-  variable: '--font-noto-sans',
+  subsets: ["latin"],
+  style: ["normal"],
+  weight: ["300", "400", "500"],
+  variable: "--font-noto-sans",
 });
 
 const DynamicToTopBtn = dynamic(() =>
@@ -112,8 +112,7 @@ export default function RootLayout({ children }) {
     logo: {
       "@type": "ImageObject",
       url: "/seo_images/twitter-image-800x600.png",
-      contentUrl:
-        "/seo_images/twitter-image-800x600.png",
+      contentUrl: "/seo_images/twitter-image-800x600.png",
       size: "800x600",
       caption: "Webevery",
       inLanguage: "uk-UA",
