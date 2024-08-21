@@ -4,9 +4,8 @@
 
 
 export const handleDeleteBlockOfBlogFromDB = async (data, index) => {
-    const deletedBlock = data.blocks.splice(index, 1);
-    console.log('deletedBlock', deletedBlock)
-    console.log(`Block with index ${index} was deleted.`)
+    data.blocks.splice(index, 1);
+
 
     try {
         await fetch(`/api/blog/${data.slug}`, {

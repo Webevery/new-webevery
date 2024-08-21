@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "sonner";
 import { dashboardBlogMainSchema, dashboardBlogBlockSchema } from "@/yupSchemas/dashboardBlogCreateSchema";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
@@ -46,20 +47,25 @@ const DashboardBlogCreateForm = ({ mutate }) => {
     } = mainFormstate;
 
     const onSubmitMain = async (data) => {
+        const forSendData = { ...data };
         const session = await getDashboardSession();
-        data.editor = session.user?.email;
+        const editor = session.user?.email;
+        forSendData.editor = editor;
+        const trimedSlug = forSendData.slug.trim();
+        forSendData.slug = trimedSlug;
 
         try {
             await fetch("/api/blog", {
                 method: "POST",
-                body: JSON.stringify(data),
+                body: JSON.stringify(forSendData),
             });
             // автоматично оновлює сторінку при зміні кількості карток
             mutate();
-            console.log("Information added to DB");
+            toast.success(`Картка "${forSendData.slug}" створена.`);
 
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -113,10 +119,12 @@ const DashboardBlogCreateForm = ({ mutate }) => {
     } = blockFormstate;
 
     const onSubmitBlock = (data) => {
+        console.log('data', data)
         setMainValues(
             "blocks",
             [...getMainValues("blocks"), data]
         );
+        toast.success(`До картки додано новий блок. Не забудьте зберегти зміни.`);
     };
 
     useEffect(() => {
@@ -220,11 +228,13 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                             if (getMainValues("mainImage") !== "") {
                                 const publicId = getMainValues("mainImage");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setMainValues("mainImage", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
@@ -397,11 +407,13 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                             if (getBlockValues("image") !== "") {
                                 const publicId = getBlockValues("image");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setBlockValues("image", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary!");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'

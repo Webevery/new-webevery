@@ -5,6 +5,7 @@ import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDe
 import { handleDeleteBlockOfBlogFromDB } from "@/utils/handleDeleteBlockOfBlogFromDB";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import styles from "./DashboardBlogItem.module.scss";
+import { toast } from "sonner";
 
 
 const DashboardBlogItem = ({ data, mutate }) => {
@@ -66,9 +67,12 @@ const DashboardBlogItem = ({ data, mutate }) => {
                                 <svg
                                     className={styles.deleteIcon}
                                     onClick={async () => {
-                                        console.log(`Delete block ${index}`);
-                                        handleDeleteImgFromCloudinary(item.image);
-                                        handleDeleteBlockOfBlogFromDB(data, index);
+                                        if (confirm("Ви впевнені, що хочете видалити цей блок?")) {
+                                            handleDeleteImgFromCloudinary(item.image);
+                                            toast.success("Фото видалено з Cloudinary.");
+                                            handleDeleteBlockOfBlogFromDB(data, index);
+                                            toast.success(`Блок "${index}" видалений з картки.`);
+                                        }
                                     }}
                                 >
                                     <use href='/sprite.svg#icon-delete' />
