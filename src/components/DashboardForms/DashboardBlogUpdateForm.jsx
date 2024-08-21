@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "sonner";
 import {
     dashboardBlogUpdateSchema,
     dashboardBlogBlockUpdateSchema,
@@ -12,6 +13,7 @@ import {
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+import { isDeepEqual } from "@/utils/isDeepEqual";
 
 
 const DashboardBlogUpdateForm = ({ data, mutate }) => {
@@ -29,6 +31,20 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
         blocks,
         slug,
     } = data;
+
+    const receivedData = {
+        title,
+        titleEn,
+        mainText,
+        mainTextEn,
+        mainImage,
+        direction,
+        directionEn,
+        epilogue,
+        epilogueEn,
+        blocks,
+        slug,
+    }
 
     const mainInitialValues = {
         defaultValues: {
@@ -93,21 +109,32 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
             slug: newSlug,
         };
 
+        const trimedSlug = updatedData.slug.trim();
+        updatedData.slug = trimedSlug;
+
+        if (isDeepEqual(receivedData, updatedData)) {
+            toast.warning(`Ви не внесли змін в картку "${slug}"`);
+            return;
+        }
+
+        const forSendData = { ...updatedData };
         const session = await getDashboardSession();
-        updatedData.editor = session.user?.email;
+        const editor = session.user?.email;
+        forSendData.editor = editor;
 
         try {
             await fetch(`/api/blog/${slug}`, {
                 method: "PUT",
-                body: JSON.stringify(updatedData),
+                body: JSON.stringify(forSendData),
             });
 
-            console.log("Information updated to DB");
-
             // по умові виконується або перехід на іншу сторінку, або оновлення існуючої
-            (slug !== updatedData.slug) ? router.push(`/dashboard/blog/${updatedData.slug}`) : mutate();
+            (slug !== forSendData.slug) ? router.push(`/dashboard/blog/${forSendData.slug}`) : mutate();
+
+            toast.success(`Картка "${forSendData.slug}" оновлена.`);
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -172,6 +199,7 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
             "newBlocks",
             [...currentBlocks]
         );
+        toast.success(`До картки додано новий блок. Не забудьте зберегти зміни.`);
     };
 
     useEffect(() => {
@@ -276,6 +304,7 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
                             if (getMainValues("newMainImage") !== "") {
                                 const publicId = getMainValues("newMainImage");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setMainValues(
                                 "newMainImage",
@@ -285,6 +314,7 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
                                 }
                             );
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
@@ -459,11 +489,14 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
                             if (getBlockValues("image") !== "") {
                                 const publicId = getBlockValues("image");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
+
                             setBlockValues("image", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'

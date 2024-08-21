@@ -145,7 +145,10 @@ export default function RootLayout({ children }) {
                 <main>{children}</main>
                 <Footer />
                 <ModalR />
-                <Toaster richColors />
+                <Toaster
+                  richColors
+                  position="top-right"
+                />
               </TranslateProvider>
             </PaginationProvider>
           </SiteProvider>
