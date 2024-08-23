@@ -49,8 +49,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
     const onSubmitMain = async (data) => {
         const forSendData = { ...data };
         const session = await getDashboardSession();
-        const editor = session.user?.email;
-        forSendData.editor = editor;
+        forSendData.editor = session.user?.email;
         const trimedSlug = forSendData.slug.trim();
         forSendData.slug = trimedSlug;
 
@@ -119,12 +118,12 @@ const DashboardBlogCreateForm = ({ mutate }) => {
     } = blockFormstate;
 
     const onSubmitBlock = (data) => {
-        console.log('data', data)
         setMainValues(
             "blocks",
             [...getMainValues("blocks"), data]
         );
-        toast.success(`До картки додано новий блок. Не забудьте зберегти зміни.`);
+        toast.success(`До картки додано новий блок.`);
+        toast.warning("Збережіть зміни.");
     };
 
     useEffect(() => {
@@ -413,7 +412,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
                                 shouldValidate: true,
                             });
                             widget.close();
-                            toast.success("Нове фото додано до Cloudinary!");
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'

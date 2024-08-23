@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import {
     dashboardBlogUpdateSchema,
     dashboardBlogBlockUpdateSchema,
-} from "@/yupSchemas/dashboadrBlogUpdateSchema";
+} from "@/yupSchemas/dashboardBlogUpdateSchema";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
@@ -113,14 +113,13 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
         updatedData.slug = trimedSlug;
 
         if (isDeepEqual(receivedData, updatedData)) {
-            toast.warning(`Ви не внесли змін в картку "${slug}"`);
+            toast.warning(`Ви не внесли змін в картку "${slug}".`);
             return;
         }
 
         const forSendData = { ...updatedData };
         const session = await getDashboardSession();
-        const editor = session.user?.email;
-        forSendData.editor = editor;
+        forSendData.editor = session.user?.email;
 
         try {
             await fetch(`/api/blog/${slug}`, {
@@ -199,7 +198,8 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
             "newBlocks",
             [...currentBlocks]
         );
-        toast.success(`До картки додано новий блок. Не забудьте зберегти зміни.`);
+        toast.success("До картки додано новий блок.");
+        toast.warning("Збережіть зміни.");
     };
 
     useEffect(() => {

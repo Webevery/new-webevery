@@ -1,9 +1,9 @@
 "use client";
 import DashboardBlogItem from "@/components/DashboardBlogItem/DashboardBlogItem";
 import DashboardBlogUpdateForm from "@/components/DashboardForms/DashboardBlogUpdateForm";
-import styles from "./DashboardBlogIdSection.module.scss";
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import Loading from "@/components/Loading/Loading";
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import styles from "./DashboardBlogIdSection.module.scss";
 
 
 const DashboardBlogIdSection = ({ params }) => {

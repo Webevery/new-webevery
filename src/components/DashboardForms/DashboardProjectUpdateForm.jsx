@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "sonner";
 import { dashboardProjectUpdateSchema } from "@/yupSchemas/dashboardProjectUpdateSchema";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
+import { isDeepEqual } from "@/utils/isDeepEqual";
 import styles from "./DashboardForms.module.scss";
 
 
@@ -30,6 +32,26 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
         siteLink,
         slug,
     } = data;
+
+    const receivedData = {
+        title,
+        titleEn,
+        titleGradient,
+        titleGradientEn,
+        heroImage,
+        problem,
+        problemEn,
+        solution,
+        solutionEn,
+        help,
+        helpEn,
+        screensImage,
+        adaptation,
+        adaptationEn,
+        mobileImages,
+        siteLink,
+        slug,
+    }
 
     const initialValues = {
         defaultValues: {
@@ -103,21 +125,31 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
             slug: newSlug,
         };
 
+        const trimedSlug = updatedData.slug.trim();
+        updatedData.slug = trimedSlug;
+
+        if (isDeepEqual(receivedData, updatedData)) {
+            toast.warning(`Ви не внесли змін в картку "${slug}".`);
+            return;
+        }
+
+        const forSendData = { ...updatedData };
         const session = await getDashboardSession();
-        updatedData.editor = session.user?.email;
+        forSendData.editor = session.user?.email;
 
         try {
             await fetch(`/api/ourProjects/${slug}`, {
                 method: "PUT",
-                body: JSON.stringify(updatedData),
+                body: JSON.stringify(forSendData),
             });
 
-            console.log("Information updated to DB");
-
             // по умові виконується або перехід на іншу сторінку, або оновлення існуючої
-            (slug !== updatedData.slug) ? router.push(`/dashboard/ourProjects/${updatedData.slug}`) : mutate();
+            (slug !== forSendData.slug) ? router.push(`/dashboard/ourProjects/${forSendData.slug}`) : mutate();
+
+            toast.success(`Картка "${forSendData.slug}" оновлена.`);
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -218,11 +250,13 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
                             if (getValues("newHeroImages") !== "") {
                                 const publicId = getValues("newHeroImages");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setValue("newHeroImages", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
@@ -323,11 +357,13 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
                             if (getValues("newScreensImage") !== "") {
                                 const publicId = getValues("newScreensImage");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setValue("newScreensImage", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
@@ -386,6 +422,7 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
                                 ],
                                 { shouldValidate: true }
                             );
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         uploadPreset='unsigned_preset'
                     >
