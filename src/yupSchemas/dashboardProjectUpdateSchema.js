@@ -46,8 +46,7 @@ export const dashboardProjectUpdateSchema = yup.object({
         .required("NewAdaptation is required"),
     newMobileImages: yup
         .array()
-        .min(3, "Should be three items")
-        .max(3, "Should be three items"),
+        .min(3, "Should be more than 2 items"),
     newSiteLink: yup
         .string()
         .required("NewSiteLink is required"),

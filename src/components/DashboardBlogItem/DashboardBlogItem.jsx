@@ -1,11 +1,12 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
+import { toast } from "sonner";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
 import { handleDeleteBlockOfBlogFromDB } from "@/utils/handleDeleteBlockOfBlogFromDB";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import styles from "./DashboardBlogItem.module.scss";
-import { toast } from "sonner";
+
 
 
 const DashboardBlogItem = ({ data, mutate }) => {
@@ -72,6 +73,7 @@ const DashboardBlogItem = ({ data, mutate }) => {
                                             toast.success("Фото видалено з Cloudinary.");
                                             handleDeleteBlockOfBlogFromDB(data, index);
                                             toast.success(`Блок "${index}" видалений з картки.`);
+                                            toast.warning("Обновіть сторінку.");
                                         }
                                     }}
                                 >

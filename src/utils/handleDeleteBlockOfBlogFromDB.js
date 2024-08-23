@@ -6,7 +6,6 @@
 export const handleDeleteBlockOfBlogFromDB = async (data, index) => {
     data.blocks.splice(index, 1);
 
-
     try {
         await fetch(`/api/blog/${data.slug}`, {
             method: "PATCH",
@@ -14,7 +13,6 @@ export const handleDeleteBlockOfBlogFromDB = async (data, index) => {
                 blocks: data.blocks,
             }),
         });
-
     } catch (error) {
         console.log(error);
     }

@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { CldImage } from "next-cloudinary";
+import { toast } from "sonner";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { handleDeleteImageFromMongoDB } from "@/utils/handleDeleteImageFromMongoDB";
@@ -102,9 +103,13 @@ const DashboardProjectItem = ({ data, mutate }) => {
                                 <svg
                                     className={styles.deleteIcon}
                                     onClick={async () => {
-                                        console.log(`Delete photo ${item}`);
-                                        handleDeleteImgFromCloudinary(item);
-                                        handleDeleteImageFromMongoDB(data, item);
+                                        if (confirm("Ви впевнені, що хочете видалити це фото?")) {
+                                            handleDeleteImgFromCloudinary(item);
+                                            toast.success("Фото видалено з Cloudinary.");
+                                            handleDeleteImageFromMongoDB(data, item);
+                                            toast.success("Фото видалено з БД.");
+                                            toast.warning("Обновіть сторінку.");
+                                        }
                                     }}
                                 >
                                     <use href='/sprite.svg#icon-delete' />

@@ -7,6 +7,7 @@
 // (для удаления фото из массива мобильных фотографий проекта)
 export const handleDeleteImageFromMongoDB = async (data, item) => {
     const newArr = data.mobileImages.filter((el) => el !== item);
+
     try {
         await fetch(`/api/ourProjects/${data.slug}`, {
             method: "PATCH",
