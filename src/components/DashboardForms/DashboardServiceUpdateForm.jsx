@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "sonner";
 import { dashboardServiceUpdateSchema } from "@/yupSchemas/dashboardServiceUpdateSchema";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
+import { isDeepEqual } from "@/utils/isDeepEqual";
 import styles from "./DashboardForms.module.scss";
 
 
@@ -24,6 +26,21 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
         directionsEn,
         slug,
     } = data;
+
+    const receivedData = {
+        title,
+        titleEn,
+        titleGradient,
+        titleGradientEn,
+        mockup,
+        description,
+        descriptionEn,
+        price,
+        priceEn,
+        directions,
+        directionsEn,
+        slug,
+    }
 
     const initialValues = {
         defaultValues: {
@@ -81,21 +98,32 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
             slug: newSlug,
         };
 
+        const trimedSlug = updatedData.slug.trim();
+        updatedData.slug = trimedSlug;
+
+        if (isDeepEqual(receivedData, updatedData)) {
+            toast.warning(`Ви не внесли змін в картку "${slug}".`);
+            return;
+        }
+
+        const forSendData = { ...updatedData };
         const session = await getDashboardSession();
-        updatedData.editor = session.user?.email;
+        forSendData.editor = session.user?.email;
 
         try {
             await fetch(`/api/services/${slug}`, {
                 method: "PUT",
-                body: JSON.stringify(updatedData),
+                body: JSON.stringify(forSendData),
             });
 
-            console.log("Information updated to DB");
-
             // по умові виконується або перехід на іншу сторінку, або оновлення існуючої
-            (slug !== updatedData.slug) ? router.push(`/dashboard/services/${updatedData.slug}`) : mutate();
+            (slug !== forSendData.slug) ? router.push(`/dashboard/services/${forSendData.slug}`) : mutate();
+
+            toast.success(`Картка "${forSendData.slug}" оновлена.`);
+
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -196,11 +224,13 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
                             if (getValues("newMockup") !== "") {
                                 const publicId = getValues("newMockup");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setValue("newMockup", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'

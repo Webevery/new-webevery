@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "sonner";
 import { dashboardServiceCreateSchema } from "@/yupSchemas/dashboardServiceCreateSchema";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
@@ -34,20 +35,24 @@ const DashboardServiceCreateForm = ({ mutate }) => {
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = async (data) => {
+        const forSendData = { ...data };
         const session = await getDashboardSession();
-        data.editor = session.user?.email;
+        forSendData.editor = session.user?.email;
+        const trimedSlug = forSendData.slug.trim();
+        forSendData.slug = trimedSlug;
 
         try {
             await fetch("/api/services", {
                 method: "POST",
-                body: JSON.stringify(data),
+                body: JSON.stringify(forSendData),
             });
             // автоматично оновлює сторінку при зміні кількості карток
             mutate();
-            console.log("Information added to DB");
+            toast.success(`Картка "${forSendData.slug}" створена.`);
 
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -152,11 +157,13 @@ const DashboardServiceCreateForm = ({ mutate }) => {
                             if (getValues("mockup") !== "") {
                                 const publicId = getValues("mockup");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setValue("mockup", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
