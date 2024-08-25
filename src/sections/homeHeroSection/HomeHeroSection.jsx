@@ -19,7 +19,7 @@ const HomeHeroSection = () => {
       <div className={`${styles.heroContainer} container`}>
         <div className={styles.heroContent}>
           <h1 className={styles.title + ' ' + styles.textItem}>
-            EVERY бізнес, потребує якісного WEB - сайту!
+            EVERY бізнес потребує якісного WEB - сайту!
           </h1>
           <p className={styles.text}>Унікальні вебсайти для вашого бізнесу</p>
           {/* <h1 className={styles.title}>Empowering your success</h1>
