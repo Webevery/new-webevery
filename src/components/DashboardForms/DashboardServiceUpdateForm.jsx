@@ -120,7 +120,6 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
             (slug !== forSendData.slug) ? router.push(`/dashboard/services/${forSendData.slug}`) : mutate();
 
             toast.success(`Картка "${forSendData.slug}" оновлена.`);
-
         } catch (err) {
             console.log(err);
             toast.error(err);

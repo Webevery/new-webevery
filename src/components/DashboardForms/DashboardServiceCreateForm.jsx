@@ -48,8 +48,8 @@ const DashboardServiceCreateForm = ({ mutate }) => {
             });
             // автоматично оновлює сторінку при зміні кількості карток
             mutate();
-            toast.success(`Картка "${forSendData.slug}" створена.`);
 
+            toast.success(`Картка "${forSendData.slug}" створена.`);
         } catch (err) {
             console.log(err);
             toast.error(err);

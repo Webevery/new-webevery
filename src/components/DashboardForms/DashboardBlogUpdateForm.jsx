@@ -198,6 +198,7 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
             "newBlocks",
             [...currentBlocks]
         );
+
         toast.success("До картки додано новий блок.");
         toast.warning("Збережіть зміни.");
     };
