@@ -7,6 +7,7 @@ import { dashboardCoworkerCreateSchema } from "@/yupSchemas/dashboardCoworkerCre
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
+import { toast } from "sonner";
 
 
 const DashboardCoworkerCreateForm = ({ mutate }) => {
@@ -28,20 +29,24 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
     const { errors, isSubmitSuccessful, isErrors, isSubmitting } = formState;
 
     const onSubmit = async (data) => {
+        const forSendData = { ...data };
         const session = await getDashboardSession();
-        data.editor = session.user?.email;
+        forSendData.editor = session.user?.email;
+        const trimedSlug = forSendData.slug.trim();
+        forSendData.slug = trimedSlug;
 
         try {
             await fetch("/api/team", {
                 method: "POST",
-                body: JSON.stringify(data),
+                body: JSON.stringify(forSendData),
             });
             // автоматично оновлює сторінку при зміні кількості карток
             mutate();
-            console.log("Information added to DB");
 
+            toast.success(`Картка "${forSendData.slug}" створена.`);
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -111,11 +116,13 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
                             if (getValues("photo") !== "") {
                                 const publicId = getValues("photo");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setValue("photo", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'

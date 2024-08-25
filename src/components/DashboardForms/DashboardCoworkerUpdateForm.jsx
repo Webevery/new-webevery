@@ -3,14 +3,18 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { CldUploadButton } from "next-cloudinary";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "sonner";
 import { dashboardCoworkerUpdateSchema } from "@/yupSchemas/dashboardCoworkerUpdateSchema";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import { getDashboardSession } from "@/utils/getDashboardSession";
+import { isDeepEqual } from "@/utils/isDeepEqual";
 import styles from "./DashboardForms.module.scss";
 
 
 const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
     const { name, nameEn, photo, position, positionEn, slug } = data;
+
+    const receivedData = { name, nameEn, photo, position, positionEn, slug };
 
     const initialValues = {
         defaultValues: {
@@ -51,21 +55,31 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
             slug: newSlug,
         };
 
+        const trimedSlug = updatedData.slug.trim();
+        updatedData.slug = trimedSlug;
+
+        if (isDeepEqual(receivedData, updatedData)) {
+            toast.warning(`Ви не внесли змін в картку "${slug}".`);
+            return;
+        }
+
+        const forSendData = { ...updatedData };
         const session = await getDashboardSession();
-        updatedData.editor = session.user?.email;
+        forSendData.editor = session.user?.email;
 
         try {
             await fetch(`/api/team/${slug}`, {
                 method: "PUT",
-                body: JSON.stringify(updatedData),
+                body: JSON.stringify(forSendData),
             });
 
-            console.log("Information updated to DB");
-
             // по умові виконується або перехід на іншу сторінку, або оновлення існуючої
-            (slug !== updatedData.slug) ? router.push(`/dashboard/team/${updatedData.slug}`) : mutate();
+            (slug !== forSendData.slug) ? router.push(`/dashboard/team/${forSendData.slug}`) : mutate();
+
+            toast.success(`Картка "${forSendData.slug}" оновлена.`);
         } catch (err) {
             console.log(err);
+            toast.error(err);
         }
     };
 
@@ -127,11 +141,13 @@ const DashboardCoworkerUpdateForm = ({ data, mutate }) => {
                             if (getValues("newPhoto") !== "") {
                                 const publicId = getValues("newPhoto");
                                 handleDeleteImgFromCloudinary(publicId);
+                                toast.success("Попереднє фото видалено з Cloudinary.");
                             }
                             setValue("newPhoto", result.info.public_id, {
                                 shouldValidate: true,
                             });
                             widget.close();
+                            toast.success("Нове фото додано до Cloudinary.");
                         }}
                         options={{ multiple: false }}
                         uploadPreset='unsigned_preset'
