@@ -10,7 +10,7 @@ import styles from "./DashboardForms.module.scss";
 import { toast } from "sonner";
 
 
-const DashboardCoworkerCreateForm = ({ mutate }) => {
+const DashboardCoworkerCreateForm = ({ mutate, slugsArr }) => {
     const initialValues = {
         defaultValues: {
             name: "",
@@ -21,6 +21,7 @@ const DashboardCoworkerCreateForm = ({ mutate }) => {
             slug: "",
         },
         resolver: yupResolver(dashboardCoworkerCreateSchema),
+        context: slugsArr,
     };
 
     const form = useForm(initialValues);

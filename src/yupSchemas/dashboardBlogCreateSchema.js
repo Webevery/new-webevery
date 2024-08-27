@@ -48,8 +48,6 @@ export const dashboardBlogMainSchema = yup.object({
                 return true;
             },
         }),
-
-
 });
 
 export const dashboardBlogBlockSchema = yup.object({
