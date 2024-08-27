@@ -16,7 +16,7 @@ import styles from "./DashboardForms.module.scss";
 import { isDeepEqual } from "@/utils/isDeepEqual";
 
 
-const DashboardBlogUpdateForm = ({ data, mutate }) => {
+const DashboardBlogUpdateForm = ({ data, mutate, slugsArr }) => {
     //---------------------------- For the main form  -------------------------
     const {
         title,
@@ -61,6 +61,7 @@ const DashboardBlogUpdateForm = ({ data, mutate }) => {
             newSlug: slug,
         },
         resolver: yupResolver(dashboardBlogUpdateSchema),
+        context: slugsArr,
     };
 
     const mainForm = useForm(mainInitialValues);

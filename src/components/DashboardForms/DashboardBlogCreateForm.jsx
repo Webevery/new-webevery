@@ -10,7 +10,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardBlogCreateForm = ({ mutate }) => {
+const DashboardBlogCreateForm = ({ mutate, slugsArr }) => {
     //---------------------------- For the main form  -------------------------
     const mainInitialValues = {
         defaultValues: {
@@ -27,6 +27,7 @@ const DashboardBlogCreateForm = ({ mutate }) => {
             slug: "",
         },
         resolver: yupResolver(dashboardBlogMainSchema),
+        context: slugsArr,
     };
 
     const mainForm = useForm(mainInitialValues);

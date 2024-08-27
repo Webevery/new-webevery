@@ -1,5 +1,5 @@
 "use client";
-import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import { GetDataFromSection, GetIdDataFromSection } from "@/fetch/ClientFetch";
 import DashboardServiceItem from "@/components/DashboardServiceItem/DashboardServiceItem";
 import DashboardServiceUpdateForm from "@/components/DashboardForms/DashboardServiceUpdateForm";
 import Loading from "@/components/Loading/Loading";
@@ -41,6 +41,11 @@ const DashboardServiceIdSection = ({ params }) => {
         }
     }
 
+    const info = GetDataFromSection("services");
+    const slugsArr = info.data?.map((item) => item.slug).sort((a, b) => { return a - b });
+    const filteredSlugsArr = slugsArr?.filter(item => item !== data?.slug);
+
+
     return (
         <>
             {isLoading ? (
@@ -48,7 +53,7 @@ const DashboardServiceIdSection = ({ params }) => {
             ) : (
                 <div className={styles.container}>
                     <DashboardServiceItem data={changedData} />
-                    <DashboardServiceUpdateForm data={data} mutate={mutate} />
+                    <DashboardServiceUpdateForm data={data} mutate={mutate} slugsArr={filteredSlugsArr} />
                 </div>
             )}
         </>

@@ -17,8 +17,20 @@ export const dashboardCoworkerCreateSchema = yup.object({
     positionEn: yup
         .string()
         .required("PositionEn is required"),
-    slug: yup
-        .string()
+    slug: yup.string()
         .required("Slug is required")
-
+        .test({
+            name: "slug",
+            test(value, ctx) {
+                const trimedValue = value.trim();
+                // this.options.context - from DashboardNewsFormCreate context: slugsArr
+                const isExist = this.options.context.includes(trimedValue);
+                if (isExist) {
+                    return ctx.createError({
+                        message: "Such a slug already exists"
+                    })
+                }
+                return true;
+            },
+        }),
 });
