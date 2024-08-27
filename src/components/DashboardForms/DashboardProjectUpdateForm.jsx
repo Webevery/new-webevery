@@ -12,7 +12,7 @@ import { isDeepEqual } from "@/utils/isDeepEqual";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardProjectUpdateForm = ({ data, mutate }) => {
+const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
     const {
         title,
         titleEn,
@@ -74,6 +74,7 @@ const DashboardProjectUpdateForm = ({ data, mutate }) => {
             newSlug: slug,
         },
         resolver: yupResolver(dashboardProjectUpdateSchema),
+        context: slugsArr,
     };
 
     const form = useForm(initialValues);

@@ -19,6 +19,9 @@ const DashboardProjectsSection = () => {
         });
     }
 
+    // for yup-validation
+    const slugsArr = data?.map((item) => item.slug).sort((a, b) => { return a - b });
+
 
     return (
         <>
@@ -38,7 +41,7 @@ const DashboardProjectsSection = () => {
                         })}
                     </div>
 
-                    <DashboardProjectCreateForm mutate={mutate} />
+                    <DashboardProjectCreateForm mutate={mutate} slugsArr={slugsArr} />
                 </div>
             )}
         </>
