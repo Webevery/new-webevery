@@ -11,7 +11,7 @@ import { isDeepEqual } from "@/utils/isDeepEqual";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardServiceUpdateForm = ({ data, mutate }) => {
+const DashboardServiceUpdateForm = ({ data, mutate, slugsArr }) => {
     const {
         title,
         titleEn,
@@ -58,6 +58,7 @@ const DashboardServiceUpdateForm = ({ data, mutate }) => {
             newSlug: slug,
         },
         resolver: yupResolver(dashboardServiceUpdateSchema),
+        context: slugsArr,
     };
 
     const form = useForm(initialValues);

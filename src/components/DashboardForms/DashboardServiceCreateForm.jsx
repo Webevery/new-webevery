@@ -10,7 +10,7 @@ import { getDashboardSession } from "@/utils/getDashboardSession";
 import styles from "./DashboardForms.module.scss";
 
 
-const DashboardServiceCreateForm = ({ mutate }) => {
+const DashboardServiceCreateForm = ({ mutate, slugsArr }) => {
     const initialValues = {
         defaultValues: {
             title: "",
@@ -27,6 +27,7 @@ const DashboardServiceCreateForm = ({ mutate }) => {
             slug: "",
         },
         resolver: yupResolver(dashboardServiceCreateSchema),
+        context: slugsArr,
     };
 
     const form = useForm(initialValues);
