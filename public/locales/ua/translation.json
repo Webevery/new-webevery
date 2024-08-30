@@ -1,94 +1,97 @@
 {
-    "MainPage": {
-        "TeamTitle": "Наша команда",
-        "TeamSubTitle": "втілить Ваші ідеї в життя",
-        "WorkingProcessTitle": "Робочий процес",
-        "WorkingProcessSubTitleMob": "Додаткові деталі розробки обговорюються індивідуально",
-        "WorkingProcessSubTitleLaptop": "Додаткові деталі розробки обговорюються в індивідуальному порядку",
-        "OurProjectsTitle": "Наші",
-        "OurProjectsSubTitle": "Роботи",
-        "OurServicesTitle": "Послуги",
-        "OurServicesSubTitle": "Від малого до великого сайту",
-        "FaqSubTitle": "Знайдіть своє питання тут",
-        "OrderSectionTitleMob": "Поговоримо про",
-        "OrderSectionTitleTab": "Поговоримо про",
-        "OrderSectionSubTitle": "Ваш новий сайт!"
-    },
-    "TeamPage": {
-        "Title": "Команда",
-        "SubTitle": "давайте познайомимося з тими, хто працює для Вас"
-    },
-    "OurProjectsPage": {
-        "Title": "Наші роботи",
-        "TitleProblem": "Проблема",
-        "TitleSolutions": "Рішення",
-        "TitleHelpBussines": "Як це допомагає бізнесу",
-        "TitleDesc": "Адаптація",
-        "NoProjects": "Проєкт не знайдено",
-        "NoProjectsBtn": "До усіх проєктів"
-    },
-    "ContactsPage": {
-        "Title": "Контакти",
-        "Phone": "НОМЕР ТЕЛЕФОНУ",
-        "Email": "ПОШТА",
-        "Social": "СОЦІАЛЬНІ МЕРЕЖІ"
-    },
-    "ServicesPage": {
-        "Title": "Послуги",
-        "SubTitle1": "обирайте",
-        "SubTitle2": "найкращу",
-        "SubTitle3": "пропозицію для Вашого бізнесу"
-    },
-    "ServiceIdPage": {
-        "SubTitle1": "Обирайте",
-        "SubTitle2": "найкращу",
-        "SubTitle3": "пропозицію для Вашого бізнесу:",
-        "BackToServicesBtn": "До усіх послуг"
-    },
-    "BlogPage": {
-        "GenSubTitle": "Блог",
-        "SubTitle": "тут Ви можете прочитати корисні статті",
-        "NoArticles": "Статей не знайдено!"
-    },
-    "BlogIdPage": {
-        "SubTitle": "Також Вам буде цікаво:",
-        "NotFound": "Блог не знайдено",
-        "NotFoundTitleBtn": "До усіх блогів"
-    },
-    "NotFoundPage": {
-        "NotFoundTitle": "Сторінка не знайдена",
-        "NotFoundTitleBtn": "На головну"
-    },
-    "Buttons": {
-        "CalltBtn": "Подзвонити",
-        "OrderBtn": "Замовити",
-        "HomeTeamBtn": "Про Команду",
-        "HomeProjectsBtn": "До портфоліо",
-        "ServicesDetailsBtn": "Детальніше",
-        "HomeFaqBtn": "Детальніше",
-        "ServiceCardOrderBtn": "Замовити",
-        "FormOrderBtn": "Замовити дзвінок",
-        "ProjectDetailsBtn": "Детальніше",
-        "ProjectOpenSiteBtn": "Відкрити сайт",
-        "CardDetailsBtn": "Детальніше",
-        "CloseBtn": "Закрити",
-        "FilterBtn": "Шукати",
-        "FilterClear": "Очистити",
-        "OpenFilterBtn": "Фільтр",
-        "CloseFilterBtn": "Сховати",
-        "Submit": "Пiдтвердити",
-        "BackPageBtn": "Назад",
-        "SuccessContentBtn": "Чудово!"
-    },
-    "Form": {
-        "Title": "Заповніть форму і ми Вам зателефонуємо",
-        "TitleMob": "Ми Вам зателефонуємо",
-        "Name": "Ім’я",
-        "Phone": "Номер телефону",
-        "TextArea": "Коротко опишіть Ваше побажання",
-        "FormSubmitedMsg": "Вітаємо! Ваше повідомлення відправлено менеджеру."
-    },
-    "LoadStatus": {
-        "Load": "Завантаження..."
-    }
+  "MainPage": {
+    "HeroTitle": "EVERY бізнес потребує якісного WEB сайту!",
+    "HeroSubtitle": "Унікальні вебсайти для вашого бізнесу",
+    "TeamTitle": "Наша команда",
+    "TeamSubTitle": "втілить Ваші ідеї в життя",
+    "WorkingProcessTitle": "Робочий процес",
+    "WorkingProcessSubTitleMob": "Додаткові деталі розробки обговорюються індивідуально",
+    "WorkingProcessSubTitleLaptop": "Додаткові деталі розробки обговорюються в індивідуальному порядку",
+    "OurProjectsTitle": "Наші",
+    "OurProjectsSubTitle": "Роботи",
+    "OurServicesTitle": "Послуги",
+    "OurServicesSubTitle": "Від малого до великого сайту",
+    "FaqSubTitle": "Знайдіть своє питання тут",
+    "OrderSectionTitleMob": "Поговоримо про",
+    "OrderSectionTitleTab": "Поговоримо про",
+    "OrderSectionSubTitle": "Ваш новий сайт!"
+  },
+  "TeamPage": {
+    "Title": "Команда",
+    "SubTitle": "давайте познайомимося з тими, хто працює для Вас"
+  },
+  "OurProjectsPage": {
+    "Title": "Наші роботи",
+    "TitleProblem": "Проблема",
+    "TitleSolutions": "Рішення",
+    "TitleHelpBussines": "Як це допомагає бізнесу",
+    "TitleDesc": "Адаптація",
+    "NoProjects": "Проєкт не знайдено",
+    "NoProjectsBtn": "До усіх проєктів"
+  },
+  "ContactsPage": {
+    "Title": "Контакти",
+    "Phone": "НОМЕР ТЕЛЕФОНУ",
+    "Email": "ПОШТА",
+    "Social": "СОЦІАЛЬНІ МЕРЕЖІ"
+  },
+  "ServicesPage": {
+    "Title": "Послуги",
+    "SubTitle1": "обирайте",
+    "SubTitle2": "найкращу",
+    "SubTitle3": "пропозицію для Вашого бізнесу"
+  },
+  "ServiceIdPage": {
+    "SubTitle1": "Обирайте",
+    "SubTitle2": "найкращу",
+    "SubTitle3": "пропозицію для Вашого бізнесу:",
+    "BackToServicesBtn": "До усіх послуг"
+  },
+  "BlogPage": {
+    "GenSubTitle": "Блог",
+    "SubTitle": "тут Ви можете прочитати корисні статті",
+    "NoArticles": "Статей не знайдено!"
+  },
+  "BlogIdPage": {
+    "SubTitle": "Також Вам буде цікаво:",
+    "NotFound": "Блог не знайдено",
+    "NotFoundTitleBtn": "До усіх блогів"
+  },
+  "NotFoundPage": {
+    "NotFoundTitle": "Сторінка не знайдена",
+    "NotFoundTitleBtn": "На головну"
+  },
+  "Buttons": {
+    "CalltBtn": "Подзвонити",
+    "ContactBtn": "Зв'язатись",
+    "OrderBtn": "Замовити",
+    "HomeTeamBtn": "Про Команду",
+    "HomeProjectsBtn": "До портфоліо",
+    "ServicesDetailsBtn": "Детальніше",
+    "HomeFaqBtn": "Детальніше",
+    "ServiceCardOrderBtn": "Замовити",
+    "FormOrderBtn": "Замовити дзвінок",
+    "ProjectDetailsBtn": "Детальніше",
+    "ProjectOpenSiteBtn": "Відкрити сайт",
+    "CardDetailsBtn": "Детальніше",
+    "CloseBtn": "Закрити",
+    "FilterBtn": "Шукати",
+    "FilterClear": "Очистити",
+    "OpenFilterBtn": "Фільтр",
+    "CloseFilterBtn": "Сховати",
+    "Submit": "Пiдтвердити",
+    "BackPageBtn": "Назад",
+    "SuccessContentBtn": "Чудово!"
+  },
+  "Form": {
+    "Title": "Заповніть форму і ми Вам зателефонуємо",
+    "TitleMob": "Ми Вам зателефонуємо",
+    "Name": "Ім’я",
+    "Phone": "Номер телефону",
+    "TextArea": "Коротко опишіть Ваше побажання",
+    "FormSubmitedMsg": "Вітаємо! Ваше повідомлення відправлено менеджеру."
+  },
+  "LoadStatus": {
+    "Load": "Завантаження..."
+  }
 }
