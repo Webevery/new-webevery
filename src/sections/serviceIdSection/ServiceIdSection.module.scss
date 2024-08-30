@@ -38,12 +38,10 @@
   margin-bottom: 27px;
 
   & span {
-    background: linear-gradient(
-      91deg,
-      $gradientYellow,
-      $gradientCyan,
-      $gradientBlue
-    );
+    background: linear-gradient(91deg,
+        $gradientYellow,
+        $gradientCyan,
+        $gradientBlue );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -133,6 +131,7 @@
   padding-left: 16px;
   display: flex;
   flex-wrap: wrap;
+
   @media screen and (min-width: $laptop) {
     row-gap: 20px;
   }
@@ -186,9 +185,10 @@
   }
 }
 
-#serviceOrderBtn {
-  margin-top: auto;
-}
+// розкоментувати, коли повернеться форма для замовлення і кнопка до неї (scrum)
+// #serviceOrderBtn {
+//   margin-top: auto;
+// }
 
 .servicesIdSliderTitle {
   font-family: var(--font-noto-sans);
@@ -198,12 +198,10 @@
   margin-bottom: 12px;
 
   & span {
-    background: linear-gradient(
-      91deg,
-      $gradientYellow,
-      $gradientCyan,
-      $gradientBlue
-    );
+    background: linear-gradient(91deg,
+        $gradientYellow,
+        $gradientCyan,
+        $gradientBlue );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
