@@ -91,10 +91,10 @@ export const SliderOfServices = ({ slug, id, idSlide }) => {
           return (
             <SwiperSlide
               key={slug}
-              // className={`SlideContentWrapper ${styles.serviceItem}`}
-              // className={`slideContentWrapper`}
+              className={`SlideContentWrapper ${styles.serviceItem}`}
+            // className={`slideContentWrapper`}
 
-              // id={idSlide}
+            // id={idSlide}
             >
               {/* <div className={styles.slideContent}> */}
               <div>
