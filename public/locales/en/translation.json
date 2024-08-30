@@ -1,5 +1,7 @@
 {
   "MainPage": {
+    "HeroTitle": "WEB site is that EVERY business need!",
+    "HeroSubtitle": "Unique websites for your business",
     "TeamTitle": "Our team",
     "TeamSubTitle": "will bring your ideas to life",
     "WorkingProcessTitle": "Working process",
@@ -62,6 +64,7 @@
   },
   "Buttons": {
     "CalltBtn": "Call",
+    "ContactBtn": "Contact us",
     "OrderBtn": "Order",
     "HomeTeamBtn": "About Team",
     "HomeProjectsBtn": "To portfolio",
