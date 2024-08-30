@@ -9,7 +9,7 @@ import { GetIdDataFromSection } from "@/fetch/ClientFetch";
 import { useCheckPathname } from "@/hooks/useCheckPathname";
 import { currentLanguages } from "@/data/languages";
 import { SliderOfServices } from "@/components/SliderOfServices/SliderOfServices";
-import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+// import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
 import NotFound from "@/components/NotFound/NotFound";
 import Loading from "@/components/Loading/Loading";
 import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
@@ -117,7 +117,7 @@ const ServiceIdSection = ({ params }) => {
                     ? changedData.priceEn
                     : changedData.price}
                 </p>
-                <OrderBtn
+                {/* <OrderBtn
                   id={styles.serviceOrderBtn}
                   title={t("Buttons.OrderBtn")}
                   onClick={() => {
@@ -132,7 +132,7 @@ const ServiceIdSection = ({ params }) => {
                     }
                     openModal();
                   }}
-                />
+                /> */}
               </div>
             </div>
 

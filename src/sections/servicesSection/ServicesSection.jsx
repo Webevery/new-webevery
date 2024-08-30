@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { SiteContext } from "@/context/siteContext";
 import { GetDataFromSection } from "@/fetch/ClientFetch";
-import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
+// import OrderBtn from "@/components/Buttons/OrderBtn/OrderBtn";
 import ReadMore from "@/components/Buttons/ReadMore/ReadMore";
 
 import styles from "./ServicesSection.module.scss";
@@ -101,7 +101,9 @@ const ServicesSection = () => {
                     <p className={styles.cartPrice}>
                       {i18n.language === currentLanguages.EN ? priceEn : price}
                     </p>
-                    <OrderBtn
+
+                    {/* розкоментувати, коли повернеться форма для замовлення (scrum) */}
+                    {/* <OrderBtn
                       id={styles.serviceOrderBtn}
                       title={t("Buttons.ServiceCardOrderBtn")}
                       onClick={() => {
@@ -112,7 +114,7 @@ const ServicesSection = () => {
                         }
                         openModal();
                       }}
-                    />
+                    /> */}
                   </div>
                 </li>
               );
