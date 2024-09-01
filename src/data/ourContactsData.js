@@ -26,7 +26,7 @@ export const ourContactsData = [
   },
   {
     name: "facebook",
-    path: "https://www.facebook.com/profile.php?id=100092267193984",
+    path: "https://www.facebook.com/profile.php?id=61555240991643",
     svg: "/sprite.svg#icon-facebook",
   },
 ];
