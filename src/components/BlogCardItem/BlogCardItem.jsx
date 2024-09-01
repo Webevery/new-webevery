@@ -15,11 +15,11 @@ const BlogCardItem = ({
   title,
   mainTextEn,
   mainText,
-  updatedAt,
+  createdAt,
 }) => {
   const { i18n, t } = useTranslation();
 
-  const formattedDate = formatDate(updatedAt);
+  const formattedDate = formatDate(createdAt);
 
   return (
     <li className={styles.cartItem}>

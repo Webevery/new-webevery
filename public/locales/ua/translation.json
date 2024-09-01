@@ -54,6 +54,8 @@
   },
   "BlogIdPage": {
     "SubTitle": "Також Вам буде цікаво:",
+    "Action": "Опубліковано:",
+    "Author": "",
     "NotFound": "Блог не знайдено",
     "NotFoundTitleBtn": "До усіх блогів"
   },

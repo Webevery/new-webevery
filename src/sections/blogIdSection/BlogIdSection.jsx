@@ -36,7 +36,7 @@ const BlogIdSection = ({ params }) => {
     };
   }, []);
 
-  const formattedDate = formatDate(data?.updatedAt);
+  const formattedDate = formatDate(data?.createdAt);
 
   return (
     <>
@@ -65,11 +65,12 @@ const BlogIdSection = ({ params }) => {
               </h1>
               <div className={styles.publishedContainer}>
                 <h4 className={styles.publishedTitle}>
-                  Published:{' '}
+
+                  {t('BlogIdPage.Action')}{' '}
                   <span className={styles.publishedDate}> {formattedDate}</span>
                 </h4>
                 <p className={styles.publishedAutor}>
-                  by: <span className={styles.publishedDate}>Webevery</span>
+                  {t('BlogIdPage.Author')} <span className={styles.publishedDate}>Webevery</span>
                 </p>
               </div>
               <figure className={styles.ImgContainer}>

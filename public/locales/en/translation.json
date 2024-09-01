@@ -55,6 +55,8 @@
   },
   "BlogIdPage": {
     "SubTitle": "You will also be interested in:",
+    "Action": "Published:",
+    "Author": "by:",
     "NotFound": "Blog not found",
     "NotFoundTitleBtn": "To all blogs"
   },
