@@ -63,13 +63,13 @@ const BlogSection = () => {
 
   if (sorterArr === 'NO') {
     filterBlogArr.sort((a, b) => {
-      return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
+      return Date.parse(b.createdAt) - Date.parse(a.createdAt);
     });
   }
 
   if (sorterArr === 'ON') {
     filterBlogArr.sort((a, b) => {
-      return Date.parse(a.updatedAt) - Date.parse(b.updatedAt);
+      return Date.parse(a.createdAt) - Date.parse(b.createdAt);
     });
   }
 
@@ -143,7 +143,7 @@ const BlogSection = () => {
   const sortBlogsByDateDescending = (blogs) => {
     if (!blogs) return [];
     return blogs.slice().sort((a, b) => {
-      return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
+      return Date.parse(b.createdAt) - Date.parse(a.createdAt);
     });
   };
 
@@ -157,11 +157,11 @@ const BlogSection = () => {
       ? !isLoading && filterBlogArr?.length <= 0
         ? `${styles.cartContainer} ${styles.cartContainerNotFound}`
         : blogFilterShown && directionArr.length <= 6
-        ? `${styles.cartContainer} ${styles.cartContainerOpen}`
-        : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
+          ? `${styles.cartContainer} ${styles.cartContainerOpen}`
+          : `${styles.cartContainer} ${styles.cartContainerOpenDirectionMore}`
       : !isLoading && filterBlogArr?.length <= 0
-      ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
-      : `${styles.cartContainer} `;
+        ? `${styles.cartContainer} ${styles.cartContainerCloseNotFound}`
+        : `${styles.cartContainer} `;
 
   return (
     <section>
@@ -206,7 +206,7 @@ const BlogSection = () => {
                 title,
                 mainTextEn,
                 mainText,
-                updatedAt,
+                createdAt,
               }) => (
                 <BlogCardItem
                   key={slug}
@@ -216,7 +216,7 @@ const BlogSection = () => {
                   title={title}
                   mainTextEn={mainTextEn}
                   mainText={mainText}
-                  updatedAt={updatedAt}
+                  createdAt={createdAt}
                 />
               )
             )}
