@@ -1,6 +1,7 @@
 {
   "name": "new-webevery",
   "version": "0.1.0",
+  "figma": "https://www.figma.com/design/nxnzVoHVJWz3sC6JhCd6yQ/Webevery?node-id=1007-9926&node-type=FRAME&t=F9TuUlJpnfJgLOvb-0",
   "private": true,
   "scripts": {
     "dev": "next dev",
