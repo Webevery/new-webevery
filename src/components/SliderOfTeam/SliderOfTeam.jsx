@@ -77,12 +77,16 @@ export const SliderOfTeam = () => {
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
+
           className="teamSwiper"
         >
           <div className={styles.cartContainer}>
             {newData?.map((item) => {
               return (
-                <SwiperSlide key={item.slug} className="slideContentWrapper">
+                <SwiperSlide
+                  key={item.slug}
+                // className="slideContentWrapper"
+                >
                   <div key={item.slug} className={styles.cartItem}>
                     <div className={styles.cartImgContainer}>
                       <CldImage

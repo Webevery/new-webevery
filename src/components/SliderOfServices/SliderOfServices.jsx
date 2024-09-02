@@ -5,7 +5,7 @@ import { GetDataFromSection } from "@/fetch/ClientFetch";
 import styles from "./SliderOfServices.module.scss";
 import { useTranslation } from "react-i18next";
 import { currentLanguages } from "@/data";
-import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
+// import OrderBtn from "../Buttons/OrderBtn/OrderBtn";
 import { useContext } from "react";
 import { SiteContext } from "@/context/siteContext";
 import ReadMore from "../Buttons/ReadMore/ReadMore";
@@ -18,6 +18,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
+
 
 export const SliderOfServices = ({ slug, id, idSlide }) => {
   const { data, isLoading } = GetDataFromSection("services");
@@ -91,7 +92,9 @@ export const SliderOfServices = ({ slug, id, idSlide }) => {
           return (
             <SwiperSlide
               key={slug}
-              className={`SlideContentWrapper ${styles.serviceItem}`}
+              // в стилях slideContentWrapper нет. зачем он здесь ?!?!?
+              // className={`SlideContentWrapper ${styles.serviceItem}`}
+              className={styles.serviceItem}
             // className={`slideContentWrapper`}
 
             // id={idSlide}
