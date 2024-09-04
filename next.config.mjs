@@ -61,6 +61,11 @@ const nextConfig = {
             permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
           },
           {
+            source: "/services/WebsitePromotionSEO", // старий шлях
+            destination: "/services/website-promotion-seo", // новий шлях
+            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+          },
+          {
             source: "/ourProjects/Ice-Cream", // старий шлях
             destination: "/ourProjects/ice-cream", // новий шлях
             permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
@@ -101,7 +106,7 @@ const nextConfig = {
             permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
           },
           {
-            source: "/ourProjects/DailyRent", // старий шлях
+            source: "/ourProjects/Daily-Rent", // старий шлях
             destination: "/ourProjects/daily-rent", // новий шлях
             permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
           },
@@ -116,7 +121,7 @@ const nextConfig = {
             permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
           },
           {
-            source: "/blog/SiteCreating", // старий шлях
+            source: "/blog/howToCreateSite", // старий шлях
             destination: "/blog/site-creating", // новий шлях
             permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
           },
