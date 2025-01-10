@@ -10,15 +10,15 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: `${product?.title} ${product?.titleGradient} | Webevery&#127757;`,
-    description: `Мобільна версія Вашого сайту дуже важлива для бізнесу&#128241; | Пропонуємо Рішення - створити новий сайт від Webevery&#9989;`,
+    title: `${product?.title} ${product?.titleGradient} | Webevery🌍`,
+    description: `Мобільна версія Вашого сайту дуже важлива для бізнесу📱 | Пропонуємо Рішення - створити новий сайт від Webevery🌍`,
     openGraph: {
       images: [parent?.images, ...previousImages],
       type: "website",
-      title: "Створення сайту — Webevery. Створення сайтів.",
+      title: "Створення сайту — Webevery🌍 Створення сайтів🏆",
       url: `${process.env.NEXT_PUBLIC_MAIN_URL}ourProjects/${slug}`,
       description:
-        "Створення сайту — Webevery&#127757;. Розробка програмного продукту",
+        "Створення сайту — Webevery🌍. Розробка програмного продукту👆",
     },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}ourProjects/${slug}`,
@@ -46,7 +46,7 @@ const OurProjectsIdPage = ({ params }) => {
         position: 2,
         item: {
           "@id": `${process.env.NEXT_PUBLIC_MAIN_URL}ourProjects`,
-          name: "Розробка сайту - Webevery &#11088; Наші роботи",
+          name: "Розробка сайту - Webevery. Наші роботи",
         },
       },
       {
@@ -54,7 +54,7 @@ const OurProjectsIdPage = ({ params }) => {
         position: 3,
         item: {
           "@id": `${process.env.NEXT_PUBLIC_MAIN_URL}ourProjects/${slug}`,
-          name: "Розробка сайту - Webevery &#11088; Рішення для бізнесу",
+          name: "Розробка сайту - Webevery. Рішення для бізнесу",
         },
       },
     ],

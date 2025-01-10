@@ -5,16 +5,16 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: "Розробка сайту — Webevery | Наші роботи&#10024;",
+    title: "Розробка сайту — Webevery | Наші роботи",
   description:
-    "Webevery &#11088; — Розробка сайту &#9989; Відкрити сайт для бізнесу&#127942; Замовити наші сайти&#9996; Створити сайт під ключ&#128273;",
+    "Webevery🌍 — Розробка сайту 👆 Відкрити сайт для бізнесу. Замовити наші сайти💾 Створити сайт під ключ🔑",
     openGraph: {
       images: [parent?.images, ...previousImages],
       type: "website",
-      title: "Створення сайту — Webevery&#127757;. Створення сайтів.",
+      title: "Створення сайту — Webevery🌍. Створення сайтів🏆",
       url: `${process.env.NEXT_PUBLIC_MAIN_URL}ourProjects`,
       description:
-        "Створення сайту — Webevery&#127757;. Розробка програмного продукту",
+        "Створення сайту — Webevery🌍. Розробка програмного продукту👆",
     },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}ourProjects`,
@@ -40,7 +40,7 @@ const OurProjectsPage = () => {
         position: 2,
         item: {
           "@id": `${process.env.NEXT_PUBLIC_MAIN_URL}ourProjects`,
-          name: "Розробка сайту - Webevery &#11088; Наші роботи",
+          name: "Розробка сайту - Webevery. Наші роботи",
         },
       },
     ],
