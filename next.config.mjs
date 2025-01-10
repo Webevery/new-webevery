@@ -5,126 +5,126 @@ const nextConfig = {
     },
     async redirects() {
         return [
+          // {
+          //   source: "/services/IndividualProject",
+          //   destination: "/services/word-press",
+          //   permanent: true,
+          // },
           {
-            source: "/services/IndividualProject", // старий шлях
-            destination: "/services/word-press", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/services/WordPress",
+            destination: "/services/word-press",
+            permanent: true,
+          },
+          // {
+          //   source: "/services/SiteCatalog",
+          //   destination: "/services/site-catalog",
+          //   permanent: true,
+          // },
+          {
+            source: "/services/BusinessCardWebsite",
+            destination: "/services/business-card-website",
+            permanent: true,
+          },
+          // {
+          //   source: "/services/LandingPage",
+          //   destination: "/services/landing-page",
+          //   permanent: true,
+          // },
+          // {
+          //   source: "/services/WebsiteTesting",
+          //   destination: "/services/website-testing",
+          //   permanent: true,
+          // },
+          {
+            source: "/services/Logo",
+            destination: "/services/logo",
+            permanent: true,
           },
           {
-            source: "/services/WordPress", // старий шлях
-            destination: "/services/word-press", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/services/CorporateWebsite",
+            destination: "/services/corporate-website",
+            permanent: true,
           },
           {
-            source: "/services/SiteCatalog", // старий шлях
-            destination: "/services/site-catalog", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/services/WebDesign",
+            destination: "/services/web-design",
+            permanent: true,
           },
           {
-            source: "/services/BusinessCardWebsite", // старий шлях
-            destination: "/services/business-card-website", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/services/QRCodeMenu",
+            destination: "/services/qr-code-menu",
+            permanent: true,
           },
           {
-            source: "/services/LandingPage", // старий шлях
-            destination: "/services/landing-page", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/services/GraphicDesign",
+            destination: "/services/graphic-design",
+            permanent: true,
           },
           {
-            source: "/services/WebsiteTesting", // старий шлях
-            destination: "/services/website-testing", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/services/WebsitePromotionSEO",
+            destination: "/services/website-promotion-seo",
+            permanent: true,
           },
           {
-            source: "/services/Logo", // старий шлях
-            destination: "/services/logo", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Ice-Cream",
+            destination: "/ourProjects/ice-cream",
+            permanent: true,
           },
           {
-            source: "/services/CorporateWebsite", // старий шлях
-            destination: "/services/corporate-website", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Pets",
+            destination: "/ourProjects/pets",
+            permanent: true,
           },
           {
-            source: "/services/WebDesign", // старий шлях
-            destination: "/services/web-design", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Coffee-Shop",
+            destination: "/ourProjects/coffee-shop",
+            permanent: true,
           },
           {
-            source: "/services/QRCodeMenu", // старий шлях
-            destination: "/services/qr-code-menu", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Photographer-Gerera",
+            destination: "/ourProjects/photographer-gerera",
+            permanent: true,
           },
           {
-            source: "/services/GraphicDesign", // старий шлях
-            destination: "/services/graphic-design", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Andezyan-Build",
+            destination: "/ourProjects/andezyan-build",
+            permanent: true,
           },
           {
-            source: "/services/WebsitePromotionSEO", // старий шлях
-            destination: "/services/website-promotion-seo", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Mountains-Hotel",
+            destination: "/ourProjects/mountains-hotel",
+            permanent: true,
           },
           {
-            source: "/ourProjects/Ice-Cream", // старий шлях
-            destination: "/ourProjects/ice-cream", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Watches",
+            destination: "/ourProjects/watches",
+            permanent: true,
+          },
+          // {
+          //   source: "/ourProjects/Architrave",
+          //   destination: "/ourProjects/architrave",
+          //   permanent: true,
+          // },
+          {
+            source: "/ourProjects/Daily-Rent",
+            destination: "/ourProjects/daily-rent",
+            permanent: true,
           },
           {
-            source: "/ourProjects/Pets", // старий шлях
-            destination: "/ourProjects/pets", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
+            source: "/ourProjects/Drinks-And-Desserts",
+            destination: "/ourProjects/drinks-and-desserts",
+            permanent: true,
           },
-          {
-            source: "/ourProjects/Coffee-Shop", // старий шлях
-            destination: "/ourProjects/coffee-shop", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/ourProjects/Photographer-Gerera", // старий шлях
-            destination: "/ourProjects/photographer-gerera", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/ourProjects/Andezyan-Build", // старий шлях
-            destination: "/ourProjects/andezyan-build", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/ourProjects/Mountains-Hotel", // старий шлях
-            destination: "/ourProjects/mountains-hotel", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/ourProjects/Watches", // старий шлях
-            destination: "/ourProjects/watches", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/ourProjects/Architrave", // старий шлях
-            destination: "/ourProjects/architrave", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/ourProjects/Daily-Rent", // старий шлях
-            destination: "/ourProjects/daily-rent", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/ourProjects/DrinksAndDesserts", // старий шлях
-            destination: "/ourProjects/drinks-and-desserts", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/blog/ArtificialIntelligenceTrends", // старий шлях
-            destination: "/blog/artificial-intelligence-trends", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
-          {
-            source: "/blog/howToCreateSite", // старий шлях
-            destination: "/blog/site-creating", // новий шлях
-            permanent: true, // якщо `true`, використовує статус 308; якщо `false`, використовує статус 307
-          },
+          // {
+          //   source: "/blog/ArtificialIntelligenceTrends",
+          //   destination: "/blog/artificial-intelligence-trends",
+          //   permanent: true,
+          // },
+          // {
+          //   source: "/blog/howToCreateSite",
+          //   destination: "/blog/site-creating",
+          //   permanent: true,
+          // },
         ];
     },
 };
