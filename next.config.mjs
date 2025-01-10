@@ -35,11 +35,11 @@ const nextConfig = {
           //   destination: "/services/website-testing",
           //   permanent: true,
           // },
-          {
-            source: "/services/Logo",
-            destination: "/services/logo",
-            permanent: true,
-          },
+          // {
+          //   source: "/services/Logo",
+          //   destination: "/services/logo",
+          //   permanent: true,
+          // },
           {
             source: "/services/CorporateWebsite",
             destination: "/services/corporate-website",
@@ -75,11 +75,11 @@ const nextConfig = {
             destination: "/ourProjects/pets",
             permanent: true,
           },
-          {
-            source: "/ourProjects/Coffee-Shop",
-            destination: "/ourProjects/coffee-shop",
-            permanent: true,
-          },
+          // {
+          //   source: "/ourProjects/Coffee-Shop",
+          //   destination: "/ourProjects/coffee-shop",
+          //   permanent: true,
+          // },
           {
             source: "/ourProjects/Photographer-Gerera",
             destination: "/ourProjects/photographer-gerera",
@@ -90,11 +90,11 @@ const nextConfig = {
             destination: "/ourProjects/andezyan-build",
             permanent: true,
           },
-          {
-            source: "/ourProjects/Mountains-Hotel",
-            destination: "/ourProjects/mountains-hotel",
-            permanent: true,
-          },
+          // {
+          //   source: "/ourProjects/Mountains-Hotel",
+          //   destination: "/ourProjects/mountains-hotel",
+          //   permanent: true,
+          // },
           {
             source: "/ourProjects/Watches",
             destination: "/ourProjects/watches",
@@ -105,16 +105,16 @@ const nextConfig = {
           //   destination: "/ourProjects/architrave",
           //   permanent: true,
           // },
-          {
-            source: "/ourProjects/Daily-Rent",
-            destination: "/ourProjects/daily-rent",
-            permanent: true,
-          },
-          {
-            source: "/ourProjects/Drinks-And-Desserts",
-            destination: "/ourProjects/drinks-and-desserts",
-            permanent: true,
-          },
+          // {
+          //   source: "/ourProjects/Daily-Rent",
+          //   destination: "/ourProjects/daily-rent",
+          //   permanent: true,
+          // },
+          // {
+          //   source: "/ourProjects/Drinks-And-Desserts",
+          //   destination: "/ourProjects/drinks-and-desserts",
+          //   permanent: true,
+          // },
           // {
           //   source: "/blog/ArtificialIntelligenceTrends",
           //   destination: "/blog/artificial-intelligence-trends",

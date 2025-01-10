@@ -12,14 +12,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
   
   return {
     title: `${product?.direction} | Webevery. Створити сайт.`,
-    description: `${product?.direction} | Webevery&#9757;. Замовити&#9989; Створити сайт під ключ&#128273; Обирайте найкращу пропозицію для Вашого бізнесу&#127942;`,
+    description: `${product?.direction} | Webevery🌍. Замовити👆 Створити сайт під ключ🔑 Обирайте найкращу пропозицію для Вашого бізнесу🏆`,
     openGraph: {
       images: [parent?.images, ...previousImages],
       type: "website",
-      title: `${product?.titleGradient} — Webevery&#127757;. Розробка програмного продукту.`,
+      title: `${product?.titleGradient} — Webevery🌍. Розробка програмного продукту✅`,
       url: `${process.env.NEXT_PUBLIC_MAIN_URL}blog/${slug}`,
       description:
-        "Створення сайту — Webevery&#9757;. Створити сайт",
+        "Створення сайту — Webevery🌍. Створити сайт👆",
     },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}blog/${slug}`,
@@ -48,7 +48,7 @@ const BlogIdPage = ({ params }) => {
         position: 2,
         item: {
           "@id": `${process.env.NEXT_PUBLIC_MAIN_URL}blog`,
-          name: "Розробка сайту - Webevery &#11088; Прочитати Блог",
+          name: "Розробка сайту - Webevery. Прочитати Блог",
         },
       },
       {
@@ -56,7 +56,7 @@ const BlogIdPage = ({ params }) => {
         position: 3,
         item: {
           "@id": `${process.env.NEXT_PUBLIC_MAIN_URL}blog/${slug}`,
-          name: "Розробка сайту - Webevery &#11088; Вам буде цікаво",
+          name: "Розробка сайту - Webevery. Вам буде цікаво",
         },
       },
     ],
