@@ -65,41 +65,41 @@ const nextConfig = {
             destination: "/services/website-promotion-seo",
             permanent: true,
           },
-          {
-            source: "/ourProjects/Ice-Cream",
-            destination: "/ourProjects/ice-cream",
-            permanent: true,
-          },
-          {
-            source: "/ourProjects/Pets",
-            destination: "/ourProjects/pets",
-            permanent: true,
-          },
+          // {
+          //   source: "/ourProjects/Ice-Cream",
+          //   destination: "/ourProjects/ice-cream",
+          //   permanent: true,
+          // },
+          // {
+          //   source: "/ourProjects/Pets",
+          //   destination: "/ourProjects/pets",
+          //   permanent: true,
+          // },
           // {
           //   source: "/ourProjects/Coffee-Shop",
           //   destination: "/ourProjects/coffee-shop",
           //   permanent: true,
           // },
-          {
-            source: "/ourProjects/Photographer-Gerera",
-            destination: "/ourProjects/photographer-gerera",
-            permanent: true,
-          },
-          {
-            source: "/ourProjects/Andezyan-Build",
-            destination: "/ourProjects/andezyan-build",
-            permanent: true,
-          },
+          // {
+          //   source: "/ourProjects/Photographer-Gerera",
+          //   destination: "/ourProjects/photographer-gerera",
+          //   permanent: true,
+          // },
+          // {
+          //   source: "/ourProjects/Andezyan-Build",
+          //   destination: "/ourProjects/andezyan-build",
+          //   permanent: true,
+          // },
           // {
           //   source: "/ourProjects/Mountains-Hotel",
           //   destination: "/ourProjects/mountains-hotel",
           //   permanent: true,
           // },
-          {
-            source: "/ourProjects/Watches",
-            destination: "/ourProjects/watches",
-            permanent: true,
-          },
+          // {
+          //   source: "/ourProjects/Watches",
+          //   destination: "/ourProjects/watches",
+          //   permanent: true,
+          // },
           // {
           //   source: "/ourProjects/Architrave",
           //   destination: "/ourProjects/architrave",
