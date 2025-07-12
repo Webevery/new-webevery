@@ -1,6 +1,5 @@
 import TeamSection from "@/sections/teamSection/TeamSection";
 
-
 const Team = () => {
   return (
     <>
@@ -8,6 +7,5 @@ const Team = () => {
     </>
   );
 };
-
 
 export default Team;
