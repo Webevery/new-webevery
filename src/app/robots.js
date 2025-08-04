@@ -5,7 +5,7 @@ export default async function robots() {
     rules: {
       userAgent: "*",
       allow: ["/"],
-      disallow: ["/api/", "/dashboard/"],
+      disallow: "/dashboard/*",
     },
     sitemap: `${baseUrl}sitemap.xml`,
   };
