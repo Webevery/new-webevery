@@ -1,25 +1,27 @@
 .HomeOurProjectsSwiper {
   width: 100%;
-  height: 77vw;
-  padding-bottom: 12px;
+  /* height: 95vw; */
+  /* padding-bottom: 12px; */
 
   @media screen and (min-width: 360px) {
-    height: 75vw;
+    /* height: 90vw; */
   }
 
   @media screen and (min-width: 768px) {
-    height: 71.5vw;
-    padding-bottom: 20px;
+    /* height: 71.5vw; */
+    /* padding-bottom: 20px; */
   }
 
   @media screen and (min-width: 1024px) {
-    height: 46.7vw;
-    padding-bottom: 56px;
+    /* height: 46.7vw; */
+    /* padding-bottom: 56px; */
+    padding-bottom: 36px;
   }
 
   @media screen and (min-width: 1440px) {
-    height: 717px;
-    padding-bottom: 72px;
+    /* height: 717px; */
+    /* padding-bottom: 72px; */
+    padding-bottom: 56px;
   }
 }
 
@@ -39,7 +41,7 @@
 }
 
 .projectLink {
-  height: 100%;
+  /* height: 100%; */
   margin-bottom: 16px;
 
   @media screen and (min-width: 1024px) {
@@ -50,11 +52,12 @@
 
 .HomeOurProjectsSwiper .imgWrapper {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   position: relative;
   border: 4px solid #0d0d11;
   border-radius: 16px;
   overflow: hidden;
+  aspect-ratio: 1440 / 780;
 
   @media screen and (min-width: 768px) {
     border: 8px solid #0d0d11;
@@ -69,7 +72,7 @@
 
   @media screen and (min-width: 1440px) {
     width: 966px;
-    height: 645px;
+    /* height: 645px; */
   }
 }
 
@@ -94,13 +97,13 @@
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
     font-size: 44px;
   }
 
-  @media screen and (min-width: 1440px) {
+  /* @media screen and (min-width: 1440px) {
     padding: 20px;
-  }
+  } */
 }
 
 .HomeOurProjectsSwiper .swiper-slide .gradient {
@@ -113,7 +116,8 @@
 }
 
 .HomeOurProjectsSwiper .swiper-pagination {
-  bottom: 0px;
+  /* bottom: 0px; */
+  position: static;
 
   @media screen and (min-width: 1024px) {
     display: none;
@@ -146,7 +150,7 @@
   .HomeOurProjectsSwiper .swiper-button-prev {
     visibility: visible;
     left: 0px;
-    top: 95%;
+    top: 97%;
     width: 48px;
     height: 48px;
   }
@@ -154,13 +158,13 @@
   .HomeOurProjectsSwiper .swiper-button-next {
     visibility: visible;
     left: 48px;
-    top: 95%;
+    top: 97%;
     width: 48px;
     height: 48px;
   }
 }
 
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
   .HomeOurProjectsSwiper .swiper-button-prev {
     top: 97%;
   }
@@ -168,4 +172,4 @@
   .HomeOurProjectsSwiper .swiper-button-next {
     top: 97%;
   }
-}
+} */
