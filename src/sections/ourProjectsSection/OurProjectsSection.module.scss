@@ -1,4 +1,4 @@
-@import '../../app/variables';
+@import "../../app/variables";
 
 .projects {
   padding: 72px 20px 40px 20px;
@@ -92,6 +92,7 @@
 }
 
 .ourProjectsList {
+  width: 100%;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -113,6 +114,7 @@
 }
 
 .ourProjectsItem {
+  width: 100%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,7 +137,8 @@
 .ourProjectsImgContainer {
   position: relative;
   min-width: 280px;
-  height: 55vw;
+  // height: 55vw;
+  aspect-ratio: 1440 / 780;
   box-shadow: $shadowColor;
   margin-bottom: 16px;
 
@@ -145,8 +148,7 @@
 
   @media screen and (min-width: $tablet) {
     min-width: 704px;
-
-    height: 55vw;
+    // height: 55vw;
     border-radius: 34px;
     margin-bottom: 20px;
     border: double 1px transparent;
@@ -157,7 +159,8 @@
 
   @media screen and (min-width: $laptop) {
     min-width: 632px;
-    height: 422px;
+    // height: 422px;
+    height: fit-content;
     border-radius: 56px;
     margin-bottom: 0px;
   }
@@ -168,7 +171,7 @@
 
   @media screen and (min-width: $desktop) {
     min-width: 880px;
-    height: 480px;
+    // height: 480px;
   }
 }
 
@@ -195,7 +198,7 @@
 
   @media screen and (min-width: $tablet) {
     &::after {
-      content: '';
+      content: "";
       display: block;
       height: 1px;
       width: 100%;
@@ -238,7 +241,7 @@
 
   @media screen and (min-width: $laptop) {
     font-size: 36px;
-    line-height: 1.4;
+    // line-height: 1.4;
     letter-spacing: 0.01em;
     margin-bottom: 20px;
   }
@@ -270,6 +273,11 @@
   }
 
   @media screen and (min-width: $laptop) {
+    display: none;
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: -webkit-box;
     font-size: 20px;
     -webkit-line-clamp: 4;
   }
