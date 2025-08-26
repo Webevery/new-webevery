@@ -1,8 +1,11 @@
-import mongoose from 'mongoose';
-
+import mongoose from "mongoose";
 
 const projectSchema = new mongoose.Schema(
   {
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
     title: {
       type: String,
     },
@@ -76,7 +79,6 @@ const projectSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
 const serviceSchema = new mongoose.Schema(
   {
     title: {
@@ -131,7 +133,6 @@ const serviceSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
 
 const blogSchema = new mongoose.Schema(
   {
@@ -188,7 +189,6 @@ const blogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
 const coworkerSchema = new mongoose.Schema(
   {
     name: {
@@ -224,7 +224,6 @@ const coworkerSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
 const userSchema = new mongoose.Schema(
   {
     slug: {
@@ -252,14 +251,16 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
 // If the collection does not exist - create a new one.
-export const Project = mongoose.models?.Project || mongoose.model('Project', projectSchema);
+export const Project =
+  mongoose.models?.Project || mongoose.model("Project", projectSchema);
 
-export const Service = mongoose.models?.Service || mongoose.model('Service', serviceSchema);
+export const Service =
+  mongoose.models?.Service || mongoose.model("Service", serviceSchema);
 
-export const Blog = mongoose.models?.Blog || mongoose.model('Blog', blogSchema);
+export const Blog = mongoose.models?.Blog || mongoose.model("Blog", blogSchema);
 
-export const Coworker = mongoose.models?.Coworker || mongoose.model('Coworker', coworkerSchema);
+export const Coworker =
+  mongoose.models?.Coworker || mongoose.model("Coworker", coworkerSchema);
 
-export const User = mongoose.models?.User || mongoose.model('User', userSchema);
+export const User = mongoose.models?.User || mongoose.model("User", userSchema);

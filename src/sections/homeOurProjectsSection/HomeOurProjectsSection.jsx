@@ -19,6 +19,10 @@ const HomeOurProjectsSection = () => {
     });
   }
 
+  const filteredByIsShownData = sortedByCreateData.filter(
+    (item) => item.isShown === true
+  );
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -31,7 +35,7 @@ const HomeOurProjectsSection = () => {
           </h2>
         )}
         <div className={styles.contentWrapper}>
-          <HomeOurProjectsSlider data={sortedByCreateData} />
+          <HomeOurProjectsSlider data={filteredByIsShownData} />
 
           {!isLoading && (
             <NavigationBtn
