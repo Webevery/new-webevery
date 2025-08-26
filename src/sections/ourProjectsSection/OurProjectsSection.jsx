@@ -1,27 +1,31 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { CldImage } from 'next-cloudinary';
-import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
-import { currentLanguages } from '@/data/languages';
-import { GetDataFromSection } from '@/fetch/ClientFetch';
-import styles from './OurProjectsSection.module.scss';
-import stylescBtn from '../../components/Buttons/Btns.module.scss';
-import ReadMore from '@/components/Buttons/ReadMore/ReadMore';
+import { useEffect, useState } from "react";
+import { CldImage } from "next-cloudinary";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
+import { GetDataFromSection } from "@/fetch/ClientFetch";
+import styles from "./OurProjectsSection.module.scss";
+import stylescBtn from "../../components/Buttons/Btns.module.scss";
+import ReadMore from "@/components/Buttons/ReadMore/ReadMore";
 
 const OurProjectsSection = () => {
-  const { data, isLoading } = GetDataFromSection('ourProjects');
+  const { data, isLoading } = GetDataFromSection("ourProjects");
 
-  let sortedByUpdateData = [];
+  let sortedByCreateData = [];
 
   if (!isLoading) {
-    sortedByUpdateData = [...data];
+    sortedByCreateData = [...data];
 
-    sortedByUpdateData.sort((a, b) => {
+    sortedByCreateData.sort((a, b) => {
       return Date.parse(b.createdAt) - Date.parse(a.createdAt);
     });
   }
+
+  const filteredByIsShownData = sortedByCreateData.filter(
+    (item) => item.isShown === true
+  );
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -32,9 +36,9 @@ const OurProjectsSection = () => {
       setIsSmallScreen(window.innerWidth < 768);
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -42,11 +46,11 @@ const OurProjectsSection = () => {
     <section className={styles.projects}>
       <div className={`container ${styles.projectContainer}`}>
         {!isLoading && (
-          <h1 className={styles.title}>{t('OurProjectsPage.Title')}</h1>
+          <h1 className={styles.title}>{t("OurProjectsPage.Title")}</h1>
         )}
         <ul className={styles.ourProjectsList}>
           {!isLoading &&
-            sortedByUpdateData?.map(
+            filteredByIsShownData?.map(
               ({
                 slug,
                 titleEn,
@@ -75,8 +79,8 @@ const OurProjectsSection = () => {
                   <div className={styles.ourProjectsContent}>
                     <h3 className={styles.ourProjectsTitle}>
                       {i18n.language === currentLanguages.EN ? titleEn : title}
-                      <span className={!isSmallScreen ? 'titleGradient' : ''}>
-                        {' '}
+                      <span className={!isSmallScreen ? "titleGradient" : ""}>
+                        {" "}
                         {i18n.language === currentLanguages.EN
                           ? titleGradientEn
                           : titleGradient}
@@ -98,7 +102,7 @@ const OurProjectsSection = () => {
                     {!isSmallScreen && (
                       <div
                         className={
-                          stylescBtn.btnWrapper + ' ' + styles.btnWrapper
+                          stylescBtn.btnWrapper + " " + styles.btnWrapper
                         }
                       >
                         <a
@@ -106,9 +110,9 @@ const OurProjectsSection = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={titleGradientEn}
-                          className={stylescBtn.btn + ' ' + styles.openSite}
+                          className={stylescBtn.btn + " " + styles.openSite}
                         >
-                          {t('Buttons.ProjectOpenSiteBtn')}
+                          {t("Buttons.ProjectOpenSiteBtn")}
                         </a>
                       </div>
                     )}

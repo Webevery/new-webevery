@@ -1,116 +1,132 @@
 @import "../../app/variables";
 
 .container {
-    flex: 1;
+  flex: 1;
 }
 
 .form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-    row-gap: 20px;
-    background-color: #e7e5e0;
-    padding: 30px 0 30px;
+  row-gap: 20px;
+  background-color: #e7e5e0;
+  padding: 30px 0 30px;
 }
 
 .form:not(:last-child) {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .formTitle {
-    max-width: 400px;
-    color: gray;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-align: center;
+  max-width: 400px;
+  color: gray;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-align: center;
+}
+
+.checkboxInputGroup {
+  width: 90%;
+  padding: 12px 20px;
+  display: flex;
+}
+
+.checkboxLabel {
+  color: $gray900;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 24px;
+  cursor: pointer;
 }
 
 .inputGroup {
-    position: relative;
-    width: 90%;
-    min-width: 200px;
+  position: relative;
+  width: 90%;
+  min-width: 200px;
 }
 
 .formLabel {
-    position: absolute;
-    top: 10px;
-    left: 16px;
-    color: #4a45358b;
-    pointer-events: none;
-    transition-duration: 250ms;
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  color: #4a45358b;
+  pointer-events: none;
+  transition-duration: 250ms;
 }
 
 .uploadBtn {
-    width: 100%;
-    background-color: transparent;
-    outline: none;
-    border-radius: 30px;
-    border: 1px solid #ded8d4;
-    background-color: #cac9c3;
-    padding: 12px 20px;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border-radius: 30px;
+  border: 1px solid #ded8d4;
+  background-color: #cac9c3;
+  padding: 12px 20px;
 }
 
 .formInput {
-    width: 100%;
-    background-color: transparent;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid #ded8d4;
-    background-color: #f2f0e9;
-    padding: 12px 20px;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #ded8d4;
+  background-color: #f2f0e9;
+  padding: 12px 20px;
 
-    &:focus+.formLabel,
-    &:not(:placeholder-shown)+.formLabel {
-        transform: translateY(-150%) scale(0.9);
-        transition-duration: 250ms;
-        padding-inline: 4px;
-        color: #4a4535ad;
-    }
+  &:focus + .formLabel,
+  &:not(:placeholder-shown) + .formLabel {
+    transform: translateY(-150%) scale(0.9);
+    transition-duration: 250ms;
+    padding-inline: 4px;
+    color: #4a4535ad;
+  }
 }
 
 .textarea {
-    height: 60px;
-    resize: none;
+  height: 60px;
+  resize: none;
 }
 
 .bigTextarea {
-    height: 150px;
-    resize: none;
+  height: 150px;
+  resize: none;
 }
 
 .formButton {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding: 12px 62px;
-    background-color: #4a4535;
-    border-radius: 20px;
-    color: #fff;
-    font-weight: inherit;
-    transition-duration: 250ms;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 12px 62px;
+  background-color: #4a4535;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: inherit;
+  transition-duration: 250ms;
 
-    &:hover,
-    &:focus {
-        background-color: #a8a7a1;
-        color: #4a4535;
-        transition-duration: 250ms;
-    }
+  &:hover,
+  &:focus {
+    background-color: #a8a7a1;
+    color: #4a4535;
+    transition-duration: 250ms;
+  }
 }
 
 .error {
-    position: absolute;
-    top: -17px;
-    right: 10px;
-    color: red;
-    font-size: 14px;
+  position: absolute;
+  top: -17px;
+  right: 10px;
+  color: red;
+  font-size: 14px;
 }
 
 .blockAmount {
-    color: #4a4535;
+  color: #4a4535;
 }
 
 .errorColor {
-    color: red;
+  color: red;
 }
