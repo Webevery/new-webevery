@@ -4,63 +4,74 @@ import { CldImage } from "next-cloudinary";
 import DashboardEditAndDelete from "../DashboardEditAndDelete/DashboardEditAndDelete";
 import styles from "./DashboardServiceItem.module.scss";
 
-
 const DashboardServiceItem = ({ data, mutate }) => {
-    const pathname = usePathname();
-    const isList = pathname.endsWith("services");
+  const pathname = usePathname();
+  const isList = pathname.endsWith("services");
 
-    return (
-        <div className={styles.container}>
-            <div className={styles.signature}>
-                <p>{data.editor}</p>
-                <p className={`${styles.title} ${styles.ukrainian}`}>{data.updatedAt?.slice(0, 10)}</p>
-            </div>
+  return (
+    <div className={styles.container}>
+      <div className={styles.signature}>
+        <p>{data.editor}</p>
+        <p className={`${styles.title} ${styles.ukrainian}`}>
+          {data.updatedAt?.slice(0, 10)}
+        </p>
+      </div>
 
-            <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>
-            <p className={styles.title}>
-                <span className='titleGradient'>{data.titleGradientEn}</span>{" "}
-                {data.titleEn}
-            </p>
-            <p className={styles.title}>
-                <span className='titleGradient'>{data.titleGradient}</span>{" "}
-                {data.title}
-            </p>
+      <div className={styles.slugAndIsShownWrapper}>
+        <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>
+        <span
+          className={
+            data.isShown ? styles.isShownProject : styles.unshownProject
+          }
+        >
+          {data.isShown ? "Є НА САЙТІ" : "НЕМАЄ НА САЙТІ"}
+        </span>
+      </div>
 
-            <ul className={styles.directionsList}>
-                {data.directionsEn.map((item, index) => {
-                    return <li key={index}>{item}</li>;
-                })}
-            </ul>
-            <ul className={`${styles.directionsList} ${styles.ukrainian}`}>
-                {data.directions.map((item, index) => {
-                    return <li key={index}>{item}</li>;
-                })}
-            </ul>
-            <p className={styles.price}>{data.priceEn}</p>
-            <p className={`${styles.price} ${styles.ukrainian}`}>
-                {data.price}
-            </p>
-            <div className={styles.imgWrapper}>
-                <CldImage
-                    className={styles.img}
-                    width={271}
-                    height={161}
-                    src={data.mockup}
-                    sizes='50vw'
-                    alt={`Mockup of ${data.slug}`}
-                />
-            </div>
-            <p className={styles.description}>{data.descriptionEn}</p>
-            <p className={`${styles.description} ${styles.ukrainian}`}>
-                {data.description}
-            </p>
+      <p className={styles.title}>
+        <span className="titleGradient">{data.titleGradientEn}</span>{" "}
+        {data.titleEn}
+      </p>
+      <p className={styles.title}>
+        <span className="titleGradient">{data.titleGradient}</span> {data.title}
+      </p>
 
-            {isList && (
-                <DashboardEditAndDelete data={data} pathname={pathname} mutate={mutate} />
-            )}
-        </div>
-    );
+      <ul className={styles.directionsList}>
+        {data.directionsEn.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })}
+      </ul>
+      <ul className={`${styles.directionsList} ${styles.ukrainian}`}>
+        {data.directions.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })}
+      </ul>
+      <p className={styles.price}>{data.priceEn}</p>
+      <p className={`${styles.price} ${styles.ukrainian}`}>{data.price}</p>
+      <div className={styles.imgWrapper}>
+        <CldImage
+          className={styles.img}
+          width={271}
+          height={161}
+          src={data.mockup}
+          sizes="50vw"
+          alt={`Mockup of ${data.slug}`}
+        />
+      </div>
+      <p className={styles.description}>{data.descriptionEn}</p>
+      <p className={`${styles.description} ${styles.ukrainian}`}>
+        {data.description}
+      </p>
+
+      {isList && (
+        <DashboardEditAndDelete
+          data={data}
+          pathname={pathname}
+          mutate={mutate}
+        />
+      )}
+    </div>
+  );
 };
-
 
 export default DashboardServiceItem;

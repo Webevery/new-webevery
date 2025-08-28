@@ -17,7 +17,17 @@ const DashboardCoworkerItem = ({ data, mutate }) => {
                 <p className={`${styles.title} ${styles.ukrainian}`}>{data.updatedAt?.slice(0, 10)}</p>
             </div>
 
-            <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>
+ <div className={styles.slugAndIsShownWrapper}>
+        <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>
+        <span
+          className={
+            data.isShown ? styles.isShownProject : styles.unshownProject
+          }
+        >
+          {data.isShown ? "Є НА САЙТІ" : "НЕМАЄ НА САЙТІ"}
+        </span>
+      </div>
+
             <p>{data.nameEn}</p>
             <p className={`${styles.ukrainian}`}>{data.name}</p>
             <p>{data.positionEn}</p>

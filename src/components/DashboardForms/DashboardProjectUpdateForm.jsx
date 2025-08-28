@@ -13,6 +13,7 @@ import styles from "./DashboardForms.module.scss";
 
 const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
   const {
+    isShown,
     title,
     titleEn,
     titleGradient,
@@ -30,10 +31,10 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
     mobileImages,
     siteLink,
     slug,
-    isShown,
   } = data;
 
   const receivedData = {
+    isShown,
     title,
     titleEn,
     titleGradient,
@@ -51,11 +52,11 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
     mobileImages,
     siteLink,
     slug,
-    isShown,
   };
 
   const initialValues = {
     defaultValues: {
+      newIsShown: isShown,
       newTitle: title,
       newTitleEn: titleEn,
       newTitleGradient: titleGradient,
@@ -73,7 +74,6 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
       newMobileImages: mobileImages,
       newSiteLink: siteLink,
       newSlug: slug,
-      newIsShown: isShown,
     },
     resolver: yupResolver(dashboardProjectUpdateSchema),
     context: slugsArr,
@@ -88,6 +88,7 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
 
   const onSubmit = async (data) => {
     const {
+      newIsShown,
       newTitle,
       newTitleEn,
       newTitleGradient,
@@ -105,10 +106,10 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
       newMobileImages,
       newSiteLink,
       newSlug,
-      newIsShown,
     } = data;
 
     const updatedData = {
+      isShown: newIsShown,
       title: newTitle,
       titleEn: newTitleEn,
       titleGradient: newTitleGradient,
@@ -126,7 +127,6 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
       mobileImages: newMobileImages,
       siteLink: newSiteLink,
       slug: newSlug,
-      isShown: newIsShown,
     };
 
     const trimedSlug = updatedData.slug.trim();
@@ -176,7 +176,7 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
             type="checkbox"
             className={styles.checkbox}
             id="newIsShown"
-            placeholder=" "
+            // placeholder=" "
             {...register("newIsShown")}
           />
           <p className={styles.error}>{errors.newIsShown?.message}</p>
@@ -271,7 +271,7 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
             options={{ multiple: false }}
             uploadPreset="unsigned_preset"
           >
-            Update desktop hero screen (WEBP)
+            Update desktop hero screen (1440x780, WEBP) 
           </CldUploadButton>
 
           <p className={styles.error}>{errors.heroImage?.message}</p>
@@ -374,7 +374,7 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
             options={{ multiple: false }}
             uploadPreset="unsigned_preset"
           >
-            Update screens mockup (WEBP)
+            Update screens mockup (1440x780, WEBP)
           </CldUploadButton>
 
           <p className={styles.error}>{errors.newScreensImage?.message}</p>
@@ -420,7 +420,7 @@ const DashboardProjectUpdateForm = ({ data, mutate, slugsArr }) => {
             }}
             uploadPreset="unsigned_preset"
           >
-            Update 3 mobile screens (WEBP)
+            Update 3 mobile screens (416x732, WEBP)
           </CldUploadButton>
 
           <p className={styles.error}>{errors.newMobileImages?.message}</p>

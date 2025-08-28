@@ -85,7 +85,7 @@ const DashboardProjectCreateForm = ({ mutate, slugsArr }) => {
             type="checkbox"
             className={styles.checkbox}
             id="isShown"
-            placeholder=" "
+            // placeholder=" "
             {...register("isShown")}
           />
           <p className={styles.error}>{errors.isShown?.message}</p>
@@ -180,7 +180,7 @@ const DashboardProjectCreateForm = ({ mutate, slugsArr }) => {
             options={{ multiple: false }}
             uploadPreset="unsigned_preset"
           >
-            Add desktop hero screen (WEBP)
+            Add desktop hero screen (1440x780, WEBP)
           </CldUploadButton>
 
           <p className={styles.error}>{errors.heroImage?.message}</p>
@@ -282,7 +282,7 @@ const DashboardProjectCreateForm = ({ mutate, slugsArr }) => {
             options={{ multiple: false }}
             uploadPreset="unsigned_preset"
           >
-            Add screens mockup (WEBP)
+            Add screens mockup (1440x780, WEBP)
           </CldUploadButton>
 
           <p className={styles.error}>{errors.screensImage?.message}</p>
@@ -327,7 +327,7 @@ const DashboardProjectCreateForm = ({ mutate, slugsArr }) => {
             }}
             uploadPreset="unsigned_preset"
           >
-            Add 3 mobile screens (WEBP)
+            Add 3 mobile screens (416x732, WEBP)
           </CldUploadButton>
 
           <p className={styles.error}>{errors.mobileImages?.message}</p>

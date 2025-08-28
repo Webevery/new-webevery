@@ -15,6 +15,7 @@ const DashboardServiceIdSection = ({ params }) => {
     if (!isLoading) {
         changedData = {
             _id: data._id,
+            isShown: data.isShown,
             title: data.title,
             titleEn: data.titleEn,
             titleGradient: data.titleGradient,
