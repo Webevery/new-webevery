@@ -8,6 +8,7 @@ import styles from "./DashboardServicesSection.module.scss";
 
 const DashboardServicesSection = () => {
     const { data, isLoading, mutate } = GetDataFromSection("services");
+    
     let changedData = [];
 
     if (!isLoading) {

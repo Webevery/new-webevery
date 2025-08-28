@@ -35,7 +35,11 @@ const BlogSection = () => {
   const { blogFilterShown, blogSorterShown, searchTerm, searchBlog } =
     useContext(SiteContext);
 
-  const filterBlogArr = data
+      const filteredByIsShownData = data?.filter(
+    (item) => item.isShown === true
+  );
+
+  const filterBlogArr = filteredByIsShownData
     ?.filter(({ direction, titleEn, mainTextEn, title, mainText }) => {
       const combinedText =
         `${titleEn} ${mainTextEn} ${title} ${mainText}`.toLowerCase();

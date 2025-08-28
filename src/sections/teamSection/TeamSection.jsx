@@ -11,9 +11,13 @@ const TeamSection = () => {
   const { data, isLoading } = GetDataFromSection("team");
   const { i18n, t } = useTranslation();
 
+  const filteredByIsShownData = data?.filter(
+    (item) => item.isShown === true
+  );
+
   let newData = [];
   if (!isLoading) {
-    newData = [...data];
+    newData = [...filteredByIsShownData];
   }
 
   newData = shuffleArray(newData);

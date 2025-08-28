@@ -19,6 +19,7 @@ const DashboardProjectItem = ({ data, mutate }) => {
           {data.updatedAt?.slice(0, 10)}
         </p>
       </div>
+
       <div className={styles.slugAndIsShownWrapper}>
         <p className={`${styles.slug} ${styles.ukrainian}`}>{data.slug}</p>
         <span
@@ -29,6 +30,7 @@ const DashboardProjectItem = ({ data, mutate }) => {
           {data.isShown ? "Є НА САЙТІ" : "НЕМАЄ НА САЙТІ"}
         </span>
       </div>
+
       <p className={styles.titleEng}>
         {data.titleEn}{" "}
         <span className="titleGradient">{data.titleGradientEn}</span>

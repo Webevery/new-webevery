@@ -16,9 +16,13 @@ const ServicesSection = () => {
   const { openModal, setComment } = useContext(SiteContext);
   const { i18n, t } = useTranslation();
 
+  const filteredByIsShownData = data?.filter(
+    (item) => item.isShown === true
+  );
+
   let changedData = [];
   if (!isLoading) {
-    changedData = [...data];
+    changedData = [...filteredByIsShownData];
     changedData.map((item) => {
       if (
         typeof item.directions === "string" &&

@@ -81,6 +81,10 @@ const projectSchema = new mongoose.Schema(
 
 const serviceSchema = new mongoose.Schema(
   {
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
     title: {
       type: String,
     },
@@ -136,6 +140,10 @@ const serviceSchema = new mongoose.Schema(
 
 const blogSchema = new mongoose.Schema(
   {
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
     title: {
       type: String,
       required: true,
@@ -191,6 +199,10 @@ const blogSchema = new mongoose.Schema(
 
 const coworkerSchema = new mongoose.Schema(
   {
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
     name: {
       type: String,
       required: true,
