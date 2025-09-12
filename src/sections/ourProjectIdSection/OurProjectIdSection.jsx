@@ -1,19 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import { CldImage } from 'next-cloudinary';
-import { useTranslation } from 'react-i18next';
-import { currentLanguages } from '@/data/languages';
-import { v4 } from 'uuid';
-import { GetIdDataFromSection } from '@/fetch/ClientFetch';
-import { useCheckPathname } from '@/hooks/useCheckPathname';
-import NotFound from '@/components/NotFound/NotFound';
-import Loading from '@/components/Loading/Loading';
-
-import stylescBtn from '@/components/Buttons/Btns.module.scss';
-import styles from './OurProjectIdSection.module.scss';
-import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { CldImage } from "next-cloudinary";
+import { useTranslation } from "react-i18next";
+import { currentLanguages } from "@/data/languages";
+import { v4 } from "uuid";
+import { GetIdDataFromSection } from "@/fetch/ClientFetch";
+import { useCheckPathname } from "@/hooks/useCheckPathname";
+import NotFound from "@/components/NotFound/NotFound";
+import Loading from "@/components/Loading/Loading";
+import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
+import stylescBtn from "@/components/Buttons/Btns.module.scss";
+import styles from "./OurProjectIdSection.module.scss";
 
 const OurProjectIdSection = ({ params }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -21,7 +20,7 @@ const OurProjectIdSection = ({ params }) => {
   const pathname = usePathname();
   const { slug } = params;
 
-  const { data, error, isLoading } = GetIdDataFromSection('ourProjects', slug);
+  const { data, error, isLoading } = GetIdDataFromSection("ourProjects", slug);
 
   const dataId = data && !isLoading ? data : error;
   const { i18n, t } = useTranslation();
@@ -32,9 +31,9 @@ const OurProjectIdSection = ({ params }) => {
       setIsSmallScreen(window.innerWidth >= 1024);
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -43,8 +42,8 @@ const OurProjectIdSection = ({ params }) => {
       {isLoading && <Loading className={styles.loading} />}
       {!isLoading && !isPathExist && (
         <NotFound
-          title={t('OurProjectsPage.NoProjects')}
-          buttonTitle={t('OurProjectsPage.NoProjectsBtn')}
+          title={t("OurProjectsPage.NoProjects")}
+          buttonTitle={t("OurProjectsPage.NoProjectsBtn")}
           href="/ourProjects"
         />
       )}
@@ -52,7 +51,7 @@ const OurProjectIdSection = ({ params }) => {
         <section className={styles.project}>
           <div className={`container ${styles.ourProjectContainer}`}>
             <BreadCrumbs
-              onClick={() => router.push('/ourProjects')}
+              onClick={() => router.push("/ourProjects")}
               title={t("Buttons.BackPageBtn")}
               classNameContainer={styles.backContainer}
               classNameIcon={styles.backIcon}
@@ -60,22 +59,23 @@ const OurProjectIdSection = ({ params }) => {
             <h1 className={styles.ourProjectsTitle}>
               {i18n.language === currentLanguages.EN
                 ? data?.titleEn
-                : data?.title} <span className={styles.ourProjectsTitleGradient}>
+                : data?.title}{" "}
+              <span className={styles.ourProjectsTitleGradient}>
                 {i18n.language === currentLanguages.EN
                   ? data?.titleGradientEn
                   : data?.titleGradient}
               </span>
             </h1>
             {!isSmallScreen && (
-              <div className={stylescBtn.btnWrapper + ' ' + styles.btnWrapper}>
+              <div className={stylescBtn.btnWrapper + " " + styles.btnWrapper}>
                 <a
                   href={dataId?.siteLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={dataId?.titleGradientEn}
-                  className={stylescBtn.btn + ' ' + styles.openSite}
+                  className={stylescBtn.btn + " " + styles.openSite}
                 >
-                  {t('Buttons.ProjectOpenSiteBtn')}
+                  {t("Buttons.ProjectOpenSiteBtn")}
                 </a>
               </div>
             )}
@@ -97,7 +97,7 @@ const OurProjectIdSection = ({ params }) => {
             <ul className={styles.contentWraper}>
               <li className={styles.contentItem}>
                 <h3 className={styles.contentTitle}>
-                  {t('OurProjectsPage.TitleProblem')}
+                  {t("OurProjectsPage.TitleProblem")}
                 </h3>
                 <p className={styles.contentDesc}>
                   {i18n.language === currentLanguages.EN
@@ -107,7 +107,7 @@ const OurProjectIdSection = ({ params }) => {
               </li>
               <li className={styles.contentItem}>
                 <h3 className={styles.contentTitle}>
-                  {t('OurProjectsPage.TitleSolutions')}
+                  {t("OurProjectsPage.TitleSolutions")}
                 </h3>
                 <p className={styles.contentDesc}>
                   {i18n.language === currentLanguages.EN
@@ -117,7 +117,7 @@ const OurProjectIdSection = ({ params }) => {
               </li>
               <li className={styles.contentItem}>
                 <h3 className={styles.contentTitle}>
-                  {t('OurProjectsPage.TitleHelpBussines')}
+                  {t("OurProjectsPage.TitleHelpBussines")}
                 </h3>
                 <p className={styles.contentDesc}>
                   {i18n.language === currentLanguages.EN
@@ -141,7 +141,7 @@ const OurProjectIdSection = ({ params }) => {
             </figure>
             <div className={styles.mobileContainer}>
               <h3 className={styles.mobileTitle}>
-                {t('OurProjectsPage.TitleDesc')}
+                {t("OurProjectsPage.TitleDesc")}
               </h3>
               <p className={styles.mobileDesc}>
                 {i18n.language === currentLanguages.EN

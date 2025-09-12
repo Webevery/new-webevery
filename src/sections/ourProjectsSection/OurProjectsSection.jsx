@@ -14,6 +14,7 @@ const OurProjectsSection = () => {
   const { data, isLoading } = GetDataFromSection("ourProjects");
 
   let sortedByCreateData = [];
+  // console.log("data", data);
 
   if (!isLoading) {
     sortedByCreateData = [...data];

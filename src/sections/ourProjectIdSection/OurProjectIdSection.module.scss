@@ -428,13 +428,13 @@
 
   @media screen and (min-width: $tablet) {
     border: 8px solid #0d0d11;
-    border-radius: 56px;
+    // border-radius: 56px;
     width: 340px;
     // height: 640px;
 
-    & img {
-      border-radius: 44px;
-    }
+    // & img {
+    //   border-radius: 44px;
+    // }
   }
 
   @media screen and (min-width: $laptop) {
